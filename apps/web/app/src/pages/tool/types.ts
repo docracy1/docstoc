@@ -10,6 +10,10 @@ import type {
 export type PendingCloudImport = CloudFileImport & {
   provider: CloudProvider | "upload";
   providerLabel: string;
+  /** Small local-only thumbnail (data URL) of a phone-scanned page — there's no extractable
+   *  text to show a preview from otherwise, and without this the import looks like it produced
+   *  nothing at all. Never sent to the server; only ever a client-side handoff. */
+  previewDataUrl?: string;
 };
 
 export type AiBusy =

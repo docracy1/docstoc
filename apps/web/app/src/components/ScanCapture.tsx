@@ -112,8 +112,23 @@ function canvasToJpegBlob(canvas: HTMLCanvasElement, quality = 0.85): Promise<Bl
   });
 }
 
+/** Small standalone thumbnail (data URL, not a blob URL) of the first page — this is the only
+ *  way a caller can show "here's what got scanned" downstream: a scanned page has no extractable
+ *  text, and the resulting PDF goes through a base64 upload + sessionStorage handoff to a
+ *  different page, so a blob URL (revoked on unmount) wouldn't survive to be shown there. */
+function thumbnailDataUrl(canvas: HTMLCanvasElement, maxWidth = 400): Promise<string> {
+  const scale = Math.min(1, maxWidth / canvas.width);
+  const thumb = document.createElement("canvas");
+  thumb.width = Math.round(canvas.width * scale);
+  thumb.height = Math.round(canvas.height * scale);
+  thumb.getContext("2d")!.drawImage(canvas, 0, 0, thumb.width, thumb.height);
+  return Promise.resolve(thumb.toDataURL("image/jpeg", 0.6));
+}
+
 export interface ScanCaptureProps {
-  onDone: (file: File) => void | Promise<void>;
+  /** `previewDataUrl` is a small standalone thumbnail of the first scanned page — pass it
+   *  along wherever the resulting file's own content isn't visibly rendered afterward. */
+  onDone: (file: File, previewDataUrl: string) => void | Promise<void>;
   onCancel: () => void;
 }
 
@@ -220,7 +235,8 @@ export default function ScanCapture({ onDone, onCancel }: ScanCaptureProps) {
       }
       const bytes = await pdfDoc.save();
       const file = new File([bytes as BlobPart], "scan.pdf", { type: "application/pdf" });
-      await onDone(file);
+      const previewDataUrl = await thumbnailDataUrl(pages[0].canvas);
+      await onDone(file, previewDataUrl);
     } catch {
       setError(t("scan.processError"));
       setStage("capture");

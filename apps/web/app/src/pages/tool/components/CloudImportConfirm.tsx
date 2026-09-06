@@ -34,6 +34,9 @@ export function CloudImportConfirm({
           ? ` · ${pendingImport.hints.confidence}`
           : ` · ${t("cloudImport.noHints")}`}
       </p>
+      {pendingImport.previewDataUrl && (
+        <img className="cloud-import-preview-thumb" src={pendingImport.previewDataUrl} alt="" />
+      )}
       <form onSubmit={onConfirm}>
         <div className="field-row">
           <input
