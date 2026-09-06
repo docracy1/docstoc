@@ -4248,7 +4248,10 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 40;
+  /* Must beat AppConsentBanner (inline zIndex: 9999) — otherwise, on a first visit before the
+   * banner is dismissed, it sits on top of the modal and blocks/intercepts taps on the bottom
+   * action buttons. */
+  z-index: 10000;
   padding: 16px;
 }
 
