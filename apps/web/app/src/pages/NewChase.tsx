@@ -60,6 +60,13 @@ export default function NewChase({ account }: { account: Account | null }) {
   const [dueDate, setDueDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [selectedTemplateName, setSelectedTemplateName] = useState<string | null>(null);
   const [scanning, setScanning] = useState(false);
+  // `capture="environment"` (used by the scan flow) only means anything on a touch/phone
+  // device — on desktop it just opens a plain file picker, which looks broken since there's no
+  // camera to open.
+  const [canScan, setCanScan] = useState(false);
+  useEffect(() => {
+    setCanScan(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
 
   useEffect(() => {
     fetch("/free-templates/templates.json")
@@ -268,7 +275,7 @@ export default function NewChase({ account }: { account: Account | null }) {
         <p className="new-chase-max">{t("newChase.maxSize")}</p>
         {!isPaid && <p className="new-chase-max">{t("newChase.csvFreeNote")}</p>}
 
-        {isPaid && (
+        {isPaid && canScan && (
           <button type="button" className="new-chase-scan-btn" onClick={() => setScanning(true)}>
             {t("scan.scanDocument")}
           </button>
