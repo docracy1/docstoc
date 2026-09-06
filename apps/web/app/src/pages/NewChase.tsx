@@ -11,6 +11,7 @@ import {
 import { track } from "../lib/analytics";
 import { useT } from "../lib/i18n";
 import { parseCsvRows } from "./tool/csvImport";
+import ScanCapture from "../components/ScanCapture";
 
 const MAX_PDF_BYTES = 15 * 1024 * 1024;
 
@@ -58,6 +59,7 @@ export default function NewChase({ account }: { account: Account | null }) {
   const [amount, setAmount] = useState("");
   const [dueDate, setDueDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [selectedTemplateName, setSelectedTemplateName] = useState<string | null>(null);
+  const [scanning, setScanning] = useState(false);
 
   useEffect(() => {
     fetch("/free-templates/templates.json")
@@ -265,6 +267,23 @@ export default function NewChase({ account }: { account: Account | null }) {
         </div>
         <p className="new-chase-max">{t("newChase.maxSize")}</p>
         {!isPaid && <p className="new-chase-max">{t("newChase.csvFreeNote")}</p>}
+
+        {isPaid && (
+          <button type="button" className="new-chase-scan-btn" onClick={() => setScanning(true)}>
+            {t("scan.scanDocument")}
+          </button>
+        )}
+
+        {scanning && (
+          <ScanCapture
+            onDone={async (file) => {
+              setScanning(false);
+              await acceptPdf(file);
+            }}
+            onCancel={() => setScanning(false)}
+          />
+        )}
+
         {error && <p className="new-chase-error">{error}</p>}
         {busy && <p className="page-sub">{t("newChase.working")}</p>}
 

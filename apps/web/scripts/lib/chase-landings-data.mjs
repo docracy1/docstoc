@@ -2,6 +2,48 @@
 
 export const CHASE_LANDINGS = [
   {
+    slug: "scan-document",
+    title: "Scan an Invoice With Your Phone — No Scanner Needed | docstoc",
+    description:
+      "Take a photo of a paper invoice — docstoc straightens and cleans it up in your browser, then imports it as a PDF ready to chase. Pro and Business plans.",
+    breadcrumb: "Scan a document",
+    faq: [
+      {
+        q: "Do I need a scanner or an app?",
+        a: "No. It runs in your phone's browser, right on the New follow-up screen — nothing to install.",
+      },
+      {
+        q: "Is scanning free?",
+        a: "Scan-to-PDF import is included on Pro and Business, the same as regular PDF import. Free plan works with CSV import.",
+      },
+      {
+        q: "What if it can't detect the page edges?",
+        a: "You get your original photo instead, so you can still use it or retake it — it never leaves you stuck.",
+      },
+    ],
+    main: `<h1>No scanner. Just your phone.</h1>
+  <p class="lede">A paper invoice doesn't need a scanner anymore. Take a photo, docstoc straightens and crops it right in your browser, and it comes in as a normal PDF — ready to chase like any other invoice.</p>
+
+  <h3>Why this matters</h3>
+  <p>Not every invoice starts as a clean PDF. Some come from a paper copy, a printed statement, or a client who handed you something on the spot. Most "free" scanner apps want an account or a subscription before they'll give you a usable page — docstoc's scan tool is built into the same upload screen you already use.</p>
+
+  <h3>How it works</h3>
+  <p>Open New follow-up, tap Scan a document, and take a photo. docstoc detects the page edges, straightens the angle, and cleans it up — all on your device, before anything is imported. Scan multiple pages if you need to, then import it like a regular PDF.</p>
+
+  <p style="margin-top:28px"><a href="/app/login?start=1" class="nav-cta">Try New follow-up</a></p>
+
+  <h3>FAQ</h3>
+  {{FAQ}}
+
+  <h3>Related resources</h3>
+  <ul>
+    <li><a href="/guides/invoice-chasing/">Invoice chasing hub</a></li>
+    <li><a href="/tools/invoice-chase-calculator">Invoice chase calculator</a></li>
+    <li><a href="/invoice-follow-up">Invoice follow-up emails</a></li>
+    <li><a href="/free-templates/">Free email templates</a></li>
+  </ul>`,
+  },
+  {
     slug: "invoice-follow-up",
     title: "Invoice Follow-Up Email Template — Free Copy-Paste & AI Drafts | docstoc",
     description:
