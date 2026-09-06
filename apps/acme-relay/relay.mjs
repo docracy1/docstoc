@@ -38,7 +38,13 @@ function readBody(req) {
 }
 
 const server = createServer(async (req, res) => {
+  const authorized = req.headers["authorization"] === `Bearer ${RELAY_SECRET}`;
+
   if (req.method === "GET") {
+    if (!authorized) {
+      res.writeHead(401).end("Unauthorized");
+      return;
+    }
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ ok: true, service: "docstoc-acme-relay" }));
     return;
@@ -47,7 +53,7 @@ const server = createServer(async (req, res) => {
     res.writeHead(405).end("Method not allowed");
     return;
   }
-  if (req.headers["authorization"] !== `Bearer ${RELAY_SECRET}`) {
+  if (!authorized) {
     res.writeHead(401).end("Unauthorized");
     return;
   }

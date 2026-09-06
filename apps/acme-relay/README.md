@@ -66,6 +66,7 @@ RELAY_SECRET=dev-secret deno run --allow-net --allow-env main.ts
 
 - The relay only forwards to `acme-v02.api.letsencrypt.org` and
   `acme-staging-v02.api.letsencrypt.org` — any other target host is rejected with 403.
-- Requires `Authorization: Bearer <RELAY_SECRET>` on every POST. `GET /` is an unauthenticated
-  liveness probe (`{"ok":true}`) only.
+- Requires `Authorization: Bearer <RELAY_SECRET>` on every request, including the `GET /`
+  liveness probe (`{"ok":true}`) — this closes it off as an open, unauthenticated target for
+  internet-wide scanners. Any uptime monitor pointed at `GET /` must send that header too.
 - Deno Deploy terminates TLS at the edge.

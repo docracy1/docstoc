@@ -68,7 +68,10 @@ export async function probeAcmeConnectivity(env: Env): Promise<{
     };
   }
   try {
-    const live = await fetch(env.ACME_RELAY_URL, { method: "GET" });
+    const live = await fetch(env.ACME_RELAY_URL, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${env.ACME_RELAY_SECRET}` },
+    });
     if (live.status === 404) {
       const body = await live.text();
       if (body.includes("DEPLOYMENT_NOT_FOUND")) {

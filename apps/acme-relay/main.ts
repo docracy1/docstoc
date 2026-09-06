@@ -26,8 +26,12 @@ const ALLOWED_HOSTS = new Set([
 ]);
 
 Deno.serve(async (req: Request) => {
-  // Unauthenticated liveness probe — used by the worker SSL health check and uptime monitors.
+  const authorized = req.headers.get("authorization") === `Bearer ${RELAY_SECRET}`;
+
+  // Liveness probe for the worker SSL health check and uptime monitors — requires the same
+  // shared secret as POST so this isn't an open, unauthenticated target for internet scanners.
   if (req.method === "GET") {
+    if (!authorized) return new Response("Unauthorized", { status: 401 });
     return new Response(JSON.stringify({ ok: true, service: "docstoc-acme-relay" }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
@@ -36,7 +40,7 @@ Deno.serve(async (req: Request) => {
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });
   }
-  if (req.headers.get("authorization") !== `Bearer ${RELAY_SECRET}`) {
+  if (!authorized) {
     return new Response("Unauthorized", { status: 401 });
   }
 
