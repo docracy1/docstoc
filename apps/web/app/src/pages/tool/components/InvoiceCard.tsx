@@ -25,6 +25,8 @@ interface InvoiceCardProps {
   onReplySmart: (invoiceId: string) => void;
   onDemandLetter: (invoiceId: string) => void;
   onMarkSent: (invoice: Invoice) => void;
+  onRequestSoxApproval?: (invoice: Invoice) => void;
+  soxSodRequired?: boolean;
   onMarkPaid: (invoice: Invoice) => void;
   onApplySequenceStep: (invoiceId: string, stepIndex: number) => void;
   onCopyNextReminder: (invoice: Invoice) => void;
@@ -63,6 +65,8 @@ export function InvoiceCard({
   onReplySmart,
   onDemandLetter,
   onMarkSent,
+  onRequestSoxApproval,
+  soxSodRequired = false,
   onMarkPaid,
   onApplySequenceStep,
   onCopyNextReminder,
@@ -516,6 +520,16 @@ export function InvoiceCard({
             {isPaid && !isPaidInvoice && (
               <button type="button" className="btn-secondary" onClick={() => onMarkSent(invoice)}>
                 {t("invoice.markSent")}
+              </button>
+            )}
+            {isPro && soxSodRequired && !isPaidInvoice && onRequestSoxApproval && (
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={() => onRequestSoxApproval(invoice)}
+                title={t("invoice.requestSoxApprovalTitle")}
+              >
+                {t("invoice.requestSoxApproval")}
               </button>
             )}
             {isPaid && !isPaidInvoice && (

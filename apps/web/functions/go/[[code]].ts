@@ -16,6 +16,7 @@ type GoEntry = {
 
 const SHORT_LINKS: Record<string, GoEntry> = {
   dm: { to: "/", source: "outreach", medium: "dm", campaign: "dm" },
+  ssl: { to: "/ssl", source: "outreach", medium: "email", campaign: "ssl" },
   li: { to: "/", source: "linkedin", medium: "social", campaign: "li" },
   x: { to: "/", source: "x", medium: "social", campaign: "x" },
   try: { to: "/app/", source: "try", medium: "shortlink", campaign: "try" },

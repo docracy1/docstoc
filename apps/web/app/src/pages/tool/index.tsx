@@ -37,6 +37,8 @@ import {
   syncReminderToGoogleCalendar,
   trackingStats,
   updateReminderStatus,
+  createSoxApproval,
+  getSoxSettings,
   type Account,
   type ChaseReminder,
   type ChaseSequence,
@@ -129,10 +131,21 @@ export default function Tool({ account }: { account: Account | null }) {
   const [sheetBusy, setSheetBusy] = useState(false);
   const [sheetMsg, setSheetMsg] = useState<string | null>(null);
   const [googleConnected, setGoogleConnected] = useState(false);
+  const [soxSodRequired, setSoxSodRequired] = useState(false);
   const generateAbortRef = useRef<Map<string, AbortController>>(new Map());
   const cancelledGenerateRef = useRef<Set<string>>(new Set());
   const isPaid = account?.plan !== "free" && account?.plan != null;
   const isPro = account?.plan === "business";
+
+  useEffect(() => {
+    if (!isPro) {
+      setSoxSodRequired(false);
+      return;
+    }
+    getSoxSettings()
+      .then((res) => setSoxSodRequired(!!res.settings.sodRequired))
+      .catch(() => setSoxSodRequired(false));
+  }, [isPro, account?.email]);
 
   async function refreshTimeline(invoiceId: string) {
     if (!isPaid) return;
@@ -1163,27 +1176,85 @@ export default function Tool({ account }: { account: Account | null }) {
   }
 
   async function handleMarkSent(invoice: Invoice) {
+    const prevStatus = invoice.lastChaseStatus;
+    const prevAt = invoice.lastChaseAt;
     const now = new Date().toISOString();
     setInvoices((prev) =>
       prev.map((inv) =>
         inv.id === invoice.id
-          ? { ...inv, lastChaseStatus: "sent", lastChaseAt: now }
+          ? { ...inv, lastChaseStatus: "sent", lastChaseAt: now, error: undefined }
           : inv
       )
     );
     if (isPaid) {
-      await markAgingChase(invoice.id, "sent").catch(() => {});
-      await logChaseEvent(
-        invoice,
-        "sent",
-        invoice.draft?.subject,
-        invoice.draft?.body
-      );
-      void notifyWebhook("chase.sent", {
-        method: "manual",
-        client_name: invoice.clientName,
-        invoice_amount: invoice.amount,
+      try {
+        await markAgingChase(invoice.id, "sent");
+        await logChaseEvent(
+          invoice,
+          "sent",
+          invoice.draft?.subject,
+          invoice.draft?.body
+        );
+        void notifyWebhook("chase.sent", {
+          method: "manual",
+          client_name: invoice.clientName,
+          invoice_amount: invoice.amount,
+        });
+      } catch (err) {
+        setInvoices((prev) =>
+          prev.map((inv) =>
+            inv.id === invoice.id
+              ? {
+                  ...inv,
+                  lastChaseStatus: prevStatus,
+                  lastChaseAt: prevAt,
+                  error:
+                    err instanceof ApiError
+                      ? err.message
+                      : err instanceof Error
+                        ? err.message
+                        : t("common.error"),
+                }
+              : inv
+          )
+        );
+      }
+    }
+  }
+
+  async function handleRequestSoxApproval(invoice: Invoice) {
+    if (!isPro) return;
+    setInvoices((prev) =>
+      prev.map((inv) =>
+        inv.id === invoice.id ? { ...inv, error: undefined, trackingNote: undefined } : inv
+      )
+    );
+    try {
+      await createSoxApproval({
+        agingInvoiceId: invoice.id,
+        clientName: invoice.clientName,
+        subject: invoice.draft?.subject ?? null,
+        body: invoice.draft?.body ?? null,
       });
+      setInvoices((prev) =>
+        prev.map((inv) =>
+          inv.id === invoice.id
+            ? { ...inv, trackingNote: t("invoice.soxApprovalRequested") }
+            : inv
+        )
+      );
+    } catch (err) {
+      setInvoices((prev) =>
+        prev.map((inv) =>
+          inv.id === invoice.id
+            ? {
+                ...inv,
+                error:
+                  err instanceof Error ? err.message : t("invoice.soxApprovalFailed"),
+              }
+            : inv
+        )
+      );
     }
   }
 
@@ -1753,6 +1824,8 @@ export default function Tool({ account }: { account: Account | null }) {
               onFetchGmailReply={isPro && googleConnected ? handleFetchGmailReply : undefined}
               onDemandLetter={handleDemandLetter}
               onMarkSent={handleMarkSent}
+              onRequestSoxApproval={isPro ? handleRequestSoxApproval : undefined}
+              soxSodRequired={soxSodRequired}
               onMarkPaid={handleMarkPaid}
               onApplySequenceStep={applySequenceStep}
               onCopyNextReminder={copyNextReminder}

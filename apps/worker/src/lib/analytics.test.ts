@@ -168,4 +168,21 @@ describe("campaignTagFromReferralProps", () => {
   it("ignores generic ref like producthunt", () => {
     expect(campaignTagFromReferralProps({ ref: "producthunt" })).toBe("");
   });
+
+  it("ignores third-party utm_source stamps (ChatGPT, OpenAI)", () => {
+    expect(campaignTagFromReferralProps({ utm_source: "chatgpt.com" })).toBe("");
+    expect(campaignTagFromReferralProps({ utm_source: "openai" })).toBe("");
+  });
+});
+
+describe("getTrafficSources chatgpt stamps", () => {
+  it("counts ChatGPT utm landings as an external site, not a campaign", async () => {
+    const env = mockEnvWithRows([
+      referralRow({ source: "chatgpt.com", utm_source: "chatgpt.com" }),
+    ]);
+    const { rows } = await getTrafficSources(env, 30);
+
+    expect(rows.filter((r) => r.event === "campaign_click")).toHaveLength(0);
+    expect(rows.find((r) => r.event === "referral_source_detected")?.source).toBe("chatgpt.com");
+  });
 });

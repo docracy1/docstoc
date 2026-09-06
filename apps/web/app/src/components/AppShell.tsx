@@ -23,6 +23,7 @@ type NavIconName =
   | "docTemplates"
   | "ssl"
   | "auditLog"
+  | "sox"
   | "invoices"
   | "companyBadge";
 
@@ -136,6 +137,14 @@ function NavIcon({ name, size = 20 }: { name: NavIconName; size?: number }) {
           <path d="M9 7a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3h-1" />
           <path d="M15 17a3 3 0 0 1-3 3h-1a3 3 0 0 1-3-3v-1a3 3 0 0 1 3-3h1" />
           <path d="M9.5 12h5" />
+        </svg>
+      );
+    case "sox":
+      return (
+        <svg {...common}>
+          <path d="M4 5.5h16v13H4z" />
+          <path d="M8 9h8M8 12.5h8M8 16h5" />
+          <path d="M17 7.5l1.2 2.4 2.6.4-1.9 1.8.5 2.6L17 13.8l-2.4 1.2.5-2.6-1.9-1.8 2.6-.4L17 7.5z" />
         </svg>
       );
     case "invoices":
@@ -295,6 +304,7 @@ export default function AppShell({
       { to: "/ssl-domains", label: t("nav.sslDomains"), icon: "ssl" as const },
       { to: "/certificates", label: t("nav.certificates"), icon: "certificates" as const },
       { to: "/audit-log", label: t("nav.auditLog"), icon: "auditLog" as const },
+      { to: "/sox-reporting", label: t("nav.soxReporting"), icon: "sox" as const },
       { to: "/company-badge", label: t("nav.companyBadge"), icon: "companyBadge" as const },
       { to: "/invoices", label: t("nav.invoices"), icon: "invoices" as const },
       { to: "/templates", label: t("nav.templatesEmails"), icon: "templates" as const },
@@ -327,6 +337,7 @@ export default function AppShell({
       | "account"
       | "certificates"
       | "auditLog"
+      | "sox"
       | "docTemplates"
       | "templates"
       | "ssl"
@@ -356,6 +367,7 @@ export default function AppShell({
     { match: (p) => p.startsWith("/invoices"), title: t("nav.invoices") },
     { match: (p) => p.startsWith("/certificates"), title: t("nav.certificates") },
     { match: (p) => p.startsWith("/audit-log"), title: t("nav.auditLog") },
+    { match: (p) => p.startsWith("/sox-reporting"), title: t("nav.soxReporting") },
     { match: (p) => p.startsWith("/connector"), title: t("nav.tools") },
     { match: (p) => p.startsWith("/team"), title: t("nav.team") },
     { match: (p) => p.startsWith("/branding"), title: t("nav.branding") },
@@ -543,6 +555,16 @@ export default function AppShell({
               </div>
             ) : null}
           </div>
+
+          <NavLink
+            to="/sox-reporting"
+            className={({ isActive }) => (isActive ? "dash-nav-item is-active" : "dash-nav-item")}
+          >
+            <span className="dash-nav-item-label">
+              <NavIcon name="sox" />
+              <span>{t("nav.soxReporting")}</span>
+            </span>
+          </NavLink>
 
           <NavLink
             to="/company-badge"

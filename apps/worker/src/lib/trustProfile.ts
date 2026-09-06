@@ -192,8 +192,18 @@ export async function sweepPendingTrustProfiles(env: Env): Promise<{
       continue;
     }
 
-    // Calendar still 404 / no Bitcoin attestation. Public calendars occasionally drop pending
-    // digests — resubmit (to Alice + Bob) after OTS_STALE_MS so "verified since" can confirm.
+    // Intermediate Merkle proof published — keep waiting for Bitcoin attestation (do not resubmit).
+    if (result.aggregated) {
+      if (result.proofBase64 && result.calendarUrl) {
+        await recordTrustTimestampSubmitted(env, row.account_id, {
+          calendarUrl: result.calendarUrl,
+          proofBase64: result.proofBase64,
+        });
+      }
+      continue;
+    }
+
+    // Calendar still 404 everywhere. Public calendars drop pending digests — resubmit after stale.
     const submittedMs = row.ots_submitted_at ? Date.parse(row.ots_submitted_at) : 0;
     if (!submittedMs || now - submittedMs < OTS_STALE_MS) continue;
 

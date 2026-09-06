@@ -25,6 +25,7 @@ const Team = lazy(() => import("./pages/Team"));
 const Certificates = lazy(() => import("./pages/Certificates"));
 const Invoices = lazy(() => import("./pages/Invoices"));
 const AuditLog = lazy(() => import("./pages/AuditLog"));
+const SoxReporting = lazy(() => import("./pages/SoxReporting"));
 const SslCertificates = lazy(() => import("./pages/SslCertificates"));
 const CompanyBadge = lazy(() => import("./pages/CompanyBadge"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
@@ -203,6 +204,14 @@ function AppRoutes() {
               element={
                 <ProtectedRoute>
                   <AuditLog account={account} />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/sox-reporting"
+              element={
+                <ProtectedRoute>
+                  <SoxReporting account={account} />
                 </ProtectedRoute>
               }
             />

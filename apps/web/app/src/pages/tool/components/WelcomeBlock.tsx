@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   getMyTrustProfile,
+  getSoxStatus,
   listCertificates,
   listCustomHostnames,
   listInvoices,
@@ -9,6 +10,7 @@ import {
   type SslFeatures,
 } from "../../../lib/api";
 import { useT } from "../../../lib/i18n";
+import { isBusinessPlan } from "../../../lib/plan";
 
 interface WelcomeBlockProps {
   welcomeName: string | null;
@@ -25,6 +27,8 @@ type ProductStats = {
   certCount: number;
   hasBadge: boolean;
   invoiceCount: number;
+  soxPending: number | null;
+  soxReady: boolean;
 };
 
 export function WelcomeBlock({
@@ -42,7 +46,10 @@ export function WelcomeBlock({
     certCount: 0,
     hasBadge: false,
     invoiceCount: 0,
+    soxPending: null,
+    soxReady: false,
   });
+  const business = isBusinessPlan(account);
 
   useEffect(() => {
     if (!account) return;
@@ -52,7 +59,8 @@ export function WelcomeBlock({
       listCertificates().catch(() => null),
       getMyTrustProfile().catch(() => null),
       listInvoices().catch(() => null),
-    ]).then(([ssl, certs, trust, invoices]) => {
+      business ? getSoxStatus().catch(() => null) : Promise.resolve(null),
+    ]).then(([ssl, certs, trust, invoices, sox]) => {
       if (cancelled) return;
       setStats({
         sslUsed: ssl?.certificates.length ?? 0,
@@ -61,12 +69,14 @@ export function WelcomeBlock({
         certCount: certs?.certificates.length ?? 0,
         hasBadge: !!trust?.profile,
         invoiceCount: invoices?.invoices.length ?? 0,
+        soxPending: sox?.overview?.pendingApprovals ?? null,
+        soxReady: !!sox?.business && !!sox.overview,
       });
     });
     return () => {
       cancelled = true;
     };
-  }, [account?.email]);
+  }, [account?.email, business]);
 
   const multiSan = stats.sslFeatures?.multiSan ?? isPaid;
   const wildcard = stats.sslFeatures?.wildcard ?? account?.plan === "business";
@@ -133,6 +143,21 @@ export function WelcomeBlock({
               : t("welcome.product.certificates.count", { count: stats.certCount })}
           </span>
           <em>{t("welcome.product.certificates.cta")}</em>
+        </Link>
+
+        <Link className="welcome-product" to={business ? "/sox-reporting" : "/account"}>
+          <span className="welcome-product-kicker">{t("welcome.product.sox.kicker")}</span>
+          <strong>{t("welcome.product.sox.title")}</strong>
+          <span>
+            {!business
+              ? t("welcome.product.sox.upgrade")
+              : stats.soxPending != null && stats.soxPending > 0
+                ? t("welcome.product.sox.pending", { count: stats.soxPending })
+                : stats.soxReady
+                  ? t("welcome.product.sox.ready")
+                  : t("welcome.product.sox.body")}
+          </span>
+          <em>{business ? t("welcome.product.sox.cta") : t("welcome.product.sox.ctaUpgrade")}</em>
         </Link>
 
         <Link className="welcome-product" to="/company-badge">

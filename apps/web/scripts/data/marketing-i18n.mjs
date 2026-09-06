@@ -300,6 +300,9 @@ export const en = {
   "home.pricing.row.cloudStorage":
     "Cloud storage — Dropbox, OneDrive, Box · PDF import",
   "home.pricing.row.dedicatedDashboard": "Dedicated chase dashboard",
+  "home.pricing.row.soxReporting": "SOX reporting dashboard",
+  "home.pricing.row.soxMakerChecker": "Maker-checker (segregation of duties)",
+  "home.pricing.row.soxAuditorPack": "Timestamped auditor packs (HTML + SHA-256 + OpenTimestamps)",
   "home.pricing.row.customTone": "Custom tone / volume",
 
   "home.faq.title": "FAQ",
@@ -703,6 +706,9 @@ export const es = {
   "home.pricing.row.cloudStorage":
     "Almacenamiento en la nube — Dropbox, OneDrive, Box · importación PDF",
   "home.pricing.row.dedicatedDashboard": "Panel de seguimiento dedicado",
+  "home.pricing.row.soxReporting": "Panel de informes SOX",
+  "home.pricing.row.soxMakerChecker": "Maker-checker (segregación de funciones)",
+  "home.pricing.row.soxAuditorPack": "Packs de auditor con timestamp (HTML + SHA-256 + OpenTimestamps)",
   "home.pricing.row.customTone": "Tono / volumen personalizado",
 
   "home.faq.title": "Preguntas frecuentes",

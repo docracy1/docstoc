@@ -183,7 +183,7 @@ export const onRequest: PagesFunction<{ WORKER_URL: string }> = async (context) 
            profile.otsConfirmedAt ? ` · ${escapeHtml(formatUsDateTime(profile.otsConfirmedAt))}` : ""
          } · <a href="${escapeHtml(workerBase)}/api/trust/proof/${encodeURIComponent(id)}.ots">Download proof (.ots)</a></div>`
       : `<div class="label">Bitcoin timestamp</div>
-         <div class="value"><span class="ots pending">Pending confirmation</span> — OpenTimestamps calendar is still aggregating this digest into a Bitcoin block.</div>`;
+         <div class="value"><span class="ots pending">Pending confirmation</span> — OpenTimestamps public calendars accepted this digest and are still aggregating it into a Bitcoin block. Confirmation is automatic; public calendars sometimes take longer than a few hours.</div>`;
 
   const autoDownload = url.searchParams.get("download") === "1";
   const printTitle = JSON.stringify(

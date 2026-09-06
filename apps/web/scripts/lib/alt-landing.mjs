@@ -6,6 +6,7 @@ function sectorOf(c) {
 }
 
 function altUrl(c) {
+  if (c.hubHref) return c.hubHref;
   return `/${c.slug}-alternative`;
 }
 
@@ -120,19 +121,22 @@ export function compareHubMainHtml(sectors) {
       const cards = s.competitors
         .map(
           (c) => `<a class="cmp-row" href="${altUrl(c)}">
-  <strong>${escapeHtml(c.name)} alternative</strong>
+  <strong>${escapeHtml(c.name)}${c.hubHref ? "" : " alternative"}</strong>
   <span>${escapeHtml(c.sub)}</span>
 </a>`
         )
         .join("");
-      const imports = s.competitors
-        .map((c) => `<a href="${importUrl(c)}">Import from ${escapeHtml(c.name)}</a>`)
-        .join(" · ");
+      const imports = Array.isArray(s.hubImports)
+        ? s.hubImports.map((x) => `<a href="${escapeHtml(x.href)}">${escapeHtml(x.label)}</a>`).join(" · ")
+        : s.competitors
+            .filter((c) => !c.hubHideImport && !c.customLanding)
+            .map((c) => `<a href="${importUrl(c)}">Import from ${escapeHtml(c.name)}</a>`)
+            .join(" · ");
       return `<section class="cmp-sector">
   <h2>${escapeHtml(s.hubTitle)}</h2>
   <p class="cmp-sector-lede">${escapeHtml(s.hubLede)}</p>
   <div class="cmp-grid">${cards}</div>
-  <p class="cmp-imports">${imports}</p>
+  ${imports ? `<p class="cmp-imports">${imports}</p>` : ""}
 </section>`;
     })
     .join("\n");

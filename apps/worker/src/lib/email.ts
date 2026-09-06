@@ -221,6 +221,78 @@ export async function sendTeamInviteEmail(
   }
 }
 
+const SOX_APPROVAL_COPY: Record<
+  Locale,
+  {
+    subject: (client: string) => string;
+    headline: string;
+    body: (requester: string, client: string, subject: string | null) => string;
+    cta: string;
+  }
+> = {
+  en: {
+    subject: (client) => `SOX send approval needed: ${client}`,
+    headline: "Chase send needs your approval",
+    body: (requester, client, subject) =>
+      `<strong>${escapeHtml(requester)}</strong> requested maker-checker approval to mark a chase as sent for <strong>${escapeHtml(client)}</strong>${
+        subject ? ` — “${escapeHtml(subject)}”` : ""
+      }. Open SOX reporting to approve or reject. The requester cannot approve their own send.`,
+    cta: "Review approvals",
+  },
+  es: {
+    subject: (client) => `Aprobación SOX de envío: ${client}`,
+    headline: "Un cobro necesita tu aprobación",
+    body: (requester, client, subject) =>
+      `<strong>${escapeHtml(requester)}</strong> pidió aprobación maker-checker para marcar un cobro como enviado de <strong>${escapeHtml(client)}</strong>${
+        subject ? ` — “${escapeHtml(subject)}”` : ""
+      }. Abre Informes SOX para aprobar o rechazar. Quien solicita no puede aprobarse a sí mismo.`,
+    cta: "Revisar aprobaciones",
+  },
+};
+
+/** Notify workspace teammates when someone requests maker-checker send approval. */
+export async function sendSoxApprovalRequestEmail(
+  env: Env,
+  to: string,
+  input: {
+    clientName: string;
+    requestedByEmail: string;
+    subject: string | null;
+    locale?: Locale;
+  }
+): Promise<void> {
+  const locale = input.locale ?? "en";
+  if (!env.RESEND_API_KEY) {
+    console.log(`[dev] SOX approval email queued for ${to} (${input.clientName})`);
+    return;
+  }
+  const copy = SOX_APPROVAL_COPY[locale];
+  const body = `
+    ${emailHeadline(copy.headline)}
+    <p style="margin:0;font-size:15px;color:${INK};line-height:1.55;">
+      ${copy.body(input.requestedByEmail, input.clientName, input.subject)}
+    </p>
+    ${ctaButton(`${appUrl(env)}/app/sox-reporting`, copy.cta)}
+    ${signOff(locale)}
+  `;
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: `docstoc <login@docstoc.io>`,
+      to: [to],
+      subject: copy.subject(input.clientName).slice(0, 200),
+      html: emailShell(appUrl(env), body, locale),
+    }),
+  });
+  if (!res.ok) {
+    console.error(`Resend SOX approval email failed (${res.status}): ${await res.text()}`);
+  }
+}
+
 const PAYMENT_FAILED_COPY: Record<Locale, { subject: string; headline: string; body: string; cta: string }> = {
   en: {
     subject: "Action needed: your docstoc payment failed",
@@ -638,6 +710,49 @@ const ONBOARDING_NUDGE_COPY: Record<
   },
 };
 
+const PAID_ONBOARDING_NUDGE_COPY: Record<
+  Locale,
+  {
+    subject: string;
+    headline: string;
+    body: string;
+    stepsHtml: (base: string) => string;
+    cta: string;
+    note: string;
+  }
+> = {
+  en: {
+    subject: "Your docstoc plan is ready — pick a next step",
+    headline: "A couple of days in — finish one thing today.",
+    body:
+      "You already have Pro. The fastest way to feel it working is to complete a single concrete step:",
+    stepsHtml: (base) => `
+      <ul style="margin:0 0 20px 0;padding-left:20px;font-size:15px;color:${INK};line-height:1.65;">
+        <li style="margin-bottom:10px;"><strong>Send an invoice</strong> — Open a draft (or start a new one) and send it. <a href="${base}/app/invoices" style="color:${ACCENT};">Open invoices →</a></li>
+        <li style="margin-bottom:10px;"><strong>Chase an overdue invoice</strong> — Draft a polite reminder and send it from your own inbox. <a href="${base}/app?view=overdue" style="color:${ACCENT};">Open chases →</a></li>
+        <li style="margin-bottom:10px;"><strong>Add SSL for your domain</strong> — Managed TLS with automatic renewal, plus your company badge. <a href="${base}/ssl-domains" style="color:${ACCENT};">Manage SSL →</a></li>
+        <li style="margin-bottom:0;"><strong>Certify a document</strong> — Tamper-evident SHA-256 fingerprint + public verify link. <a href="${base}/certificates" style="color:${ACCENT};">Certify a file →</a></li>
+      </ul>`,
+    cta: "Open your dashboard",
+    note: "Stuck on anything? Just reply to this email — we read every reply.",
+  },
+  es: {
+    subject: "Tu plan de docstoc está listo — elige el siguiente paso",
+    headline: "Llevas un par de días — termina una cosa hoy.",
+    body:
+      "Ya tienes Pro. La forma más rápida de notarlo es completar un solo paso concreto:",
+    stepsHtml: (base) => `
+      <ul style="margin:0 0 20px 0;padding-left:20px;font-size:15px;color:${INK};line-height:1.65;">
+        <li style="margin-bottom:10px;"><strong>Envía una factura</strong> — Abre un borrador (o crea uno nuevo) y envíalo. <a href="${base}/app/invoices" style="color:${ACCENT};">Abrir facturas →</a></li>
+        <li style="margin-bottom:10px;"><strong>Haz seguimiento de una factura vencida</strong> — Redacta un recordatorio educado y envíalo desde tu bandeja. <a href="${base}/app?view=overdue" style="color:${ACCENT};">Abrir seguimientos →</a></li>
+        <li style="margin-bottom:10px;"><strong>Añade SSL para tu dominio</strong> — TLS gestionado con renovación automática y tu company badge. <a href="${base}/ssl-domains" style="color:${ACCENT};">Gestionar SSL →</a></li>
+        <li style="margin-bottom:0;"><strong>Certifica un documento</strong> — Huella SHA-256 a prueba de manipulación + enlace público de verificación. <a href="${base}/certificates" style="color:${ACCENT};">Certificar archivo →</a></li>
+      </ul>`,
+    cta: "Abrir tu panel",
+    note: "¿Algo se atasca? Responde a este correo — leemos cada respuesta.",
+  },
+};
+
 /** One-time nudge ~2 days after signup if the free account never activated any product. */
 export async function sendOnboardingNudgeEmail(
   env: Env,
@@ -655,11 +770,48 @@ export async function sendOnboardingNudgeEmail(
     ${signOff(locale)}
   `;
 
+  return sendNudgeEmail(env, email, locale, {
+    subject: copy.subject,
+    body,
+    type: "onboarding_nudge",
+  });
+}
+
+/** One-time nudge ~2 days after a paid plan starts — push toward a first completed win. */
+export async function sendPaidOnboardingNudgeEmail(
+  env: Env,
+  email: string,
+  locale: Locale = "en"
+): Promise<EmailSendResult> {
+  const copy = PAID_ONBOARDING_NUDGE_COPY[locale];
+  const base = appUrl(env);
+  const body = `
+    ${emailHeadline(copy.headline)}
+    <p style="margin:0 0 16px 0;font-size:15px;color:${INK};line-height:1.55;">${copy.body}</p>
+    ${copy.stepsHtml(base)}
+    ${ctaButton(`${base}/app`, copy.cta)}
+    <p style="margin:0;font-size:13px;color:${MUTED_HEX};line-height:1.5;">${copy.note}</p>
+    ${signOff(locale)}
+  `;
+
+  return sendNudgeEmail(env, email, locale, {
+    subject: copy.subject,
+    body,
+    type: "paid_onboarding_nudge",
+  });
+}
+
+async function sendNudgeEmail(
+  env: Env,
+  email: string,
+  locale: Locale,
+  opts: { subject: string; body: string; type: "onboarding_nudge" | "paid_onboarding_nudge" }
+): Promise<EmailSendResult> {
   if (!env.RESEND_API_KEY) {
-    console.log(`[dev] onboarding nudge queued for ${email}`);
+    console.log(`[dev] ${opts.type} queued for ${email}`);
     await trackEvent(env, {
       name: "email_sent",
-      properties: { type: "onboarding_nudge", channel: "dev" },
+      properties: { type: opts.type, channel: "dev" },
       path: "/cron/onboarding-nudge",
     }).catch(() => {});
     return { ok: true };
@@ -674,16 +826,16 @@ export async function sendOnboardingNudgeEmail(
     body: JSON.stringify({
       from: `docstoc <login@docstoc.io>`,
       to: [email],
-      subject: copy.subject,
-      html: emailShell(appUrl(env), body, locale),
+      subject: opts.subject,
+      html: emailShell(appUrl(env), opts.body, locale),
     }),
   });
 
   if (!res.ok) {
-    console.error(`Resend onboarding nudge failed (${res.status}): ${await res.text()}`);
+    console.error(`Resend ${opts.type} failed (${res.status}): ${await res.text()}`);
     await trackEvent(env, {
       name: "email_bounced",
-      properties: { type: "onboarding_nudge", status: res.status },
+      properties: { type: opts.type, status: res.status },
       path: "/cron/onboarding-nudge",
     }).catch(() => {});
     return { ok: false, status: res.status };
@@ -691,7 +843,7 @@ export async function sendOnboardingNudgeEmail(
 
   await trackEvent(env, {
     name: "email_sent",
-    properties: { type: "onboarding_nudge" },
+    properties: { type: opts.type },
     path: "/cron/onboarding-nudge",
   }).catch(() => {});
   return { ok: true };

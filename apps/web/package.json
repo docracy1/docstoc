@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/copy-fonts.mjs && node scripts/generate-free-templates.mjs && node scripts/generate-business-kits.mjs && python3 scripts/generate-templates-pdf.py && node scripts/generate-calculators.mjs && node scripts/generate-site-lang.mjs && node scripts/generate-marketing.mjs && node scripts/generate-chase-landings.mjs && node scripts/generate-invoice-chasing-hub.mjs && node scripts/generate-vs-pages.mjs && node scripts/generate-doctool-vs-pages.mjs && node scripts/generate-ssl-vs-pages.mjs && node scripts/generate-compare-pages.mjs && node scripts/generate-ssl-switch-pages.mjs && node scripts/generate-ssl-landings.mjs && node scripts/generate-ssl-feature-pages.mjs && node scripts/generate-product-pages.mjs && node scripts/generate-switch-page.mjs && node scripts/generate-seo-capture-pages.mjs && node scripts/generate-blog.mjs && node scripts/generate-es-pages.mjs && node scripts/generate-seo.mjs && tsc -b && vite build",
+    "build": "node scripts/copy-fonts.mjs && node scripts/generate-free-templates.mjs && node scripts/generate-business-kits.mjs && python3 scripts/generate-templates-pdf.py && node scripts/generate-calculators.mjs && node scripts/generate-site-lang.mjs && node scripts/generate-marketing.mjs && node scripts/generate-chase-landings.mjs && node scripts/generate-invoice-chasing-hub.mjs && node scripts/generate-vs-pages.mjs && node scripts/generate-doctool-vs-pages.mjs && node scripts/generate-ssl-vs-pages.mjs && node scripts/generate-compare-pages.mjs && node scripts/generate-ssl-switch-pages.mjs && node scripts/generate-ssl-landings.mjs && node scripts/generate-ssl-feature-pages.mjs && node scripts/generate-product-pages.mjs && node scripts/generate-switch-page.mjs && node scripts/generate-seo-capture-pages.mjs && node scripts/generate-sox-seo-pages.mjs && node scripts/generate-blog.mjs && node scripts/generate-es-pages.mjs && node scripts/generate-seo.mjs && tsc -b && vite build",
     "preview": "vite preview",
     "generate:templates": "node scripts/copy-fonts.mjs && node scripts/generate-free-templates.mjs && node scripts/generate-business-kits.mjs && python3 scripts/generate-templates-pdf.py",
     "generate:static": "node scripts/copy-fonts.mjs && node scripts/generate-free-templates.mjs && node scripts/generate-business-kits.mjs && node scripts/strip-google-fonts.mjs",
@@ -13,7 +13,10 @@
     "@fontsource/fraunces": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
+    "@techstark/opencv-js": "^5.0.0-release.1",
+    "jscanify": "^1.4.3",
     "papaparse": "^5.4.1",
+    "pdf-lib": "^1.17.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "^6.28.0"

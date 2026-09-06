@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timestamped Auditor Evidence Pack | OpenTimestamps | docstoc</title>
+<meta name="description" content="Create a tamper-evident auditor evidence pack for AR collections: frozen HTML, SHA-256 digest, and OpenTimestamps Bitcoin proof. Send files auditors can verify independently.">
+<link rel="canonical" href="https://docstoc.io/use-cases/auditor-evidence-pack">
+<link rel="alternate" hreflang="en" href="https://docstoc.io/use-cases/auditor-evidence-pack">
+<link rel="alternate" hreflang="es" href="https://docstoc.io/es/use-cases/auditor-evidence-pack">
+<link rel="alternate" hreflang="x-default" href="https://docstoc.io/use-cases/auditor-evidence-pack">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="docstoc">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Timestamped Auditor Evidence Pack | docstoc">
+<meta property="og:description" content="Freeze AR chase evidence for a date range, hash it, and anchor the digest to Bitcoin via OpenTimestamps.">
+<meta property="og:url" content="https://docstoc.io/use-cases/auditor-evidence-pack">
+<meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Timestamped Auditor Evidence Pack | docstoc">
+<meta name="twitter:description" content="HTML + SHA-256 + OpenTimestamps .ots — auditor evidence that does not depend on trusting your SaaS database.">
+<meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
+<meta name="keywords" content="auditor evidence pack, OpenTimestamps audit, tamper proof audit trail, Bitcoin timestamp evidence, SOX auditor export, AR evidence pack">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Timestamped Auditor Evidence Pack",
+  "description": "Tamper-evident AR auditor packs with SHA-256 and OpenTimestamps Bitcoin proofs.",
+  "url": "https://docstoc.io/use-cases/auditor-evidence-pack"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Send a timestamped auditor evidence pack",
+  "step": [
+    { "@type": "HowToStep", "name": "Pick a date range", "text": "In SOX reporting → Evidence, choose from/to dates for the period under review." },
+    { "@type": "HowToStep", "name": "Create timestamped pack", "text": "docstoc freezes the HTML, computes SHA-256 of those exact bytes, and submits the digest to OpenTimestamps calendars." },
+    { "@type": "HowToStep", "name": "Download three files", "text": "Send the auditor the .html pack, the .sha256 companion, and the .ots proof." },
+    { "@type": "HowToStep", "name": "Independent verify", "text": "Auditor hashes the HTML, matches the digest, then runs ots verify on the proof against Bitcoin." }
+  ]
+}
+</script>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="stylesheet" href="../site.css?v=20260905sox">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a href="../" class="logo" aria-label="docstoc home"><img class="logo-mark" src="../brand/docstoc-icon.png" alt="" width="28" height="28" /><span class="logo-word">docstoc</span></a>
+    <nav class="header-nav-right">
+      <a href="../use-cases/sox-reporting" class="header-nav-link header-nav-collapse">SOX reporting</a>
+      <a href="../compliance/sox" class="header-nav-link header-nav-collapse">SOX</a>
+      <a href="../app/sox-reporting" class="nav-cta">Create a pack</a>
+      <a href="../app/login" class="header-login-btn header-nav-collapse">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page-main">
+<article>
+  <div style="margin-bottom: 36px; text-align: center;">
+    <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent, #F58025); letter-spacing: 0.05em;">Use case / Auditor evidence</span>
+    <h1 style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 700; margin: 12px 0 16px;">Timestamped auditor evidence packs</h1>
+    <p style="font-size: 18px; color: #4b5563; line-height: 1.6; max-width: 740px; margin: 0 auto;">One frozen HTML file for the period — invoices, chase timeline with actors, maker-checker approvals, SOX actions, and daily anchors — plus a SHA-256 digest and OpenTimestamps proof your auditor can verify without trusting docstoc.</p>
+    <p style="margin-top: 22px;">
+      <a href="../app/sox-reporting" style="display: inline-block; padding: 12px 24px; background: #F58025; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600;">Create timestamped pack</a>
+    </p>
+  </div>
+
+  <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">Where to get the file in the product</h2>
+    <ol style="font-size: 16px; line-height: 1.85; color: #374151; padding-left: 20px;">
+      <li>Sign in → <a href="../app/sox-reporting">SOX reporting</a></li>
+      <li>Open the <strong>Evidence &amp; exports</strong> tab</li>
+      <li>Pick from/to dates → <strong>Create timestamped pack</strong></li>
+      <li>Download <code>HTML</code>, <code>.sha256</code>, and <code>.ots</code> from the frozen list and email all three to your auditor</li>
+    </ol>
+  </section>
+
+  <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">What is in the pack</h2>
+    <ul style="font-size: 16px; line-height: 1.85; color: #374151; padding-left: 20px;">
+      <li>Control coverage snapshot at generation time</li>
+      <li>Invoices touched in the period + email open/click stats</li>
+      <li>Chase timeline with actor attribution</li>
+      <li>Maker-checker approvals (maker ≠ checker)</li>
+      <li>SOX audit actions and daily Bitcoin hash anchors</li>
+    </ul>
+  </section>
+
+  <section style="background: #fffaf3; border: 1px solid #e8dcc8; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">Why OpenTimestamps (not just a PDF)</h2>
+    <p style="font-size: 16px; line-height: 1.7; color: #374151; margin-bottom: 12px;">A PDF from your SaaS proves nothing if the vendor can rewrite history. docstoc hashes the exact HTML bytes you download and anchors that digest to Bitcoin via public <a href="https://opentimestamps.org" rel="noopener" target="_blank">OpenTimestamps</a> calendars — the same approach used for document certificates and daily chase anchors.</p>
+    <p style="font-size: 15px; color: #4b5563;"><strong>Send three files:</strong> <code>.html</code> · <code>.sha256</code> · <code>.ots</code></p>
+  </section>
+
+  <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">How auditors verify</h2>
+    <ol style="font-size: 16px; line-height: 1.85; color: #374151; padding-left: 20px;">
+      <li>Hash the HTML (<code>sha256sum pack.html</code>) and match the <code>.sha256</code> file.</li>
+      <li>Verify the <code>.ots</code> with the OpenTimestamps client or any compatible verifier.</li>
+      <li>Confirmation on Bitcoin calendars can take hours after creation — pending packs are still valid to hold.</li>
+    </ol>
+  </section>
+
+  <section style="margin-bottom: 40px; text-align: center;">
+    <p style="font-size: 15px; color: #4b5563; margin-bottom: 16px;">Included on Business · part of <a href="/use-cases/sox-reporting">SOX reporting</a></p>
+    <a href="../app/sox-reporting" style="display: inline-block; padding: 12px 24px; background: #F58025; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600;">Open Evidence &amp; exports</a>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <div class="site-footer-brand">
+      <a href="../" class="logo" aria-label="docstoc home"><img class="logo-mark" src="../brand/docstoc-icon.png" alt="" width="24" height="24" /><span class="logo-word">docstoc</span></a>
+    </div>
+    <div class="site-footer-col">
+      <h4>Related</h4>
+      <a href="../use-cases/sox-reporting">SOX reporting</a>
+      <a href="../compliance/sox">SOX compliance</a>
+      <a href="../app/audit-log">Audit log</a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 docstoc — a product of RELACON GmbH</div>
+</footer>
+<script src="../site.js?v=20260905sox" defer></script>
+</body>
+</html>

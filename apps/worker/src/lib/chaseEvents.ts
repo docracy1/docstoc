@@ -11,6 +11,12 @@ export type ChaseEventType =
 
 export type ChaseChannel = "email" | "sms" | "whatsapp" | "system";
 
+export type ChaseActor = {
+  accountId: string;
+  email: string;
+  role?: "admin" | "member" | string | null;
+};
+
 export type ChaseEvent = {
   id: string;
   agingInvoiceId: string | null;
@@ -20,6 +26,9 @@ export type ChaseEvent = {
   subject: string | null;
   bodyPreview: string | null;
   metadata: Record<string, unknown> | null;
+  actorAccountId: string | null;
+  actorEmail: string | null;
+  actorRole: string | null;
   createdAt: string;
 };
 
@@ -32,6 +41,9 @@ type Row = {
   subject: string | null;
   body_preview: string | null;
   metadata: string | null;
+  actor_account_id: string | null;
+  actor_email: string | null;
+  actor_role: string | null;
   created_at: string;
 };
 
@@ -53,6 +65,9 @@ function mapRow(row: Row): ChaseEvent {
     subject: row.subject,
     bodyPreview: row.body_preview,
     metadata,
+    actorAccountId: row.actor_account_id ?? null,
+    actorEmail: row.actor_email ?? null,
+    actorRole: row.actor_role ?? null,
     createdAt: row.created_at,
   };
 }
@@ -68,17 +83,22 @@ export async function recordChaseEvent(
     subject?: string | null;
     body?: string | null;
     metadata?: Record<string, unknown> | null;
+    actor?: ChaseActor | null;
   }
 ): Promise<ChaseEvent> {
   const id = crypto.randomUUID();
   const now = new Date().toISOString();
   const bodyPreview = input.body ? input.body.slice(0, 280) : null;
   const metadata = input.metadata ? JSON.stringify(input.metadata) : null;
+  const actorAccountId = input.actor?.accountId ?? null;
+  const actorEmail = input.actor?.email?.slice(0, 254) ?? null;
+  const actorRole = input.actor?.role?.slice(0, 40) ?? null;
 
   await env.CHASA_DB.prepare(
     `INSERT INTO chase_events
-       (id, account_id, aging_invoice_id, client_name, event_type, channel, subject, body_preview, metadata, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+       (id, account_id, aging_invoice_id, client_name, event_type, channel, subject, body_preview, metadata,
+        actor_account_id, actor_email, actor_role, created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   )
     .bind(
       id,
@@ -90,6 +110,9 @@ export async function recordChaseEvent(
       input.subject?.slice(0, 200) ?? null,
       bodyPreview,
       metadata,
+      actorAccountId,
+      actorEmail,
+      actorRole,
       now
     )
     .run();
@@ -103,6 +126,9 @@ export async function recordChaseEvent(
     subject: input.subject?.slice(0, 200) ?? null,
     bodyPreview,
     metadata: input.metadata ?? null,
+    actorAccountId,
+    actorEmail,
+    actorRole,
     createdAt: now,
   };
 }
@@ -113,7 +139,8 @@ export async function listChaseEvents(
   opts: { agingInvoiceId?: string; clientName?: string; limit?: number } = {}
 ): Promise<ChaseEvent[]> {
   const limit = Math.min(Math.max(opts.limit ?? 50, 1), 200);
-  let sql = `SELECT id, aging_invoice_id, client_name, event_type, channel, subject, body_preview, metadata, created_at
+  let sql = `SELECT id, aging_invoice_id, client_name, event_type, channel, subject, body_preview, metadata,
+                    actor_account_id, actor_email, actor_role, created_at
              FROM chase_events WHERE account_id = ?`;
   const binds: unknown[] = [accountId];
 

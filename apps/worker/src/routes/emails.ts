@@ -441,6 +441,7 @@ emails.post("/generate-reply-smart", requireProAccount, async (c) => {
           summary: draft.summary,
           promisedPayDate: draft.promisedPayDate,
         },
+        actor: { accountId: acc.id, email: acc.email, role: acc.role },
       }).catch(() => {})
     );
     c.executionCtx.waitUntil(

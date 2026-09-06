@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOX Reporting for Accounts Receivable | docstoc</title>
+<meta name="description" content="SOX reporting for AR collections: maker-checker send approvals, attributable audit trails, Bitcoin-anchored hash chains, and timestamped auditor packs. Business plan.">
+<link rel="canonical" href="https://docstoc.io/use-cases/sox-reporting">
+<link rel="alternate" hreflang="en" href="https://docstoc.io/use-cases/sox-reporting">
+<link rel="alternate" hreflang="es" href="https://docstoc.io/es/use-cases/sox-reporting">
+<link rel="alternate" hreflang="x-default" href="https://docstoc.io/use-cases/sox-reporting">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="docstoc">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="SOX Reporting for Accounts Receivable | docstoc">
+<meta property="og:description" content="Maker-checker, attributable audit trails, Bitcoin-anchored anchors, and OpenTimestamps auditor packs for SOX-aligned AR evidence.">
+<meta property="og:url" content="https://docstoc.io/use-cases/sox-reporting">
+<meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SOX Reporting for Accounts Receivable | docstoc">
+<meta name="twitter:description" content="Maker-checker, attributable audit trails, and timestamped auditor packs for AR collections evidence.">
+<meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
+<meta name="keywords" content="SOX reporting, SOX accounts receivable, ICFR audit trail, maker checker AR, segregation of duties collections, Bitcoin audit log">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "SOX Reporting for Accounts Receivable",
+  "description": "SOX-aligned reporting for AR chase evidence: maker-checker, attributable logs, hash anchors, and auditor packs.",
+  "url": "https://docstoc.io/use-cases/sox-reporting",
+  "isPartOf": { "@type": "WebSite", "name": "docstoc", "url": "https://docstoc.io" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SOX reporting in accounts receivable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SOX (Sarbanes-Oxley) ICFR expects you to prove who approved invoice follow-ups, when chase activity happened, and that evidence was not altered after the fact. docstoc SOX reporting covers maker-checker send approvals, actor-attributed trails, daily Bitcoin-anchored hashes, and exportable auditor packs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does docstoc support segregation of duties for invoice chasing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. On Pro and Business you can require maker-checker: the teammate who requests a send cannot approve it. Approvals are logged with actor identity in SOX reporting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do auditors verify the evidence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create a timestamped auditor pack for a date range. Send the HTML file, the .sha256 digest, and the OpenTimestamps .ots proof. Auditors hash the HTML and verify the .ots against Bitcoin without trusting docstoc's database."
+      }
+    }
+  ]
+}
+</script>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="stylesheet" href="../site.css?v=20260905sox">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a href="../" class="logo" aria-label="docstoc home"><img class="logo-mark" src="../brand/docstoc-icon.png" alt="" width="28" height="28" /><span class="logo-word">docstoc</span></a>
+    <nav class="header-nav-right">
+      <a href="../compliance/" class="header-nav-link header-nav-collapse">Compliance</a>
+      <a href="../use-cases/" class="header-nav-link header-nav-collapse">Use cases</a>
+      <a href="../#pricing" class="header-nav-link header-nav-collapse">Pricing</a>
+      <a href="../app/sox-reporting" class="nav-cta">Open SOX reporting</a>
+      <a href="../app/login" class="header-login-btn header-nav-collapse">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page-main">
+<article>
+  <div style="margin-bottom: 36px; text-align: center;">
+    <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent, #F58025); letter-spacing: 0.05em;">Use case / SOX</span>
+    <h1 style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 700; margin: 12px 0 16px;">SOX reporting for accounts receivable</h1>
+    <p style="font-size: 18px; color: #4b5563; line-height: 1.6; max-width: 740px; margin: 0 auto;">Give controllers and auditors attributable chase evidence — who approved what, when it happened, and a Bitcoin-anchored proof the file was not rewritten later.</p>
+    <p style="margin-top: 22px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="../app/sox-reporting" style="display: inline-block; padding: 12px 24px; background: #F58025; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600;">Open SOX reporting</a>
+      <a href="../compliance/sox" style="display: inline-block; padding: 12px 24px; border: 1px solid #d8dee8; border-radius: 8px; text-decoration: none; font-weight: 600; color: #1B3155;">SOX overview →</a>
+    </p>
+  </div>
+
+  <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">What Ready / Partial / Missing mean</h2>
+    <ul style="font-size: 16px; line-height: 1.85; color: #374151; padding-left: 20px;">
+      <li><strong>Ready</strong> — enough evidence or settings are in place for that control in your workspace.</li>
+      <li><strong>Partial</strong> — the capability exists, but you still need chase activity, a teammate, or more history.</li>
+      <li><strong>Missing</strong> — not enabled yet, or no evidence has been produced (e.g. SoD off, or no daily anchors yet).</li>
+    </ul>
+    <p style="font-size: 15px; color: #4b5563; margin-top: 12px;">These labels are live readiness for <em>your</em> account — not a product roadmap checklist.</p>
+  </section>
+
+  <section style="background: #fffaf3; border: 1px solid #e8dcc8; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">Where is the final auditor file?</h2>
+    <p style="font-size: 16px; line-height: 1.7; color: #374151; margin-bottom: 12px;">In the app: <strong>SOX reporting → Evidence &amp; exports</strong> → choose dates → <strong>Create timestamped pack</strong>. Download and send <code>.html</code> + <code>.sha256</code> + <code>.ots</code> together.</p>
+    <p style="margin-top: 16px;">
+      <a href="../app/sox-reporting" style="display: inline-block; padding: 10px 18px; background: #F58025; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600;">Open Evidence &amp; exports</a>
+      <a href="/use-cases/auditor-evidence-pack" style="margin-left: 12px; font-weight: 600; color: var(--accent, #F58025);">Auditor pack guide →</a>
+    </p>
+  </section>
+
+  <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">What ships in the dashboard</h2>
+    <ul style="font-size: 16px; line-height: 1.85; color: #374151; padding-left: 20px;">
+      <li><strong>Control coverage overview</strong> — readiness across trails, anchors, SoD, retention, and certificates.</li>
+      <li><strong>Attributable audit trail</strong> — actor email/role on chase events and SOX actions.</li>
+      <li><strong>Maker-checker (SoD)</strong> — optional dual control before marking a chase sent.</li>
+      <li><strong>Daily hash anchors</strong> — chase + open/click tracking hashed and OpenTimestamps-anchored.</li>
+      <li><strong>Timestamped auditor packs</strong> — frozen HTML + SHA-256 + <code>.ots</code> for a date range.</li>
+    </ul>
+  </section>
+
+  <section style="background: #fafbfc; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 14px;">Who it is for</h2>
+    <p style="font-size: 16px; line-height: 1.7; color: #374151;">Finance teams that chase overdue invoices and need ICFR-friendly evidence for external auditors, internal audit, or month-end close — without a full GRC suite.</p>
+  </section>
+
+  <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 28px;">
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">FAQ</h2>
+    <h3 style="font-size: 17px; margin: 0 0 6px;">Is this a full SOX compliance platform?</h3>
+    <p style="font-size: 15px; color: #4b5563; line-height: 1.65; margin-bottom: 16px;">No. docstoc focuses on tamper-evident AR chase evidence and dual-control send workflows — the part of SOX ICFR that touches invoice collections.</p>
+    <h3 style="font-size: 17px; margin: 0 0 6px;">Which plans include SOX reporting?</h3>
+    <p style="font-size: 15px; color: #4b5563; line-height: 1.65; margin-bottom: 16px;">Business ($39.99/mo). Free and Pro users see an upgrade prompt in the dashboard.</p>
+    <h3 style="font-size: 17px; margin: 0 0 6px;">How long until Bitcoin confirmation?</h3>
+    <p style="font-size: 15px; color: #4b5563; line-height: 1.65;">OpenTimestamps calendars usually confirm within hours. Pending packs remain downloadable; the <code>.ots</code> upgrades when calendars publish.</p>
+  </section>
+
+  <section style="margin-bottom: 40px;">
+    <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 14px;">Related</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+      <a href="/use-cases/auditor-evidence-pack" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">Timestamped auditor packs →</strong>
+        <span style="font-size: 13px; color: #6b7280;">HTML + SHA-256 + OpenTimestamps for auditors.</span>
+      </a>
+      <a href="/compliance/sox" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">SOX compliance page →</strong>
+        <span style="font-size: 13px; color: #6b7280;">Framework overview and live controls.</span>
+      </a>
+      <a href="/use-cases/audit-ready-workflows" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">Audit-ready workflows →</strong>
+        <span style="font-size: 13px; color: #6b7280;">Demand letters and collections evidence.</span>
+      </a>
+      <a href="/workiva-alternative" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">vs Workiva →</strong>
+        <span style="font-size: 13px; color: #6b7280;">AR SOX evidence without a full reporting suite.</span>
+      </a>
+      <a href="/floqast-alternative" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">vs FloQast →</strong>
+        <span style="font-size: 13px; color: #6b7280;">Collections ICFR next to your close.</span>
+      </a>
+      <a href="/auditboard-sox-alternative" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">vs AuditBoard (AR SOX) →</strong>
+        <span style="font-size: 13px; color: #6b7280;">Chase SoD and timestamped packs.</span>
+      </a>
+      <a href="/accounts-receivable-sox" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">AR SOX hub →</strong>
+        <span style="font-size: 13px; color: #6b7280;">Keyword map: maker-checker, ICFR, SoD, packs.</span>
+      </a>
+      <a href="/use-cases/maker-checker-invoice-chase" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">Maker-checker chase →</strong>
+        <span style="font-size: 13px; color: #6b7280;">Dual control before Mark as sent.</span>
+      </a>
+      <a href="/use-cases/icfr-accounts-receivable" style="display: block; padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit;">
+        <strong style="display: block; font-size: 15px;">ICFR for AR →</strong>
+        <span style="font-size: 13px; color: #6b7280;">Collections evidence for internal controls.</span>
+      </a>
+    </div>
+  </section>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <div class="site-footer-brand">
+      <a href="../" class="logo" aria-label="docstoc home"><img class="logo-mark" src="../brand/docstoc-icon.png" alt="" width="24" height="24" /><span class="logo-word">docstoc</span></a>
+      <p>The Trust Automation Layer for Modern Business.</p>
+    </div>
+    <div class="site-footer-col">
+      <h4>Product</h4>
+      <a href="../compliance/">Compliance</a>
+      <a href="../use-cases/">Use cases</a>
+      <a href="../app/sox-reporting">SOX reporting</a>
+      <a href="../#pricing">Pricing</a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 docstoc — a product of RELACON GmbH</div>
+</footer>
+<script src="../site.js?v=20260905sox" defer></script>
+</body>
+</html>

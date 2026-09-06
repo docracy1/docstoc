@@ -67,6 +67,19 @@ const es: Messages = {
   "newChase.dropHere": "Suelta el archivo para importar",
   "newChase.maxSize": "Tamaño máximo: 15MB.",
   "newChase.csvFreeNote": "CSV funciona en Free. Importar PDF es Pro+.",
+  "scan.scanDocument": "Escanea un documento",
+  "scan.title": "Escanea un documento",
+  "scan.captureHint": "No necesitas un escáner — solo la cámara de tu celular. Nosotros enderezamos y limpiamos la página.",
+  "scan.captureFirst": "Toma una foto",
+  "scan.captureAnother": "Agregar otra página",
+  "scan.processing": "Limpiando tu foto…",
+  "scan.pageCount": "Páginas listas: {{count}}",
+  "scan.reviewHint": "Así quedó la página limpia. ¿Se ve bien?",
+  "scan.noEdgesHint": "No pudimos detectar los bordes de la página, así que esta es tu foto original.",
+  "scan.retake": "Repetir foto",
+  "scan.keepPage": "Guardar esta página",
+  "scan.done": "Usar estas páginas",
+  "scan.processError": "No pudimos procesar esa foto — intenta de nuevo.",
   "newChase.pdfSolo": "Importar PDF requiere Pro o Business — sube un CSV, o introduce los datos abajo.",
   "newChase.pdfOnly": "Solo se admiten PDF o CSV.",
   "newChase.pdfFailed": "No se pudo leer ese PDF.",
@@ -124,6 +137,14 @@ const es: Messages = {
   "welcome.product.certificates.empty": "Aún no hay archivos certificados.",
   "welcome.product.certificates.count": "{{count}} certificado(s) emitidos",
   "welcome.product.certificates.cta": "Certificar un archivo →",
+  "welcome.product.sox.kicker": "Cumplimiento",
+  "welcome.product.sox.title": "Informes SOX",
+  "welcome.product.sox.body": "Maker-checker, pistas de auditoría y packs de auditor con timestamp.",
+  "welcome.product.sox.ready": "Cobertura de controles y packs de auditor listos.",
+  "welcome.product.sox.pending": "{{count}} aprobación(es) de envío pendientes",
+  "welcome.product.sox.upgrade": "Plan Business — evidencia SOX de AR para auditores.",
+  "welcome.product.sox.cta": "Abrir informes SOX →",
+  "welcome.product.sox.ctaUpgrade": "Pasar a Business →",
   "welcome.product.companyBadge.kicker": "Confianza",
   "welcome.product.companyBadge.title": "Insignia de empresa",
   "welcome.product.companyBadge.ready": "Certificado de confianza verificado por dominio listo.",
@@ -273,9 +294,9 @@ const es: Messages = {
   "account.featPro":
     "Pro ($14.99/mes): IA ilimitada, importar PDF/nube, marca, webhooks, equipo, resumen, Zapier/API",
   "account.featBusiness":
-    "Business ($39.99/mes): respuesta inteligente, riesgo, carta de cobro, paquete de evidencias, marca personalizada en certificados, SSL automático para tu dominio",
+    "Business ($39.99/mes): informes SOX, maker-checker, packs de auditor con timestamp, respuesta inteligente, riesgo, carta de cobro, paquete de evidencias, marca en certificados, SSL automático",
   "account.businessNudge":
-    "Pasa a Business para clasificación de respuestas con IA y cartas formales de cobro.",
+    "Pasa a Business para informes SOX, packs de auditor, clasificación de respuestas con IA y cartas formales de cobro.",
   "account.signOut": "Cerrar sesión",
 
   "tool.workspaceTitle": "Espacio de seguimiento",
@@ -407,6 +428,12 @@ const es: Messages = {
   "invoice.saveGmailTitle": "Escribe este borrador en Gmail Drafts — tú envías desde Gmail",
   "invoice.connectGoogle": "Conecta Google para borradores de Gmail",
   "invoice.markSent": "Marcar como enviado",
+  "invoice.requestSoxApproval": "Solicitar aprobación",
+  "invoice.requestSoxApprovalTitle":
+    "Solicita aprobación maker-checker antes de marcar este cobro como enviado",
+  "invoice.soxApprovalRequested":
+    "Aprobación de envío solicitada — un compañero debe aprobar antes de Marcar como enviado.",
+  "invoice.soxApprovalFailed": "No se pudo solicitar la aprobación de envío.",
   "invoice.markPaid": "Marcar como pagado",
   "invoice.demandLetter": "Carta formal de cobro (Pro)",
   "invoice.regenerate": "Regenerar",
@@ -902,7 +929,7 @@ const es: Messages = {
   "admin.externalSites": "Sitios externos que enlazaron aquí",
   "admin.taggedCampaigns": "Clics de campaña (utm/ref)",
   "admin.taggedCampaignsNote":
-    "Respeta solo humanos. No es lo mismo que las visitas de Google a la izquierda. Las filas seo-* aparecen cuando alguien abre /app (o un enlace /go) con utm_source/ref=seo-* — suele ser al pulsar Probar gratis en una página SEO. Un landing orgánico de Google solo no crea filas seo-* (igual que en Docracy).",
+    "Respeta solo humanos. Aquí solo cuentan etiquetas de docstoc: seo-* (CTAs Probar gratis) y shortlinks /go de outreach. Terceros que marcan utm_source=chatgpt.com / openai aparecen en Sitios externos, no como campañas. Un landing orgánico de Google solo no crea filas seo-*.",
   "admin.noneYet": "Nada aún.",
   "admin.colSite": "Sitio",
   "admin.colVisits": "Visitas",
@@ -1204,6 +1231,160 @@ const es: Messages = {
   "auditLog.otsPending": "₿ Marca de tiempo en Bitcoin pendiente",
   "auditLog.otsNone": "Marca de tiempo aún no enviada",
   "auditLog.downloadProof": "Descargar prueba (.ots)",
+
+  "nav.soxReporting": "Informes SOX",
+  "sox.title": "Informes SOX",
+  "sox.pageSub":
+    "Estado de controles, pista de auditoría atribuible, aprobaciones maker-checker, packs de evidencia por periodo y retención para cobros AR.",
+  "sox.signInSub": "Inicia sesión para abrir informes SOX.",
+  "sox.upgradeSub":
+    "Los informes SOX están del plan Business ($39.99/mes): maker-checker, pistas atribuibles y packs de auditor con OpenTimestamps.",
+  "sox.upgradeCta": "Pasar a Business",
+  "sox.loadFailed": "No se pudieron cargar los informes SOX.",
+  "sox.saveFailed": "No se pudieron guardar los ajustes SOX.",
+  "sox.decideFailed": "No se pudo actualizar esa aprobación.",
+  "sox.requestFailed": "No se pudo solicitar la aprobación de envío.",
+  "sox.requestApproval": "Solicitar aprobación de envío",
+  "sox.requestApprovalSub":
+    "Pega el id de la factura (aging) del panel de cobros y pide a un compañero que apruebe.",
+  "sox.invoiceId": "Id de factura",
+  "sox.clientName": "Cliente",
+  "sox.subjectOptional": "Asunto (opcional)",
+  "sox.submitRequest": "Solicitar aprobación",
+  "sox.tabOverview": "Resumen",
+  "sox.tabTrail": "Pista de auditoría",
+  "sox.tabSod": "Segregación de funciones",
+  "sox.tabEvidence": "Evidencia y exportaciones",
+  "sox.tabLibrary": "Biblioteca de controles",
+  "sox.tabRetention": "Retención y SoD",
+  "sox.libraryTitle": "Biblioteca de controles AR",
+  "sox.librarySub":
+    "Controles AR alineados con SOX. Registra pruebas de periodo (pass / fail / exception) para el archivo de auditoría.",
+  "sox.noControls": "Aún no hay controles — se crean automáticamente en espacios Business.",
+  "sox.lastTest": "Última prueba",
+  "sox.noTestYet": "Aún no hay prueba de periodo",
+  "sox.recordTest": "Registrar prueba",
+  "sox.testResult": "Resultado",
+  "sox.testPass": "Pass",
+  "sox.testFail": "Fail",
+  "sox.testException": "Exception",
+  "sox.testNotes": "Notas (opcional)",
+  "sox.linkEvidencePack": "Vincular pack de auditor con timestamp (opcional)",
+  "sox.noEvidencePack": "Sin pack vinculado",
+  "sox.linkedEvidencePack": "Pack de auditor vinculado",
+  "sox.testFailed": "No se pudo guardar la prueba de control.",
+  "sox.control.control_library.explain":
+    "Claves formales de control AR con pruebas de periodo que puedes vincular a packs de auditor.",
+  "sox.control.control_library.how": "Abre la pestaña Biblioteca de controles y registra una prueba.",
+  "sox.legalHold": "Legal hold — bloquea el purge de retención (incluido el barrido diario)",
+  "sox.retentionEnforced":
+    "Exigir retención — purga filas de cobro/auditoría más antiguas que la ventana",
+  "sox.retentionStatus": "Estado de retención",
+  "sox.retentionPast":
+    "{{chase}} evento(s) de cobro y {{audit}} evento(s) de auditoría más antiguos que el corte.",
+  "sox.retentionClear": "Nada más antiguo que el corte de retención.",
+  "sox.purgeNow": "Purgar ahora lo vencido",
+  "sox.purgeConfirm":
+    "¿Eliminar eventos de cobro y auditoría más antiguos que la ventana de retención? Los packs de auditor y certificados se conservan.",
+  "sox.purgeFailed": "No se pudo purgar la retención vencida.",
+  "sox.purgeDone": "Purgados {{chase}} evento(s) de cobro y {{audit}} de auditoría.",
+  "sox.statPending": "Aprobaciones pendientes",
+  "sox.statAudit": "Eventos de auditoría (30d)",
+  "sox.statAnchors": "Confirmados Bitcoin / anclajes",
+  "sox.statCerts": "Certificados de documentos",
+  "sox.controlsTitle": "Cobertura de controles",
+  "sox.controlsLegend":
+    "Los estados reflejan este espacio de trabajo ahora — no si la función del producto existe.",
+  "sox.status.ready": "Listo",
+  "sox.status.partial": "Parcial",
+  "sox.status.missing": "Falta",
+  "sox.statusExplain.ready": "Listo — hay evidencia o ajustes suficientes para este control.",
+  "sox.statusExplain.partial":
+    "Parcial — la capacidad existe, pero aún falta actividad, un compañero o más historial para una historia sólida ante el auditor.",
+  "sox.statusExplain.missing":
+    "Falta — no está activado o aún no hay evidencia (actívalo o genera actividad).",
+  "sox.auditorFileCalloutTitle": "¿Dónde está el archivo final para el auditor?",
+  "sox.auditorFileCalloutBody":
+    "Abre la pestaña Evidencia y exportaciones → elige un rango de fechas → Crear pack con timestamp. Descarga tres archivos y envíalos todos: el HTML, el digest .sha256 y la prueba OpenTimestamps .ots.",
+  "sox.auditorFileCta": "Ir a Evidencia y exportaciones",
+  "sox.learnMore": "Más información →",
+  "sox.control.tamper_evidence.explain":
+    "Los certificados de documentos prueban el hash SHA-256 de un archivo y pueden llevar una prueba OpenTimestamps en Bitcoin.",
+  "sox.control.tamper_evidence.how": "Crea o abre certificados en Certificados de documentos.",
+  "sox.control.chase_trail.explain":
+    "Cada borrador/envío/copia/mailto y marcado como pagado queda en el timeline de cobro.",
+  "sox.control.chase_trail.how": "Añade una factura vencida y envía un cobro desde el panel.",
+  "sox.control.hash_anchors.explain":
+    "Cada día UTC con actividad de cobro o aperturas/clics se hashea, se encadena al día anterior y se ancla a Bitcoin.",
+  "sox.control.hash_anchors.how":
+    "Aparece automáticamente el día después de actividad de cobro. Revisa Pista de auditoría o Registro de auditoría.",
+  "sox.control.actor_log.explain":
+    "Los nuevos eventos de cobro y acciones SOX guardan quién las hizo (email / rol).",
+  "sox.control.actor_log.how":
+    "Enviar cobros, cambiar SoD/retención o aprobar envíos crea entradas atribuibles.",
+  "sox.control.sod.explain":
+    "Maker-checker exige que otro compañero apruebe antes de marcar un cobro como enviado.",
+  "sox.control.sod.how": "Actívalo en Retención y SoD, invita a un compañero y solicita aprobaciones.",
+  "sox.control.period_export.explain":
+    "Puedes congelar un pack completo del periodo (o previsualizar HTML) en Evidencia y exportaciones.",
+  "sox.control.period_export.how": "Usa Crear pack con timestamp — ese es el entregable final al auditor.",
+  "sox.control.retention.explain":
+    "Los días de retención documentan cuánto tiempo pretendes conservar evidencia AR.",
+  "sox.control.retention.how": "Ajústalo en Retención y SoD (admins del espacio).",
+  "sox.packSendTitle": "Qué enviar al auditor",
+  "sox.packSendBody":
+    "Tras crear un pack, descarga los tres archivos de la lista y adjúntalos juntos. El HTML es la evidencia legible; .sha256 prueba los bytes; .ots prueba que el hash se ancló a Bitcoin (la confirmación puede tardar horas).",
+  "sox.actorTrailTitle": "Acciones SOX atribuibles",
+  "sox.actorTrailSub":
+    "Quién cambió ajustes, solicitó o decidió aprobaciones de envío y acciones SOX relacionadas.",
+  "sox.noAuditEvents":
+    "Aún no hay eventos SOX — activar SoD o cambiar la retención creará las primeras entradas.",
+  "sox.anchorsTitle": "Anclajes hash diarios",
+  "sox.anchorsSub":
+    "Los eventos de cobro más aperturas/clics se hashean a diario y se anclan a Bitcoin con OpenTimestamps.",
+  "sox.openAuditLog": "Abrir registro de auditoría →",
+  "sox.openCertificates": "Certificados de documentos →",
+  "sox.sodTitle": "Maker-checker para envíos de cobro",
+  "sox.sodSub":
+    "Con SoD activo, otro miembro del equipo debe aprobar antes de marcar un cobro como enviado, copiado o abierto en el correo.",
+  "sox.sodDisabledHint":
+    "SoD está desactivado — actívalo en Retención y SoD. También necesitas al menos un compañero de equipo.",
+  "sox.manageTeam": "Gestionar equipo →",
+  "sox.pendingApprovals": "Aprobaciones pendientes",
+  "sox.noPending": "No hay aprobaciones de envío pendientes.",
+  "sox.requestedBy": "Solicitado por {{email}}",
+  "sox.approve": "Aprobar",
+  "sox.reject": "Rechazar",
+  "sox.awaitingChecker": "Esperando a otro compañero",
+  "sox.recentApprovals": "Decisiones recientes",
+  "sox.periodTitle": "Pack de evidencia por periodo",
+  "sox.periodSub":
+    "Descarga un HTML por rango de fechas: facturas, timeline con actores, acciones SOX y anclajes diarios — para auditores.",
+  "sox.packTitle": "Pack de auditor con marca de tiempo",
+  "sox.packSub":
+    "Congela un HTML completo para un rango de fechas, calcula SHA-256 y ancla ese digest a Bitcoin con OpenTimestamps. Envía HTML + .sha256 + .ots al auditor — puede verificar sin confiar en docstoc.",
+  "sox.freezePack": "Crear pack con timestamp",
+  "sox.previewPeriod": "Vista previa (sin congelar)",
+  "sox.frozenPacks": "Packs congelados",
+  "sox.noPacks": "Aún no hay packs con timestamp — crea uno arriba.",
+  "sox.packFailed": "No se pudo crear el pack de auditor.",
+  "sox.packMeta": "{{invoices}} factura(s) · {{events}} evento(s) de cobro",
+  "sox.otsConfirmed": "₿ Confirmado en Bitcoin",
+  "sox.otsPending": "₿ Marca de tiempo Bitcoin pendiente",
+  "sox.otsFailed": "Falló el envío del timestamp — crea un pack nuevo",
+  "sox.otsNone": "Timestamp no enviado",
+  "sox.downloadHtml": "Descargar HTML",
+  "sox.downloadOts": "Descargar .ots",
+  "sox.from": "Desde",
+  "sox.to": "Hasta",
+  "sox.downloadPeriod": "Abrir pack del periodo",
+  "sox.retentionTitle": "Retención y maker-checker",
+  "sox.retentionSub":
+    "Define cuánto tiempo retener evidencia AR para políticas, y si el envío requiere doble control.",
+  "sox.enableSod": "Exigir aprobación maker-checker antes de marcar el cobro como enviado",
+  "sox.retentionDays": "Retención (días)",
+  "sox.saveSettings": "Guardar ajustes",
+  "sox.adminOnly": "Solo los administradores del espacio pueden cambiar estos ajustes.",
 
   "ssl.title": "SSL de dominio propio",
   "ssl.pageSub":

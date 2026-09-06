@@ -92,7 +92,7 @@ mkdirSync(join(publicDir, "compare"), { recursive: true });
 const hubHtml = writeLanding({
   title: "Compare docstoc — templates, invoices, SSL, certificates",
   description:
-    "docstoc alternatives and import guides, grouped by product. Templates first — then invoices, SSL, file certificates, and invoice chasing.",
+    "docstoc alternatives and import guides, grouped by product. Templates first — then invoices, SSL, file certificates, invoice chasing, and SOX AR evidence.",
   canonical: "/compare/",
   mainHtml: compareHubMainHtml(hubSectors()),
   jsonLd: JSON.stringify(
@@ -110,6 +110,7 @@ writeFileSync(join(publicDir, "compare/index.html"), hubHtml, "utf8");
 
 let n = 0;
 for (const c of COMPETITORS) {
+  if (c.customLanding) continue;
   const altMain = alternativeMainHtml(c);
   const altPage = writeLanding({
     title: `${c.name} Alternative — ${c.headline.replace(/\.$/, "")} | docstoc`,

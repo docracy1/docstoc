@@ -14,22 +14,31 @@ import {
  * Merkle-proof + Bitcoin-header verification logic ourselves would add real complexity for zero
  * trust benefit — the point of anchoring to Bitcoin is that verification doesn't have to trust us.
  *
- * Protocol (confirmed against the live calendar servers):
+ * Protocol (confirmed against the live calendar servers + official ots client headers):
  *   POST {calendar}/digest        body = raw 32-byte SHA-256 digest → pending proof bytes
- *   GET  {calendar}/timestamp/{hex digest} → 200 + upgraded proof bytes once Bitcoin-confirmed,
- *                                            404 while still pending (can take hours).
+ *   GET  {calendar}/timestamp/{hex digest} → 200 + proof bytes once the digest is in a published
+ *                                            Merkle tree (may still lack a Bitcoin attestation),
+ *                                            404 while the calendar has not yet published it.
  *
- * Alice occasionally drops pending digests before anchoring. We therefore submit to multiple
- * calendars and, on upgrade checks, probe every known calendar for the same digest.
+ * Public calendars (alice/bob/finney) have repeatedly accepted digests with HTTP 200 and then
+ * dropped them before anchoring — see opentimestamps-server#116. We therefore submit to several
+ * independent calendars, probe all of them on upgrade, and only resubmit when every calendar
+ * still returns 404 (digest lost). A 200 without a Bitcoin attestation means "keep waiting" —
+ * resubmitting then would throw away an intermediate Merkle path that is about to confirm.
  */
 
 const CALENDAR_URLS = [
   "https://alice.btc.calendar.opentimestamps.org",
   "https://bob.btc.calendar.opentimestamps.org",
+  "https://finney.calendar.eternitywall.com",
+  "https://btc.calendar.catallaxy.com",
 ] as const;
 
+const OTS_ACCEPT = "application/vnd.opentimestamps.v1";
+const OTS_USER_AGENT = "docstoc-ots/1.0 (+https://docstoc.io; founder@docstoc.io)";
+
 const REQUEST_TIMEOUT_MS = 10_000;
-/** Resubmit when a calendar still has no proof after this long — Alice/Bob can drop digests. */
+/** Resubmit only when every calendar still 404s after this long — digests were likely dropped. */
 export const OTS_STALE_MS = 4 * 60 * 60 * 1000;
 
 function hexToBytes(hex: string): Uint8Array {
@@ -78,7 +87,12 @@ export async function submitTimestamp(sha256HexDigest: string): Promise<SubmitRe
   for (const calendarUrl of CALENDAR_URLS) {
     const res = await fetchWithTimeout(`${calendarUrl}/digest`, {
       method: "POST",
-      headers: { "Content-Type": "application/vnd.opentimestamps.v1" },
+      headers: {
+        Accept: OTS_ACCEPT,
+        // Official ots client sends raw octets; some calendars are picky about Content-Type.
+        "Content-Type": "application/octet-stream",
+        "User-Agent": OTS_USER_AGENT,
+      },
       body: digest,
     });
     if (!res || !res.ok) {
@@ -97,7 +111,14 @@ export async function submitTimestamp(sha256HexDigest: string): Promise<SubmitRe
 
 export type UpgradeResult =
   | { ok: true; confirmed: true; proofBase64: string; calendarUrl: string }
-  | { ok: true; confirmed: false }
+  | {
+      ok: true;
+      confirmed: false;
+      /** Digest is in a published Merkle tree but not yet Bitcoin-attested — do not resubmit. */
+      aggregated: boolean;
+      proofBase64?: string;
+      calendarUrl?: string;
+    }
   | { ok: false; error: string };
 
 // The OpenTimestamps "BitcoinBlockHeaderAttestation" tag — its presence in the proof bytes is
@@ -128,13 +149,18 @@ function calendarsToProbe(preferred?: string | null): string[] {
 
 /** Check whether a previously-submitted digest now has a Bitcoin-confirmed proof available.
  *  Tries the stored calendar first, then the other known calendars (we multi-submit).
- *  404 everywhere means "not yet" — normal, not an error. */
+ *  404 everywhere means "not yet / dropped" — normal while pending, and the cue to resubmit
+ *  after OTS_STALE_MS. A 200 without the Bitcoin attestation tag means the calendar has
+ *  published the digest into a Merkle tree and we must keep waiting (do not resubmit). */
 export async function checkUpgrade(sha256HexDigest: string, calendarUrl: string): Promise<UpgradeResult> {
   let sawReachable = false;
   let lastError: string | null = null;
 
   for (const url of calendarsToProbe(calendarUrl)) {
-    const res = await fetchWithTimeout(`${url}/timestamp/${sha256HexDigest}`, { method: "GET" });
+    const res = await fetchWithTimeout(`${url}/timestamp/${sha256HexDigest}`, {
+      method: "GET",
+      headers: { Accept: OTS_ACCEPT, "User-Agent": OTS_USER_AGENT },
+    });
     if (!res) {
       lastError = `${url}: unreachable`;
       continue;
@@ -146,14 +172,15 @@ export async function checkUpgrade(sha256HexDigest: string, calendarUrl: string)
       continue;
     }
     const bytes = new Uint8Array(await res.arrayBuffer());
+    const proofBase64 = bytesToBase64(bytes);
     if (!containsSubsequence(bytes, BITCOIN_ATTESTATION_TAG)) {
       // Aggregated into a Merkle tree, but that tree's root isn't in a confirmed Bitcoin block yet.
-      return { ok: true, confirmed: false };
+      return { ok: true, confirmed: false, aggregated: true, proofBase64, calendarUrl: url };
     }
-    return { ok: true, confirmed: true, proofBase64: bytesToBase64(bytes), calendarUrl: url };
+    return { ok: true, confirmed: true, proofBase64, calendarUrl: url };
   }
 
-  if (sawReachable) return { ok: true, confirmed: false };
+  if (sawReachable) return { ok: true, confirmed: false, aggregated: false };
   return { ok: false, error: lastError || "All calendars unreachable" };
 }
 
@@ -181,6 +208,18 @@ export async function sweepPendingTimestamps(env: Env): Promise<{
       continue;
     }
 
+    // Calendar published an intermediate Merkle proof — keep it, wait for Bitcoin attestation.
+    if (result.aggregated) {
+      if (result.proofBase64 && result.calendarUrl) {
+        await recordTimestampSubmitted(env, row.id, {
+          calendarUrl: result.calendarUrl,
+          proofBase64: result.proofBase64,
+        });
+      }
+      continue;
+    }
+
+    // 404 everywhere: public calendars drop digests (opentimestamps-server#116). Resubmit.
     const submittedMs = row.ots_submitted_at ? Date.parse(row.ots_submitted_at) : 0;
     if (!submittedMs || now - submittedMs < OTS_STALE_MS) continue;
 

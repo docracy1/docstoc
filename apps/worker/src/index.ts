@@ -27,6 +27,7 @@ import marketplace from "./routes/marketplace";
 import verify from "./routes/verify";
 import ssl from "./routes/ssl";
 import auditLog from "./routes/auditLog";
+import sox from "./routes/sox";
 import trust from "./routes/trust";
 import invoices from "./routes/invoices";
 import { configuredAppOrigin, isAllowedAppOrigin } from "./lib/appUrl";
@@ -39,6 +40,7 @@ import { isWeeklyBlogMondayUtc, runWeeklyBlogPublish } from "./lib/blogWeekly";
 import { sendCertExpiryReminders } from "./lib/customerCertificates";
 import { sweepPendingTimestamps } from "./lib/openTimestamps";
 import { runDailyAuditAnchors, sweepPendingAuditAnchors } from "./lib/auditLog";
+import { sweepPendingAuditorPacks, sweepSoxRetention } from "./lib/sox";
 import { backfillTrustProfiles, sweepPendingTrustProfiles } from "./lib/trustProfile";
 import { legacyApiRedirectUrl } from "./lib/legacyHostRedirect";
 
@@ -83,6 +85,7 @@ app.route("/api/marketplace", marketplace);
 app.route("/api/verify", verify);
 app.route("/api/ssl", ssl);
 app.route("/api/audit-log", auditLog);
+app.route("/api/sox", sox);
 app.route("/api/trust", trust);
 app.route("/api/invoices", invoices);
 app.route("/api/webhooks", webhooks);
@@ -106,6 +109,8 @@ export default {
     ctx.waitUntil(sweepPendingTrustProfiles(env).catch((err) => console.error("Trust profile OTS sweep failed:", err)));
     ctx.waitUntil(sweepPendingTimestamps(env).catch((err) => console.error("OpenTimestamps sweep failed:", err)));
     ctx.waitUntil(sweepPendingAuditAnchors(env).catch((err) => console.error("Audit anchor OTS sweep failed:", err)));
+    ctx.waitUntil(sweepPendingAuditorPacks(env).catch((err) => console.error("Auditor pack OTS sweep failed:", err)));
+    ctx.waitUntil(sweepSoxRetention(env).catch((err) => console.error("SOX retention sweep failed:", err)));
 
     // Once daily at 08:00 UTC — same hourly trigger, gated by clock (no second cron; account limit).
     const hourUtc = new Date().getUTCHours();
