@@ -3032,6 +3032,17 @@ textarea {
   margin: 0 0 8px;
   font-size: 1.05rem;
 }
+.cloud-import-preview-thumb {
+  display: block;
+  max-width: 160px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin: 8px 0 12px;
+}
+
 .cloud-import-preview {
   margin-top: 12px;
 }

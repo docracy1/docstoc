@@ -117,7 +117,7 @@ export default function NewChase({ account }: { account: Account | null }) {
     if (tpl) useTemplate(tpl);
   }, [allTemplates, searchParams]);
 
-  async function acceptPdf(file: File) {
+  async function acceptPdf(file: File, previewDataUrl?: string) {
     if (!isPaid) {
       setError(t("newChase.pdfSolo"));
       return;
@@ -141,6 +141,9 @@ export default function NewChase({ account }: { account: Account | null }) {
           ...result,
           provider: "upload",
           providerLabel: t("newChase.uploadLabel"),
+          // A scanned page has no extractable text, so without this the import screen shows
+          // nothing recognizable as "the photo" — just empty client/amount fields.
+          ...(previewDataUrl ? { previewDataUrl } : {}),
         })
       );
       try {
@@ -283,9 +286,9 @@ export default function NewChase({ account }: { account: Account | null }) {
 
         {scanning && (
           <ScanCapture
-            onDone={async (file) => {
+            onDone={async (file, previewDataUrl) => {
               setScanning(false);
-              await acceptPdf(file);
+              await acceptPdf(file, previewDataUrl);
             }}
             onCancel={() => setScanning(false)}
           />
