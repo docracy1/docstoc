@@ -231,6 +231,49 @@ export function conversionSectionHtml() {
   // fabricate placeholder numbers or quotes in the meantime.
 }
 
+/** Docracy-style seo-* campaign slug from a canonical path — ported verbatim from
+ *  public/analytics.js's client-side seoCampaignFromPath() so build-time tagging and the
+ *  runtime fallback agree on exactly which pages count and what slug they produce. */
+export function seoCampaignFromPath(path) {
+  const p = (path || "/").replace(/\/+$/, "") || "/";
+  if (p === "/") return null;
+  const segs = p.split("/").filter(Boolean);
+  const last = segs[segs.length - 1] || "";
+  if (p.indexOf("/document-templates/") === 0 && segs.length >= 2 && last !== "document-templates") {
+    return "seo-" + last.replace(/-template$/, "");
+  }
+  if (p.indexOf("/blog/") === 0 && segs.length >= 2) return "seo-blog-" + last;
+  if (p.indexOf("/free-templates/") === 0 && segs.length >= 2) return "seo-" + last.replace(/\.html$/, "");
+  if (p.indexOf("/guides/") === 0 && segs.length >= 2) return "seo-" + last;
+  if (p.indexOf("/tools/") === 0 && segs.length >= 2) return "seo-tool-" + last.replace(/\.html$/, "");
+  if (p.indexOf("/compare/") === 0 && segs.length >= 2) return "seo-compare-" + last;
+  if (p.indexOf("/industry/") === 0 && segs.length >= 2) return "seo-industry-" + last;
+  if (p.indexOf("/import-from-") === 0) return "seo-" + last;
+  if (/-alternative$/.test(last)) return "seo-" + last;
+  if (p.indexOf("/use-cases/") === 0 && segs.length >= 2) return "seo-" + last;
+  if (p.indexOf("/features/") === 0 && segs.length >= 2) return "seo-" + last;
+  return null;
+}
+
+/** Bakes utm_source=seo-{tag} onto every /app link in the rendered page at BUILD time, instead
+ *  of relying solely on analytics.js to inject it at click time — so the tag survives even for
+ *  a visitor who never runs JS (crawlers, some in-app browsers) and doesn't depend on the CTA
+ *  still being on the page by the time the script wires up. analytics.js's decorate() explicitly
+ *  no-ops when utm_source is already present, so this and the runtime fallback don't conflict. */
+export function decorateAppLinksWithSeoTag(html, tag) {
+  if (!tag) return html;
+  // Matches both the absolute form ("/app/login...", depth 0) and the relative form nested
+  // pages use via chrome()'s link() helper ("../app/...", "../../app/...", depth > 0). Either
+  // way "app" must be followed by "/", "?", or the closing quote — not just any string starting
+  // with those three letters (e.g. "/apple-touch-icon.png", which a plain /app prefix would
+  // wrongly match and get an unrelated utm_source stamped onto a <link> favicon href).
+  return html.replace(/href="(\/app(?:[/?][^"]*)?|(?:\.\.\/)+app(?:[/?][^"]*)?)"/g, (match, href) => {
+    if (/[?&]utm_source=/.test(href)) return match;
+    const sep = href.includes("?") ? "&" : "?";
+    return `href="${href}${sep}utm_source=${tag}"`;
+  });
+}
+
 export function chrome({ title, description, canonical, activeNav = "", mainHtml, jsonLd, depth = 0, extraHead = "", lang = "en", fullBleedMain = false, mainClass = "" }) {
   const prefix = depth > 0 ? "../".repeat(depth) : "";
   const root = depth > 0 ? "../".repeat(depth).slice(0, -1) || "." : "";
@@ -287,7 +330,7 @@ export function chrome({ title, description, canonical, activeNav = "", mainHtml
       : ` data-es-href="${esPath}"`
     : "";
 
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
 <meta charset="UTF-8">
@@ -504,4 +547,6 @@ ${mainHtml}
 </script>
 </body>
 </html>`;
+
+  return decorateAppLinksWithSeoTag(html, seoCampaignFromPath(canonicalPath));
 }

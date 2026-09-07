@@ -7,6 +7,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { decorateAppLinksWithSeoTag, seoCampaignFromPath } from "./lib/chrome.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(__dirname, "../public");
@@ -131,7 +132,7 @@ function page({
       ? "../site.js?v=20260905sox"
       : "/site.js?v=20260905sox";
 
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
 <meta charset="UTF-8">
@@ -200,6 +201,8 @@ ${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2)
 </body>
 </html>
 `;
+
+  return decorateAppLinksWithSeoTag(html, seoCampaignFromPath(path));
 }
 
 const relatedEn = [
