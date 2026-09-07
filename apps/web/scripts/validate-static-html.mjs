@@ -16,6 +16,10 @@ function walk(dir, out = []) {
   return out;
 }
 
+// Standalone iframe-embeddable widgets (noindex, self-contained inline <style>, deliberately
+// no site.css so they don't leak the full site stylesheet into a third-party host page).
+const SITE_CSS_EXEMPT_PREFIX = "/tools/embed/";
+
 const errors = [];
 for (const file of walk(publicDir)) {
   const html = readFileSync(file, "utf8");
@@ -23,7 +27,7 @@ for (const file of walk(publicDir)) {
   if (html.includes("fonts.googleapis.com") || html.includes("fonts.gstatic.com")) {
     errors.push(`${rel}: still references Google Fonts`);
   }
-  if (!html.includes("site.css")) {
+  if (!html.includes("site.css") && !rel.startsWith(SITE_CSS_EXEMPT_PREFIX)) {
     errors.push(`${rel}: missing site.css link`);
   }
 }
