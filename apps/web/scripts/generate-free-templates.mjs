@@ -36732,20 +36732,49 @@ const DOCUMENT_SHARED_USE_CASES = [
   { title: "Anyone reviewing before signing", desc: "Using a clear starting structure to understand what a document should cover, even if a lawyer finalizes it." },
 ];
 
+/** Derives real, per-template facts straight from the document's own bodyMarkdown — section
+ *  headings and placeholder-field count — so the SEO intro and "what's included" list are
+ *  genuinely specific to each template instead of one shared sentence with the name swapped in. */
+function extractDocFacts(t) {
+  const md = t.bodyMarkdown || "";
+  const sections = [...md.matchAll(/^##\s+(.+)$/gm)].map((m) => m[1].trim()).filter(Boolean);
+  const placeholders = new Set(
+    [...md.matchAll(/\[([^\]\n]{1,60})\]/g)]
+      .map((m) => m[1].trim().toLowerCase())
+      .filter((p) => p.length > 1)
+  );
+  const hasSignatureBlock = /\bSigned:|\bSignature\b|Date:\s*_{3,}/i.test(md);
+  return { sections, placeholderCount: placeholders.size, hasSignatureBlock };
+}
+
 function buildDocumentSeoIntro(t) {
   const framing = DOCUMENT_CATEGORY_FRAMING[t.category] || DOCUMENT_CATEGORY_FRAMING.Business;
-  return `Drafting a ${t.name.toLowerCase()} from scratch is slow, and generic templates often miss the sections that actually matter. This free template is built for ${framing.audience} ${framing.problem}. It's structured with the standard sections a document like this needs, with clearly marked [placeholder] fields so you can fill in your own details quickly. Copy it into your own word processor, fill in the placeholders, and review it — or adapt it — before use. It's part of docstoc's free document template library, alongside business, legal, real estate, finance, and HR templates. Every template here is free to copy with no signup required, and each one carries a plain disclaimer: this is a starting point for informational purposes, not a substitute for advice from a licensed professional in your jurisdiction.`;
+  const { sections, placeholderCount } = extractDocFacts(t);
+  const sectionList = sections.length
+    ? sections.slice(0, 5).join(", ")
+    : "the standard sections this kind of document usually needs";
+  const placeholderNote = placeholderCount
+    ? ` with ${placeholderCount} clearly marked [placeholder] field${placeholderCount === 1 ? "" : "s"} to fill in`
+    : "";
+  return `This free ${t.name.toLowerCase()} covers ${sectionList}${placeholderNote} — built for ${framing.audience} ${framing.problem}. Copy it into your own word processor, fill in the placeholders, and review it — or adapt it — before use. It's part of docstoc's free document template library, alongside business, legal, real estate, finance, and HR templates. Every template here is free to copy with no signup required, and each one carries a plain disclaimer: this is a starting point for informational purposes, not a substitute for advice from a licensed professional in your jurisdiction.`;
 }
 
 function buildDocumentWhatsIncluded(t) {
-  return [
+  const { sections, placeholderCount, hasSignatureBlock } = extractDocFacts(t);
+  const items = [
     "Edit online — click the document, fill in placeholders, download a PDF",
-    "A complete document structure with all standard sections",
-    "Clearly marked [placeholder] fields for quick personalizing",
+    sections.length
+      ? `${sections.length} standard section${sections.length === 1 ? "" : "s"}: ${sections.slice(0, 6).join(", ")}${sections.length > 6 ? ", …" : ""}`
+      : "A complete document structure with all standard sections",
+    placeholderCount
+      ? `${placeholderCount} clearly marked [placeholder] field${placeholderCount === 1 ? "" : "s"} for quick personalizing`
+      : "Clearly marked [placeholder] fields for quick personalizing",
     "Free to use — no account or signup required",
     "Fully editable — adjust any clause to match your actual situation",
-    "Fixed docstoc.io footer on every PDF (not removable)",
   ];
+  if (hasSignatureBlock) items.push("Includes a signature block, ready to print or sign digitally");
+  items.push("Fixed docstoc.io footer on every PDF (not removable)");
+  return items;
 }
 
 function buildDocumentUseCases(t) {
@@ -36854,6 +36883,7 @@ for (const t of DOCUMENT_TEMPLATES) {
   // Minimal Markdown-to-HTML: headings, bold, tables, hr, and paragraphs — enough for these
   // templates' structure without adding a Markdown dependency to the build.
   const bodyHtml = markdownToHtml(t.bodyMarkdown);
+  const docFacts = extractDocFacts(t);
 
   const page = chrome({
     title: `${pageSeoTitle} | docstoc`,
@@ -36864,7 +36894,7 @@ for (const t of DOCUMENT_TEMPLATES) {
     extraHead: SEO_PRODUCTS_STRIP_STYLE,
     mainHtml: `<main class="wrap template-detail">
   <p class="crumb"><a href="/">Home</a> / <a href="/document-templates/">Document templates</a> / ${escapeHtml(t.name)}</p>
-  <div class="tpl-meta"><span>${escapeHtml(t.category)}</span></div>
+  <div class="tpl-meta"><span>${escapeHtml(t.category)}</span><span>${docFacts.sections.length} section${docFacts.sections.length === 1 ? "" : "s"}</span><span>${docFacts.placeholderCount} field${docFacts.placeholderCount === 1 ? "" : "s"} to fill</span></div>
   <h1>${escapeHtml(t.name)}</h1>
   <p class="lede">${escapeHtml(pageDescription)}</p>
   <div class="tpl-hero-cta">
