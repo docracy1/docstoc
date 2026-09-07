@@ -10,8 +10,8 @@ https://www.docstoc.io/*  https://docstoc.io/:splat  301
 /switch-to-chasa/  /switch-to-docstoc  301
 /use-cases/chasa-certificate-monitoring  /use-cases/docstoc-certificate-monitoring  301
 /use-cases/chasa-certificate-monitoring/  /use-cases/docstoc-certificate-monitoring  301
-/blog/ar-policy-that-works-with-chasa  /blog/ar-policy-that-works-with-docstoc  301
-/blog/ar-policy-that-works-with-chasa/  /blog/ar-policy-that-works-with-docstoc  301
+/blog/ar-policy-that-works-with-chasa  /blog/ar-policy-that-works-with-docstoc/  301
+/blog/ar-policy-that-works-with-chasa/  /blog/ar-policy-that-works-with-docstoc/  301
 # Compare pages: old chasa-vs-* URLs → docstoc-vs-* (product is docstoc)
 /chasa-vs-auditboard  /docstoc-vs-auditboard  301
 /chasa-vs-aws-security-hub  /docstoc-vs-aws-security-hub  301
