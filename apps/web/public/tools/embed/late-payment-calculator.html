@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Late Payment Interest Calculator — Free Embed | docstoc</title>
+<meta name="description" content="Free embeddable calculator for late payment interest and fees on overdue invoices.">
+<link rel="canonical" href="https://docstoc.io/tools/embed/late-payment-calculator">
+<meta name="robots" content="noindex, nofollow">
+<style>
+html, body { margin: 0; background: #0b0908; color: rgba(255,255,255,0.86); font-family: Inter, system-ui, sans-serif; }
+.embed-wrap { padding: 18px 18px 4px; box-sizing: border-box; }
+.tool-panel-grid { display: grid; gap: 16px; }
+.tool-panel, .tool-results {
+  border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.04); text-align: left; box-sizing: border-box;
+}
+.tool-results { background: color-mix(in srgb, #F58025 10%, transparent); }
+.tool-field { margin-bottom: 14px; }
+.tool-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: rgba(255,255,255,0.88); }
+.tool-field input, .tool-field select {
+  width: 100%; box-sizing: border-box; padding: 11px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px;
+  font: inherit; background: rgba(0,0,0,0.35); color: #fff;
+}
+.tool-field input[type="range"] { padding: 0; background: transparent; border: none; }
+.tool-stat { margin: 0 0 14px; }
+.tool-stat span { display: block; font-size: 12.5px; color: rgba(255,255,255,0.55); font-weight: 600; }
+.tool-stat strong { display: block; font-size: 24px; margin-top: 2px; font-weight: 800; color: #fff; }
+.tool-note { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px; line-height: 1.4; }
+.embed-foot {
+  margin: 4px 0 0; padding: 12px 18px 16px; text-align: center; font-size: 11.5px;
+  color: rgba(255,255,255,0.55); border-top: 1px solid rgba(255,255,255,0.1);
+}
+.embed-foot a { color: #F58025; font-weight: 700; text-decoration: none; }
+.embed-foot a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="embed-wrap">
+<div class="tool-panel-grid" data-calc="late-payment">
+      <div class="tool-panel">
+        <div class="tool-field">
+          <label for="lp-currency">Currency</label>
+          <select id="lp-currency" data-lp-currency>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+            <option value="CAD">CAD</option>
+          </select>
+        </div>
+        <div class="tool-field">
+          <label for="lp-amount">Invoice amount</label>
+          <input id="lp-amount" data-lp-amount type="number" min="0" step="0.01" value="2500" />
+        </div>
+        <div class="tool-field">
+          <label for="lp-overdue">Date payment became overdue</label>
+          <input id="lp-overdue" data-lp-overdue type="date" />
+        </div>
+        <div class="tool-field">
+          <label for="lp-paid">Date of payment (or today if still unpaid)</label>
+          <input id="lp-paid" data-lp-paid type="date" />
+        </div>
+        <div class="tool-field">
+          <label for="lp-rate">Annual interest rate (<span data-lp-rate-label>8.0%</span>)</label>
+          <input id="lp-rate" data-lp-rate type="range" min="0" max="30" step="0.1" value="8" />
+        </div>
+        <div class="tool-field">
+          <label for="lp-fee">Optional one-time late fee (% of invoice)</label>
+          <input id="lp-fee" data-lp-fee type="number" min="0" max="100" step="0.1" value="0" />
+        </div>
+      </div>
+      <div class="tool-results" aria-live="polite">
+        <p class="tool-stat"><span>Days overdue</span><strong data-lp-out-days>—</strong></p>
+        <p class="tool-stat"><span>Interest accrued</span><strong data-lp-out-interest>—</strong></p>
+        <p class="tool-stat"><span>Late fee</span><strong data-lp-out-fee>—</strong></p>
+        <p class="tool-stat"><span>Updated total due</span><strong data-lp-out-total>—</strong></p>
+        <p class="tool-note">Simple interest: amount × annual rate × (days ÷ 365). Not legal advice.</p>
+      </div>
+    </div>
+</div>
+<p class="embed-foot">Calculator by <a href="https://docstoc.io/tools/invoice-chase-calculator?utm_source=embed&utm_medium=widget&utm_campaign=late_payment_calc" target="_blank" rel="noopener noreferrer">docstoc.io</a> — free invoice chasing software</p>
+<script src="https://docstoc.io/tools-calc.js" defer></script>
+</body>
+</html>

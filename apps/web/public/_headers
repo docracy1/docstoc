@@ -10,6 +10,12 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.docstoc.io https://chasa.io https://www.chasa.io https://docstoc.io https://www.docstoc.io https://chasa-71s.pages.dev https://challenges.cloudflare.com https://www.clarity.ms https://scripts.clarity.ms https://c.clarity.ms https://b.clarity.ms https://i.clarity.ms https://y.clarity.ms https://r.clarity.ms https://c.bing.com; worker-src 'self' blob: https://www.clarity.ms https://scripts.clarity.ms; frame-src 'self' https://challenges.cloudflare.com; report-uri https://api.docstoc.io/api/csp-report
 
+# Embeddable widgets are meant to be iframed on third-party sites for backlink/attribution value.
+# Modern browsers use CSP frame-ancestors over the site-wide X-Frame-Options: DENY above when both
+# are present (CSP2 spec), so this override is enough to allow framing without weakening any other page.
+/tools/embed/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; frame-ancestors *; report-uri https://api.docstoc.io/api/csp-report
+
 /brand/*
   Cache-Control: public, max-age=31536000, immutable
 

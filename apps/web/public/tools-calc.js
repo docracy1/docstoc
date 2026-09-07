@@ -691,6 +691,23 @@
     }
   }
 
+  function bindEmbedCopy(btn) {
+    const targetSel = btn.getAttribute("data-copy-embed");
+    const target = targetSel && document.querySelector(targetSel);
+    if (!target) return;
+    btn.addEventListener("click", () => {
+      target.hidden = false;
+      const text = target.textContent || "";
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 1600);
+      });
+    });
+  }
+
   function safeBind(fn, el) {
     try {
       fn(el);
@@ -698,6 +715,7 @@
       console.error("[tools-calc]", err);
     }
   }
+  document.querySelectorAll("[data-copy-embed]").forEach((el) => safeBind(bindEmbedCopy, el));
   document.querySelectorAll("[data-calc='late-payment']").forEach((el) => safeBind(bindLatePayment, el));
   document.querySelectorAll("[data-calc='chase-savings']").forEach((el) => safeBind(bindSavings, el));
   document.querySelectorAll("[data-calc='ssl-expiry']").forEach((el) => safeBind(bindSslExpiry, el));
