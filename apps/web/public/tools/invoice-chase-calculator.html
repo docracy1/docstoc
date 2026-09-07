@@ -422,6 +422,18 @@ a.tool-circle {
   border: 1px solid rgba(255,255,255,0.18); border-radius: 10px;
   background: rgba(255,255,255,0.06); color: #fff; cursor: pointer;
 }
+.tool-embed-callout { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); }
+.tool-actions a {
+  font-size: 13px; font-weight: 700; padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 999px;
+  background: rgba(255,255,255,0.06); color: #fff; text-decoration: none;
+}
+.tool-actions a:hover { border-color: var(--accent); }
+.tool-embed-code {
+  display: block; margin-top: 10px; font-size: 12px; word-break: break-all; padding: 10px 12px;
+  background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: rgba(255,255,255,0.85);
+}
+.tool-embed-code[hidden] { display: none; }
 .hash-out { margin-top: 16px; text-align: left; }
 .hash-out-row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
 .hash-out-row code {
@@ -788,6 +800,14 @@ a.tool-circle {
         <p class="tool-stat"><span>Updated total due</span><strong data-lp-out-total>—</strong></p>
         <p class="tool-note">Simple interest: amount × annual rate × (days ÷ 365). Not legal advice.</p>
       </div>
+    </div>
+    <div class="tool-embed-callout">
+      <p class="tool-note" style="margin:0 0 8px">Got a blog or client-facing site? Embed this calculator directly — readers use it, you get credit.</p>
+      <div class="tool-actions">
+        <button type="button" data-copy-embed="#lp-embed-code">Copy embed code</button>
+        <a href="https://docstoc.io/tools/embed/late-payment-calculator" target="_blank" rel="noopener noreferrer">Preview embed →</a>
+      </div>
+      <code id="lp-embed-code" class="tool-embed-code" hidden>&lt;iframe src="https://docstoc.io/tools/embed/late-payment-calculator" width="100%" height="560" style="border:0;max-width:480px" loading="lazy" title="Late Payment Interest Calculator by docstoc.io"&gt;&lt;/iframe&gt;</code>
     </div>
 
     <h2 style="margin-top:40px">Cash unlocked by chasing consistently</h2>
