@@ -445,6 +445,7 @@ ${mainHtml}
     <div class="site-footer-col">
       <h4 data-i18n="footer.company">Company</h4>
       <a href="${link("/about")}" data-i18n="footer.about">About</a>
+      <a href="${link("/docstoc-alternative")}">Docstoc history</a>
       <a href="${link("/press")}" data-i18n="footer.press">Press</a>
       <a href="${link("/imprint")}" data-i18n="footer.imprint">Imprint</a>
       <!--email_off--><a href="mailto:founder@docstoc.io" data-i18n="footer.contact">Contact</a><!--/email_off-->
