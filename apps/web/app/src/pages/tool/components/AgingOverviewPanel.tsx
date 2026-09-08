@@ -23,6 +23,10 @@ interface AgingOverviewPanelProps {
   onMultiDraftChange: (draft: { subject: string; body: string }) => void;
   onOpenMultiMail: () => void;
   onDraftError: (message: string) => void;
+  onDeleteRow: (id: string) => void;
+  onAddToCalendar?: (id: string) => void;
+  calendarBusyId?: string | null;
+  calendarNote?: { id: string; message: string; error: boolean } | null;
 }
 
 export function AgingOverviewPanel({
@@ -43,6 +47,10 @@ export function AgingOverviewPanel({
   onMultiDraftChange,
   onOpenMultiMail,
   onDraftError,
+  onDeleteRow,
+  onAddToCalendar,
+  calendarBusyId,
+  calendarNote,
 }: AgingOverviewPanelProps) {
   const t = useT();
   const anySelectedGenerating = invoices.some(
@@ -95,6 +103,8 @@ export function AgingOverviewPanel({
               <th>{t("aging.amount")}</th>
               <th>{t("aging.days")}</th>
               <th>{t("aging.lastChase")}</th>
+              <th />
+              <th />
               <th />
             </tr>
           </thead>
@@ -159,6 +169,31 @@ export function AgingOverviewPanel({
                           : t("aging.generate")}
                     </button>
                   </td>
+                  <td>
+                    {onAddToCalendar && (
+                      <button
+                        type="button"
+                        className="invoice-icon-btn"
+                        title={t("aging.addToCalendar")}
+                        aria-label={`Add ${inv.clientName} to Google Calendar`}
+                        disabled={calendarBusyId === inv.id}
+                        onClick={() => onAddToCalendar(inv.id)}
+                      >
+                        {calendarBusyId === inv.id ? "…" : "📅"}
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="invoice-icon-btn"
+                      title={t("aging.deleteRow")}
+                      aria-label={`Delete ${inv.clientName}`}
+                      onClick={() => onDeleteRow(inv.id)}
+                    >
+                      ×
+                    </button>
+                  </td>
                 </tr>
               );
             })}
@@ -166,6 +201,11 @@ export function AgingOverviewPanel({
         </table>
       </div>
       {multiError && <div className="error-msg">{multiError}</div>}
+      {calendarNote && (
+        <div className={calendarNote.error ? "error-msg" : "success-msg"}>
+          {calendarNote.message}
+        </div>
+      )}
       {multiDraft && selectedCount >= 2 && (
         <div className="multi-draft-box">
           <div className="ai-tools-label">{t("aging.multiTitle", { count: selectedCount })}</div>

@@ -349,6 +349,11 @@ const es: Messages = {
   "aging.generate": "Generar seguimiento",
   "aging.multiTitle": "Borrador multi-factura ({{count}} facturas)",
   "aging.openMail": "Abrir en el cliente de correo",
+  "aging.deleteRow": "Eliminar fila",
+  "aging.deleteConfirm": "¿Eliminar “{{name}}” de la lista de antigüedad? Esto no se puede deshacer.",
+  "aging.addToCalendar": "Agregar a Google Calendar",
+  "aging.calendarSummary": "Recordatorio de seguimiento: {{name}}",
+  "aging.calendarDescription": "Dar seguimiento a la factura de {{amount}}.",
 
   "usage.bar": "{{used}}/{{limit}} borradores gratis usados este mes",
   "usage.lastOne": " · el último gratis",
