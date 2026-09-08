@@ -14,6 +14,7 @@ import { SESSION_COOKIE_NAME } from "../lib/auth";
 import { getFunnelStats, getOutreachStats, getTrafficSources, getTrafficStats, getD1DailyCounts, NOTRACK_COOKIE_NAME, noTrackCookieOptions } from "../lib/analytics";
 import { queryAeDailyCounts, buildParityRows } from "../lib/analyticsQuery";
 import { createRoadmapFeature, deleteRoadmapFeature, listRoadmapFeatures } from "../lib/roadmap";
+import { deleteAccountByEmail } from "../lib/accountDeletion";
 import { getCachedClaritySnapshot, refreshClaritySnapshot } from "../lib/clarityApi";
 import { getCloudflareTrafficStats } from "../lib/cloudflareAnalytics";
 import { listPending, reviewSubmission } from "../lib/marketplaceTemplates";
@@ -27,6 +28,7 @@ import {
   adminBlogPatchSchema,
   adminBlogPostSchema,
   adminBroadcastSchema,
+  adminDeleteAccountSchema,
   adminGrantBusinessSchema,
   adminLoginSchema,
   parseJsonBody,
@@ -236,6 +238,22 @@ admin.post("/grant-business", requireAdmin, async (c) => {
   }
 
   return c.json({ ok: true, email, plan: "business" });
+});
+
+/** Permanently deletes an account and every row tied to it (documents, certificates, invoices,
+ *  SSL domains, sessions — see deleteAccountByEmail for the full, deliberately-explicit list).
+ *  No undo. `confirmEmail` must match `email` exactly — a lightweight guard against a stray
+ *  click, not a security boundary (requireAdmin already gates this route). */
+admin.post("/delete-account", requireAdmin, async (c) => {
+  const parsed = await parseJsonBody(c.req, adminDeleteAccountSchema);
+  if (!parsed.ok) return c.json({ error: parsed.error }, 400);
+  const { email, confirmEmail } = parsed.data;
+  if (email.trim().toLowerCase() !== confirmEmail.trim().toLowerCase()) {
+    return c.json({ error: "Email confirmation did not match" }, 400);
+  }
+  const result = await deleteAccountByEmail(c.env, email);
+  if (!result.ok) return c.json({ error: result.error }, 404);
+  return c.json({ ok: true, email: result.email });
 });
 
 admin.get("/blog", requireAdmin, async (c) => {

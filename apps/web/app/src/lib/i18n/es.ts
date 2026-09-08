@@ -1033,6 +1033,11 @@ const es: Messages = {
   "admin.grantFailed": "Error al otorgar",
   "admin.noBusiness": "Aún no hay cuentas Business otorgadas manualmente.",
   "admin.entEmailPlaceholder": "cliente@ejemplo.com",
+  "admin.deleteAccount": "Eliminar",
+  "admin.deleteAccountConfirm":
+    "Esto elimina permanentemente {{email}} y todo lo asociado — documentos, certificados, facturas, dominios SSL, sesiones. No se puede deshacer.\n\nEscribe el correo para confirmar:",
+  "admin.deleteAccountMismatch": "El correo no coincide — no se eliminó nada.",
+  "admin.deleteAccountFailed": "Error al eliminar",
   "admin.activationFunnel": "Embudo de activación",
   "admin.growthFunnel": "Embudo de ingresos",
   "admin.growthNote":

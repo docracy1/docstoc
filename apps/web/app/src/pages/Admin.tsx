@@ -6,6 +6,7 @@ import {
   adminBlogPublishNext,
   adminBlogUpdate,
   adminBroadcast,
+  adminDeleteAccount,
   adminFunnels,
   adminGrantBusiness,
   adminMarketplaceApprove,
@@ -747,6 +748,24 @@ export default function Admin() {
     }
   }
 
+  async function removeAccount(email: string) {
+    const typed = window.prompt(t("admin.deleteAccountConfirm", { email }));
+    if (typed === null) return; // cancelled
+    if (typed.trim().toLowerCase() !== email.trim().toLowerCase()) {
+      if (typed.trim() !== "") window.alert(t("admin.deleteAccountMismatch"));
+      return;
+    }
+    setBusy(true);
+    try {
+      await adminDeleteAccount(email);
+      setSignups(await adminSignups());
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t("admin.deleteAccountFailed"));
+    } finally {
+      setBusy(false);
+    }
+  }
+
   if (loading || !authedEmail) {
     return (
       <div className="dash-shell admin-analytics-page">
@@ -1480,6 +1499,14 @@ export default function Admin() {
                         <li key={a.email}>
                           <span>{a.email}</span>
                           <span>{fmtDate(a.createdAt)}</span>
+                          <button
+                            type="button"
+                            className="btn-secondary dash-signup-delete"
+                            disabled={busy}
+                            onClick={() => removeAccount(a.email)}
+                          >
+                            {t("admin.deleteAccount")}
+                          </button>
                         </li>
                       ))}
                     </ul>
@@ -1493,6 +1520,14 @@ export default function Admin() {
                             {a.email} · {a.plan}
                           </span>
                           <span>{fmtDate(a.createdAt)}</span>
+                          <button
+                            type="button"
+                            className="btn-secondary dash-signup-delete"
+                            disabled={busy}
+                            onClick={() => removeAccount(a.email)}
+                          >
+                            {t("admin.deleteAccount")}
+                          </button>
                         </li>
                       ))}
                     </ul>
@@ -1522,6 +1557,14 @@ export default function Admin() {
                       <li key={a.email}>
                         <strong>{a.email}</strong>
                         <span>{fmtDate(a.createdAt)}</span>
+                        <button
+                          type="button"
+                          className="btn-secondary dash-signup-delete"
+                          disabled={busy}
+                          onClick={() => removeAccount(a.email)}
+                        >
+                          {t("admin.deleteAccount")}
+                        </button>
                       </li>
                     ))}
                   </ul>

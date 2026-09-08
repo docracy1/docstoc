@@ -222,6 +222,14 @@ export function adminGrantBusiness(email: string) {
   });
 }
 
+/** Permanently deletes an account and everything tied to it. No undo. */
+export function adminDeleteAccount(email: string) {
+  return adminFetch<{ ok: true; email: string }>("/delete-account", {
+    method: "POST",
+    body: JSON.stringify({ email, confirmEmail: email }),
+  });
+}
+
 export function adminBlogList() {
   return adminFetch<{ posts: BlogPost[] }>("/blog");
 }
