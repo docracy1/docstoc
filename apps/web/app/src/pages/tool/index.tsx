@@ -1640,11 +1640,16 @@ export default function Tool({ account }: { account: Account | null }) {
     setCalendarNote(null);
     setCalendarBusyId(invoiceId);
     try {
+      // Invoices in this table are already overdue, so their dueDate is in the past —
+      // the reminder should land today, not re-notify about a date that already passed.
+      const now = new Date();
+      const reminderDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
       const result = await syncReminderToGoogleCalendar({
-        date: invoice.dueDate,
+        date: reminderDate,
         summary: t("aging.calendarSummary", { name: invoice.clientName }),
         description: t("aging.calendarDescription", {
           amount: `$${invoice.amount.toFixed(2)}`,
+          days: daysOverdue(invoice.dueDate),
         }),
         clientName: invoice.clientName,
       });
