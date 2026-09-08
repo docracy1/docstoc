@@ -112,6 +112,12 @@ export default function Tool({ account }: { account: Account | null }) {
   const [multiDraft, setMultiDraft] = useState<{ subject: string; body: string } | null>(null);
   const [multiBusy, setMultiBusy] = useState(false);
   const [multiError, setMultiError] = useState<string | null>(null);
+  const [calendarBusyId, setCalendarBusyId] = useState<string | null>(null);
+  const [calendarNote, setCalendarNote] = useState<{
+    id: string;
+    message: string;
+    error: boolean;
+  } | null>(null);
   const [usedCount, setUsedCount] = useState(getUsedCount());
   const [pendingImport, setPendingImport] = useState<PendingCloudImport | null>(null);
   const [importClient, setImportClient] = useState("");
@@ -1614,6 +1620,52 @@ export default function Tool({ account }: { account: Account | null }) {
     setMultiDraft(null);
   }
 
+  function handleDeleteRow(invoiceId: string) {
+    const invoice = invoices.find((inv) => inv.id === invoiceId);
+    if (!invoice) return;
+    if (!confirm(t("aging.deleteConfirm", { name: invoice.clientName }))) return;
+    setInvoices((prev) => prev.filter((inv) => inv.id !== invoiceId));
+    setSelectedIds((prev) => {
+      if (!prev.has(invoiceId)) return prev;
+      const next = new Set(prev);
+      next.delete(invoiceId);
+      return next;
+    });
+    if (calendarNote?.id === invoiceId) setCalendarNote(null);
+  }
+
+  async function handleAddToCalendar(invoiceId: string) {
+    const invoice = invoices.find((inv) => inv.id === invoiceId);
+    if (!invoice) return;
+    setCalendarNote(null);
+    setCalendarBusyId(invoiceId);
+    try {
+      const result = await syncReminderToGoogleCalendar({
+        date: invoice.dueDate,
+        summary: t("aging.calendarSummary", { name: invoice.clientName }),
+        description: t("aging.calendarDescription", {
+          amount: `$${invoice.amount.toFixed(2)}`,
+        }),
+        clientName: invoice.clientName,
+      });
+      setCalendarNote({
+        id: invoiceId,
+        message: result.htmlLink
+          ? t("tool.calendarAddedWithLink", { link: result.htmlLink })
+          : t("tool.calendarAdded"),
+        error: false,
+      });
+    } catch (err) {
+      setCalendarNote({
+        id: invoiceId,
+        message: err instanceof Error ? err.message : t("tool.calendarFailed"),
+        error: true,
+      });
+    } finally {
+      setCalendarBusyId(null);
+    }
+  }
+
   function handleClientReplyChange(invoiceId: string, value: string) {
     setInvoices((prev) =>
       prev.map((inv) => (inv.id === invoiceId ? { ...inv, clientReply: value } : inv))
@@ -1731,6 +1783,10 @@ export default function Tool({ account }: { account: Account | null }) {
               onMultiDraftChange={setMultiDraft}
               onOpenMultiMail={handleMultiMailtoClick}
               onDraftError={setMultiError}
+              onDeleteRow={handleDeleteRow}
+              onAddToCalendar={isPaid ? handleAddToCalendar : undefined}
+              calendarBusyId={calendarBusyId}
+              calendarNote={calendarNote}
             />
           )}
 
