@@ -353,7 +353,7 @@ const es: Messages = {
   "aging.deleteConfirm": "¿Eliminar “{{name}}” de la lista de antigüedad? Esto no se puede deshacer.",
   "aging.addToCalendar": "Agregar a Google Calendar",
   "aging.calendarSummary": "Recordatorio de seguimiento: {{name}}",
-  "aging.calendarDescription": "Dar seguimiento a la factura de {{amount}}.",
+  "aging.calendarDescription": "Dar seguimiento a la factura de {{amount}}, {{days}} días de atraso.",
 
   "usage.bar": "{{used}}/{{limit}} borradores gratis usados este mes",
   "usage.lastOne": " · el último gratis",
