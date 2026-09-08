@@ -494,6 +494,32 @@ function latePaymentPanelHtml() {
     </div>`;
 }
 
+/** The SSL certificate expiry calculator panel — shared between the full /tools page and the standalone embed. */
+function sslExpiryPanelHtml() {
+  return `<div class="tool-panel-grid" data-calc="ssl-expiry">
+      <div class="tool-panel">
+        <div class="tool-field">
+          <label for="ssl-issued">Date the certificate was issued</label>
+          <input id="ssl-issued" data-ssl-issued type="date" />
+        </div>
+        <div class="tool-field">
+          <label for="ssl-validity">Validity period (days)</label>
+          <select id="ssl-validity" data-ssl-validity>
+            <option value="90">90 days — Let's Encrypt (default)</option>
+            <option value="398">398 days — max allowed by browsers today</option>
+            <option value="365">365 days — 1 year</option>
+          </select>
+          <p class="tool-hint">docstoc issues 90-day Let's Encrypt certificates and reminds you before renewal is due.</p>
+        </div>
+      </div>
+      <div class="tool-results" aria-live="polite">
+        <p class="tool-stat"><span>Expiry date</span><strong data-ssl-out-expiry>—</strong></p>
+        <p class="tool-stat"><span>Days remaining</span><strong data-ssl-out-remaining-panel>—</strong></p>
+        <p class="tool-note">Renew with margin — DNS propagation and validation can take time.</p>
+      </div>
+    </div>`;
+}
+
 function faqJsonLd(faqs) {
   return JSON.stringify(
     {
@@ -873,27 +899,14 @@ ${hero({
   <div class="tool-section-inner">
     ${hashResultBlock("")}
     <h2>Calculate expiry</h2>
-    <div class="tool-panel-grid" data-calc="ssl-expiry">
-      <div class="tool-panel">
-        <div class="tool-field">
-          <label for="ssl-issued">Date the certificate was issued</label>
-          <input id="ssl-issued" data-ssl-issued type="date" />
-        </div>
-        <div class="tool-field">
-          <label for="ssl-validity">Validity period (days)</label>
-          <select id="ssl-validity" data-ssl-validity>
-            <option value="90">90 days — Let's Encrypt (default)</option>
-            <option value="398">398 days — max allowed by browsers today</option>
-            <option value="365">365 days — 1 year</option>
-          </select>
-          <p class="tool-hint">docstoc issues 90-day Let's Encrypt certificates and reminds you before renewal is due.</p>
-        </div>
+    ${sslExpiryPanelHtml()}
+    <div class="tool-embed-callout">
+      <p class="tool-note" style="margin:0 0 8px">Got a blog or client-facing site? Embed this calculator directly — readers use it, you get credit.</p>
+      <div class="tool-actions">
+        <button type="button" data-copy-embed="#ssl-embed-code">Copy embed code</button>
+        <a href="${EMBED_SITE_URL}/tools/embed/ssl-certificate-calculator" target="_blank" rel="noopener noreferrer">Preview embed →</a>
       </div>
-      <div class="tool-results" aria-live="polite">
-        <p class="tool-stat"><span>Expiry date</span><strong data-ssl-out-expiry>—</strong></p>
-        <p class="tool-stat"><span>Days remaining</span><strong data-ssl-out-remaining-panel>—</strong></p>
-        <p class="tool-note">Renew with margin — DNS propagation and validation can take time.</p>
-      </div>
+      <code id="ssl-embed-code" class="tool-embed-code" hidden>&lt;iframe src="${EMBED_SITE_URL}/tools/embed/ssl-certificate-calculator" width="100%" height="360" style="border:0;max-width:480px" loading="lazy" title="SSL Certificate Expiry Calculator by docstoc.io"&gt;&lt;/iframe&gt;</code>
     </div>
     <h3>Why this matters</h3>
     <p>An expired SSL/TLS certificate shows visitors a security warning and can block access. Automated renewal reminders exist because manually tracking expiry across every domain doesn't scale.</p>
@@ -1307,7 +1320,7 @@ html, body { margin: 0; background: #0b0908; color: rgba(255,255,255,0.86); font
 .embed-foot a:hover { text-decoration: underline; }
 </style>`;
 
-function embedPageHtml({ title, description, bodyHtml, canonical }) {
+function embedPageHtml({ title, description, bodyHtml, canonical, sourcePage, campaign, footerLabel = "Calculator" }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -1323,7 +1336,7 @@ ${EMBED_STYLE}
 <div class="embed-wrap">
 ${bodyHtml}
 </div>
-<p class="embed-foot">Calculator by <a href="${EMBED_SITE_URL}/tools/invoice-chase-calculator?utm_source=embed&utm_medium=widget&utm_campaign=late_payment_calc" target="_blank" rel="noopener noreferrer">docstoc.io</a> — free invoice chasing software</p>
+<p class="embed-foot">${footerLabel} by <a href="${EMBED_SITE_URL}${sourcePage}?utm_source=embed&utm_medium=widget&utm_campaign=${campaign}" target="_blank" rel="noopener noreferrer">docstoc.io</a> — free invoice chasing software</p>
 <script src="${EMBED_SITE_URL}/tools-calc.js" defer></script>
 </body>
 </html>`;
@@ -1336,6 +1349,18 @@ const embedPages = [
     description: "Free embeddable calculator for late payment interest and fees on overdue invoices.",
     canonical: `${EMBED_SITE_URL}/tools/embed/late-payment-calculator`,
     bodyHtml: latePaymentPanelHtml(),
+    sourcePage: "/tools/invoice-chase-calculator",
+    campaign: "late_payment_calc",
+  },
+  {
+    file: "ssl-certificate-calculator.html",
+    title: "SSL Certificate Expiry Calculator — Free Embed | docstoc",
+    description: "Free embeddable calculator for SSL/TLS certificate expiry dates and days remaining.",
+    canonical: `${EMBED_SITE_URL}/tools/embed/ssl-certificate-calculator`,
+    bodyHtml: sslExpiryPanelHtml(),
+    sourcePage: "/tools/ssl-certificate-calculator",
+    campaign: "ssl_expiry_calc",
+    footerLabel: "SSL expiry calculator",
   },
 ];
 
