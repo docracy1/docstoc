@@ -19,6 +19,8 @@ interface InvoiceIntakePanelProps {
   onCsvUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onOpenPdfPicker: () => void;
   onOpenGooglePicker?: () => void;
+  driveBusy?: boolean;
+  driveError?: string | null;
   onSheetImport?: () => void;
   onSheetExport?: () => void;
   sheetId?: string;
@@ -47,6 +49,8 @@ export function InvoiceIntakePanel({
   onCsvUpload,
   onOpenPdfPicker,
   onOpenGooglePicker,
+  driveBusy = false,
+  driveError = null,
   onSheetImport,
   onSheetExport,
   sheetId = "",
@@ -128,11 +132,13 @@ export function InvoiceIntakePanel({
           type="button"
           className="btn-secondary"
           style={{ marginLeft: 8 }}
+          disabled={driveBusy}
           onClick={() => void onOpenGooglePicker()}
         >
-          {t("intake.openDrive")}
+          {driveBusy ? t("common.loading") : t("intake.openDrive")}
         </button>
       )}
+      {driveError && <div className="error-msg">{driveError}</div>}
       {isPaid && (
         <div style={{ marginTop: 12 }}>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>

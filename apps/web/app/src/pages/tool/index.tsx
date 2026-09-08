@@ -129,6 +129,8 @@ export default function Tool({ account }: { account: Account | null }) {
   const [pdfFiles, setPdfFiles] = useState<CloudFile[]>([]);
   const [pdfBusy, setPdfBusy] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
+  const [driveBusy, setDriveBusy] = useState(false);
+  const [driveError, setDriveError] = useState<string | null>(null);
   const [dueTodayReminders, setDueTodayReminders] = useState<ChaseReminder[]>([]);
   const [openStatsMap, setOpenStatsMap] = useState<
     Record<string, { openCount: number; clickCount: number; lastOpenAt: string | null }>
@@ -1059,16 +1061,21 @@ export default function Tool({ account }: { account: Account | null }) {
 
   async function handleOpenGooglePicker() {
     if (!isPaid) return;
+    // The picker itself opens in a Google-hosted popup/iframe, so the only feedback we can show
+    // inline is an error. `pdfError` used to only render inside the (closed) PdfPickerPanel, so a
+    // script-load or auth failure here set the state with nothing on screen to show it — surface
+    // it directly under the buttons instead via `driveError`.
+    setDriveError(null);
     openGoogleDrivePicker(
       async (file) => {
-        setPdfBusy(true);
-        setPdfError(null);
+        setDriveBusy(true);
+        setDriveError(null);
         try {
           // Import via connected Google connector when available; otherwise ask to connect.
           const connectors = await listCloudConnectors();
           const google = connectors.connectors.find((c) => c.provider === "google" && c.connected);
           if (!google) {
-            setPdfError(t("tool.connectGoogleFirst"));
+            setDriveError(t("tool.connectGoogleFirst"));
             return;
           }
           const result = await importCloudConnectorFile("google", { id: file.id, path: null });
@@ -1083,12 +1090,12 @@ export default function Tool({ account }: { account: Account | null }) {
           );
           setImportDue(result.hints.dueDate ?? "");
         } catch (err) {
-          setPdfError(err instanceof Error ? err.message : t("tool.driveFailed"));
+          setDriveError(err instanceof Error ? err.message : t("tool.driveFailed"));
         } finally {
-          setPdfBusy(false);
+          setDriveBusy(false);
         }
       },
-      (message) => setPdfError(message)
+      (message) => setDriveError(message)
     );
   }
 
@@ -1828,6 +1835,8 @@ export default function Tool({ account }: { account: Account | null }) {
             onCsvUpload={handleCsvUpload}
             onOpenPdfPicker={openPdfPicker}
             onOpenGooglePicker={handleOpenGooglePicker}
+            driveBusy={driveBusy}
+            driveError={driveError}
             onSheetImport={handleSheetImport}
             onSheetExport={handleSheetExport}
             sheetId={sheetId}
