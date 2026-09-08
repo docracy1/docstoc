@@ -349,7 +349,7 @@ const en: Messages = {
   "aging.deleteConfirm": "Delete “{{name}}” from the aging list? This can't be undone.",
   "aging.addToCalendar": "Add to Google Calendar",
   "aging.calendarSummary": "Chase reminder: {{name}}",
-  "aging.calendarDescription": "Follow up on the {{amount}} invoice.",
+  "aging.calendarDescription": "Follow up on the {{amount}} invoice, {{days}} days overdue.",
 
   "usage.bar": "{{used}}/{{limit}} free drafts used this month",
   "usage.lastOne": " · last free one",
