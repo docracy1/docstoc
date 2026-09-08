@@ -1019,6 +1019,11 @@ const en: Messages = {
   "admin.grantFailed": "Grant failed",
   "admin.noBusiness": "No manually-granted business accounts yet.",
   "admin.entEmailPlaceholder": "customer@example.com",
+  "admin.deleteAccount": "Delete",
+  "admin.deleteAccountConfirm":
+    "This permanently deletes {{email}} and everything tied to it — documents, certificates, invoices, SSL domains, sessions. This cannot be undone.\n\nType the email address to confirm:",
+  "admin.deleteAccountMismatch": "Email didn't match — nothing was deleted.",
+  "admin.deleteAccountFailed": "Delete failed",
   "admin.activationFunnel": "Activation funnel",
   "admin.growthFunnel": "Revenue funnel",
   "admin.growthNote":

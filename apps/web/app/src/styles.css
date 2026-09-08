@@ -2656,12 +2656,21 @@ textarea {
 .dash-signup-cols ul { list-style: none; padding: 0; margin: 0; }
 .dash-signup-cols li {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: 8px 0;
   border-bottom: 1px solid var(--line);
   font-size: 13px;
 }
+.dash-signup-delete {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  font-size: 12px;
+  color: var(--danger, #b42318);
+  border-color: var(--danger, #b42318);
+}
+.dash-signup-delete:hover { background: var(--danger, #b42318); color: #fff; }
 @media (max-width: 960px) {
   .dash-stat-row-4, .dash-grid-3, .dash-signup-cols { grid-template-columns: 1fr; }
 }

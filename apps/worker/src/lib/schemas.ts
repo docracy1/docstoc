@@ -445,6 +445,13 @@ export const adminGrantBusinessSchema = z.object({
   email: z.string().trim().email().max(254),
 });
 
+export const adminDeleteAccountSchema = z.object({
+  email: z.string().trim().email().max(254),
+  // Must exactly match the account's email — a lightweight "type to confirm" guard against a
+  // stray click on an irreversible, cascading delete.
+  confirmEmail: z.string().trim().email().max(254),
+});
+
 export const adminBlogPostSchema = z.object({
   title: z.string().trim().min(1).max(200),
   slug: z.string().trim().max(100).optional(),
