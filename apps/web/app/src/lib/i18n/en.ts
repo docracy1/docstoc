@@ -345,6 +345,11 @@ const en: Messages = {
   "aging.generate": "Generate chase",
   "aging.multiTitle": "Multi-invoice draft ({{count}} invoices)",
   "aging.openMail": "Open in email client",
+  "aging.deleteRow": "Delete row",
+  "aging.deleteConfirm": "Delete “{{name}}” from the aging list? This can't be undone.",
+  "aging.addToCalendar": "Add to Google Calendar",
+  "aging.calendarSummary": "Chase reminder: {{name}}",
+  "aging.calendarDescription": "Follow up on the {{amount}} invoice.",
 
   "usage.bar": "{{used}}/{{limit}} free drafts used this month",
   "usage.lastOne": " · last free one",
