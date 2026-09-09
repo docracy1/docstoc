@@ -1,15 +1,18 @@
 import { Hono } from "hono";
 import { requirePaidAccount, requireProAccount, type AuthEnv } from "../lib/auth";
-import { recordChaseEvent, listChaseEvents } from "../lib/chaseEvents";
+import { recordChaseEvent, listChaseEvents, type ChaseActor } from "../lib/chaseEvents";
 import { recordClientPaymentOutcome } from "../lib/clientRisk";
 import { generateEvidencePackHtml } from "../lib/evidencePack";
 import { trackEvent } from "../lib/analytics";
+import { requestAppOrigin } from "../lib/appUrl";
+import { createInvoice, isSuccessfulPaymentStatus, verifyIpn } from "../lib/billingProviders/nowpayments";
 import {
   agingChaseSchema,
   agingMarkPaidSchema,
   agingSyncSchema,
   parseJsonBody,
 } from "../lib/schemas";
+import type { Env } from "../types";
 
 const aging = new Hono<AuthEnv>();
 
@@ -23,6 +26,8 @@ type AgingRow = {
   paid_at: string | null;
   last_chase_status: string | null;
   last_chase_at: string | null;
+  payment_method: string | null;
+  payment_url: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -38,9 +43,77 @@ function mapRow(row: AgingRow) {
     paidAt: row.paid_at,
     lastChaseStatus: row.last_chase_status,
     lastChaseAt: row.last_chase_at,
+    paymentMethod: row.payment_method,
+    paymentUrl: row.payment_url,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
+}
+
+/**
+ * Shared "this invoice is now paid" side effects — used by both the manual mark-paid route
+ * (sender clicks a button) and the NOWPayments IPN webhook (payer's crypto payment confirms).
+ * Records the chase event, tracks analytics, updates client risk, and skips remaining reminders.
+ * Returns null if the invoice doesn't exist or is already paid (idempotent — a webhook can retry).
+ */
+async function markAgingInvoicePaid(
+  env: Env,
+  ctx: { waitUntil(promise: Promise<unknown>): void },
+  accountId: string,
+  id: string,
+  opts: { note?: string | null; actor?: ChaseActor | null } = {}
+): Promise<{ paidAt: string; daysLate: number } | null> {
+  const row = await env.CHASA_DB.prepare(
+    `SELECT client_id, client_name, due_date, status FROM aging_invoices WHERE id = ? AND account_id = ?`
+  )
+    .bind(id, accountId)
+    .first<{ client_id: string | null; client_name: string; due_date: string; status: string }>();
+
+  if (!row || row.status === "paid") return null;
+
+  const now = new Date().toISOString();
+  const daysLate = daysBetweenDueAndToday(row.due_date);
+
+  await env.CHASA_DB.prepare(
+    `UPDATE aging_invoices SET status = 'paid', paid_at = ?, updated_at = ?, last_chase_status = 'paid'
+     WHERE id = ? AND account_id = ?`
+  )
+    .bind(now, now, id, accountId)
+    .run();
+
+  await recordChaseEvent(env, accountId, {
+    agingInvoiceId: id,
+    clientName: row.client_name,
+    eventType: "marked_paid",
+    channel: "system",
+    metadata: { note: opts.note ?? null, daysLate },
+    actor: opts.actor ?? null,
+  });
+
+  ctx.waitUntil(
+    trackEvent(env, {
+      name: "chase_completed",
+      accountId,
+      path: "/api/aging/mark-paid",
+    }).catch(() => {})
+  );
+
+  if (row.client_id) {
+    await recordClientPaymentOutcome(env, accountId, row.client_id, {
+      daysLate,
+      markedPaid: true,
+    });
+  }
+
+  // Skip remaining planned reminders for this invoice
+  await env.CHASA_DB.prepare(
+    `UPDATE chase_reminders SET status = 'skipped', updated_at = ?
+     WHERE account_id = ? AND aging_invoice_id = ? AND status = 'planned'`
+  )
+    .bind(now, accountId, id)
+    .run();
+
+  return { paidAt: now, daysLate };
 }
 
 async function resolveClientIds(
@@ -93,7 +166,8 @@ aging.get("/", requirePaidAccount, async (c) => {
   const acc = c.get("account")!;
   const status = c.req.query("status");
   let sql = `SELECT id, client_id, client_name, amount, due_date, status, paid_at,
-                    last_chase_status, last_chase_at, created_at, updated_at
+                    last_chase_status, last_chase_at, payment_method, payment_url,
+                    created_at, updated_at
              FROM aging_invoices WHERE account_id = ?`;
   const binds: unknown[] = [acc.workspaceId];
   if (status === "open" || status === "paid") {
@@ -180,6 +254,11 @@ aging.put("/sync", requirePaidAccount, async (c) => {
         paid_at: paidAt,
         last_chase_status: chaseStatus,
         last_chase_at: chaseAt,
+        // Sync never touches these — the DB's ON CONFLICT clause leaves them alone too — so an
+        // existing row's crypto invoice (if any) is momentarily not reflected in this response;
+        // it's correct again on the next list fetch.
+        payment_method: null,
+        payment_url: null,
         created_at: now,
         updated_at: now,
       })
@@ -279,57 +358,74 @@ aging.post("/:id/mark-paid", requirePaidAccount, async (c) => {
   const parsed = await parseJsonBody(c.req, agingMarkPaidSchema);
   if (!parsed.ok) return c.json({ error: parsed.error }, 400);
 
-  const row = await c.env.CHASA_DB.prepare(
-    `SELECT client_id, client_name, due_date FROM aging_invoices WHERE id = ? AND account_id = ?`
-  )
-    .bind(id, acc.workspaceId)
-    .first<{ client_id: string | null; client_name: string; due_date: string }>();
-
-  if (!row) return c.json({ error: "Invoice not found" }, 404);
-
-  const now = new Date().toISOString();
-  const daysLate = daysBetweenDueAndToday(row.due_date);
-
-  await c.env.CHASA_DB.prepare(
-    `UPDATE aging_invoices SET status = 'paid', paid_at = ?, updated_at = ?, last_chase_status = 'paid'
-     WHERE id = ? AND account_id = ?`
-  )
-    .bind(now, now, id, acc.workspaceId)
-    .run();
-
-  await recordChaseEvent(c.env, acc.workspaceId, {
-    agingInvoiceId: id,
-    clientName: row.client_name,
-    eventType: "marked_paid",
-    channel: "system",
-    metadata: { note: parsed.data.note ?? null, daysLate },
+  const result = await markAgingInvoicePaid(c.env, c.executionCtx, acc.workspaceId, id, {
+    note: parsed.data.note ?? null,
     actor: { accountId: acc.id, email: acc.email, role: acc.role },
   });
+  if (!result) return c.json({ error: "Invoice not found" }, 404);
 
-  c.executionCtx.waitUntil(
-    trackEvent(c.env, {
-      name: "chase_completed",
-      accountId: acc.workspaceId,
-      path: "/api/aging/mark-paid",
-    }).catch(() => {})
-  );
+  return c.json({ ok: true, ...result });
+});
 
-  if (row.client_id) {
-    await recordClientPaymentOutcome(c.env, acc.workspaceId, row.client_id, {
-      daysLate,
-      markedPaid: true,
-    });
+aging.post("/:id/crypto-invoice", requirePaidAccount, async (c) => {
+  const acc = c.get("account")!;
+  const id = c.req.param("id");
+
+  const row = await c.env.CHASA_DB.prepare(
+    `SELECT client_name, amount, status, payment_url FROM aging_invoices WHERE id = ? AND account_id = ?`
+  )
+    .bind(id, acc.workspaceId)
+    .first<{ client_name: string; amount: number; status: string; payment_url: string | null }>();
+
+  if (!row) return c.json({ error: "Invoice not found" }, 404);
+  if (row.status === "paid") return c.json({ error: "Invoice is already marked paid" }, 400);
+  // Re-serve the existing invoice rather than minting a new one on every click — NOWPayments
+  // invoices don't expire on a useful timescale for this flow, and the amount/order id are fixed
+  // to this row anyway.
+  if (row.payment_url) return c.json({ url: row.payment_url });
+
+  const appOrigin = requestAppOrigin(c);
+  const invoice = await createInvoice({
+    env: c.env,
+    orderId: id,
+    priceAmount: row.amount,
+    description: `Invoice for ${row.client_name}`,
+    successUrl: `${appOrigin}/app?crypto=success`,
+    cancelUrl: `${appOrigin}/app?crypto=cancelled`,
+    ipnCallbackUrl: `${c.env.PUBLIC_WORKER_URL}/api/aging/${id}/nowpayments-webhook`,
+  });
+  if ("error" in invoice) {
+    return c.json({ error: "Couldn't set up crypto payment for this invoice. Please try again." }, 502);
   }
 
-  // Skip remaining planned reminders for this invoice
   await c.env.CHASA_DB.prepare(
-    `UPDATE chase_reminders SET status = 'skipped', updated_at = ?
-     WHERE account_id = ? AND aging_invoice_id = ? AND status = 'planned'`
+    `UPDATE aging_invoices SET payment_method = 'crypto', payment_url = ?, updated_at = ?
+     WHERE id = ? AND account_id = ?`
   )
-    .bind(now, acc.workspaceId, id)
+    .bind(invoice.invoiceUrl, new Date().toISOString(), id, acc.workspaceId)
     .run();
 
-  return c.json({ ok: true, paidAt: now, daysLate });
+  return c.json({ url: invoice.invoiceUrl });
+});
+
+// NOWPayments IPN callback — the invoice/order id (= this aging_invoices row's id) is embedded in
+// the per-invoice callback URL set above, so no separate correlation lookup is needed. No auth:
+// the signature check IS the auth, and this always returns 200 so NOWPayments doesn't retry
+// forever over an event we don't act on (e.g. "waiting"/"confirming", not yet a terminal status).
+aging.post("/:id/nowpayments-webhook", async (c) => {
+  const id = c.req.param("id");
+  const rawBody = await c.req.text();
+  const signature = c.req.header("x-nowpayments-sig");
+  const event = await verifyIpn(rawBody, signature ?? null, c.env);
+  if (event && isSuccessfulPaymentStatus(event.payment_status)) {
+    const row = await c.env.CHASA_DB.prepare(`SELECT account_id FROM aging_invoices WHERE id = ?`)
+      .bind(id)
+      .first<{ account_id: string }>();
+    if (row) {
+      await markAgingInvoicePaid(c.env, c.executionCtx, row.account_id, id, { note: "Paid via NOWPayments crypto invoice" });
+    }
+  }
+  return c.json({ ok: true });
 });
 
 aging.get("/:id/timeline", requirePaidAccount, async (c) => {

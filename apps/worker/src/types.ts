@@ -11,6 +11,10 @@ export interface Env {
   RESEND_API_KEY?: string;
   STRIPE_SECRET_KEY?: string;
   STRIPE_WEBHOOK_SECRET?: string;
+  /** NOWPayments crypto checkout — separate account from Docracy's, own API key + IPN secret.
+   *  See lib/billingProviders/nowpayments.ts. */
+  NOWPAYMENTS_API_KEY?: string;
+  NOWPAYMENTS_IPN_SECRET?: string;
   /** Cloudflare Turnstile secret — required in production when bot protection is enabled */
   TURNSTILE_SECRET_KEY?: string;
   // Cloud storage OAuth (Dropbox / OneDrive / Box) — see routes/cloudConnectors.ts

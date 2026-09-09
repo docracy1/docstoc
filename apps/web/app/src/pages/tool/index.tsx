@@ -23,6 +23,7 @@ import {
   listReminders,
   markAgingChase,
   markInvoicePaid,
+  requestCryptoInvoice,
   listAging,
   notifyWebhook,
   recordChaseEvent,
@@ -223,6 +224,8 @@ export default function Tool({ account }: { account: Account | null }) {
                 error: existing.error,
                 lastChaseStatus: row.lastChaseStatus ?? existing.lastChaseStatus ?? null,
                 lastChaseAt: row.lastChaseAt ?? existing.lastChaseAt ?? null,
+                paymentMethod: row.paymentMethod ?? existing.paymentMethod ?? null,
+                paymentUrl: row.paymentUrl ?? existing.paymentUrl ?? null,
               });
             } else {
               byId.set(row.id, {
@@ -234,6 +237,8 @@ export default function Tool({ account }: { account: Account | null }) {
                 paidAt: row.paidAt ?? null,
                 lastChaseStatus: row.lastChaseStatus,
                 lastChaseAt: row.lastChaseAt,
+                paymentMethod: row.paymentMethod ?? null,
+                paymentUrl: row.paymentUrl ?? null,
                 generating: false,
                 rewriting: null,
               });
@@ -1286,6 +1291,27 @@ export default function Tool({ account }: { account: Account | null }) {
     }
   }
 
+  async function handleGetCryptoLink(invoice: Invoice) {
+    if (!isPaid) return;
+    if (invoice.paymentUrl) {
+      navigator.clipboard.writeText(invoice.paymentUrl);
+      track("crypto_link_copied", { invoice_amount: invoice.amount });
+      return;
+    }
+    try {
+      const { url } = await requestCryptoInvoice(invoice.id);
+      setInvoices((prev) =>
+        prev.map((inv) => (inv.id === invoice.id ? { ...inv, paymentMethod: "crypto", paymentUrl: url } : inv))
+      );
+      navigator.clipboard.writeText(url);
+      track("crypto_link_created", { invoice_amount: invoice.amount });
+    } catch {
+      setInvoices((prev) =>
+        prev.map((inv) => (inv.id === invoice.id ? { ...inv, error: t("invoice.cryptoLinkFailed") } : inv))
+      );
+    }
+  }
+
   async function handleSequence(invoiceId: string) {
     if (!isPaid) return;
     const invoice = invoices.find((inv) => inv.id === invoiceId);
@@ -1897,6 +1923,7 @@ export default function Tool({ account }: { account: Account | null }) {
               onRequestSoxApproval={isPro ? handleRequestSoxApproval : undefined}
               soxSodRequired={soxSodRequired}
               onMarkPaid={handleMarkPaid}
+              onGetCryptoLink={handleGetCryptoLink}
               onApplySequenceStep={applySequenceStep}
               onCopyNextReminder={copyNextReminder}
               onMarkReminderDone={markReminderDone}

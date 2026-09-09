@@ -28,6 +28,7 @@ interface InvoiceCardProps {
   onRequestSoxApproval?: (invoice: Invoice) => void;
   soxSodRequired?: boolean;
   onMarkPaid: (invoice: Invoice) => void;
+  onGetCryptoLink: (invoice: Invoice) => void;
   onApplySequenceStep: (invoiceId: string, stepIndex: number) => void;
   onCopyNextReminder: (invoice: Invoice) => void;
   onMarkReminderDone: (invoiceId: string, reminderId: string) => void;
@@ -68,6 +69,7 @@ export function InvoiceCard({
   onRequestSoxApproval,
   soxSodRequired = false,
   onMarkPaid,
+  onGetCryptoLink,
   onApplySequenceStep,
   onCopyNextReminder,
   onMarkReminderDone,
@@ -535,6 +537,16 @@ export function InvoiceCard({
             {isPaid && !isPaidInvoice && (
               <button type="button" className="btn-secondary" onClick={() => onMarkPaid(invoice)}>
                 {t("invoice.markPaid")}
+              </button>
+            )}
+            {isPaid && !isPaidInvoice && (
+              <button
+                type="button"
+                className="btn-secondary"
+                title={t("invoice.cryptoLinkHint")}
+                onClick={() => onGetCryptoLink(invoice)}
+              >
+                {invoice.paymentUrl ? t("invoice.copyCryptoLink") : t("invoice.getCryptoLink")}
               </button>
             )}
             {isPro && !isPaidInvoice && (

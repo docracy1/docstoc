@@ -779,6 +779,9 @@ export type AgingInvoiceRecord = {
   paidAt?: string | null;
   lastChaseStatus: string | null;
   lastChaseAt: string | null;
+  /** Set once a NOWPayments crypto invoice has been generated for this row (see requestCryptoInvoice). */
+  paymentMethod?: "crypto" | null;
+  paymentUrl?: string | null;
   createdAt?: string;
   updatedAt?: string;
 };
@@ -895,6 +898,12 @@ export function markInvoicePaid(invoiceId: string, note?: string) {
     `/aging/${invoiceId}/mark-paid`,
     { method: "POST", body: JSON.stringify({ note }) }
   );
+}
+
+/** Generates (or re-serves) a NOWPayments crypto invoice for this row's amount — marks it paid
+ *  automatically via IPN webhook once the payment confirms, no manual mark-paid click needed. */
+export function requestCryptoInvoice(invoiceId: string) {
+  return jsonFetch<{ url: string }>(`/aging/${invoiceId}/crypto-invoice`, { method: "POST" });
 }
 
 export function updateDigestSettings(digestEnabled: boolean) {

@@ -244,7 +244,7 @@ export const en = {
   "home.integrations.lede":
     "Plug into the platforms you already use — accounting, cloud storage, automation, and AI assistants. Pro and Business unlock native connectors; everything listed here is real today.",
   "home.integrations.footnote":
-    "QuickBooks Online and Xero import overdue invoices into aging. Dropbox, OneDrive, Box, and Google import invoice PDFs (Google also unlocks Gmail drafts). Zapier and webhooks push overdue invoices. MCP connects Claude, ChatGPT, Grok, Perplexity, and Cursor to chase drafts.",
+    "QuickBooks Online and Xero import overdue invoices into aging. Dropbox, OneDrive, Box, and Google import invoice PDFs (Google also unlocks Gmail drafts). Zapier and webhooks push overdue invoices. MCP connects Claude, ChatGPT, Grok, Perplexity, and Cursor to chase drafts. NOWPayments lets clients pay in crypto.",
   "home.integrations.cta": "Learn more →",
 
   "home.pricing.planFree": "Free",
@@ -650,7 +650,7 @@ export const es = {
   "home.integrations.lede":
     "Integra las plataformas que ya usas — contabilidad, almacenamiento en la nube, automatización y asistentes de IA. Pro y Business desbloquean conectores nativos; todo lo listado aquí existe hoy.",
   "home.integrations.footnote":
-    "QuickBooks Online y Xero importan facturas vencidas al aging. Dropbox, OneDrive, Box y Google importan PDFs de facturas (Google también desbloquea borradores de Gmail). Zapier y webhooks envían facturas vencidas. MCP conecta Claude, ChatGPT, Grok, Perplexity y Cursor a borradores de seguimiento.",
+    "QuickBooks Online y Xero importan facturas vencidas al aging. Dropbox, OneDrive, Box y Google importan PDFs de facturas (Google también desbloquea borradores de Gmail). Zapier y webhooks envían facturas vencidas. MCP conecta Claude, ChatGPT, Grok, Perplexity y Cursor a borradores de seguimiento. NOWPayments permite que tus clientes paguen en cripto.",
   "home.integrations.cta": "Más información →",
 
   "home.pricing.planFree": "Gratis",

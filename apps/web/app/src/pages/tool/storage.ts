@@ -19,6 +19,8 @@ export function loadStoredInvoices(): Invoice[] {
         draft: r.draft,
         lastChaseStatus: r.lastChaseStatus ?? null,
         lastChaseAt: r.lastChaseAt ?? null,
+        paymentMethod: r.paymentMethod ?? null,
+        paymentUrl: r.paymentUrl ?? null,
         generating: false,
         rewriting: null,
       }));
@@ -38,6 +40,8 @@ export function persistInvoices(invoices: Invoice[]) {
     draft: inv.draft,
     lastChaseStatus: inv.lastChaseStatus ?? null,
     lastChaseAt: inv.lastChaseAt ?? null,
+    paymentMethod: inv.paymentMethod ?? null,
+    paymentUrl: inv.paymentUrl ?? null,
   }));
   localStorage.setItem(TOOL_STORAGE_KEY, JSON.stringify(slim));
 }
@@ -55,6 +59,8 @@ export function upsertStoredInvoice(row: StoredInvoice): void {
       paidAt: row.paidAt ?? null,
       lastChaseStatus: row.lastChaseStatus ?? null,
       lastChaseAt: row.lastChaseAt ?? null,
+      paymentMethod: row.paymentMethod ?? null,
+      paymentUrl: row.paymentUrl ?? null,
       generating: false,
       rewriting: null,
     },

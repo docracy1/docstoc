@@ -70,6 +70,8 @@ export type AnalyticsEvent =
   | "chase_downloaded"
   | "chase_opened"
   | "chase_completed"
+  | "crypto_link_created"
+  | "crypto_link_copied"
   | "aging_cleared"
   | "client_created"
   | "client_updated"
