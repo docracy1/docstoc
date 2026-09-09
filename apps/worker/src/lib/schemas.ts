@@ -56,6 +56,13 @@ export const agingSyncItemSchema = z.object({
   paidAt: z.string().trim().max(40).nullable().optional(),
   lastChaseStatus: z.string().trim().max(40).nullable().optional(),
   lastChaseAt: z.string().trim().max(40).nullable().optional(),
+  /** Slug of a docstoc document template attached to this row (see the "Get paid" page) — not
+   *  used by the overdue-chase flow, which always omits it. */
+  templateSlug: z.string().trim().max(200).nullable().optional(),
+});
+
+export const agingPaymentLinkSchema = z.object({
+  url: z.string().trim().url().max(2000),
 });
 
 export const agingSyncSchema = z.object({

@@ -239,7 +239,10 @@ export default function AppShell({
     ] as const
   ).filter(Boolean) as Array<{ to: string; hash: string | undefined; label: string }>;
 
-  const marketplaceNav = [{ to: "/document-templates", label: t("nav.documentTemplates") }];
+  const marketplaceNav = [
+    { to: "/document-templates", label: t("nav.documentTemplates") },
+    { to: "/get-paid", label: t("nav.getPaid") },
+  ];
 
   const invoicesNav = [
     { to: "/invoices", label: t("nav.invoicesAll") },
@@ -262,7 +265,8 @@ export default function AppShell({
     (onDashboard && (view === "overdue" || view === "waiting" || view === "paid")) ||
     location.pathname.startsWith("/templates") ||
     location.pathname.startsWith("/clients");
-  const marketplacePathActive = location.pathname.startsWith("/document-templates");
+  const marketplacePathActive =
+    location.pathname.startsWith("/document-templates") || location.pathname.startsWith("/get-paid");
   const invoicesPathActive =
     location.pathname.startsWith("/invoices") || location.pathname.startsWith("/clients");
   const sslPathActive = location.pathname.startsWith("/ssl-domains");
@@ -301,6 +305,7 @@ export default function AppShell({
   const moreLinks = (
     [
       { to: "/document-templates", label: t("nav.documentTemplates"), icon: "docTemplates" as const },
+      { to: "/get-paid", label: t("nav.getPaid"), icon: "docTemplates" as const },
       { to: "/ssl-domains", label: t("nav.sslDomains"), icon: "ssl" as const },
       { to: "/certificates", label: t("nav.certificates"), icon: "certificates" as const },
       { to: "/audit-log", label: t("nav.auditLog"), icon: "auditLog" as const },
@@ -361,6 +366,7 @@ export default function AppShell({
     { match: (p) => p.startsWith("/new"), title: t("nav.newChase") },
     { match: (p) => p.startsWith("/templates"), title: t("nav.templatesEmails") },
     { match: (p) => p.startsWith("/document-templates"), title: t("nav.documentTemplates") },
+    { match: (p) => p.startsWith("/get-paid"), title: t("nav.getPaid") },
     { match: (p) => p.startsWith("/company-badge"), title: t("nav.companyBadge") },
     { match: (p) => p === "/" || p === "", title: t("nav.dashboard") },
     { match: (p) => p.startsWith("/clients"), title: t("nav.clients") },

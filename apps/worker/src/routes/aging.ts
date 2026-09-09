@@ -9,6 +9,7 @@ import { createInvoice, isSuccessfulPaymentStatus, verifyIpn } from "../lib/bill
 import {
   agingChaseSchema,
   agingMarkPaidSchema,
+  agingPaymentLinkSchema,
   agingSyncSchema,
   parseJsonBody,
 } from "../lib/schemas";
@@ -28,6 +29,7 @@ type AgingRow = {
   last_chase_at: string | null;
   payment_method: string | null;
   payment_url: string | null;
+  template_slug: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -45,6 +47,7 @@ function mapRow(row: AgingRow) {
     lastChaseAt: row.last_chase_at,
     paymentMethod: row.payment_method,
     paymentUrl: row.payment_url,
+    templateSlug: row.template_slug ?? null,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -166,7 +169,7 @@ aging.get("/", requirePaidAccount, async (c) => {
   const acc = c.get("account")!;
   const status = c.req.query("status");
   let sql = `SELECT id, client_id, client_name, amount, due_date, status, paid_at,
-                    last_chase_status, last_chase_at, payment_method, payment_url,
+                    last_chase_status, last_chase_at, payment_method, payment_url, template_slug,
                     created_at, updated_at
              FROM aging_invoices WHERE account_id = ?`;
   const binds: unknown[] = [acc.workspaceId];
@@ -209,13 +212,14 @@ aging.put("/sync", requirePaidAccount, async (c) => {
     const chaseAt = item.lastChaseAt?.trim() ? item.lastChaseAt.trim() : null;
     const invStatus = item.status === "paid" ? "paid" : "open";
     const paidAt = invStatus === "paid" ? item.paidAt?.trim() || now : null;
+    const templateSlug = item.templateSlug?.trim() || null;
 
     stmts.push(
       c.env.CHASA_DB.prepare(
         `INSERT INTO aging_invoices
            (id, account_id, client_id, client_name, amount, due_date, status, paid_at,
-            last_chase_status, last_chase_at, created_at, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            last_chase_status, last_chase_at, template_slug, created_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          ON CONFLICT(id) DO UPDATE SET
            client_id = excluded.client_id,
            client_name = excluded.client_name,
@@ -225,6 +229,7 @@ aging.put("/sync", requirePaidAccount, async (c) => {
            paid_at = COALESCE(excluded.paid_at, aging_invoices.paid_at),
            last_chase_status = COALESCE(excluded.last_chase_status, aging_invoices.last_chase_status),
            last_chase_at = COALESCE(excluded.last_chase_at, aging_invoices.last_chase_at),
+           template_slug = COALESCE(excluded.template_slug, aging_invoices.template_slug),
            updated_at = excluded.updated_at
          WHERE aging_invoices.account_id = excluded.account_id`
       ).bind(
@@ -238,6 +243,7 @@ aging.put("/sync", requirePaidAccount, async (c) => {
         paidAt,
         chaseStatus,
         chaseAt,
+        templateSlug,
         now,
         now
       )
@@ -254,6 +260,7 @@ aging.put("/sync", requirePaidAccount, async (c) => {
         paid_at: paidAt,
         last_chase_status: chaseStatus,
         last_chase_at: chaseAt,
+        template_slug: templateSlug,
         // Sync never touches these — the DB's ON CONFLICT clause leaves them alone too — so an
         // existing row's crypto invoice (if any) is momentarily not reflected in this response;
         // it's correct again on the next list fetch.
@@ -406,6 +413,54 @@ aging.post("/:id/crypto-invoice", requirePaidAccount, async (c) => {
     .run();
 
   return c.json({ url: invoice.invoiceUrl });
+});
+
+/** Sets a merchant-supplied ("my own link") payment URL — the manual counterpart to
+ *  /crypto-invoice above, used by the "Get paid" page's "My own link" option. */
+aging.patch("/:id/payment-link", requirePaidAccount, async (c) => {
+  const acc = c.get("account")!;
+  const id = c.req.param("id");
+  const parsed = await parseJsonBody(c.req, agingPaymentLinkSchema);
+  if (!parsed.ok) return c.json({ error: parsed.error }, 400);
+
+  const result = await c.env.CHASA_DB.prepare(
+    `UPDATE aging_invoices SET payment_method = 'own_link', payment_url = ?, updated_at = ?
+     WHERE id = ? AND account_id = ?`
+  )
+    .bind(parsed.data.url, new Date().toISOString(), id, acc.workspaceId)
+    .run();
+  if (result.meta.changes === 0) return c.json({ error: "Invoice not found" }, 404);
+
+  return c.json({ url: parsed.data.url });
+});
+
+/** Public, unauthenticated read for the "Get paid" page's customer-facing payment page
+ *  (apps/web/functions/pay/[[id]].ts) — deliberately returns only fields safe to show a payer,
+ *  never account_id or anything else internal. */
+aging.get("/public/:id", async (c) => {
+  const row = await c.env.CHASA_DB.prepare(
+    `SELECT client_name, amount, status, payment_method, payment_url, template_slug
+     FROM aging_invoices WHERE id = ?`
+  )
+    .bind(c.req.param("id"))
+    .first<{
+      client_name: string;
+      amount: number;
+      status: string;
+      payment_method: string | null;
+      payment_url: string | null;
+      template_slug: string | null;
+    }>();
+  if (!row) return c.json({ error: "Not found" }, 404);
+
+  return c.json({
+    clientName: row.client_name,
+    amount: row.amount,
+    status: row.status,
+    paymentMethod: row.payment_method,
+    paymentUrl: row.payment_url,
+    templateSlug: row.template_slug,
+  });
 });
 
 // NOWPayments IPN callback — the invoice/order id (= this aging_invoices row's id) is embedded in
