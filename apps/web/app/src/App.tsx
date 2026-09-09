@@ -29,6 +29,7 @@ const SoxReporting = lazy(() => import("./pages/SoxReporting"));
 const SslCertificates = lazy(() => import("./pages/SslCertificates"));
 const CompanyBadge = lazy(() => import("./pages/CompanyBadge"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
+const GetPaid = lazy(() => import("./pages/GetPaid"));
 
 function AppRoutes() {
   const t = useT();
@@ -180,6 +181,14 @@ function AppRoutes() {
               element={
                 <ProtectedRoute>
                   <Invoices account={account} />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/get-paid"
+              element={
+                <ProtectedRoute>
+                  <GetPaid account={account} />
                 </ProtectedRoute>
               }
             />

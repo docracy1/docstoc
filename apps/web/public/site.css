@@ -3255,6 +3255,15 @@ body.mobile-nav-open .docstoc-asst {
   display: block;
 }
 
+/* NOWPayments ships a wide wordmark (163x21), not a square icon like its siblings here —
+   forcing it into the 32x32 box scales it down to a near-invisible sliver. Cap by width
+   instead so it renders at a legible size, even though it won't match the others' footprint. */
+.integrations-tile-logo-wordmark {
+  width: 84px;
+  height: auto;
+  max-width: 100%;
+}
+
 .integrations-tile-name {
   font-size: 12.5px;
   font-weight: 600;

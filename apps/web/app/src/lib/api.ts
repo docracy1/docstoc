@@ -779,9 +779,12 @@ export type AgingInvoiceRecord = {
   paidAt?: string | null;
   lastChaseStatus: string | null;
   lastChaseAt: string | null;
-  /** Set once a NOWPayments crypto invoice has been generated for this row (see requestCryptoInvoice). */
-  paymentMethod?: "crypto" | null;
+  /** Set once a NOWPayments crypto invoice has been generated (requestCryptoInvoice) or a manual
+   *  link has been attached (setAgingPaymentLink) for this row. */
+  paymentMethod?: "crypto" | "own_link" | null;
   paymentUrl?: string | null;
+  /** Slug of a docstoc document template attached to this row (see the "Get paid" page). */
+  templateSlug?: string | null;
   createdAt?: string;
   updatedAt?: string;
 };
@@ -843,12 +846,22 @@ export function syncAging(
     paidAt?: string | null;
     lastChaseStatus?: string | null;
     lastChaseAt?: string | null;
+    templateSlug?: string | null;
   }>,
   replace = false
 ) {
   return jsonFetch<{ invoices: AgingInvoiceRecord[]; synced: number }>("/aging/sync", {
     method: "PUT",
     body: JSON.stringify({ invoices, replace }),
+  });
+}
+
+/** Sets a merchant-supplied payment URL on an aging invoice — the manual counterpart to
+ *  requestCryptoInvoice below, used by the "Get paid" page's "My own link" option. */
+export function setAgingPaymentLink(id: string, url: string) {
+  return jsonFetch<{ url: string }>(`/aging/${id}/payment-link`, {
+    method: "PATCH",
+    body: JSON.stringify({ url }),
   });
 }
 

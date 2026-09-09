@@ -6,6 +6,7 @@ import {
   getBranding,
   listClients,
   listInvoices,
+  requestCryptoInvoice,
   setInvoiceStatus,
   type Account,
   type Branding,
@@ -56,6 +57,8 @@ export default function InvoicesPage({ account }: { account: Account | null }) {
   const [creating, setCreating] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [lastCreated, setLastCreated] = useState<{ publicId: string } | null>(null);
+  const [cryptoBusyId, setCryptoBusyId] = useState<string | null>(null);
+  const [cryptoCopiedId, setCryptoCopiedId] = useState<string | null>(null);
 
   const [clientName, setClientName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
@@ -263,6 +266,22 @@ export default function InvoicesPage({ account }: { account: Account | null }) {
       setTimeout(() => setCopiedId((id) => (id === publicId ? null : id)), 2000);
     } catch {
       /* clipboard unavailable — ignore */
+    }
+  }
+
+  async function handleGetCryptoLink(inv: InvoiceRecord) {
+    if (!isPaid || !inv.agingInvoiceId) return;
+    setError(null);
+    setCryptoBusyId(inv.id);
+    try {
+      const { url } = await requestCryptoInvoice(inv.agingInvoiceId);
+      await navigator.clipboard.writeText(url);
+      setCryptoCopiedId(inv.id);
+      setTimeout(() => setCryptoCopiedId((id) => (id === inv.id ? null : id)), 2000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t("invoice.cryptoLinkFailed"));
+    } finally {
+      setCryptoBusyId(null);
     }
   }
 
@@ -743,6 +762,21 @@ export default function InvoicesPage({ account }: { account: Account | null }) {
                   {inv.status === "sent" && (
                     <button type="button" className="btn-secondary" onClick={() => handleStatus(inv.id, "paid")}>
                       {t("invoices.markPaid")}
+                    </button>
+                  )}
+                  {isPaid && inv.status === "sent" && inv.agingInvoiceId && (
+                    <button
+                      type="button"
+                      className="btn-secondary"
+                      title={t("invoice.cryptoLinkHint")}
+                      disabled={cryptoBusyId === inv.id}
+                      onClick={() => void handleGetCryptoLink(inv)}
+                    >
+                      {cryptoBusyId === inv.id
+                        ? t("common.loading")
+                        : cryptoCopiedId === inv.id
+                          ? t("invoices.copied")
+                          : t("invoice.getCryptoLink")}
                     </button>
                   )}
                   {inv.agingInvoiceId && (inv.status === "sent" || inv.status === "paid") && (

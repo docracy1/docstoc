@@ -53,7 +53,7 @@ export interface Invoice {
   timeline?: import("../../lib/api").ChaseEventRecord[];
   error?: string;
   /** Set once a NOWPayments crypto invoice has been generated for this row. */
-  paymentMethod?: "crypto" | null;
+  paymentMethod?: "crypto" | "own_link" | null;
   paymentUrl?: string | null;
 }
 
@@ -67,6 +67,6 @@ export type StoredInvoice = {
   draft?: { subject: string; body: string };
   lastChaseStatus?: string | null;
   lastChaseAt?: string | null;
-  paymentMethod?: "crypto" | null;
+  paymentMethod?: "crypto" | "own_link" | null;
   paymentUrl?: string | null;
 };

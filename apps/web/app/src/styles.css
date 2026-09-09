@@ -1097,6 +1097,34 @@ h1 {
   margin-bottom: 20px;
 }
 
+.getpaid-method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 560px) {
+  .getpaid-method-grid { grid-template-columns: 1fr; }
+}
+.getpaid-method-card {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink);
+}
+.getpaid-method-card strong { font-size: 14px; }
+.getpaid-method-card span { font-size: 12.5px; color: var(--ink-soft); }
+.getpaid-method-card.is-active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--white));
+}
+
 .turnstile-wrap {
   margin: 12px 0 4px;
   min-height: 0;
