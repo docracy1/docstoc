@@ -442,23 +442,45 @@ export async function recordPageView(
     attribution: null,
   });
 
+  const country = input.country?.slice(0, 8) || null;
+
   await env.CHASA_DB.prepare(
     `INSERT INTO page_views (id, path, day, is_bot, bot_name, country, created_at)
      VALUES (?, ?, ?, ?, ?, ?, ?)`
   )
-    .bind(
-      crypto.randomUUID(),
-      path,
-      day,
-      isBot ? 1 : 0,
-      botName,
-      input.country?.slice(0, 8) || null,
-      now.toISOString()
-    )
+    .bind(crypto.randomUUID(), path, day, isBot ? 1 : 0, botName, country, now.toISOString())
+    .run();
+
+  await env.CHASA_DB.prepare(
+    `INSERT INTO page_views_daily (day, path, country, is_bot, bot_name, count)
+     VALUES (?, ?, ?, ?, ?, 1)
+     ON CONFLICT (day, path, country, is_bot, bot_name)
+     DO UPDATE SET count = count + 1`
+  )
+    .bind(day, path, country ?? "??", isBot ? 1 : 0, botName ?? "")
     .run();
 }
 
+/** getTrafficStats' 5 page_views scans were 95% of a day's entire D1 rows_read budget (page_views'
+ *  30-day default window already covers nearly this young product's whole history, so every
+ *  dashboard check re-scanned almost the whole table — see 2026-09-15 D1 cap incident).
+ *  computeTrafficStats now reads page_views_daily (migration 0046, upserted per view in
+ *  recordPageView) instead of raw page_views, so each call aggregates dozens of rows per day
+ *  instead of tens of thousands. This per-isolate cache is extra insurance on top of that, so
+ *  rapid repeat dashboard checks within the same warm isolate don't even pay the cheap cost. */
+const TRAFFIC_STATS_CACHE_TTL_MS = 45_000;
+const trafficStatsCache = new Map<string, { expires: number; value: Awaited<ReturnType<typeof computeTrafficStats>> }>();
+
 export async function getTrafficStats(env: Env, days = 30, day?: string | null) {
+  const cacheKey = `${days}:${day ?? ""}`;
+  const cached = trafficStatsCache.get(cacheKey);
+  if (cached && cached.expires > Date.now()) return cached.value;
+  const value = await computeTrafficStats(env, days, day);
+  trafficStatsCache.set(cacheKey, { expires: Date.now() + TRAFFIC_STATS_CACHE_TTL_MS, value });
+  return value;
+}
+
+async function computeTrafficStats(env: Env, days = 30, day?: string | null) {
   const sinceDay = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
   const sinceIso = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
   const dayFilter =
@@ -479,41 +501,41 @@ export async function getTrafficStats(env: Env, days = 30, day?: string | null) 
   const [totals, byDay, byRoute, byBot, byCountry, kpis] = await Promise.all([
     env.CHASA_DB.prepare(
       `SELECT
-         COUNT(*) as total,
-         SUM(CASE WHEN is_bot = 1 THEN 1 ELSE 0 END) as bots
-       FROM page_views WHERE ${breakdownWhere}`
+         SUM(count) as total,
+         SUM(CASE WHEN is_bot = 1 THEN count ELSE 0 END) as bots
+       FROM page_views_daily WHERE ${breakdownWhere}`
     )
       .bind(breakdownBind)
       .first<{ total: number; bots: number }>(),
     env.CHASA_DB.prepare(
       `SELECT day,
-         SUM(CASE WHEN is_bot = 0 THEN 1 ELSE 0 END) as human,
-         SUM(CASE WHEN is_bot = 1 THEN 1 ELSE 0 END) as bot
-       FROM page_views WHERE day >= ?
+         SUM(CASE WHEN is_bot = 0 THEN count ELSE 0 END) as human,
+         SUM(CASE WHEN is_bot = 1 THEN count ELSE 0 END) as bot
+       FROM page_views_daily WHERE day >= ?
        GROUP BY day ORDER BY day ASC`
     )
       .bind(sinceDay)
       .all<{ day: string; human: number; bot: number }>(),
     env.CHASA_DB.prepare(
       `SELECT path,
-         COUNT(*) as total,
-         SUM(CASE WHEN is_bot = 0 THEN 1 ELSE 0 END) as human,
-         SUM(CASE WHEN is_bot = 1 THEN 1 ELSE 0 END) as bot
-       FROM page_views WHERE ${breakdownWhere}
+         SUM(count) as total,
+         SUM(CASE WHEN is_bot = 0 THEN count ELSE 0 END) as human,
+         SUM(CASE WHEN is_bot = 1 THEN count ELSE 0 END) as bot
+       FROM page_views_daily WHERE ${breakdownWhere}
        GROUP BY path ORDER BY total DESC LIMIT 20`
     )
       .bind(breakdownBind)
       .all<{ path: string; total: number; human: number; bot: number }>(),
     env.CHASA_DB.prepare(
-      `SELECT COALESCE(bot_name, 'Unknown') as bot, COUNT(*) as c
-       FROM page_views WHERE ${breakdownWhere} AND is_bot = 1
+      `SELECT CASE WHEN bot_name = '' THEN 'Unknown' ELSE bot_name END as bot, SUM(count) as c
+       FROM page_views_daily WHERE ${breakdownWhere} AND is_bot = 1
        GROUP BY bot_name ORDER BY c DESC LIMIT 20`
     )
       .bind(breakdownBind)
       .all<{ bot: string; c: number }>(),
     env.CHASA_DB.prepare(
-      `SELECT COALESCE(country, '??') as country, COUNT(*) as c
-       FROM page_views WHERE ${breakdownWhere}
+      `SELECT country, SUM(count) as c
+       FROM page_views_daily WHERE ${breakdownWhere}
        GROUP BY country ORDER BY c DESC LIMIT 20`
     )
       .bind(breakdownBind)
