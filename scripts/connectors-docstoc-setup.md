@@ -32,7 +32,8 @@ Test after each: `docstoc.io/app/connector` → Connect → Test.
    - People API (Contacts)
 
 6. OAuth consent screen → add scopes (or approve on first connect):
-   - `drive.readonly`, `gmail.readonly`, `gmail.modify`, `spreadsheets` (read + export write; do not add `spreadsheets.readonly` — it must match the OAuth request string-for-string), `calendar.events`, `contacts.readonly`, `userinfo.email`
+   - `drive.readonly`, `gmail.readonly`, `gmail.compose`, `spreadsheets` (read + export write; do not add `spreadsheets.readonly` — it must match the OAuth request string-for-string), `calendar.events`, `contacts.readonly`, `userinfo.email`
+   - `gmail.compose` (not `gmail.modify`) since 2026-09 — Google's OAuth verification flagged `gmail.modify` as broader than needed for the actual usage (creating Gmail drafts only, via `POST /users/me/drafts`); `gmail.compose` covers that exactly. Do not re-add `gmail.modify` unless the app starts doing something drafts alone can't cover (e.g. modifying labels on existing messages).
 
 7. Download JSON → update production:
 

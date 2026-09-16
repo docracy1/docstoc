@@ -20,7 +20,7 @@ const GOOGLE_CONNECTOR_SCOPE = [
   "https://www.googleapis.com/auth/spreadsheets",
   "https://www.googleapis.com/auth/calendar.events",
   "https://www.googleapis.com/auth/gmail.readonly",
-  "https://www.googleapis.com/auth/gmail.modify",
+  "https://www.googleapis.com/auth/gmail.compose",
 ].join(" ");
 
 function dropboxClientCreds(env: Env): { clientId: string; clientSecret: string } {
