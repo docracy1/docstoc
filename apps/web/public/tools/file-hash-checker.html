@@ -434,6 +434,30 @@ a.tool-circle {
   background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: rgba(255,255,255,0.85);
 }
 .tool-embed-code[hidden] { display: none; }
+.tool-field textarea {
+  width: 100%; box-sizing: border-box; padding: 11px 12px; font: inherit; resize: vertical;
+  border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px; background: rgba(0,0,0,0.35); color: #fff;
+}
+.ai-docgen-turnstile { margin: 4px 0 12px; min-height: 65px; }
+.ai-docgen-error {
+  font-size: 13px; color: #ffb4a8; background: rgba(255, 90, 60, 0.12);
+  border: 1px solid rgba(255, 90, 60, 0.3); border-radius: 10px; padding: 10px 12px; margin: 0 0 12px;
+}
+.ai-docgen-error[hidden] { display: none; }
+.ai-docgen-output[hidden] { display: none; }
+.ai-docgen-output table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.ai-docgen-output th, .ai-docgen-output td {
+  border: 1px solid rgba(255,255,255,0.15); padding: 6px 10px; text-align: left; font-size: 14px;
+}
+.ai-docgen-meta {
+  font-size: 12.5px; color: rgba(255,255,255,0.55); margin: 0 0 10px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.ai-docgen-disclaimer {
+  font-size: 12.5px; color: rgba(255,255,255,0.55); font-style: italic; margin-top: 16px;
+  padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);
+}
+button[data-docgen-submit][disabled] { opacity: 0.6; cursor: default; }
 .hash-out { margin-top: 16px; text-align: left; }
 .hash-out-row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
 .hash-out-row code {

@@ -23,6 +23,11 @@ export const contactLeadSchema = z.object({
   message: z.string().trim().min(1).max(4000),
 });
 
+export const aiDocumentGeneratorSchema = z.object({
+  description: z.string().trim().min(8, "Describe the document you need in a bit more detail.").max(600),
+  turnstileToken: z.string().optional(),
+});
+
 export const analyticsTrackSchema = z.object({
   name: z.string().min(1).max(80),
   properties: z

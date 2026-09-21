@@ -49,6 +49,9 @@ PUBLIC_WORKER_URL = "https://api.docstoc.io"
 WORKERS_AI_MODEL = "@cf/meta/llama-3.1-8b-instruct-fp8"
 FEEDBACK_EMAIL = "founder@docstoc.io"
 ADMIN_EMAIL = "rl@relacon.at"
+# Optional second password-login allowlist entry (e.g. an app-store/OAuth reviewer who can't
+# receive magic links). Leave unset to disable — password login stays admin-only.
+REVIEWER_EMAIL = "reinhold.lackner@gmail.com"
 STRIPE_PRICE_SOLO = "price_1U8eQrQu2Ibd9xnHMVO69tv4"
 STRIPE_PRICE_PRO = "price_1TxMyFQu2Ibd9xnHPDe4L9q4"
 STRIPE_PRICE_ENTERPRISE = "price_1U8eRIQu2Ibd9xnH56dwoOJ6"
@@ -68,7 +71,9 @@ GOOGLE_INTEGRATIONS_CLIENT_ID = "808580458885-avk646acnsu40en7f0v828ppabk4kvjt.a
 # Set with: wrangler secret put TOKEN_SECRET            (generate: openssl rand -hex 32)
 # Set with: wrangler secret put RESEND_API_KEY
 # Set with: wrangler secret put ADMIN_PASSWORD           (admin dashboard at /app/admin + password sign-in on /app/login for ADMIN_EMAIL)
+# Set with: wrangler secret put REVIEWER_PASSWORD        (password sign-in on /app/login for REVIEWER_EMAIL, once that var is uncommented above)
 # Set with: wrangler secret put TURNSTILE_SECRET_KEY     (Turnstile widget secret from CF dashboard)
+# Set with: wrangler secret put GEMINI_API_KEY           (Google AI Studio key — /tools/ai-document-generator; free tier, see lib/geminiDocGen.ts)
 # Set with: wrangler secret put STRIPE_SECRET_KEY
 # Set with: wrangler secret put STRIPE_WEBHOOK_SECRET
 # Cloud storage OAuth (optional — Connect buttons return 503 until set):

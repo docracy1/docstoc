@@ -434,6 +434,30 @@ a.tool-circle {
   background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: rgba(255,255,255,0.85);
 }
 .tool-embed-code[hidden] { display: none; }
+.tool-field textarea {
+  width: 100%; box-sizing: border-box; padding: 11px 12px; font: inherit; resize: vertical;
+  border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px; background: rgba(0,0,0,0.35); color: #fff;
+}
+.ai-docgen-turnstile { margin: 4px 0 12px; min-height: 65px; }
+.ai-docgen-error {
+  font-size: 13px; color: #ffb4a8; background: rgba(255, 90, 60, 0.12);
+  border: 1px solid rgba(255, 90, 60, 0.3); border-radius: 10px; padding: 10px 12px; margin: 0 0 12px;
+}
+.ai-docgen-error[hidden] { display: none; }
+.ai-docgen-output[hidden] { display: none; }
+.ai-docgen-output table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.ai-docgen-output th, .ai-docgen-output td {
+  border: 1px solid rgba(255,255,255,0.15); padding: 6px 10px; text-align: left; font-size: 14px;
+}
+.ai-docgen-meta {
+  font-size: 12.5px; color: rgba(255,255,255,0.55); margin: 0 0 10px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.ai-docgen-disclaimer {
+  font-size: 12.5px; color: rgba(255,255,255,0.55); font-style: italic; margin-top: 16px;
+  padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);
+}
+button[data-docgen-submit][disabled] { opacity: 0.6; cursor: default; }
 .hash-out { margin-top: 16px; text-align: left; }
 .hash-out-row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
 .hash-out-row code {
@@ -679,11 +703,11 @@ a.tool-circle {
   <div class="tool-hero-inner">
     <div class="tool-hero-pill" aria-hidden="true"></div>
     <h1><span class="accent">Free tools.</span><br>One workflow.</h1>
-    <p class="tool-hero-sub">Templates, file hash, SSL expiry, trust badges, invoice generator, and chase estimates — open any tool from the circle.</p>
+    <p class="tool-hero-sub">AI document drafting, templates, file hash, SSL expiry, trust badges, invoice generator, and chase estimates — open any tool from the circle.</p>
     <div class="tool-ring"><div class="tool-circle" role="navigation" aria-label="Free tools">
       <span class="tool-circle-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
       <p class="tool-circle-title">Choose a tool</p>
-      <p class="tool-circle-links"><a href="/tools/template-finder">Templates</a><span class="sep" aria-hidden="true">·</span><a href="/tools/file-hash-checker">Hash</a><span class="sep" aria-hidden="true">·</span><a href="/tools/ssl-certificate-calculator">SSL</a><span class="sep" aria-hidden="true">·</span><a href="/tools/trust-badges">Badges</a><span class="sep" aria-hidden="true">·</span><a href="/tools/invoice-generator">Invoice</a><span class="sep" aria-hidden="true">·</span><a href="/tools/invoice-chase-calculator">Chase</a></p>
+      <p class="tool-circle-links"><a href="/tools/ai-document-generator">AI Draft</a><span class="sep" aria-hidden="true">·</span><a href="/tools/template-finder">Templates</a><span class="sep" aria-hidden="true">·</span><a href="/tools/file-hash-checker">Hash</a><span class="sep" aria-hidden="true">·</span><a href="/tools/ssl-certificate-calculator">SSL</a><span class="sep" aria-hidden="true">·</span><a href="/tools/trust-badges">Badges</a><span class="sep" aria-hidden="true">·</span><a href="/tools/invoice-generator">Invoice</a><span class="sep" aria-hidden="true">·</span><a href="/tools/invoice-chase-calculator">Chase</a></p>
     </div></div>
     <p class="tool-caption">Each link opens that tool — cards below have the full descriptions</p>
     <form class="tool-signup" action="/app/login" method="get">
@@ -698,6 +722,7 @@ a.tool-circle {
   <div class="tool-section-inner">
     <h2>Choose your tool</h2>
     <div class="tool-card-grid">
+      <a class="tool-card" href="/tools/ai-document-generator"><h2>AI document generator</h2><p>Describe what you need in a sentence — get a customized draft grounded in docstoc's 1,000+ template library.</p></a>
       <a class="tool-card" href="/tools/template-finder"><h2>Template finder</h2><p>Pick your situation, get a direct link to the right free business or legal template.</p></a>
       <a class="tool-card" href="/tools/file-hash-checker"><h2>File hash checker</h2><p>Compute a file's SHA-256 hash in your browser — the same check behind docstoc certificates.</p></a>
       <a class="tool-card" href="/tools/ssl-certificate-calculator"><h2>SSL expiry calculator</h2><p>Drop a cert file or enter dates — get the exact expiry date and days remaining.</p></a>

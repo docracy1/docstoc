@@ -18,6 +18,7 @@ const lockIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" st
 const calendarIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>`;
 const cashIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c.8-1 2-1.5 2.5-1.5s1.7.5 1.7 1.5-1 1.5-2.7 2-2.7 1.2-2.7 2.5 1.2 2.2 2.7 2.2 1.8-.5 2.5-1.5"/></svg>`;
 const invoiceIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7V3z"/><path d="M15 3v4h4"/><path d="M10 12h6M10 16h6M10 8h2"/></svg>`;
+const sparkleIcon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>`;
 
 const extraHead = `<style>
 .tool-sell-main { max-width: none; padding: 0; margin: 0; }
@@ -430,6 +431,30 @@ a.tool-circle {
   background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: rgba(255,255,255,0.85);
 }
 .tool-embed-code[hidden] { display: none; }
+.tool-field textarea {
+  width: 100%; box-sizing: border-box; padding: 11px 12px; font: inherit; resize: vertical;
+  border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px; background: rgba(0,0,0,0.35); color: #fff;
+}
+.ai-docgen-turnstile { margin: 4px 0 12px; min-height: 65px; }
+.ai-docgen-error {
+  font-size: 13px; color: #ffb4a8; background: rgba(255, 90, 60, 0.12);
+  border: 1px solid rgba(255, 90, 60, 0.3); border-radius: 10px; padding: 10px 12px; margin: 0 0 12px;
+}
+.ai-docgen-error[hidden] { display: none; }
+.ai-docgen-output[hidden] { display: none; }
+.ai-docgen-output table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.ai-docgen-output th, .ai-docgen-output td {
+  border: 1px solid rgba(255,255,255,0.15); padding: 6px 10px; text-align: left; font-size: 14px;
+}
+.ai-docgen-meta {
+  font-size: 12.5px; color: rgba(255,255,255,0.55); margin: 0 0 10px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.ai-docgen-disclaimer {
+  font-size: 12.5px; color: rgba(255,255,255,0.55); font-style: italic; margin-top: 16px;
+  padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);
+}
+button[data-docgen-submit][disabled] { opacity: 0.6; cursor: default; }
 .hash-out { margin-top: 16px; text-align: left; }
 .hash-out-row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
 .hash-out-row code {
@@ -623,6 +648,7 @@ function actionCircle({ action, title, sub, icon, ariaLabel, href }) {
 /** Index hero circle — short links to every tool page. */
 function toolsIndexCircle() {
   const links = [
+    ["AI Draft", "/tools/ai-document-generator"],
     ["Templates", "/tools/template-finder"],
     ["Hash", "/tools/file-hash-checker"],
     ["SSL", "/tools/ssl-certificate-calculator"],
@@ -794,7 +820,7 @@ const toolsIndexMain = `
 ${hero({
   accent: "Free tools.",
   rest: "One workflow.",
-  sub: "Templates, file hash, SSL expiry, trust badges, invoice generator, and chase estimates — open any tool from the circle.",
+  sub: "AI document drafting, templates, file hash, SSL expiry, trust badges, invoice generator, and chase estimates — open any tool from the circle.",
   ringInner: toolsIndexCircle(),
   caption: "Each link opens that tool — cards below have the full descriptions",
   source: "tool_index_hero",
@@ -803,6 +829,7 @@ ${hero({
   <div class="tool-section-inner">
     <h2>Choose your tool</h2>
     <div class="tool-card-grid">
+      <a class="tool-card" href="/tools/ai-document-generator"><h2>AI document generator</h2><p>Describe what you need in a sentence — get a customized draft grounded in docstoc's 1,000+ template library.</p></a>
       <a class="tool-card" href="/tools/template-finder"><h2>Template finder</h2><p>Pick your situation, get a direct link to the right free business or legal template.</p></a>
       <a class="tool-card" href="/tools/file-hash-checker"><h2>File hash checker</h2><p>Compute a file's SHA-256 hash in your browser — the same check behind docstoc certificates.</p></a>
       <a class="tool-card" href="/tools/ssl-certificate-calculator"><h2>SSL expiry calculator</h2><p>Drop a cert file or enter dates — get the exact expiry date and days remaining.</p></a>
@@ -1133,6 +1160,91 @@ ${hero({
 </section>
 `.trim();
 
+const aiDocGenFaqs = [
+  {
+    q: "Is this actually free?",
+    a: "Yes, no signup, no limit beyond a per-connection rate limit to prevent abuse. It's built on Google Gemini's free API tier.",
+  },
+  {
+    q: "How is this different from just browsing the 1,000+ templates?",
+    a: "The generator finds the closest matching template in docstoc's library and uses it as a reference, then writes a version tailored to the specific details you described — instead of you editing a generic template's placeholders by hand.",
+  },
+  {
+    q: "Is the generated document legal advice?",
+    a: "No. Like every docstoc template, it's a starting point — always have a licensed professional review anything before you rely on it, especially for higher-stakes documents.",
+  },
+  {
+    q: "Does it invent facts like names or dollar amounts?",
+    a: "It's instructed not to — anything you didn't specify comes back as a bracketed placeholder like [Client Name] for you to fill in, the same convention docstoc's static templates use.",
+  },
+  {
+    q: "What happens to what I type in?",
+    a: "Your description is sent to Google's Gemini API to generate the draft. Don't paste real client names, account numbers, or other sensitive data into the description box — describe the situation generically and fill in specifics after.",
+  },
+];
+
+const aiDocGenMain = `
+${hero({
+  accent: "Describe it.",
+  rest: "Get a draft.",
+  sub: "Type what you need in a sentence — get a customized document grounded in docstoc's 1,000+ template library. Free, no signup.",
+  ringInner: actionCircle({
+    action: "docgen",
+    icon: sparkleIcon,
+    title: "Try the generator",
+    sub: "One sentence in, a draft out",
+    ariaLabel: "Jump to the AI document generator",
+    href: "#generator",
+  }),
+  caption: "Powered by Google Gemini · grounded in docstoc's template library",
+  source: "tool_ai_docgen",
+})}
+<section class="tool-section" id="generator">
+  <div class="tool-section-inner">
+    <h2>Describe the document you need</h2>
+    <div class="tool-panel-grid" data-docgen>
+      <div class="tool-panel">
+        <div class="tool-field">
+          <label for="docgen-description">What do you need, and for what situation?</label>
+          <textarea id="docgen-description" data-docgen-description rows="4" maxlength="600"
+            placeholder="e.g. NDA for a freelance photographer working on our product launch"></textarea>
+        </div>
+        <div class="ai-docgen-turnstile" data-docgen-turnstile></div>
+        <p class="ai-docgen-error" data-docgen-error hidden></p>
+        <div class="tool-actions">
+          <button type="button" class="primary" data-docgen-submit>Generate document</button>
+        </div>
+        <p class="tool-hint">Don't include real client names, account numbers, or other sensitive details — describe the situation generically.</p>
+      </div>
+      <div class="tool-results" aria-live="polite">
+        <div data-docgen-placeholder>
+          <p class="tool-note">Your draft appears here — usually in a few seconds.</p>
+        </div>
+        <div class="ai-docgen-output" data-docgen-output hidden>
+          <p class="ai-docgen-meta" data-docgen-meta></p>
+          <div data-docgen-body></div>
+          <div class="tool-actions" style="margin-top:12px">
+            <button type="button" data-copy-embed="[data-docgen-body]">Copy document</button>
+          </div>
+          <p class="ai-docgen-disclaimer">AI-generated from a template reference — not legal advice. Have a licensed professional review this before you rely on it.</p>
+        </div>
+      </div>
+    </div>
+    <h3>What you get when you create it in docstoc</h3>
+    <ul>
+      <li><strong>Save and edit</strong> in your account instead of copy-pasting from here</li>
+      <li><strong>Tamper-evident certificate</strong> once it's final</li>
+      <li><strong>Tied to a chase</strong> if it's linked to an invoice that goes unpaid</li>
+    </ul>
+    <p style="margin-top:12px"><a href="/app/login?start=1" data-cta data-cta-source="tool_ai_docgen_body">Save documents in docstoc →</a> · <a href="/tools/template-finder">Browse all templates →</a></p>
+    <h3>FAQs</h3>
+    ${faqsHtml(aiDocGenFaqs)}
+  </div>
+</section>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/ai-document-generator.js" defer></script>
+`.trim();
+
 const pages = [
   {
     file: "index.html",
@@ -1267,6 +1379,27 @@ const pages = [
         url: "https://docstoc.io/tools/invoice-chase-calculator",
       }),
       faqJsonLd(chaseFaqs)
+    ),
+  },
+  {
+    file: "ai-document-generator.html",
+    title: "Free AI Document Generator — Custom Drafts in Seconds | docstoc",
+    description:
+      "Describe the document you need and get a free, customized draft grounded in docstoc's 1,000+ template library. No signup, powered by Google Gemini.",
+    canonical: "/tools/ai-document-generator",
+    mainHtml: aiDocGenMain,
+    jsonLd: multiJsonLd(
+      breadcrumbJsonLd([
+        { name: "Home", item: "https://docstoc.io/" },
+        { name: "Tools", item: "https://docstoc.io/tools/" },
+        { name: "AI document generator", item: "https://docstoc.io/tools/ai-document-generator" },
+      ]),
+      webAppJsonLd({
+        name: "AI document generator",
+        description: "Generate a customized business or legal document draft from a plain-language description.",
+        url: "https://docstoc.io/tools/ai-document-generator",
+      }),
+      faqJsonLd(aiDocGenFaqs)
     ),
   },
 ];
