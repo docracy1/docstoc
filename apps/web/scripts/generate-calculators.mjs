@@ -1216,6 +1216,7 @@ ${hero({
         <div class="tool-actions">
           <button type="button" class="primary" data-docgen-submit>Generate document</button>
         </div>
+        <p class="tool-hint" data-docgen-remaining hidden></p>
         <p class="tool-hint">Don't include real client names, account numbers, or other sensitive details — describe the situation generically.</p>
       </div>
       <div class="tool-results" aria-live="polite">
