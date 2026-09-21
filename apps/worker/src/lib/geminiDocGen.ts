@@ -23,6 +23,7 @@ export interface GeneratedDocument {
   bodyMarkdown: string;
   matchedTemplateSlug: string | null;
   matchedTemplateName: string | null;
+  matchedTemplateCategory: string | null;
 }
 
 export class GeminiError extends Error {
@@ -105,5 +106,6 @@ export async function generateDocumentFromDescription(
     bodyMarkdown: text.trim(),
     matchedTemplateSlug: reference?.slug ?? null,
     matchedTemplateName: reference?.name ?? null,
+    matchedTemplateCategory: reference?.category ?? null,
   };
 }

@@ -450,6 +450,8 @@ a.tool-circle {
   font-size: 12.5px; color: rgba(255,255,255,0.55); margin: 0 0 10px; padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+.ai-docgen-cta { margin: 14px 0 0; }
+.ai-docgen-cta[hidden] { display: none; }
 .ai-docgen-disclaimer {
   font-size: 12.5px; color: rgba(255,255,255,0.55); font-style: italic; margin-top: 16px;
   padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);
@@ -1226,6 +1228,7 @@ ${hero({
           <div class="tool-actions" style="margin-top:12px">
             <button type="button" data-copy-embed="[data-docgen-body]">Copy document</button>
           </div>
+          <p class="ai-docgen-cta" data-docgen-cta hidden></p>
           <p class="ai-docgen-disclaimer">AI-generated from a template reference — not legal advice. Have a licensed professional review this before you rely on it.</p>
         </div>
       </div>
