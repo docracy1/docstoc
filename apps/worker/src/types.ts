@@ -55,9 +55,16 @@ export interface Env {
   ACME_RELAY_URL?: string;
   /** Shared bearer secret for the ACME relay — must match the relay's own RELAY_SECRET env var. */
   ACME_RELAY_SECRET?: string;
+  /** Google AI Studio API key for the public AI Document Generator tool — see lib/geminiDocGen.ts.
+   *  Distinct from the Workers AI binding above (that's used for the in-app chase-email drafting;
+   *  this is a genuinely external LLM call, so it's gated behind rate-limiting + Turnstile). */
+  GEMINI_API_KEY?: string;
 
   // Non-secret config ([vars] in wrangler.toml)
   WORKERS_AI_MODEL?: string;
+  /** Gemini model id for the AI Document Generator — defaults to a current free-tier-eligible
+   *  flash model in code if unset. See lib/geminiDocGen.ts. */
+  GEMINI_MODEL?: string;
   PUBLIC_APP_URL: string;
   PUBLIC_WORKER_URL: string;
   /** Cloudflare Turnstile site key (public) — exposed to the login UI via /api/auth/config */
@@ -70,4 +77,7 @@ export interface Env {
   FEEDBACK_EMAIL?: string;
   ADMIN_EMAIL?: string;
   ADMIN_PASSWORD?: string;
+  /** Second password-login allowlist entry, for app-store/OAuth reviewers who can't receive magic links. */
+  REVIEWER_EMAIL?: string;
+  REVIEWER_PASSWORD?: string;
 }

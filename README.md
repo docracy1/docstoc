@@ -269,6 +269,7 @@ Protects `/api/auth/request` and admin login.
 7. `wrangler secret put RESEND_API_KEY` — verify sending domain in Resend
 8. Turnstile — see above
 9. `wrangler secret put ADMIN_PASSWORD` — for `/app/admin`
+9a. **AI Document Generator (optional, public marketing tool):** [Google AI Studio](https://aistudio.google.com/apikey) → create a free API key → `wrangler secret put GEMINI_API_KEY`. Free tier is rate-limited; the worker also enforces its own per-IP limit + Turnstile. See `apps/worker/src/lib/geminiDocGen.ts`.
 10. **Cloud storage OAuth (optional, Pro+):**
 
     | Provider | Redirect URI |
@@ -321,6 +322,8 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ADMIN_PASSWORD=your-dev-admin-password
 # Optional Turnstile test keys (or omit to bypass):
 # TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+# Optional — AI Document Generator tool returns 503 until set:
+# GEMINI_API_KEY=your-google-ai-studio-key
 ```
 
 Stripe CLI for local webhooks:
