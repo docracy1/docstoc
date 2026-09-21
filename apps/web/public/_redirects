@@ -55,8 +55,8 @@ https://www.docstoc.io/*  https://docstoc.io/:splat  301
 /chasa-vs-zerossl  /docstoc-vs-zerossl  301
 /chasa-vs-zervant  /docstoc-vs-zervant  301
 /chasa-vs-zoho-invoice  /docstoc-vs-zoho-invoice  301
-  "/tsl  /tls  301
-/tsl/  /tls  301
+/tsl  /ssl  301
+/tsl/  /ssl  301
 /tls  /ssl  301
 /tls/  /ssl  301
 /ai  /chase-invoices  301
