@@ -2,9 +2,10 @@ import type { Env } from "../types";
 import { sanitizeForPrompt, wrapUserContent } from "./validate";
 import type { TemplateRecord } from "./documentTemplateMatch";
 
-// Free-tier-eligible flash model as of writing — override via GEMINI_MODEL without a code change
-// if Google renames/deprecates it (same pattern as WORKERS_AI_MODEL in lib/ai.ts).
-const DEFAULT_MODEL = "gemini-2.0-flash";
+// "-latest" alias so this never goes stale as Google ships new models — verified live: currently
+// resolves to gemini-3.8-flash. Override via GEMINI_MODEL to pin a specific version if needed
+// (same override pattern as WORKERS_AI_MODEL in lib/ai.ts).
+const DEFAULT_MODEL = "gemini-flash-latest";
 const API_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
 const SYSTEM_PROMPT = `You draft business and legal documents in the same house style as docstoc.io's template library.
@@ -75,13 +76,19 @@ export async function generateDocumentFromDescription(
 
   const data = (await res.json()) as {
     candidates?: Array<{
-      content?: { parts?: Array<{ text?: string }> };
+      content?: { parts?: Array<{ text?: string; thought?: boolean }> };
       finishReason?: string;
     }>;
   };
 
   const candidate = data.candidates?.[0];
-  const text = candidate?.content?.parts?.map((p) => p.text || "").join("") || "";
+  // Skip any part explicitly marked as an internal "thought" summary (thinking models can return
+  // these alongside the real answer) — only the non-thought parts are the actual document.
+  const text =
+    candidate?.content?.parts
+      ?.filter((p) => !p.thought)
+      .map((p) => p.text || "")
+      .join("") || "";
   if (!text.trim()) {
     if (candidate?.finishReason === "SAFETY") {
       throw new GeminiError(
