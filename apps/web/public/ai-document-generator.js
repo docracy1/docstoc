@@ -136,7 +136,44 @@
     var outputEl = document.querySelector("[data-docgen-output]");
     var metaEl = document.querySelector("[data-docgen-meta]");
     var bodyEl = document.querySelector("[data-docgen-body]");
+    var ctaEl = document.querySelector("[data-docgen-cta]");
     if (!descEl || !submitBtn) return;
+
+    // Category-specific next step beats one generic "save documents" link for every result —
+    // pair the free draft with whichever paid capability is actually relevant to what was just
+    // generated. Finance docs (invoices, late-fee notices, etc.) point at chasing; everything
+    // else points at the tamper-evident certificate, since "prove what you sent" applies broadly.
+    function ctaFor(category) {
+      if (!category) {
+        return { text: "Save documents in docstoc →", href: "/app/login?start=1", source: "tool_ai_docgen_result_generic" };
+      }
+      if (category === "Finance") {
+        return {
+          text: "Turn this into a tracked invoice chase →",
+          href: "/app/login?start=1",
+          source: "tool_ai_docgen_result_finance",
+        };
+      }
+      return {
+        text: "Get a tamper-evident certificate for this document →",
+        href: "/app/login?start=1",
+        source: "tool_ai_docgen_result_certificate",
+      };
+    }
+
+    function renderCta(category) {
+      if (!ctaEl) return;
+      var cta = ctaFor(category);
+      ctaEl.innerHTML =
+        '<a class="nav-cta" href="' +
+        cta.href +
+        '" data-cta data-cta-source="' +
+        cta.source +
+        '">' +
+        cta.text +
+        "</a>";
+      ctaEl.hidden = false;
+    }
 
     var widgetId = null;
     var turnstileRequired = false;
@@ -204,6 +241,7 @@
               ? "Based on the closest matching docstoc template: " + res.data.matchedTemplateName
               : "Written from general best practice — no closely matching template found.";
           }
+          renderCta(res.data.matchedTemplateCategory);
           if (placeholderEl) placeholderEl.hidden = true;
           if (outputEl) {
             outputEl.hidden = false;
