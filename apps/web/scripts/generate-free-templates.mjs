@@ -36782,18 +36782,69 @@ function buildDocumentUseCases(t) {
   return [...DOCUMENT_SHARED_USE_CASES, framing.useCase4];
 }
 
+// Deterministic per-slug variant picker — same template always gets the same variant on rebuild
+// (stable URLs/diffs), but different templates land on different phrasing even within one
+// category, instead of 100-500 pages sharing byte-identical FAQ paragraphs.
+function variantIndex(slug, modulus) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+  }
+  return hash % modulus;
+}
+
+// Genuinely different legal-risk framing per category, not a swapped noun in one shared sentence
+// — a lease and an NDA don't carry the same risk, and the disclaimer shouldn't read like they do.
+const DOCUMENT_LEGAL_DISCLAIMERS = {
+  Business: [
+    "No. This is a general-purpose starting structure, not advice for your specific situation. Business agreements can hinge on details — state of formation, industry-specific regulation, how a dispute would actually play out — that a template can't account for. Have a business attorney review anything that involves real money or real risk before you rely on it.",
+    "No. Templates like this cover the common ground most businesses need, but they can't anticipate your specific deal terms, jurisdiction, or industry rules. Treat it as a first draft to build from, and get a business attorney's eyes on it before signing anything that matters.",
+  ],
+  Legal: [
+    "No. Legal documents are exactly where a generic template is most likely to miss something that matters — the right structure, required disclosures, and even which clauses are enforceable all vary by state and situation. Use this as a starting point for a conversation with a licensed attorney, not a substitute for one.",
+    "No. This template reflects common practice, not your jurisdiction's specific requirements. Legal formalities (required language, witness or notarization rules, filing steps) differ by state and sometimes by county — confirm them with a licensed attorney before this document does any real work.",
+  ],
+  "Real Estate": [
+    "No. Landlord-tenant law is one of the most locally-specific areas of law in the US — notice periods, required disclosures, and even what a lease is allowed to say vary by state and often by city. Check your local requirements (or a real estate attorney) before using this for an actual lease or notice.",
+    "No. This covers the structure most real estate documents share, but specifics like required disclosures, notice periods, and security-deposit rules are set at the state or city level and change often. Verify against your local landlord-tenant law, or have a real estate attorney check it, before relying on it.",
+  ],
+  Finance: [
+    "No. Financial documents like this can touch usury limits, lending disclosure rules, or tax treatment that vary by state and by amount — details a general template can't know. Have an accountant or attorney review the actual terms before money changes hands based on this.",
+    "No. This covers the standard structure, not the interest-rate limits, disclosure requirements, or tax implications that can apply depending on your state and the amount involved. Check those specifics with an accountant or financial attorney before you rely on it.",
+  ],
+  HR: [
+    "No. Employment documents sit on top of a mix of federal, state, and sometimes city labor law — at-will employment rules, required notices, and what you can and can't put in writing all vary. Have an employment attorney or HR professional confirm this fits your jurisdiction before you use it.",
+    "No. This follows common HR practice, but requirements around notice, classification, and required disclosures shift by state and change over time. Get an employment attorney or HR professional to confirm compliance for your specific situation before relying on it.",
+  ],
+};
+
 function buildDocumentFaq(t) {
-  const headings = [...(t.bodyMarkdown || "").matchAll(/^##\s+(.+)$/gm)]
-    .map((m) => m[1].trim())
-    .filter(Boolean);
-  const topSections =
-    headings.length > 0
-      ? headings.slice(0, 4).join(", ")
-      : "the standard sections this kind of document usually needs";
+  const { sections, placeholderCount } = extractDocFacts(t);
+  const topSections = sections.length
+    ? sections.slice(0, 4).join(", ")
+    : "the standard sections this kind of document usually needs";
+  const v = (n) => variantIndex(t.slug, n);
+
+  const freeVariants = [
+    `Yes — this ${t.name} template on docstoc is free to view, edit online, and download as a PDF with no account or signup required.`,
+    `Yes. Like every template in docstoc's library, this ${t.name.toLowerCase()} is free to use, with no account or signup needed to view, edit, or download it.`,
+    `Yes, completely free — view, edit, and download this ${t.name.toLowerCase()} as a PDF without creating an account.`,
+  ];
+
+  const editVariants = placeholderCount
+    ? [
+        `Yes — edit directly on the page, adjust any section or clause, and re-fill the ${placeholderCount} placeholder field${placeholderCount === 1 ? "" : "s"} to match your situation before downloading a PDF. It's a starting structure, not a rigid script.`,
+        `Yes. All ${placeholderCount} placeholder field${placeholderCount === 1 ? "" : "s"} and every clause are editable right on the page — change what doesn't fit, then download an updated PDF anytime.`,
+      ]
+    : [
+        "Yes — edit directly on the page, adjust any section or placeholder, then download an updated PDF anytime. It's a starting structure, not a rigid script.",
+        "Yes. Every clause and placeholder is editable right on the page — change what doesn't fit your situation, then download an updated PDF.",
+      ];
+
   return [
     {
       q: `Is this ${t.name.toLowerCase()} template really free?`,
-      a: `Yes — this ${t.name} template on docstoc is free to view, edit online, and download as a PDF with no account or signup required.`,
+      a: freeVariants[v(freeVariants.length)],
     },
     {
       q: `What does this ${t.name.toLowerCase()} cover?`,
@@ -36801,11 +36852,13 @@ function buildDocumentFaq(t) {
     },
     {
       q: "Is this legal advice?",
-      a: "No. This template is provided for informational and educational purposes only. Laws and requirements vary by state, country, and situation — review any document with a licensed attorney (or relevant professional) before relying on it for something important.",
+      a: (DOCUMENT_LEGAL_DISCLAIMERS[t.category] || DOCUMENT_LEGAL_DISCLAIMERS.Business)[
+        v((DOCUMENT_LEGAL_DISCLAIMERS[t.category] || DOCUMENT_LEGAL_DISCLAIMERS.Business).length)
+      ],
     },
     {
       q: "Can I edit the wording?",
-      a: "Yes — edit directly on the page, adjust any section or placeholder, then download an updated PDF anytime. It's a starting structure, not a rigid script.",
+      a: editVariants[v(editVariants.length)],
     },
     {
       q: "Where can I find more free templates like this?",
