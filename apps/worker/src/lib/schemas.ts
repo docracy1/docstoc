@@ -26,6 +26,7 @@ export const contactLeadSchema = z.object({
 export const aiDocumentGeneratorSchema = z.object({
   description: z.string().trim().min(8, "Describe the document you need in a bit more detail.").max(600),
   turnstileToken: z.string().optional(),
+  visitorId: z.string().max(80).optional(),
 });
 
 export const analyticsTrackSchema = z.object({

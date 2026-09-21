@@ -116,6 +116,20 @@
     return out.join("\n");
   }
 
+  var VISITOR_KEY = "docstoc_docgen_vid";
+  function visitorId() {
+    try {
+      var id = localStorage.getItem(VISITOR_KEY);
+      if (!id) {
+        id = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now()) + Math.random().toString(16).slice(2);
+        localStorage.setItem(VISITOR_KEY, id);
+      }
+      return id;
+    } catch (e) {
+      return "";
+    }
+  }
+
   function waitForTurnstile(cb, triesLeft) {
     if (window.turnstile) return cb(window.turnstile);
     if (triesLeft <= 0) return cb(null);
@@ -137,6 +151,7 @@
     var metaEl = document.querySelector("[data-docgen-meta]");
     var bodyEl = document.querySelector("[data-docgen-body]");
     var ctaEl = document.querySelector("[data-docgen-cta]");
+    var remainingEl = root.querySelector("[data-docgen-remaining]");
     if (!descEl || !submitBtn) return;
 
     // Category-specific next step beats one generic "save documents" link for every result —
@@ -200,6 +215,25 @@
       errorEl.hidden = true;
       errorEl.textContent = "";
     }
+    function showLimitReached() {
+      if (!errorEl) return;
+      errorEl.innerHTML =
+        "You've used your free AI documents for this month. " +
+        '<a href="/app/login?start=1" data-cta data-cta-source="tool_ai_docgen_limit_reached" style="color:inherit;text-decoration:underline;font-weight:700">Sign up for unlimited →</a>';
+      errorEl.hidden = false;
+    }
+    function updateRemaining(remaining) {
+      if (!remainingEl) return;
+      if (typeof remaining !== "number") {
+        remainingEl.hidden = true;
+        return;
+      }
+      remainingEl.textContent =
+        remaining > 0
+          ? remaining + " free AI document" + (remaining === 1 ? "" : "s") + " left this month"
+          : "That was your last free AI document this month — sign up for unlimited.";
+      remainingEl.hidden = false;
+    }
 
     submitBtn.addEventListener("click", function () {
       clearError();
@@ -222,7 +256,7 @@
       fetch("/api/ai-document-generator/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description: description, turnstileToken: token || undefined }),
+        body: JSON.stringify({ description: description, turnstileToken: token || undefined, visitorId: visitorId() || undefined }),
       })
         .then(function (r) {
           return r.json().then(function (data) {
@@ -232,7 +266,11 @@
         .then(function (res) {
           if (widgetId && window.turnstile) window.turnstile.reset(widgetId);
           if (!res.ok) {
-            showError(res.data.error || "Could not generate the document. Try again.");
+            if (res.data.limitReached) {
+              showLimitReached();
+            } else {
+              showError(res.data.error || "Could not generate the document. Try again.");
+            }
             return;
           }
           if (bodyEl) bodyEl.innerHTML = markdownToHtml(res.data.bodyMarkdown || "");
@@ -242,6 +280,7 @@
               : "Written from general best practice — no closely matching template found.";
           }
           renderCta(res.data.matchedTemplateCategory);
+          updateRemaining(res.data.remaining);
           if (placeholderEl) placeholderEl.hidden = true;
           if (outputEl) {
             outputEl.hidden = false;
