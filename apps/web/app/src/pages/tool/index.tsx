@@ -25,6 +25,8 @@ import {
   markInvoicePaid,
   requestCryptoInvoice,
   listAging,
+  listCertificates,
+  listCustomHostnames,
   notifyWebhook,
   recordChaseEvent,
   generateDemandLetter,
@@ -50,6 +52,13 @@ import {
 } from "../../lib/api";
 import { getUsedCount, incrementUsedCount, isAtLimit, FREE_LIMIT } from "../../lib/usage";
 import { track } from "../../lib/analytics";
+import {
+  hasLocalChaseWin,
+  hasLocalFirstWin,
+  markFirstWin,
+  resolveFirstWinPath,
+  type FirstWinPath,
+} from "../../lib/firstWin";
 import { openMailtoClient } from "../../lib/mailto";
 import { daysOverdue } from "../../lib/dates";
 import { formatUsWeekday } from "../../lib/locale";
@@ -58,6 +67,7 @@ import { parseCsvRows } from "./csvImport";
 import { loadStoredInvoices, persistInvoices } from "./storage";
 import type { Invoice, PendingCloudImport } from "./types";
 import { WelcomeBlock } from "./components/WelcomeBlock";
+import { FirstWinBlock } from "./components/FirstWinBlock";
 import { UsageBar } from "./components/UsageBar";
 import { AgingOverviewPanel } from "./components/AgingOverviewPanel";
 import { CloudImportConfirm } from "./components/CloudImportConfirm";
@@ -145,6 +155,50 @@ export default function Tool({ account }: { account: Account | null }) {
   const cancelledGenerateRef = useRef<Set<string>>(new Set());
   const isPaid = account?.plan !== "free" && account?.plan != null;
   const isPro = account?.plan === "business";
+  const [firstWinPath] = useState<FirstWinPath>(() => resolveFirstWinPath());
+  const [needsFirstWin, setNeedsFirstWin] = useState(false);
+
+  useEffect(() => {
+    if (!account || isPaid) {
+      setNeedsFirstWin(false);
+      return;
+    }
+    if (hasLocalFirstWin() || hasLocalChaseWin(invoices)) {
+      if (!hasLocalFirstWin() && hasLocalChaseWin(invoices)) markFirstWin("chase");
+      setNeedsFirstWin(false);
+      return;
+    }
+    let cancelled = false;
+    Promise.all([
+      listCertificates().catch(() => null),
+      listCustomHostnames().catch(() => null),
+    ]).then(([certs, ssl]) => {
+      if (cancelled) return;
+      if ((certs?.certificates.length ?? 0) > 0) {
+        markFirstWin("cert");
+        setNeedsFirstWin(false);
+        return;
+      }
+      const sslIssued = (ssl?.certificates ?? []).some(
+        (c) =>
+          c.status === "issued" ||
+          c.status === "expiring" ||
+          c.status === "pending_dns" ||
+          c.status === "verifying"
+      );
+      if (sslIssued) {
+        markFirstWin("ssl");
+        setNeedsFirstWin(false);
+        return;
+      }
+      setNeedsFirstWin(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+    // invoices intentionally omitted — local chase win is checked once on mount / account change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [account?.email, isPaid]);
 
   useEffect(() => {
     if (!isPro) {
@@ -1564,6 +1618,8 @@ export default function Tool({ account }: { account: Account | null }) {
     if (!invoice.draft) return;
     navigator.clipboard.writeText(`Subject: ${invoice.draft.subject}\n\n${invoice.draft.body}`);
     track("chase_sent", { method: "copy" });
+    markFirstWin("chase");
+    setNeedsFirstWin(false);
     const now = new Date().toISOString();
     setInvoices((prev) =>
       prev.map((inv) =>
@@ -1586,6 +1642,8 @@ export default function Tool({ account }: { account: Account | null }) {
   function handleMailtoClick(invoice?: Invoice) {
     if (!invoice?.draft) return;
     track("chase_sent", { method: "mailto" });
+    markFirstWin("chase");
+    setNeedsFirstWin(false);
     const { copiedBody } = openMailtoClient({
       subject: invoice.draft.subject,
       body: invoice.draft.body,
@@ -1758,9 +1816,39 @@ export default function Tool({ account }: { account: Account | null }) {
     ? firstName.charAt(0).toUpperCase() + firstName.slice(1)
     : null;
 
+  const showFirstWin = !!account && !isPaid && needsFirstWin;
+
   return (
     <div>
-      {!showChaseWorkspace && (
+      {showFirstWin ? (
+        <FirstWinBlock
+          welcomeName={welcomeName}
+          path={firstWinPath}
+          invoices={invoices}
+          onSeedDemo={(invoice) => {
+            setInvoices((prev) =>
+              prev.some((inv) => inv.id === invoice.id) ? prev : [invoice, ...prev]
+            );
+          }}
+          onChaseSent={(invoiceId, method) => {
+            const now = new Date().toISOString();
+            setInvoices((prev) =>
+              prev.map((inv) =>
+                inv.id === invoiceId
+                  ? {
+                      ...inv,
+                      lastChaseStatus: method === "copy" ? "copied" : "mailto",
+                      lastChaseAt: now,
+                    }
+                  : inv
+              )
+            );
+          }}
+          onComplete={() => setNeedsFirstWin(false)}
+        />
+      ) : null}
+
+      {!showFirstWin && !showChaseWorkspace && (
         <WelcomeBlock
           welcomeName={welcomeName}
           overdueCount={overdueCount}
@@ -1770,7 +1858,7 @@ export default function Tool({ account }: { account: Account | null }) {
         />
       )}
 
-      {showChaseWorkspace ? (
+      {!showFirstWin && showChaseWorkspace ? (
         <>
           <section id="aging-board" className="chase-view-header">
             <div className="chase-view-header-row">

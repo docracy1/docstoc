@@ -15,6 +15,8 @@ import {
   type SslHealth,
   type TrustProfileRecord,
 } from "../lib/api";
+import { track } from "../lib/analytics";
+import { markFirstWin } from "../lib/firstWin";
 import { isBusinessPlan, isPaidPlan } from "../lib/plan";
 import { useT } from "../lib/i18n";
 
@@ -115,6 +117,8 @@ export default function SslCertificatesPage({ account }: { account: Account | nu
       await createCustomHostname(primary, hostnames);
       setDomain("");
       setExtraSans("");
+      markFirstWin("ssl");
+      track("first_win_completed", { path: "ssl" });
       await refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : t("ssl.addFailed"));

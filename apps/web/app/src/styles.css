@@ -214,6 +214,88 @@ a { color: inherit; }
   margin-bottom: 28px;
 }
 
+.first-win-panel {
+  padding: 22px 24px 24px;
+  max-width: 640px;
+}
+.first-win-steps {
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.first-win-steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  opacity: 0.55;
+}
+.first-win-steps li.is-current {
+  opacity: 1;
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  background: color-mix(in srgb, var(--accent-soft) 70%, var(--white));
+}
+.first-win-steps li.is-done {
+  opacity: 0.85;
+}
+.first-win-steps strong {
+  font-size: 14px;
+  color: var(--ink);
+}
+.first-win-steps span {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.first-win-draft {
+  margin-top: 4px;
+}
+.first-win-draft-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.first-win-draft-subject {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.first-win-draft-body {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper, #faf9f7);
+  white-space: pre-wrap;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  max-height: 220px;
+  overflow: auto;
+}
+.first-win-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.first-win-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
 /* New chase — Docracy-style prepare entry */
 .new-chase {
   max-width: 640px;

@@ -3,80 +3,47 @@ import { isAdminEmail } from "./adminAuth";
 import { sendOnboardingNudgeEmail, sendPaidOnboardingNudgeEmail } from "./email";
 import { normalizeLocale, type Locale } from "./locale";
 
-/** Analytics events that mean the user tried the core product (not just browsing settings). */
-export const ACTIVATION_EVENT_NAMES = [
-  "chase_drafted",
-  "chase_sent",
-  "client_chase_drafted",
-  "invoice_uploaded",
-  "upload_started",
-  "client_created",
-  "fields_added",
-  "template_opened",
-  "template_completed",
-  "template_started",
-  "demo_draft_generated",
-] as const;
+/** Real first-win analytics — browsing / draft-only does not suppress the Day-2 nudge. */
+export const WIN_EVENT_NAMES = ["chase_sent", "template_completed", "first_win_completed"] as const;
 
-/** Stronger “first win” signals — draft-only usage still gets a paid nudge. */
-const PAID_WIN_EVENT_NAMES = ["chase_sent", "template_completed"] as const;
-
-const ACTIVATION_EVENT_SQL = ACTIVATION_EVENT_NAMES.map(() => "?").join(", ");
-const PAID_WIN_EVENT_SQL = PAID_WIN_EVENT_NAMES.map(() => "?").join(", ");
+const WIN_EVENT_SQL = WIN_EVENT_NAMES.map(() => "?").join(", ");
 
 export function cutoffIsoDaysAgo(days: number, now = new Date()): string {
   return new Date(now.getTime() - days * 24 * 60 * 60 * 1000).toISOString();
 }
 
-/** True when the account has meaningful product usage on server or in analytics. */
-export async function isAccountActivated(env: Env, accountId: string): Promise<boolean> {
+/** True when the account finished a real product win (send / issue / complete). */
+export async function isAccountWon(env: Env, accountId: string): Promise<boolean> {
   const eventRow = await env.CHASA_DB.prepare(
     `SELECT 1 AS hit FROM analytics_events
-     WHERE account_id = ? AND name IN (${ACTIVATION_EVENT_SQL})
+     WHERE account_id = ? AND name IN (${WIN_EVENT_SQL})
      LIMIT 1`
   )
-    .bind(accountId, ...ACTIVATION_EVENT_NAMES)
-    .first<{ hit: number }>();
-  if (eventRow?.hit) return true;
-
-  const usageRow = await env.CHASA_DB.prepare(
-    `SELECT
-       (SELECT COUNT(*) FROM aging_invoices WHERE account_id = ?) +
-       (SELECT COUNT(*) FROM clients WHERE account_id = ?) +
-       (SELECT COUNT(*) FROM cloud_connectors WHERE account_id = ?) +
-       (SELECT COUNT(*) FROM generated_invoices WHERE account_id = ?) +
-       (SELECT COUNT(*) FROM document_certificates WHERE account_id = ?) +
-       (SELECT COUNT(*) FROM customer_certificates WHERE account_id = ?) +
-       (SELECT COUNT(*) FROM marketplace_templates WHERE account_id = ?) AS total`
-  )
-    .bind(accountId, accountId, accountId, accountId, accountId, accountId, accountId)
-    .first<{ total: number }>();
-
-  return (usageRow?.total ?? 0) > 0;
-}
-
-/** Paid users who already completed a real send/issue win don't need the nudge. */
-export async function isPaidAccountWon(env: Env, accountId: string): Promise<boolean> {
-  const eventRow = await env.CHASA_DB.prepare(
-    `SELECT 1 AS hit FROM analytics_events
-     WHERE account_id = ? AND name IN (${PAID_WIN_EVENT_SQL})
-     LIMIT 1`
-  )
-    .bind(accountId, ...PAID_WIN_EVENT_NAMES)
+    .bind(accountId, ...WIN_EVENT_NAMES)
     .first<{ hit: number }>();
   if (eventRow?.hit) return true;
 
   const usageRow = await env.CHASA_DB.prepare(
     `SELECT
        (SELECT COUNT(*) FROM generated_invoices WHERE account_id = ? AND status = 'sent') +
-       (SELECT COUNT(*) FROM chase_events WHERE account_id = ? AND event_type IN ('mailto', 'sent')) +
-       (SELECT COUNT(*) FROM customer_certificates WHERE account_id = ? AND status IN ('issued', 'expiring')) +
+       (SELECT COUNT(*) FROM chase_events WHERE account_id = ? AND event_type IN ('mailto', 'sent', 'copied')) +
+       (SELECT COUNT(*) FROM customer_certificates WHERE account_id = ? AND status IN ('issued', 'expiring', 'pending_dns', 'verifying')) +
        (SELECT COUNT(*) FROM document_certificates WHERE account_id = ?) AS total`
   )
     .bind(accountId, accountId, accountId, accountId)
     .first<{ total: number }>();
 
   return (usageRow?.total ?? 0) > 0;
+}
+
+/** @deprecated Use isAccountWon — kept for older imports/tests. */
+export async function isAccountActivated(env: Env, accountId: string): Promise<boolean> {
+  return isAccountWon(env, accountId);
+}
+
+/** Paid users who already completed a real send/issue win don't need the nudge. */
+export async function isPaidAccountWon(env: Env, accountId: string): Promise<boolean> {
+  return isAccountWon(env, accountId);
 }
 
 type CandidateRow = {
@@ -125,7 +92,7 @@ export async function sendOnboardingNudges(env: Env, opts?: { daysAfterSignup?: 
 
   const freeCandidates = await listInactiveFreeSignupCandidates(env, cutoff);
   for (const row of freeCandidates) {
-    if (await isAccountActivated(env, row.id)) continue;
+    if (await isAccountWon(env, row.id)) continue;
 
     const locale: Locale = normalizeLocale(row.locale);
     const sent = await sendOnboardingNudgeEmail(env, row.email, locale);
@@ -141,7 +108,7 @@ export async function sendOnboardingNudges(env: Env, opts?: { daysAfterSignup?: 
 
   const paidCandidates = await listPaidNudgeCandidates(env, cutoff);
   for (const row of paidCandidates) {
-    if (await isPaidAccountWon(env, row.id)) continue;
+    if (await isAccountWon(env, row.id)) continue;
 
     const locale: Locale = normalizeLocale(row.locale);
     const sent = await sendPaidOnboardingNudgeEmail(env, row.email, locale);

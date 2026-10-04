@@ -677,36 +677,32 @@ const ONBOARDING_NUDGE_COPY: Record<
   }
 > = {
   en: {
-    subject: "5 tools on docstoc — pick one to try",
-    headline: "You signed up a couple of days ago — here's what's inside.",
+    subject: "Finish your first payment reminder (2 minutes)",
+    headline: "One step left — send your first chase.",
     body:
-      "Everything below lives on one platform. Start with whichever tool fits your workflow today:",
+      "You signed up a couple of days ago. The fastest way to see docstoc working is to open a sample overdue invoice, review the draft, and send it from your own inbox (mailto/copy — we never send mail for you).",
     productsHtml: (base) => `
-      <ul style="margin:0 0 20px 0;padding-left:20px;font-size:15px;color:${INK};line-height:1.65;">
-        <li style="margin-bottom:10px;"><strong>Document templates</strong> — 1,000+ free NDAs, contracts, and HR forms to copy and edit. <a href="${base}/document-templates" style="color:${ACCENT};">Browse templates →</a></li>
-        <li style="margin-bottom:10px;"><strong>SSL for your domain</strong> — Managed TLS certificates with automatic renewal. <a href="${base}/ssl-domains" style="color:${ACCENT};">Manage SSL →</a></li>
-        <li style="margin-bottom:10px;"><strong>Document certificates</strong> — Tamper-evident SHA-256 fingerprint + public verify link for any file. <a href="${base}/certificates" style="color:${ACCENT};">Certify a file →</a></li>
-        <li style="margin-bottom:10px;"><strong>Invoice generator</strong> — Build a clean PDF invoice right in your browser. <a href="${base}/tools/invoice-generator" style="color:${ACCENT};">Create invoice →</a></li>
-        <li style="margin-bottom:0;"><strong>AI invoice chasing</strong> — Draft polite payment reminders (always sent securely from your own inbox). <a href="${base}/app?view=overdue" style="color:${ACCENT};">Open chases →</a></li>
-      </ul>`,
-    cta: "Open your dashboard",
-    note: "Free tier included — upgrade only when you need Pro features like Google sync or unlimited AI drafts.",
+      <ol style="margin:0 0 20px 0;padding-left:20px;font-size:15px;color:${INK};line-height:1.65;">
+        <li style="margin-bottom:10px;"><strong>Load the demo invoice</strong> — no CSV required.</li>
+        <li style="margin-bottom:10px;"><strong>Review the reminder draft</strong> — polite, ready to send.</li>
+        <li style="margin-bottom:0;"><strong>Open in your mail app</strong> — or copy the text. <a href="${base}/app" style="color:${ACCENT};">Start the 3-step walkthrough →</a></li>
+      </ol>`,
+    cta: "Send your first chase",
+    note: "Takes about two minutes. Upgrade later only if you want Google sync, aging sync, or unlimited AI drafts.",
   },
   es: {
-    subject: "5 herramientas en docstoc — elige una para probar",
-    headline: "Te registraste hace un par de días — esto es lo que incluye.",
+    subject: "Termina tu primer recordatorio de pago (2 minutos)",
+    headline: "Te falta un paso — envía tu primer seguimiento.",
     body:
-      "Todo lo siguiente está en una sola plataforma. Empieza por la herramienta que encaje con tu flujo de trabajo hoy:",
+      "Te registraste hace un par de días. La forma más rápida de ver docstoc en acción es abrir una factura vencida de ejemplo, revisar el borrador y enviarlo desde tu propia bandeja (mailto/copiar — nunca enviamos el correo por ti).",
     productsHtml: (base) => `
-      <ul style="margin:0 0 20px 0;padding-left:20px;font-size:15px;color:${INK};line-height:1.65;">
-        <li style="margin-bottom:10px;"><strong>Plantillas de documentos</strong> — Más de 1.000 NDAs, contratos y formularios HR gratis para copiar. <a href="${base}/document-templates" style="color:${ACCENT};">Ver plantillas →</a></li>
-        <li style="margin-bottom:10px;"><strong>SSL para tu dominio</strong> — Certificados TLS gestionados con renovación automática. <a href="${base}/ssl-domains" style="color:${ACCENT};">Gestionar SSL →</a></li>
-        <li style="margin-bottom:10px;"><strong>Certificados de documentos</strong> — Huella SHA-256 + enlace público de verificación. <a href="${base}/certificates" style="color:${ACCENT};">Certificar archivo →</a></li>
-        <li style="margin-bottom:10px;"><strong>Generador de facturas</strong> — Crea una factura PDF limpia directamente en el navegador. <a href="${base}/tools/invoice-generator" style="color:${ACCENT};">Crear factura →</a></li>
-        <li style="margin-bottom:0;"><strong>Seguimiento de facturas con IA</strong> — Borradores de recordatorios de pago (siempre enviados de forma segura desde tu propia bandeja). <a href="${base}/app?view=overdue" style="color:${ACCENT};">Abrir seguimientos →</a></li>
-      </ul>`,
-    cta: "Abrir tu panel",
-    note: "Incluye nivel gratuito — mejora solo cuando necesites Pro (Google, borradores IA ilimitados, etc.).",
+      <ol style="margin:0 0 20px 0;padding-left:20px;font-size:15px;color:${INK};line-height:1.65;">
+        <li style="margin-bottom:10px;"><strong>Carga la factura demo</strong> — sin CSV.</li>
+        <li style="margin-bottom:10px;"><strong>Revisa el borrador</strong> — educado y listo para enviar.</li>
+        <li style="margin-bottom:0;"><strong>Ábrelo en tu correo</strong> — o copia el texto. <a href="${base}/app" style="color:${ACCENT};">Empezar la guía de 3 pasos →</a></li>
+      </ol>`,
+    cta: "Enviar tu primer seguimiento",
+    note: "Unos dos minutos. Mejora después solo si quieres sync de Google, aging o borradores IA ilimitados.",
   },
 };
 

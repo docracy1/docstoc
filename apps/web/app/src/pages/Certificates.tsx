@@ -6,6 +6,8 @@ import {
   type Account,
   type CertificateRecord,
 } from "../lib/api";
+import { track } from "../lib/analytics";
+import { markFirstWin } from "../lib/firstWin";
 import { isBusinessPlan } from "../lib/plan";
 import { formatUsDateTime } from "../lib/locale";
 import { useT } from "../lib/i18n";
@@ -64,6 +66,8 @@ export default function CertificatesPage({ account }: { account: Account | null 
         fileSizeBytes: file.size,
       });
       setLastCreated({ publicId: res.publicId });
+      markFirstWin("cert");
+      track("first_win_completed", { path: "cert" });
       await refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : t("certificates.createFailed"));
