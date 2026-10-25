@@ -197,7 +197,7 @@ export default function Tool({ account }: { account: Account | null }) {
       cancelled = true;
     };
     // invoices intentionally omitted — local chase win is checked once on mount / account change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // (no eslint-disable here: the react-hooks plugin is not configured, and naming its rule failed the lint since 2026-10-04)
   }, [account?.email, isPaid]);
 
   useEffect(() => {
