@@ -1,4 +1,5 @@
 import type { Env } from "../types";
+import { runAnalyticsSql } from "./analyticsQuery";
 
 /** Not HttpOnly — plain boolean opt-out the admin UI can read via document.cookie. */
 export const NOTRACK_COOKIE_NAME = "docstoc_notrack";
@@ -159,6 +160,8 @@ function trackEventAE(
     isBot: boolean;
     botName: string | null;
     attribution: string | null;
+    /** Page views only (blob9): lets the admin traffic stats read country from Analytics Engine. */
+    country?: string | null;
   }
 ): void {
   if (!env.ANALYTICS) return;
@@ -174,6 +177,7 @@ function trackEventAE(
         input.accountId ?? "",
         input.attribution ?? "",
         propsJson,
+        input.country ?? "",
       ],
       doubles: [1],
       indexes: [input.name],
@@ -437,22 +441,20 @@ export async function recordPageView(
   const now = new Date();
   const day = now.toISOString().slice(0, 10);
 
+  const country = input.country?.slice(0, 8) || null;
+
   trackEventAE(env, {
     name: "page_view",
     path,
     isBot,
     botName,
     attribution: null,
+    country,
   });
 
-  const country = input.country?.slice(0, 8) || null;
-
-  await env.CHASA_DB.prepare(
-    `INSERT INTO page_views (id, path, day, is_bot, bot_name, country, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?)`
-  )
-    .bind(crypto.randomUUID(), path, day, isBot ? 1 : 0, botName, country, now.toISOString())
-    .run();
+  // No raw page_views row any more (2026-10-25): nothing reads that table, and each row cost four
+  // billed D1 writes (table + three indexes) against the account-wide free limit shared with the
+  // owner's other projects. page_views_daily stays as the fallback for getTrafficStats.
 
   await env.CHASA_DB.prepare(
     `INSERT INTO page_views_daily (day, path, country, is_bot, bot_name, count)
@@ -478,30 +480,93 @@ export async function getTrafficStats(env: Env, days = 30, day?: string | null) 
   const cacheKey = `${days}:${day ?? ""}`;
   const cached = trafficStatsCache.get(cacheKey);
   if (cached && cached.expires > Date.now()) return cached.value;
-  const value = await computeTrafficStats(env, days, day);
+  // Analytics Engine first (2026-10-25): page_views_daily has ~2,000 rows a day, so the five D1
+  // aggregations still read ~300,000 rows per dashboard load — 6% of the account's daily D1 read
+  // limit each time. D1 stays as the fallback when the AE token is missing or the query fails.
+  const value = (await computeTrafficStatsAe(env, days, day)) ?? (await computeTrafficStats(env, days, day));
   trafficStatsCache.set(cacheKey, { expires: Date.now() + TRAFFIC_STATS_CACHE_TTL_MS, value });
   return value;
 }
 
+/** Same result shape as computeTrafficStats, page views from Analytics Engine (dataset docstoc_funnel,
+ *  blob1 = event, blob2 = path, blob3 = human/bot, blob4 = bot name, blob9 = country since 2026-10-25;
+ *  earlier page views show as country "??"). Chase KPIs still come from D1 analytics_events (small,
+ *  indexed by name + created_at). Returns null when AE is not configured or answers with an error. */
+async function computeTrafficStatsAe(env: Env, days = 30, day?: string | null) {
+  const window = Math.min(Math.max(Math.floor(days), 1), 90);
+  const dayFilter = typeof day === "string" && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
+  const next = dayFilter ? new Date(new Date(`${dayFilter}T00:00:00.000Z`).getTime() + 86_400_000).toISOString().slice(0, 10) : null;
+  const base = `FROM docstoc_funnel WHERE blob1 = 'page_view' AND timestamp > NOW() - INTERVAL '${window}' DAY`;
+  const pinned = dayFilter ? `${base} AND timestamp >= toDateTime('${dayFilter} 00:00:00') AND timestamp < toDateTime('${next} 00:00:00')` : base;
+  const count = "SUM(_sample_interval * double1)";
+
+  const [byDayAe, byRouteAe, byBotAe, byCountryAe] = await Promise.all([
+    runAeQuery<{ day: string; tt: string; c: number }>(env, `SELECT toDate(timestamp) AS day, blob3 AS tt, ${count} AS c ${base} GROUP BY day, tt ORDER BY day ASC`),
+    runAeQuery<{ path: string; tt: string; c: number }>(env, `SELECT blob2 AS path, blob3 AS tt, ${count} AS c ${pinned} GROUP BY path, tt ORDER BY c DESC LIMIT 200`),
+    runAeQuery<{ bot: string; c: number }>(env, `SELECT blob4 AS bot, ${count} AS c ${pinned} AND blob3 = 'bot' GROUP BY bot ORDER BY c DESC LIMIT 20`),
+    runAeQuery<{ country: string; c: number }>(env, `SELECT blob9 AS country, ${count} AS c ${pinned} GROUP BY country ORDER BY c DESC LIMIT 20`),
+  ]);
+  if (!byDayAe || !byRouteAe || !byBotAe || !byCountryAe) return null;
+
+  const days_ = new Map<string, { day: string; human: number; bot: number }>();
+  for (const r of byDayAe) {
+    const d = String(r.day).slice(0, 10);
+    const row = days_.get(d) ?? { day: d, human: 0, bot: 0 };
+    if (r.tt === "bot") row.bot += Number(r.c);
+    else row.human += Number(r.c);
+    days_.set(d, row);
+  }
+  const byDay = [...days_.values()].sort((a, b) => a.day.localeCompare(b.day));
+  const inScope = dayFilter ? byDay.filter((r) => r.day === dayFilter) : byDay;
+  const bots = Math.round(inScope.reduce((sum, r) => sum + r.bot, 0));
+  const total = Math.round(inScope.reduce((sum, r) => sum + r.human + r.bot, 0));
+
+  const routes = new Map<string, { path: string; total: number; human: number; bot: number }>();
+  for (const r of byRouteAe) {
+    const row = routes.get(r.path) ?? { path: r.path, total: 0, human: 0, bot: 0 };
+    const c = Math.round(Number(r.c));
+    row.total += c;
+    if (r.tt === "bot") row.bot += c;
+    else row.human += c;
+    routes.set(r.path, row);
+  }
+
+  const kpis = await chaseKpis(env, days, dayFilter);
+  return shapeTrafficStats({
+    days,
+    dayFilter,
+    total,
+    bots,
+    kpis,
+    byDay: byDay.map((r) => ({ day: r.day, human: Math.round(r.human), bot: Math.round(r.bot) })),
+    byRoute: [...routes.values()].sort((a, b) => b.total - a.total).slice(0, 20),
+    byBot: byBotAe.map((r) => ({ bot: r.bot || "Unknown", count: Math.round(Number(r.c)) })),
+    byCountry: byCountryAe.map((r) => ({ country: r.country || "??", count: Math.round(Number(r.c)) })),
+  });
+}
+
+async function runAeQuery<T>(env: Env, sql: string): Promise<T[] | null> {
+  const result = await runAnalyticsSql<T[]>(env, sql).catch(() => null);
+  if (!result || !result.ok) {
+    if (result && !result.ok && result.failure.kind === "api_error") {
+      console.error(`Traffic stats from Analytics Engine failed (${result.failure.status}): ${result.failure.detail}`);
+    }
+    return null;
+  }
+  return result.data;
+}
+
 async function computeTrafficStats(env: Env, days = 30, day?: string | null) {
   const sinceDay = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const sinceIso = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
   const dayFilter =
     typeof day === "string" && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
   // Breakdown tables can pin to one day; the day chart always keeps the full window so you can
   // click another bar without losing the series.
   const breakdownWhere = dayFilter ? `day = ?` : `day >= ?`;
   const breakdownBind = dayFilter ?? sinceDay;
-  // The KPI cards need to respect the same day pin as the breakdown tables — without an
-  // upper bound, picking a single day still summed chases across the whole `days` window.
-  const kpiSinceIso = dayFilter ? `${dayFilter}T00:00:00.000Z` : sinceIso;
-  const kpiUntilIso = dayFilter
-    ? new Date(new Date(`${dayFilter}T00:00:00.000Z`).getTime() + 24 * 60 * 60 * 1000).toISOString()
-    : null;
-  const kpiWhere = kpiUntilIso ? `created_at >= ? AND created_at < ?` : `created_at >= ?`;
-  const kpiBind = kpiUntilIso ? [kpiSinceIso, kpiUntilIso] : [kpiSinceIso];
 
   const [totals, byDay, byRoute, byBot, byCountry, kpis] = await Promise.all([
+    // (D1 fallback; the dashboard normally reads Analytics Engine, see computeTrafficStatsAe)
     env.CHASA_DB.prepare(
       `SELECT
          SUM(count) as total,
@@ -543,49 +608,67 @@ async function computeTrafficStats(env: Env, days = 30, day?: string | null) {
     )
       .bind(breakdownBind)
       .all<{ country: string; c: number }>(),
-    env.CHASA_DB.prepare(
-      `SELECT
-         (SELECT COUNT(*) FROM analytics_events WHERE name = 'chase_sent' AND ${kpiWhere}
-            AND (properties IS NULL OR properties NOT LIKE '%"source":"template"%')) as chases_sent,
-         (SELECT COUNT(*) FROM analytics_events WHERE name = 'chase_completed' AND ${kpiWhere}) as chases_completed
-       `
-    )
-      .bind(...kpiBind, ...kpiBind)
-      .first<{ chases_sent: number; chases_completed: number }>(),
+    chaseKpis(env, days, dayFilter),
   ]);
 
-  const total = Number(totals?.total ?? 0);
-  const bots = Number(totals?.bots ?? 0);
-  const sent = Number(kpis?.chases_sent ?? 0);
-  const completed = Number(kpis?.chases_completed ?? 0);
-
-  return {
+  return shapeTrafficStats({
     days,
-    day: dayFilter,
+    dayFilter,
+    total: Number(totals?.total ?? 0),
+    bots: Number(totals?.bots ?? 0),
+    kpis,
+    byDay: (byDay.results ?? []).map((r) => ({ day: r.day, human: Number(r.human), bot: Number(r.bot) })),
+    byRoute: (byRoute.results ?? []).map((r) => ({ path: r.path, total: Number(r.total), human: Number(r.human), bot: Number(r.bot) })),
+    byBot: (byBot.results ?? []).map((r) => ({ bot: r.bot, count: Number(r.c) })),
+    byCountry: (byCountry.results ?? []).map((r) => ({ country: r.country, count: Number(r.c) })),
+  });
+}
+
+/** Chases sent/completed in the window (or the pinned day) from D1 analytics_events. */
+async function chaseKpis(env: Env, days: number, dayFilter: string | null) {
+  const sinceIso = dayFilter ? `${dayFilter}T00:00:00.000Z` : new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
+  // The KPI cards need to respect the same day pin as the breakdown tables — without an
+  // upper bound, picking a single day still summed chases across the whole `days` window.
+  const untilIso = dayFilter ? new Date(new Date(`${dayFilter}T00:00:00.000Z`).getTime() + 24 * 60 * 60 * 1000).toISOString() : null;
+  const where = untilIso ? `created_at >= ? AND created_at < ?` : `created_at >= ?`;
+  const bind = untilIso ? [sinceIso, untilIso] : [sinceIso];
+  const row = await env.CHASA_DB.prepare(
+    `SELECT
+       (SELECT COUNT(*) FROM analytics_events WHERE name = 'chase_sent' AND ${where}
+          AND (properties IS NULL OR properties NOT LIKE '%"source":"template"%')) as chases_sent,
+       (SELECT COUNT(*) FROM analytics_events WHERE name = 'chase_completed' AND ${where}) as chases_completed`
+  )
+    .bind(...bind, ...bind)
+    .first<{ chases_sent: number; chases_completed: number }>();
+  return { sent: Number(row?.chases_sent ?? 0), completed: Number(row?.chases_completed ?? 0) };
+}
+
+function shapeTrafficStats(input: {
+  days: number;
+  dayFilter: string | null;
+  total: number;
+  bots: number;
+  kpis: { sent: number; completed: number };
+  byDay: { day: string; human: number; bot: number }[];
+  byRoute: { path: string; total: number; human: number; bot: number }[];
+  byBot: { bot: string; count: number }[];
+  byCountry: { country: string; count: number }[];
+}) {
+  const { total, bots, kpis } = input;
+  return {
+    days: input.days,
+    day: input.dayFilter,
     pageViews: total,
     humanPageViews: Math.max(0, total - bots),
     crawlerPageViews: bots,
     botPct: total > 0 ? Math.round((bots / total) * 100) : 0,
-    chasesSent: sent,
-    chasesCompleted: completed,
-    conversion:
-      sent > 0 ? `${Math.round((completed / sent) * 100)}%` : "—",
-    byDay: (byDay.results ?? []).map((r) => ({
-      day: r.day,
-      human: Number(r.human),
-      bot: Number(r.bot),
-    })),
-    byRoute: (byRoute.results ?? []).map((r) => ({
-      path: r.path,
-      total: Number(r.total),
-      human: Number(r.human),
-      bot: Number(r.bot),
-    })),
-    byBot: (byBot.results ?? []).map((r) => ({ bot: r.bot, count: Number(r.c) })),
-    byCountry: (byCountry.results ?? []).map((r) => ({
-      country: r.country,
-      count: Number(r.c),
-    })),
+    chasesSent: kpis.sent,
+    chasesCompleted: kpis.completed,
+    conversion: kpis.sent > 0 ? `${Math.round((kpis.completed / kpis.sent) * 100)}%` : "—",
+    byDay: input.byDay,
+    byRoute: input.byRoute,
+    byBot: input.byBot,
+    byCountry: input.byCountry,
     note: "Beacon page views (analytics.js) — humans + classified crawlers. Google Search impressions/clicks live in Search Console, not here.",
   };
 }

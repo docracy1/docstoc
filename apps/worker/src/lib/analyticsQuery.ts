@@ -16,7 +16,7 @@ function missingConfig(env: Env): AnalyticsQueryFailure | null {
  *  Analytics:Read), which isn't something this code can provision for itself. Returns a
  *  structured failure (not a thrown error) when the token/account id aren't configured yet or
  *  the SQL API rejects the query. */
-async function runAnalyticsSql<T>(env: Env, sql: string): Promise<AnalyticsQueryResult<T>> {
+export async function runAnalyticsSql<T>(env: Env, sql: string): Promise<AnalyticsQueryResult<T>> {
   const config = missingConfig(env);
   if (config) return { ok: false, failure: config };
 
