@@ -243,11 +243,27 @@ export async function runWeeklyBlogPublish(env: Env): Promise<void> {
   console.log(`Weekly blog: published ${created.slug} from topic ${topic.id}`);
 }
 
-/** XML sitemap fragment listing published D1 posts, served live at /api/blog/sitemap.xml so a
- *  freshly-published Monday post is discoverable immediately, not just after the next full
- *  site rebuild bakes it into the static sitemap.xml. */
-export async function blogPostsSitemapXml(env: Env): Promise<string> {
-  const posts = await listPosts(env, { publishedOnly: true });
+/** True when the post's static page is live. A post the weekly cron published since the last site
+ *  build has no page yet: docstoc.io answers with the noindex 404 fallback (public/blog/404.html),
+ *  and listing that URL is what Search Console reported as Soft 404 / "Excluded by noindex". */
+export type PostPageCheck = (slug: string) => Promise<boolean>;
+
+const livePostPage: PostPageCheck = async (slug) => {
+  try {
+    const res = await fetch(`https://docstoc.io/blog/${slug}/`, { method: "HEAD", redirect: "manual" });
+    return res.status === 200;
+  } catch {
+    return false;
+  }
+};
+
+/** XML sitemap fragment listing published D1 posts that already have a built page, served live at
+ *  /api/blog/sitemap.xml. Posts newer than the last site build are left out until the rebuild
+ *  bakes them; they would only 404 for crawlers before that. */
+export async function blogPostsSitemapXml(env: Env, isLive: PostPageCheck = livePostPage): Promise<string> {
+  const all = await listPosts(env, { publishedOnly: true });
+  const live = await Promise.all(all.map((p) => isLive(p.slug)));
+  const posts = all.filter((_, i) => live[i]);
   const urls = posts
     .map((p) => {
       const lastmod = (p.publishedAt ?? p.createdAt).slice(0, 10);

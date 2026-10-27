@@ -50,11 +50,56 @@ function shouldExcludeFromSitemap(urlPath) {
   return false;
 }
 
+/** Static file Cloudflare Pages serves for a URL path, or null (SPA route, function, unknown). */
+function fileForUrlPath(urlPath) {
+  const candidates = urlPath.endsWith("/")
+    ? [`${urlPath}index.html`]
+    : [`${urlPath}.html`, `${urlPath}/index.html`];
+  for (const c of candidates) {
+    const p = join(publicDir, c);
+    try {
+      if (statSync(p).isFile()) return p;
+    } catch {
+      /* not there */
+    }
+  }
+  return null;
+}
+
+/** Why a built page must stay out of the sitemap, or null. Search Console flags every sitemap URL
+ *  that is noindex ("Excluded by noindex"), points its canonical elsewhere ("Alternate page with
+ *  proper canonical tag", e.g. /docstoc-vs-x → /x-alternative) or redirects (a slashless path
+ *  served from dir/index.html gets a 308 to the slashed form). */
+function sitemapRejection(urlPath, file) {
+  if (!file) return null;
+  if (!urlPath.endsWith("/") && file.endsWith("/index.html")) {
+    return `redirects to ${urlPath}/`;
+  }
+  const html = readFileSync(file, "utf8");
+  const robots = html.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']*)["']/i)?.[1] ?? "";
+  if (/noindex/i.test(robots)) return "noindex";
+  const canonical = html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/i)?.[1];
+  if (canonical) {
+    const canonicalPath = canonical.replace(/^https?:\/\/[^/]+/, "") || "/";
+    if (canonicalPath !== urlPath) return `canonical is ${canonicalPath}`;
+  }
+  return null;
+}
+
+const rejected = [];
+
+function keepInSitemap(urlPath, file) {
+  const why = sitemapRejection(urlPath, file);
+  if (why) rejected.push(`${urlPath} (${why})`);
+  return !why;
+}
+
 function buildSitemapUrls() {
   const byPath = new Map();
 
   for (const route of SITEMAP_ROUTES) {
     if (shouldExcludeFromSitemap(route.path)) continue;
+    if (!keepInSitemap(route.path, fileForUrlPath(route.path))) continue;
     byPath.set(route.path, {
       loc: `${SITE_URL}${route.path}`,
       lastmod: today,
@@ -65,10 +110,12 @@ function buildSitemapUrls() {
 
   for (const file of walkHtml(publicDir)) {
     const urlPath = htmlPathToUrl(file);
-    if (urlPath.startsWith("/app/") && urlPath !== "/app/") continue;
+    // The app shell is noindex (login + SPA); it has no place in the sitemap.
+    if (urlPath.startsWith("/app/")) continue;
     if (urlPath === "/blog/post") continue;
     if (urlPath.startsWith("/blog/_shot-fixtures")) continue;
     if (shouldExcludeFromSitemap(urlPath)) continue;
+    if (!keepInSitemap(urlPath, file)) continue;
     if (byPath.has(urlPath)) {
       byPath.get(urlPath).lastmod = mtime(file);
       continue;
@@ -117,7 +164,8 @@ ${body}
 </urlset>
 `;
   writeFileSync(join(publicDir, "sitemap.xml"), xml, "utf8");
-  console.log(`Wrote sitemap.xml (${urls.length} URLs)`);
+  console.log(`Wrote sitemap.xml (${urls.length} URLs, ${new Set(rejected).size} left out)`);
+  for (const line of [...new Set(rejected)].sort()) console.log(`  sitemap skip: ${line}`);
 }
 
 function writeRobots() {
@@ -142,7 +190,6 @@ Disallow: /app/webhooks
 # https://docstoc.io/ai.txt
 
 Sitemap: ${SITE_URL}/sitemap.xml
-Sitemap: https://api.docstoc.io/api/blog/sitemap.xml
 `;
   writeFileSync(join(publicDir, "robots.txt"), txt, "utf8");
   console.log("Wrote robots.txt");

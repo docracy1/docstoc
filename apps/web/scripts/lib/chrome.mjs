@@ -167,7 +167,6 @@ const MORE_ITEMS = [
   { path: "/#pricing", titleKey: "nav.pricing", title: "Pricing" },
   { path: "/use-cases/", titleKey: "nav.useCases", title: "Use Cases" },
   { path: "/document-templates/", titleKey: "nav.templates", title: "Document templates" },
-  { path: "/ai", titleKey: "nav.ai", title: "AI" },
   { path: "/compare/", titleKey: "footer.compareCol", title: "Compare" },
   { path: "/about", titleKey: "nav.mega.resource.about.title", title: "About" },
   { path: "/press", titleKey: "nav.mega.resource.press.title", title: "Press" },

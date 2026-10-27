@@ -67,7 +67,8 @@ const EXTRA_HEAD = `<style>
 </style>`;
 
 function sharedSections(kind) {
-  const peer = kind === "ssl" ? ["TLS", "/tls"] : ["SSL", "/ssl"];
+  // /tls 301s to /ssl (public/_redirects), so only the TLS wording links across, never the reverse.
+  const peer = kind === "ssl" ? null : ["SSL", "/ssl"];
   return `
   <h2>What it can do</h2>
   <p>docstoc automates real Let's Encrypt domain-validated certificates for hostnames you control — one DNS TXT record, renewals in-product, same account as invoices and documents.</p>
@@ -108,7 +109,7 @@ function sharedSections(kind) {
 
   <h2>Feature deep-dives</h2>
   <ul>
-    <li><a href="/ssl/features">SSL features hub</a></li>
+    <li><a href="/ssl/features/">SSL features hub</a></li>
     <li><a href="/ssl/features/certificates">Certificates</a> · <a href="/ssl/features/validation">Validation</a> · <a href="/ssl/features/installation">Installation</a></li>
     <li><a href="/ssl/features/wildcards">Wildcards</a> · <a href="/ssl/features/monitoring">Monitoring</a> · <a href="/ssl/features/protection">Trust &amp; protection</a> · <a href="/ssl/features/acme">ACME</a></li>
     <li><a href="/ssl/features/enterprise">Business SSL</a> · <a href="/ssl/developer">Developer API</a></li>
@@ -116,7 +117,7 @@ function sharedSections(kind) {
 
   <h2>Related</h2>
   <ul>
-    <li><a href="${peer[1]}">${peer[0]} overview</a> — same product, ${peer[0].toLowerCase()}-oriented wording</li>
+    ${peer ? `<li><a href="${peer[1]}">${peer[0]} overview</a> — same product, ${peer[0].toLowerCase()}-oriented wording</li>` : ""}
     <li><a href="/use-cases/free-ssl-for-your-domain">Free SSL for a client's domain</a></li>
     <li><a href="/monitoringssl">SSL monitoring</a> · <a href="/monitoringtls">TLS monitoring</a></li>
   </ul>`;

@@ -91,7 +91,7 @@ ${stepsHtml}
     <a href="/app/login?start=1" class="nav-cta">Start free — add your domain</a>
     &nbsp; <a href="/docstoc-vs-${escapeHtml(c.slug)}">Compare docstoc vs ${escapeHtml(c.name)}</a>
     &nbsp; · <a href="/ssl">SSL overview</a>
-    &nbsp; · <a href="/tls">TLS overview</a>
+    &nbsp; · <a href="/ssl">TLS overview</a>
     &nbsp; · <a href="/tools/ssl-certificate-calculator">Expiry calculator</a>
   </p>
 

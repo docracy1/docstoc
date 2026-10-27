@@ -38,7 +38,6 @@ export const BING_SITE_VERIFICATION = process.env.BING_SITE_VERIFICATION?.trim()
 /** Sitemap entries with explicit priority (others discovered from public/). */
 export const SITEMAP_ROUTES = [
   { path: "/", priority: 1.0, changefreq: "weekly" },
-  { path: "/app/", priority: 0.9, changefreq: "weekly" },
   { path: "/document-templates/", priority: 0.95, changefreq: "weekly" },
   { path: "/invoices", priority: 0.92, changefreq: "monthly" },
   { path: "/certificate", priority: 0.92, changefreq: "monthly" },
@@ -76,7 +75,7 @@ export const SITEMAP_ROUTES = [
   { path: "/docs/", priority: 0.75, changefreq: "monthly" },
   { path: "/blog/", priority: 0.8, changefreq: "weekly" },
   { path: "/ssl", priority: 0.92, changefreq: "monthly" },
-  { path: "/ssl/features", priority: 0.85, changefreq: "monthly" },
+  { path: "/ssl/features/", priority: 0.85, changefreq: "monthly" },
   { path: "/ssl/features/certificates", priority: 0.85, changefreq: "monthly" },
   { path: "/ssl/features/validation", priority: 0.8, changefreq: "monthly" },
   { path: "/ssl/features/installation", priority: 0.85, changefreq: "monthly" },

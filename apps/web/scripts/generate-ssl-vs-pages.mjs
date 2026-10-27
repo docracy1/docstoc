@@ -113,7 +113,7 @@ ${tableRows}
   <p style="margin-top:28px">
     <a href="/app/login?start=1" class="nav-cta">Try docstoc free</a>
     &nbsp; <a href="/ssl">SSL product overview</a>
-    &nbsp; · <a href="/tls">TLS overview</a>
+    &nbsp; · <a href="/ssl">TLS overview</a>
     &nbsp; · <a href="/tools/ssl-certificate-calculator">SSL expiry calculator</a>
     &nbsp; · <a href="/trust-badges">Trust badges</a>
   </p>

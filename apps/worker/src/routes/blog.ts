@@ -5,9 +5,10 @@ import { blogPostsSitemapXml } from "../lib/blogWeekly";
 
 const blog = new Hono<AuthEnv>();
 
-/** Live sitemap for D1-backed posts (weekly-cron + admin-authored) — listed as a second Sitemap:
- *  line in robots.txt so a freshly-published Monday post is discoverable before the next full
- *  site rebuild bakes it into the static sitemap.xml. */
+/** Live sitemap for D1-backed posts (weekly-cron + admin-authored), limited to posts whose static
+ *  page is already built. No longer listed in robots.txt: the static sitemap.xml carries the same
+ *  posts after each build, and listing them twice only added duplicates. Kept for anyone who
+ *  submitted this URL in Search Console. */
 blog.get("/sitemap.xml", async (c) => {
   const xml = await blogPostsSitemapXml(c.env);
   return new Response(xml, {

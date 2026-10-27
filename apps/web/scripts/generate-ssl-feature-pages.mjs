@@ -142,7 +142,7 @@ const PAGES = [
   {
     file: "ssl/features/index.html",
     depth: 2,
-    canonical: "/ssl/features",
+    canonical: "/ssl/features/",
     title: "SSL Features — Certificates, Validation, Monitoring & API | docstoc",
     description:
       "docstoc SSL features: Let's Encrypt automation (not a reseller), DNS-01 validation, wildcards on Business, PEM installs, monitoring, and REST API.",
