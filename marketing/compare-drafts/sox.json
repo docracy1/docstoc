@@ -1,0 +1,316 @@
+[
+{
+"slug":"workiva","name":"Workiva","sector":"sox",
+"titleTag":"Workiva alternative for AR SOX evidence | docstoc",
+"metaDescription":"Workiva runs SOX workpapers and reporting. docstoc covers one slice: AR chase approvals, attributable trails and auditor packs. Business, $39.99/mo.",
+"headline":"Workiva alternative for AR SOX evidence",
+"sub":"Keep Workiva for workpapers and reporting: add docstoc where invoice chase activity needs its own proof.",
+"whatItIs":"Workiva is a cloud platform for connected reporting and compliance work. Its SOX material describes control documentation, testing and evidence kept in one system, alongside SEC reporting. A Crane Co. customer story says the company centralised audit, SOX and SEC data in it and replaced email approvals. It is built for public companies with internal audit and reporting teams, and for the advisers who support them.",
+"whereTheyAreStronger":[
+"Breadth: audit, SOX and SEC data in one system, as the Crane Co. customer story describes it.",
+"Evidence management for control testing: Workiva announced evidence requests, attachments, markups and export of work papers for external auditors in April 2015.",
+"Live workpapers: the same story reports managers seeing workpaper status without chasing it by email.",
+"Scale: Crane Co. reports nearly 200 documents in the platform in 2019, far beyond what a single AR workflow needs."],
+"whereDocstocFits":[
+"One narrow control area: who requested, approved and sent overdue-invoice follow-ups, with the actor's email and role on every event.",
+"Maker-checker on chase sends: the requester cannot approve their own send, and an approval cannot be reused afterwards.",
+"A frozen auditor pack for a date range (HTML, SHA-256 and an OpenTimestamps .ots proof) that an auditor can check without trusting docstoc's database.",
+"A flat plan: Business is $39.99 a month at the time of writing, with no sales call."],
+"comparison":[
+{"topic":"Scope","competitor":"SOX documentation, testing and evidence, linked with reporting work.","docstoc":"Accounts receivable chase activity only: drafts, approvals, send marks, SOX actions."},
+{"topic":"Dual control","competitor":"Workflow and approvals inside the platform, per the Crane Co. story. Chase sends are outside what the sources describe.","docstoc":"Optional maker-checker before Mark as sent. The API rejects self-approval."},
+{"topic":"Tamper evidence","competitor":"Audit trail on evidence in work papers, per the 2015 release.","docstoc":"Daily Bitcoin-anchored hash chains and frozen packs with a .ots proof."},
+{"topic":"Pricing","competitor":"Not published in the sources I could open. Ask the vendor.","docstoc":"Business $39.99 a month at the time of writing. Free and Pro show an upgrade prompt."},
+{"topic":"Email","competitor":"Not applicable to the sources read.","docstoc":"Drafts only. You send from your own inbox and mark it as sent."}],
+"whenToChoose":{
+"competitor":"Choose Workiva if your SOX programme, SEC reporting and internal audit work need to sit in one connected system, and you have a team to run it. It fits companies where the question is the whole control environment, not one process.",
+"docstoc":"Add docstoc if your gap is narrow: auditors sample AR follow-ups and you cannot show who approved them. It does not replace workpapers or reporting. It gives you one verifiable file for the chase process."},
+"faq":[
+{"q":"Can docstoc replace Workiva for SOX?","a":"No. docstoc covers only accounts receivable chase evidence. Workiva covers broader control documentation, testing and reporting, so most teams would use the two side by side."},
+{"q":"Does docstoc make us SOX compliant?","a":"No. It produces evidence about chase activity and maker-checker approvals. Whether your controls meet SOX is a decision for you, your auditor and your advisers."},
+{"q":"How does my auditor check the pack?","a":"By hashing the HTML file and matching it to the SHA-256 digest, then verifying the .ots proof against Bitcoin. That check does not need a docstoc login."}],
+"sources":[
+{"url":"https://prnewswire.com/news-releases/workiva-adds-evidence-management-feature-to-wdesk-for-sarbanes-oxley-compliance-300060474.html","supports":"April 2015 release: Evidence Management for Wdesk, evidence requests, attachments, markups, export for external auditors.","checked":"2026-10-31"},
+{"url":"https://www.casestudies.com/company/workiva/case-study/crane-co-untangles-internal-audit-connects-reporting-and-compliance","supports":"Crane Co. story: centralised audit, SOX and SEC data, email approvals removed, live workpaper views, nearly 200 documents in 2019.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/use-cases/auditor-evidence-pack.html","supports":"docstoc pack contents and verification steps (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"Business $39.99/mo; docstoc does not auto-send email (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":[
+"Current page says Business is not a seat-heavy GRC rollout. I found no source on Workiva seat pricing, so the contrast is unverifiable.",
+"The sox-reporting page says maker-checker is on Pro and Business, while the same page and the hub say SOX reporting is Business only. Clarify which plan includes which.",
+"The generator says 'Workiva is connected reporting and SOX workpapers' without a source. The Crane Co. story and 2015 release support it, but both are dated or customer-written."],
+"gaps":["workiva.com returned 403 to my fetches, so I could not read Workiva's own current SOX or pricing pages.","No current Workiva pricing found.","Current SOX features beyond the 2015 release and the Crane Co. story are not confirmed."]
+},
+{
+"slug":"floqast","name":"FloQast","sector":"sox",
+"titleTag":"FloQast alternative for collections SOX evidence | docstoc",
+"metaDescription":"FloQast handles the close and financial controls. docstoc adds AR chase approvals, trails and timestamped auditor packs. Business, $39.99/mo.",
+"headline":"FloQast alternative for collections SOX evidence",
+"sub":"Keep FloQast for the close: add docstoc when overdue-invoice follow-ups need their own approvals and proof.",
+"whatItIs":"FloQast is accounting software built around the month-end close. Its site lists close management, account reconciliations, AI-assisted matching and journal entries, and a Risk and Compliance package with financial controls covering SOX scoping, controls and testing. It names controllers, CFOs, internal audit and accountants as its audience, and lists ERP connections including NetSuite, SAP, Oracle and QuickBooks.",
+"whereTheyAreStronger":[
+"The close itself: checklists, reconciliations and journal entry management are core products, not add-ons.",
+"ERP reach: the site lists Workday, NetSuite, SAP, Oracle, Yardi, Sage Intacct, Xero and QuickBooks.",
+"Financial controls module: FloQast describes SOX scoping, controls and testing, plus audit readiness.",
+"Pricing structure: the pricing page says no per-user fees, with three packages sold through sales."],
+"whereDocstocFits":[
+"Chase activity sits outside the close. docstoc records who drafted, requested, approved and marked each overdue-invoice follow-up as sent.",
+"Maker-checker on sends: the requester cannot approve their own chase, and each approval is used once.",
+"Period tests against a seeded AR control library, with pass, fail or exception results.",
+"Auditor packs frozen per date range with a SHA-256 digest and an OpenTimestamps proof."],
+"comparison":[
+{"topic":"Core job","competitor":"Close management, reconciliations, journal entries, financial controls.","docstoc":"AI-drafted chase emails and the evidence around them."},
+{"topic":"SOX","competitor":"Financial Controls package: SOX scoping, controls and testing.","docstoc":"AR chase evidence slice only: control tests, SoD queue, auditor packs."},
+{"topic":"AR automation","competitor":"The page I read does not mention AR automation.","docstoc":"Drafts for you to send from your own inbox; no auto-send."},
+{"topic":"Pricing","competitor":"Three packages, contact sales, no per-user fees, as the pricing page states. No amounts published.","docstoc":"Business $39.99 a month at the time of writing."},
+{"topic":"Proof for auditors","competitor":"Audit readiness is listed; the format of evidence is not described on the pages read.","docstoc":"HTML pack, .sha256 and .ots, verifiable without docstoc."}],
+"whenToChoose":{
+"competitor":"Choose FloQast if the close is where your team loses time: reconciliations, checklists, journals and controls tied to the ledger. It suits finance teams already working in a supported ERP and willing to talk to sales for pricing.",
+"docstoc":"Add docstoc if collections is the missing piece: follow-ups happen in inboxes and auditors ask who approved them. It sits next to FloQast and does not touch your ledger or reconciliations."},
+"faq":[
+{"q":"Does docstoc replace FloQast?","a":"No. FloQast covers the close and financial controls. docstoc covers only the evidence trail for invoice chasing, so the two do different jobs."},
+{"q":"Does docstoc connect to my ERP?","a":"Not to the ERPs FloQast lists. docstoc offers QuickBooks Online and Xero connectors on Pro and Business, plus CSV and PDF import, per its plan list."},
+{"q":"What does FloQast cost?","a":"FloQast does not publish prices. Its pricing page lists three packages and says there are no per-user fees. docstoc Business is $39.99 a month at the time of writing."}],
+"sources":[
+{"url":"https://floqast.com/","supports":"Products, Risk and Compliance with Financial Controls (SOX scoping, controls, testing), audience, ERP list, 3,500+ companies; AR automation not mentioned.","checked":"2026-10-31"},
+{"url":"https://floqast.com/pricing/","supports":"Three packages, Contact Sales, no per-user fees, no amounts published.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"docstoc plans, connectors, no auto-send (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs","supports":"Maker-checker, control library, packs, retention (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":[
+"'Collections ICFR next to close' on the compare strip is fine, but the claim that FloQast does not cover AR is not stated anywhere: I only found that the page I read does not mention AR automation. Do not write that FloQast has no AR features.",
+"Plan inconsistency: maker-checker is stated for Pro and Business in one place, Business only in others."],
+"gaps":["FloQast's separate AR or SOX product pages were not opened (solutions URL returned 404).","No actual FloQast prices found."]
+},
+{
+"slug":"auditboard-sox","name":"AuditBoard (now Optro)","sector":"sox",
+"titleTag":"AuditBoard SOX alternative for AR evidence | docstoc",
+"metaDescription":"AuditBoard, now Optro, runs SOX programmes. docstoc covers AR chase evidence: maker-checker, trails and timestamped auditor packs. Business $39.99/mo.",
+"headline":"AuditBoard alternative for AR SOX evidence",
+"sub":"AuditBoard is now Optro: keep it for the SOX programme, add docstoc where invoice chase needs proof.",
+"whatItIs":"AuditBoard now trades as Optro; its site shows 'formerly AuditBoard' and offers audit, risk, infosec and compliance solutions. Its SOX management page describes AI-run control testing on uploaded evidence, continuous control monitoring, an out-of-the-box SOX risk and control matrix, and workflows for both first-line teams and external auditors. It targets large enterprises and cites Fortune 500 customers.",
+"whereTheyAreStronger":[
+"A full SOX programme: risk and control matrix, planning documentation, fieldwork and reporting in one product.",
+"Testing support: the site describes AI agents running attribute tests on evidence such as user access reviews and reconciliations.",
+"Auditor collaboration: workflows and permissions let external auditors complete tasks themselves.",
+"Market position: Optro cites a Leader placement in the 2025 Gartner Magic Quadrant for GRC Tools and the Forrester Wave for GRC Platforms, Q2 2026."],
+"whereDocstocFits":[
+"AR chase only: docstoc records the actor's email and role on every chase event and SOX action.",
+"Dual control without a programme rollout: turn on SoD, invite a teammate, and the requester cannot approve their own send.",
+"A pack your auditor can verify alone: frozen HTML, SHA-256 digest and an OpenTimestamps proof.",
+"Plain price: Business is $39.99 a month at the time of writing."],
+"comparison":[
+{"topic":"Scope","competitor":"SOX programme management, audit, risk and compliance.","docstoc":"Collections evidence for accounts receivable."},
+{"topic":"Control testing","competitor":"AI-assisted attribute tests and continuous monitoring, per its SOX page.","docstoc":"Seeded AR control library with period pass, fail and exception tests."},
+{"topic":"Audience","competitor":"Enterprises; the site cites PetSmart, Lennar and a 50%+ Fortune 500 claim.","docstoc":"Small and mid-size finance teams that chase overdue invoices."},
+{"topic":"Pricing","competitor":"No price on the pages read; demo requests only.","docstoc":"Business $39.99 a month at the time of writing."},
+{"topic":"Evidence integrity","competitor":"Audit trails and traceable decisions are mentioned for its AI governance; pack format not described.","docstoc":"Daily Bitcoin-anchored hash chains, .ots proof with each pack."}],
+"whenToChoose":{
+"competitor":"Choose AuditBoard (Optro) if you run a SOX programme with an RCM, testing cycles, remediation and external auditors working in the same tool. It is built for teams that treat SOX as a continuing process across the company.",
+"docstoc":"Add docstoc if the open question is narrower: show that overdue-invoice follow-ups were requested, approved and sent by different people. docstoc is not a GRC suite, and it does not manage your RCM."},
+"faq":[
+{"q":"Is AuditBoard the same as Optro?","a":"Yes, according to Optro's own site, which describes itself as formerly AuditBoard. The login link still points to an auditboardapp.com address."},
+{"q":"Can docstoc handle segregation of duties?","a":"Yes, for chase sends. With SoD on, the requester cannot approve their own send and the API rejects self-approval. It does not cover segregation across your whole ERP."},
+{"q":"Do I need AuditBoard if I use docstoc?","a":"Not for AR chase evidence. For a wider SOX programme with testing and remediation, docstoc does not replace it and it does not claim to."}],
+"sources":[
+{"url":"https://optro.ai/","supports":"AuditBoard redirects to Optro; 'formerly AuditBoard'; audit, risk, infosec, compliance; enterprise customers; analyst placements; no pricing.","checked":"2026-10-31"},
+{"url":"https://optro.ai/product/sox-management","supports":"SOX management features: AI attribute testing, continuous monitoring, RCM template, auditor workflows; no pricing.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs","supports":"docstoc SoD, trails, packs (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"Business $39.99/mo (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":[
+"The page still uses the name AuditBoard only. The vendor now trades as Optro (site says 'formerly AuditBoard'). Slug can stay for search, copy should say 'AuditBoard (now Optro)'.",
+"'You do not need AuditBoard to enforce dual control on AR chase sends' in the SoD use case is a comparative claim without a source about AuditBoard. Soften it.",
+"'AuditBoard is GRC' is true in outline but unsourced on the old page."],
+"gaps":["Rebrand date (a search result suggests March 2026) not confirmed from a primary page, so left out.","Reported 2026 acquisition of Midship only from one secondary source, left out.","No pricing found."]
+},
+{
+"slug":"hyperproof-sox","name":"Hyperproof","sector":"sox",
+"titleTag":"Hyperproof SOX alternative for AR evidence | docstoc",
+"metaDescription":"Hyperproof runs compliance programmes. docstoc covers AR invoice chase evidence: maker-checker, trails and timestamped packs. Business, $39.99/mo.",
+"headline":"Hyperproof alternative for invoice chase SOX evidence",
+"sub":"Keep Hyperproof for programme tasks: add docstoc for live chase evidence and frozen auditor packs.",
+"whatItIs":"Hyperproof is a compliance and risk platform. Its site lists risk management, compliance, audit, third-party risk and policy management, plus a FedRAMP-hosted Hyperproof Gov. It cites 160+ pre-built frameworks, including SOC 2, ISO 27001, NIST and HIPAA, and 200+ integrations. It names mid-market and enterprise GRC teams in government, healthcare, technology and fintech as its audience.",
+"whereTheyAreStronger":[
+"Framework breadth: 160+ pre-built frameworks and custom ones, so one control set can serve several audits.",
+"Integrations: the site cites 200+ and its Hypersyncs for collecting evidence.",
+"Audit workflow: evidence can be linked to auditor requests, with secure collaboration with auditors.",
+"Government use: Hyperproof Gov runs in a FedRAMP Certified Class C (Rev5) environment, per the site."],
+"whereDocstocFits":[
+"Finance, not IT compliance: docstoc covers who chased which invoice and who approved the send.",
+"Maker-checker on chase sends, with the requester blocked from approving their own request.",
+"Retention window, legal hold and optional purge for the chase evidence.",
+"A pack frozen per period, with SHA-256 and an OpenTimestamps proof the auditor can verify."],
+"comparison":[
+{"topic":"Focus","competitor":"Risk, compliance, audit, third-party risk and policies across many frameworks.","docstoc":"AR collections evidence."},
+{"topic":"SOX","competitor":"The pages I read do not mention SOX. Confirm with the vendor.","docstoc":"AR chase slice: control tests, SoD queue, auditor packs."},
+{"topic":"Integrations","competitor":"200+ cited, none listed by name on the page.","docstoc":"QuickBooks Online and Xero, Dropbox, OneDrive, Box and Google Drive import on Pro and Business."},
+{"topic":"Pricing","competitor":"No prices; request a proposal or demo.","docstoc":"Business $39.99 a month at the time of writing."},
+{"topic":"Audience","competitor":"Mid-market and enterprise GRC teams.","docstoc":"Finance teams that chase overdue invoices."}],
+"whenToChoose":{
+"competitor":"Choose Hyperproof if you manage several frameworks at once, such as SOC 2 and ISO 27001, and want evidence collected through integrations and shared with auditors. It suits security and compliance teams with a programme to run.",
+"docstoc":"Add docstoc if you are in finance and need a narrow thing: proof that invoice follow-ups were approved by a second person and not rewritten later. It is not a GRC tool and does not map your controls to frameworks."},
+"faq":[
+{"q":"Does Hyperproof support SOX?","a":"I could not confirm it. The pages I read do not mention SOX, though they list 160+ frameworks. Ask Hyperproof which SOX workflows it offers before you decide."},
+{"q":"Can docstoc replace Hyperproof?","a":"No. docstoc has no framework library and no integrations for IT evidence. It covers only the evidence trail for AR invoice chasing."},
+{"q":"Is the auditor pack proof of compliance?","a":"No. It shows who did what and that the file was not changed after creation. Whether your controls are adequate is for you and your auditor to judge."}],
+"sources":[
+{"url":"https://hyperproof.io/","supports":"Products, 160+ frameworks, 200+ integrations, audit evidence linking, FedRAMP Gov, audience; SOX not mentioned.","checked":"2026-10-31"},
+{"url":"https://hyperproof.io/pricing/","supports":"No prices; request proposal or demo; SOX not mentioned.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"docstoc plans and connectors (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs","supports":"Retention, legal hold, packs, SoD (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":[
+"The slug and title tie Hyperproof to SOX, but neither Hyperproof page I read mentions SOX. 'Hyperproof runs compliance programs' is fine; avoid implying it is a SOX tool or lacks one.",
+"Plan inconsistency for maker-checker (Pro and Business versus Business only)."],
+"gaps":["Whether Hyperproof offers SOX content or workflows: not confirmed.","No Hyperproof prices found."]
+},
+{
+"slug":"es/workiva","name":"Workiva","sector":"sox",
+"titleTag":"Alternativa a Workiva para evidencia SOX AR | docstoc",
+"metaDescription":"Workiva gestiona papeles de trabajo SOX y reporting. docstoc cubre una capa: aprobaciones de cobro AR, pistas y packs de auditor. Business, $39.99/mes.",
+"headline":"Alternativa a Workiva para evidencia SOX de cobros AR",
+"sub":"Mantén Workiva para papeles de trabajo y reporting: añade docstoc donde el cobro de facturas necesita su propia prueba.",
+"whatItIs":"Workiva es una plataforma en la nube para reporting y trabajo de cumplimiento conectados. Su material sobre SOX habla de documentación de controles, pruebas y evidencia en un solo sistema, junto con reporting para la SEC. Un caso de cliente de Crane Co. cuenta que la empresa centralizó datos de auditoría, SOX y SEC y eliminó las aprobaciones por email. Está pensada para empresas que cotizan, con equipos de auditoría interna y reporting.",
+"whereTheyAreStronger":[
+"Amplitud: auditoría, SOX y datos SEC en un solo sistema, según el caso de Crane Co.",
+"Gestión de evidencia para pruebas de controles: en abril de 2015 Workiva anunció solicitudes de evidencia, adjuntos, anotaciones y exportación de papeles de trabajo para auditores externos.",
+"Papeles de trabajo en vivo: el mismo caso describe a los gerentes viendo el estado sin perseguirlo por email.",
+"Escala: Crane Co. reporta casi 200 documentos en 2019, mucho más de lo que necesita un flujo de cobros."],
+"whereDocstocFits":[
+"Un solo control: quién solicitó, aprobó y envió cada seguimiento de factura vencida, con email y rol de quien actuó.",
+"Maker-checker en los envíos: quien solicita no puede aprobar su propio envío, y la aprobación no se reutiliza.",
+"Un pack de auditor congelado por periodo (HTML, SHA-256 y prueba OpenTimestamps .ots) que el auditor verifica sin confiar en la base de datos de docstoc.",
+"Plan fijo: Business cuesta $39.99 al mes en el momento de escribir esto, sin llamada comercial."],
+"comparison":[
+{"topic":"Alcance","competitor":"Documentación SOX, pruebas y evidencia, ligadas al reporting.","docstoc":"Solo la actividad de cobro de cuentas por cobrar: borradores, aprobaciones, envíos marcados, acciones SOX."},
+{"topic":"Doble control","competitor":"Flujos y aprobaciones dentro de la plataforma, según el caso de Crane Co. Los envíos de cobro quedan fuera de lo que describen las fuentes.","docstoc":"Maker-checker opcional antes de Marcar como enviado. La API rechaza la autoaprobación."},
+{"topic":"Prueba de integridad","competitor":"Pista de auditoría sobre la evidencia en los papeles, según el comunicado de 2015.","docstoc":"Cadenas hash diarias ancladas a Bitcoin y packs congelados con prueba .ots."},
+{"topic":"Precio","competitor":"No publicado en las fuentes que pude abrir. Pregunta al proveedor.","docstoc":"Business $39.99 al mes en el momento de escribir esto. Free y Pro ven una invitación a mejorar."},
+{"topic":"Email","competitor":"No aplica a las fuentes leídas.","docstoc":"Solo borradores. Envías tú desde tu bandeja y lo marcas como enviado."}],
+"whenToChoose":{
+"competitor":"Elige Workiva si tu programa SOX, el reporting para la SEC y la auditoría interna deben vivir en un solo sistema conectado, y tienes un equipo que lo opere. Encaja cuando la pregunta es todo el entorno de control, no un proceso.",
+"docstoc":"Añade docstoc si tu hueco es estrecho: el auditor muestrea seguimientos de cobro y no puedes mostrar quién los aprobó. No reemplaza papeles de trabajo ni reporting. Te da un archivo verificable del proceso de cobro."},
+"faq":[
+{"q":"¿Puede docstoc reemplazar a Workiva para SOX?","a":"No. docstoc cubre solo la evidencia de cobros de cuentas por cobrar. Workiva cubre documentación de controles, pruebas y reporting, así que lo normal es usar ambos."},
+{"q":"¿docstoc me hace cumplir con SOX?","a":"No. Produce evidencia de la actividad de cobro y de las aprobaciones maker-checker. Si tus controles cumplen SOX lo decides tú con tu auditor y tus asesores."},
+{"q":"¿Cómo verifica mi auditor el pack?","a":"Calcula el hash del HTML, lo compara con el SHA-256 y verifica la prueba .ots contra Bitcoin. Esa comprobación no requiere cuenta de docstoc."}],
+"sources":[
+{"url":"https://prnewswire.com/news-releases/workiva-adds-evidence-management-feature-to-wdesk-for-sarbanes-oxley-compliance-300060474.html","supports":"Comunicado de abril de 2015: Evidence Management para Wdesk.","checked":"2026-10-31"},
+{"url":"https://www.casestudies.com/company/workiva/case-study/crane-co-untangles-internal-audit-connects-reporting-and-compliance","supports":"Caso Crane Co.: datos centralizados, sin aprobaciones por email, vistas en vivo, casi 200 documentos en 2019.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/use-cases/auditor-evidence-pack.html","supports":"Contenido y verificación del pack docstoc (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"Business $39.99/mes; sin envío automático (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":["Same as the English page: the seat-heavy GRC contrast has no source, and maker-checker plan wording is inconsistent (Pro and Business versus Business only).","The existing Spanish page has a single FAQ and no body copy beyond the generator bullets."],
+"gaps":["workiva.com returned 403, so Workiva's current own pages were not read.","No current Workiva pricing found."]
+},
+{
+"slug":"es/floqast","name":"FloQast","sector":"sox",
+"titleTag":"Alternativa a FloQast para evidencia SOX de cobros | docstoc",
+"metaDescription":"FloQast cubre el cierre y los controles financieros. docstoc añade aprobaciones de cobro AR, pistas y packs con timestamp. Business, $39.99/mes.",
+"headline":"Alternativa a FloQast para evidencia SOX de cobros",
+"sub":"Mantén FloQast para el cierre: añade docstoc cuando los seguimientos de facturas vencidas necesiten aprobaciones y prueba propias.",
+"whatItIs":"FloQast es software contable centrado en el cierre mensual. Su sitio lista gestión del cierre, conciliaciones de cuentas, matching con IA y asientos, además de un paquete de Riesgo y Cumplimiento con controles financieros que cubre alcance, controles y pruebas SOX. Nombra a controllers, CFO, auditoría interna y contadores como público, y lista conexiones con ERP como NetSuite, SAP, Oracle y QuickBooks.",
+"whereTheyAreStronger":[
+"El cierre en sí: checklists, conciliaciones y asientos son productos centrales, no complementos.",
+"Alcance de ERP: el sitio lista Workday, NetSuite, SAP, Oracle, Yardi, Sage Intacct, Xero y QuickBooks.",
+"Módulo de controles financieros: FloQast describe alcance, controles y pruebas SOX, además de preparación para auditoría.",
+"Estructura de precios: la página dice sin tarifas por usuario, con tres paquetes vendidos por ventas."],
+"whereDocstocFits":[
+"El cobro queda fuera del cierre. docstoc registra quién redactó, solicitó, aprobó y marcó como enviado cada seguimiento de factura vencida.",
+"Maker-checker en los envíos: quien solicita no puede aprobar su propio cobro, y cada aprobación se usa una vez.",
+"Pruebas de periodo contra una biblioteca de controles AR, con resultado pass, fail o exception.",
+"Packs de auditor congelados por rango de fechas con SHA-256 y prueba OpenTimestamps."],
+"comparison":[
+{"topic":"Función principal","competitor":"Gestión del cierre, conciliaciones, asientos, controles financieros.","docstoc":"Emails de cobro redactados con IA y la evidencia alrededor."},
+{"topic":"SOX","competitor":"Paquete de controles financieros: alcance, controles y pruebas SOX.","docstoc":"Solo la capa de cobros AR: pruebas de control, cola SoD, packs de auditor."},
+{"topic":"Automatización AR","competitor":"La página que leí no menciona automatización de cuentas por cobrar.","docstoc":"Borradores que tú envías desde tu bandeja; sin envío automático."},
+{"topic":"Precio","competitor":"Tres paquetes, contacto con ventas, sin tarifas por usuario, según su página de precios. No publica montos.","docstoc":"Business $39.99 al mes en el momento de escribir esto."},
+{"topic":"Prueba para auditores","competitor":"Se lista preparación para auditoría; el formato de la evidencia no se describe en las páginas leídas.","docstoc":"Pack HTML, .sha256 y .ots, verificable sin docstoc."}],
+"whenToChoose":{
+"competitor":"Elige FloQast si el cierre es donde tu equipo pierde tiempo: conciliaciones, checklists, asientos y controles ligados al libro mayor. Encaja con equipos que ya usan un ERP compatible y piden precio a ventas.",
+"docstoc":"Añade docstoc si el hueco es el cobro: los seguimientos ocurren en bandejas de correo y el auditor pregunta quién los aprobó. Va junto a FloQast y no toca tu libro mayor ni tus conciliaciones."},
+"faq":[
+{"q":"¿docstoc reemplaza a FloQast?","a":"No. FloQast cubre el cierre y los controles financieros. docstoc cubre solo la pista de evidencia del cobro de facturas, así que hacen trabajos distintos."},
+{"q":"¿docstoc se conecta a mi ERP?","a":"No a los ERP que lista FloQast. docstoc ofrece conectores de QuickBooks Online y Xero en Pro y Business, más importación de CSV y PDF, según su lista de planes."},
+{"q":"¿Cuánto cuesta FloQast?","a":"FloQast no publica precios. Su página lista tres paquetes y dice que no hay tarifas por usuario. docstoc Business cuesta $39.99 al mes en el momento de escribir esto."}],
+"sources":[
+{"url":"https://floqast.com/","supports":"Productos, controles financieros SOX, público, lista de ERP; no menciona AR.","checked":"2026-10-31"},
+{"url":"https://floqast.com/pricing/","supports":"Tres paquetes, Contact Sales, sin tarifas por usuario.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"Planes y conectores docstoc (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs","supports":"Maker-checker, biblioteca de controles, packs (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":["Do not state that FloQast lacks AR features: only that the page read does not mention it.","Maker-checker plan wording inconsistent (Pro and Business versus Business only)."],
+"gaps":["Páginas específicas de FloQast para SOX o AR no abiertas (la URL de soluciones dio 404).","Sin precios reales de FloQast."]
+},
+{
+"slug":"es/auditboard-sox","name":"AuditBoard (ahora Optro)","sector":"sox",
+"titleTag":"Alternativa AuditBoard SOX para evidencia AR | docstoc",
+"metaDescription":"AuditBoard, ahora Optro, gestiona programas SOX. docstoc cubre evidencia de cobros AR: maker-checker, pistas y packs con timestamp. Business $39.99/mes.",
+"headline":"Alternativa a AuditBoard para evidencia SOX AR",
+"sub":"AuditBoard ahora es Optro: mantenla para el programa SOX y añade docstoc donde el cobro de facturas necesita prueba.",
+"whatItIs":"AuditBoard ahora opera como Optro; su sitio muestra 'formerly AuditBoard' y ofrece soluciones de auditoría, riesgo, seguridad de la información y cumplimiento. Su página de gestión SOX describe pruebas de controles con IA sobre evidencia cargada, monitoreo continuo, una matriz de riesgos y controles SOX lista para usar y flujos para equipos de primera línea y auditores externos. Apunta a grandes empresas y cita clientes de Fortune 500.",
+"whereTheyAreStronger":[
+"Un programa SOX completo: matriz de riesgos y controles, documentación de planificación, trabajo de campo y reporting en un producto.",
+"Apoyo a las pruebas: el sitio describe agentes de IA que ejecutan pruebas de atributos sobre evidencia como revisiones de acceso y conciliaciones.",
+"Colaboración con auditores: flujos y permisos para que los auditores externos completen tareas por su cuenta.",
+"Posición de mercado: Optro cita ser Leader en el Gartner Magic Quadrant para herramientas GRC 2025 y en el Forrester Wave de plataformas GRC del Q2 2026."],
+"whereDocstocFits":[
+"Solo cobros AR: docstoc guarda email y rol del actor en cada evento de cobro y acción SOX.",
+"Doble control sin desplegar un programa: activa SoD, invita a un compañero y quien solicita no puede aprobar su propio envío.",
+"Un pack que el auditor verifica por su cuenta: HTML congelado, SHA-256 y prueba OpenTimestamps.",
+"Precio claro: Business cuesta $39.99 al mes en el momento de escribir esto."],
+"comparison":[
+{"topic":"Alcance","competitor":"Gestión de programas SOX, auditoría, riesgo y cumplimiento.","docstoc":"Evidencia de cobros de cuentas por cobrar."},
+{"topic":"Pruebas de controles","competitor":"Pruebas de atributos con IA y monitoreo continuo, según su página SOX.","docstoc":"Biblioteca de controles AR con pruebas de periodo pass, fail y exception."},
+{"topic":"Público","competitor":"Grandes empresas; el sitio cita a PetSmart, Lennar y más del 50 % de Fortune 500.","docstoc":"Equipos de finanzas pequeños y medianos que cobran facturas vencidas."},
+{"topic":"Precio","competitor":"Sin precio en las páginas leídas; solo solicitud de demo.","docstoc":"Business $39.99 al mes en el momento de escribir esto."},
+{"topic":"Integridad de la evidencia","competitor":"Se mencionan pistas de auditoría y decisiones trazables en su gobernanza de IA; el formato de pack no se describe.","docstoc":"Cadenas hash diarias ancladas a Bitcoin, prueba .ots con cada pack."}],
+"whenToChoose":{
+"competitor":"Elige AuditBoard (Optro) si llevas un programa SOX con matriz de riesgos y controles, ciclos de pruebas, remediación y auditores externos trabajando en la misma herramienta. Está hecha para equipos que tratan SOX como un proceso continuo de toda la empresa.",
+"docstoc":"Añade docstoc si la pregunta abierta es más estrecha: demostrar que los seguimientos de facturas vencidas los solicitó, aprobó y envió gente distinta. docstoc no es una suite GRC y no gestiona tu matriz de riesgos y controles."},
+"faq":[
+{"q":"¿AuditBoard es lo mismo que Optro?","a":"Sí, según el propio sitio de Optro, que se describe como 'formerly AuditBoard'. El enlace de inicio de sesión aún apunta a una dirección de auditboardapp.com."},
+{"q":"¿Puede docstoc manejar la segregación de funciones?","a":"Sí, para los envíos de cobro. Con SoD activo, quien solicita no puede aprobar su propio envío y la API rechaza la autoaprobación. No cubre la segregación en todo tu ERP."},
+{"q":"¿Necesito AuditBoard si uso docstoc?","a":"No para la evidencia de cobros AR. Para un programa SOX amplio con pruebas y remediación, docstoc no lo reemplaza ni pretende hacerlo."}],
+"sources":[
+{"url":"https://optro.ai/","supports":"Redirección desde AuditBoard; 'formerly AuditBoard'; soluciones; clientes; sin precios.","checked":"2026-10-31"},
+{"url":"https://optro.ai/product/sox-management","supports":"Funciones de gestión SOX; sin precios.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs","supports":"SoD, pistas, packs de docstoc (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"Business $39.99/mes (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":["The page still names only AuditBoard; the vendor now trades as Optro.","The Spanish SoD use case says 'No necesitas AuditBoard para doble control': an unsourced comparative claim, soften it."],
+"gaps":["Fecha del cambio de marca no confirmada en una página primaria, omitida.","Sin precios."]
+},
+{
+"slug":"es/hyperproof-sox","name":"Hyperproof","sector":"sox",
+"titleTag":"Alternativa Hyperproof SOX para cobros | docstoc",
+"metaDescription":"Hyperproof gestiona programas de cumplimiento. docstoc cubre evidencia de cobros AR: maker-checker, pistas y packs con timestamp. Business, $39.99/mes.",
+"headline":"Alternativa a Hyperproof para evidencia SOX de cobros",
+"sub":"Mantén Hyperproof para las tareas del programa: añade docstoc para evidencia viva de cobros y packs de auditor congelados.",
+"whatItIs":"Hyperproof es una plataforma de cumplimiento y riesgo. Su sitio lista gestión de riesgos, cumplimiento, auditoría, riesgo de terceros y gestión de políticas, más Hyperproof Gov, alojado en un entorno FedRAMP. Cita más de 160 marcos precargados, entre ellos SOC 2, ISO 27001, NIST y HIPAA, y más de 200 integraciones. Nombra como público a equipos GRC medianos y grandes en gobierno, salud, tecnología y fintech.",
+"whereTheyAreStronger":[
+"Amplitud de marcos: más de 160 precargados y marcos propios, para que un mismo conjunto de controles sirva a varias auditorías.",
+"Integraciones: el sitio cita más de 200 y sus Hypersyncs para recoger evidencia.",
+"Flujo de auditoría: la evidencia se puede ligar a solicitudes del auditor, con colaboración segura.",
+"Uso en gobierno: Hyperproof Gov corre en un entorno FedRAMP Certified Class C (Rev5), según el sitio."],
+"whereDocstocFits":[
+"Finanzas, no cumplimiento de TI: docstoc cubre quién cobró qué factura y quién aprobó el envío.",
+"Maker-checker en los envíos, con quien solicita sin poder aprobar su propia solicitud.",
+"Ventana de retención, legal hold y purge opcional para la evidencia de cobros.",
+"Un pack congelado por periodo, con SHA-256 y prueba OpenTimestamps que el auditor verifica."],
+"comparison":[
+{"topic":"Enfoque","competitor":"Riesgo, cumplimiento, auditoría, riesgo de terceros y políticas en muchos marcos.","docstoc":"Evidencia de cobros AR."},
+{"topic":"SOX","competitor":"Las páginas que leí no mencionan SOX. Confírmalo con el proveedor.","docstoc":"Capa de cobros AR: pruebas de control, cola SoD, packs de auditor."},
+{"topic":"Integraciones","competitor":"Más de 200 citadas, ninguna nombrada en la página.","docstoc":"QuickBooks Online y Xero, importación de Dropbox, OneDrive, Box y Google Drive en Pro y Business."},
+{"topic":"Precio","competitor":"Sin precios; se pide propuesta o demo.","docstoc":"Business $39.99 al mes en el momento de escribir esto."},
+{"topic":"Público","competitor":"Equipos GRC medianos y grandes.","docstoc":"Equipos de finanzas que cobran facturas vencidas."}],
+"whenToChoose":{
+"competitor":"Elige Hyperproof si gestionas varios marcos a la vez, como SOC 2 e ISO 27001, y quieres recoger evidencia por integraciones y compartirla con auditores. Encaja con equipos de seguridad y cumplimiento que operan un programa.",
+"docstoc":"Añade docstoc si estás en finanzas y necesitas algo estrecho: prueba de que los seguimientos de facturas los aprobó una segunda persona y no se reescribieron después. No es una herramienta GRC ni mapea tus controles a marcos."},
+"faq":[
+{"q":"¿Hyperproof soporta SOX?","a":"No pude confirmarlo. Las páginas que leí no mencionan SOX, aunque listan más de 160 marcos. Pregunta a Hyperproof qué flujos SOX ofrece antes de decidir."},
+{"q":"¿Puede docstoc reemplazar a Hyperproof?","a":"No. docstoc no tiene biblioteca de marcos ni integraciones para evidencia de TI. Cubre solo la pista de evidencia del cobro de facturas AR."},
+{"q":"¿El pack de auditor prueba el cumplimiento?","a":"No. Muestra quién hizo qué y que el archivo no cambió tras crearse. Si tus controles son adecuados lo juzgáis tú y tu auditor."}],
+"sources":[
+{"url":"https://hyperproof.io/","supports":"Productos, 160+ marcos, 200+ integraciones, FedRAMP Gov, público; SOX no mencionado.","checked":"2026-10-31"},
+{"url":"https://hyperproof.io/pricing/","supports":"Sin precios; propuesta o demo; SOX no mencionado.","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/public/llms-full.txt","supports":"Planes y conectores docstoc (repo).","checked":"2026-10-31"},
+{"url":"/Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs","supports":"Retención, legal hold, packs, SoD (repo).","checked":"2026-10-31"}],
+"existingClaimIssues":["Slug and title tie Hyperproof to SOX, but neither page read mentions SOX.","Maker-checker plan wording inconsistent (Pro and Business versus Business only)."],
+"gaps":["Si Hyperproof ofrece contenido o flujos SOX: no confirmado.","Sin precios de Hyperproof."]
+}
+]

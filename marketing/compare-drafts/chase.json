@@ -1,0 +1,831 @@
+[
+ {
+  "slug": "chaser",
+  "name": "Chaser",
+  "sector": "chase",
+  "titleTag": "Chaser alternative for freelancers | docstoc",
+  "metaDescription": "Chaser automates receivables for companies from £199 a month. docstoc drafts chase emails for $14.99 a month and you send them. Compare both.",
+  "headline": "A Chaser alternative for people who write their own chasers",
+  "sub": "Chaser runs receivables for finance teams; docstoc only drafts the email, so it costs far less and you keep the send button.",
+  "whatItIs": "Chaser is accounts receivable automation and cash flow forecasting software. It chases invoices by email, SMS and automated calls, offers a customer payment portal, credit reports and late payment fees, and syncs with Xero, QuickBooks Online, Sage, NetSuite and others. It also offers debt collection services and a managed credit control service. Plans are tiered by company revenue, which suits finance teams with hundreds of open invoices.",
+  "whereTheyAreStronger": [
+   "Chasing beyond email: SMS, automated phone calls and letters, with call recording on higher plans.",
+   "Two-way sync with accounting systems such as Sage, NetSuite, SAP and Dynamics 365 Business Central, not only Xero and QuickBooks.",
+   "A payment portal and Chaser Pay, so customers can pay from the reminder.",
+   "Credit monitoring, cash flow forecasting and optional human credit control through Chaser Care."
+  ],
+  "whereDocstocFits": [
+   "You chase a few dozen invoices and mainly need the wording right for the number of days overdue.",
+   "You want to read every email before it goes out. docstoc never sends for you.",
+   "You would rather pay a flat $14.99 a month than choose a plan by company revenue.",
+   "You also need document templates or a certificate for a file, which come with the same account."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "At the time of writing, receivables plans start at £199 a month (Compact, $259 in USD), with Core at £599 and Complete at £899. Annual billing takes 10% off.",
+    "docstoc": "Pro is $14.99 a month. Business is $39.99 a month. The free tier gives 5 drafts a month without signing up."
+   },
+   {
+    "topic": "Sending",
+    "competitor": "Sends reminders by email, SMS and automated calls on schedules you set.",
+    "docstoc": "Writes the draft. You copy it into Gmail, Outlook or Apple Mail and send it yourself."
+   },
+   {
+    "topic": "Accounting links",
+    "competitor": "Xero, QuickBooks Online, Sage, NetSuite, SAP, Dynamics 365 Business Central, plus API and CSV.",
+    "docstoc": "QuickBooks Online and Xero on Pro, plus CSV upload and manual paste."
+   },
+   {
+    "topic": "Credit and collections",
+    "competitor": "Credit reports, debtor risk insights, payment plans and a debt collection service.",
+    "docstoc": "No credit checks and no collection service. Business adds a client payment risk score and a formal demand letter draft."
+   },
+   {
+    "topic": "Who it suits",
+    "competitor": "Companies with a finance function and revenue to match the plan tiers.",
+    "docstoc": "Freelancers and small businesses that chase by hand today."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Chaser if several people handle receivables, you want automated calls and SMS, need a payment portal, or want credit reports and a team to take over collections. Its sync with larger accounting systems matters at that size.",
+   "docstoc": "Choose docstoc if you send your own reminders and want help with tone and timing. It is a drafting tool, not an automated sender, and it does not replace credit control or debt collection."
+  },
+  "faq": [
+   {
+    "q": "Is docstoc cheaper than Chaser?",
+    "a": "Yes, on published prices at the time of writing. Chaser's Compact plan is £199 a month; docstoc Pro is $14.99 a month. They do different jobs: Chaser automates the whole chase, docstoc drafts the email."
+   },
+   {
+    "q": "Can docstoc send reminders automatically like Chaser?",
+    "a": "No. docstoc writes the email and you send it from your own mailbox. That is deliberate, so no client hears from you without your say."
+   },
+   {
+    "q": "Can I move my open invoices from Chaser?",
+    "a": "Yes. Export unpaid invoices as CSV or connect QuickBooks or Xero on Pro, then generate drafts. Turn off Chaser's automated sending first so clients do not get two reminders."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.chaserhq.com/chaser-detailed-pricing-breakdown",
+    "supports": "Plan prices (Compact £199/$259, Core £599, Complete £899), 10% annual discount, revenue tiers, SMS/call credits, call recording, Chaser Care, collection service",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.chaserhq.com",
+    "supports": "Features: email/SMS/auto-call chasing, portal, Chaser Pay, credit reports, forecasting, integrations list",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Compact from ~$259/mo' is correct for monthly USD billing at the time checked; GBP prices exclude VAT and annual billing is 10% cheaper, so say 'from £199 a month'.",
+   "'No per-seat / revenue ladder' is a docstoc claim; Chaser's current plans are revenue tiers (legacy invoice-based plans also exist). Wording should say that the tiers are by revenue, not seat count.",
+   "Page uses em dashes as connectors, against the style guide."
+  ],
+  "gaps": [
+   "Chaser's own help page says pricing moved; I used the detailed pricing page. Did not verify whether SOC 2 claim on chaserhq.com is current, so left it out."
+  ]
+ },
+ {
+  "slug": "paidnice",
+  "name": "Paidnice",
+  "sector": "chase",
+  "titleTag": "Paidnice alternative: draft-only chasing | docstoc",
+  "metaDescription": "Paidnice runs scheduled reminders for Xero and QuickBooks from $69 a month. docstoc drafts chase emails for $14.99 and you send them.",
+  "headline": "A Paidnice alternative if you want to write and send the email yourself",
+  "sub": "Paidnice automates reminders on your ledger; docstoc drafts one email at a time and leaves sending to you.",
+  "whatItIs": "Paidnice is accounts receivable automation for Xero and QuickBooks. It applies your payment terms to your invoices and chases them before, on and after the due date. It also emails statements, adds late fees your terms allow, reads customer replies, offers a payment portal and escalates overdue accounts to a person. Its own page says nothing runs until you approve the policies.",
+  "whereTheyAreStronger": [
+   "Reminders, statements and late fees run on a schedule from your ledger, so the work happens without you.",
+   "Customer replies are read and logged, with promises and questions noted and next steps drafted.",
+   "A payment portal with card, bank transfer and payment plans.",
+   "Usage-based tiers by invoice volume, with multi-currency, webhooks and an API on Pro."
+  ],
+  "whereDocstocFits": [
+   "You want to see and edit each email before it leaves your inbox.",
+   "You send a handful of reminders a month, where a $69 plan is more than the job needs.",
+   "You are not on Xero or QuickBooks and prefer CSV or pasting an invoice.",
+   "You want free templates for payment reminders and contracts next to the drafts."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "At the time of writing: Essentials $69 a month for up to 150 invoices, Pro from $99 a month by invoice volume, Custom from $999. First 20 actions free.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month. 5 free drafts a month with no signup."
+   },
+   {
+    "topic": "Automation",
+    "competitor": "Scheduled reminders, statements and fees once you approve the policies, with some items set to wait for approval.",
+    "docstoc": "No scheduled sending. Each draft is generated on request and you send it."
+   },
+   {
+    "topic": "Late fees",
+    "competitor": "Adds fees or interest your terms allow, posts them to your ledger and tells the customer.",
+    "docstoc": "No fee engine and no ledger posting. Drafts can mention a fee you decide to charge."
+   },
+   {
+    "topic": "Replies",
+    "competitor": "Reads customer replies and drafts next steps for review.",
+    "docstoc": "Business classifies replies and detects promised pay dates, without acting on them."
+   },
+   {
+    "topic": "Accounting links",
+    "competitor": "Xero, QuickBooks Online and Stripe.",
+    "docstoc": "QuickBooks Online and Xero on Pro, plus CSV."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Paidnice if you invoice in Xero or QuickBooks, have enough invoices that manual chasing eats hours, and want late fees, statements and a payment portal handled for you. Volume-based pricing fits that use.",
+   "docstoc": "Choose docstoc if you want a good first draft and the final say. It does not chase on a schedule, apply late fees or post to your ledger."
+  },
+  "faq": [
+   {
+    "q": "Does Paidnice send emails without my approval?",
+    "a": "Not before you approve its policies. Its page says nothing runs until you approve them, and fees can be set to wait for your approval. After that, scheduled reminders run on their own."
+   },
+   {
+    "q": "Is docstoc a cheaper Paidnice?",
+    "a": "On price, yes: $14.99 a month against $69 at the time of writing. The products differ, because docstoc does not automate sending, fees or statements."
+   },
+   {
+    "q": "Can I use both?",
+    "a": "Yes, but not on the same invoice at the same time. Pause Paidnice reminders for any invoice you chase with a docstoc draft so the client gets one voice."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.paidnice.com/pricing",
+    "supports": "Essentials $69, Pro from $99 tiered by invoices, Custom from $999, first 20 actions free, integrations Xero/QBO/Stripe",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.paidnice.com",
+    "supports": "Features: schedule reminders, statements, late fees, reply reading, portal, escalation, 'Nothing runs until you approve them'",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Xero-native' is incomplete: Paidnice supports Xero and QuickBooks Online.",
+   "'UK late fees' looks too narrow: Paidnice prices in seven currencies and adds fees 'your terms allow'; its page does not frame it as UK-only.",
+   "'Auto-sequences' overstates autonomy: its page says nothing runs until policies are approved.",
+   "'No UK statutory-fee engine' is a docstoc statement; confirm in the repo before keeping it.",
+   "'$69–$99 entry' uses an en dash and omits the invoice limits."
+  ],
+  "gaps": [
+   "Did not verify Paidnice's UK statutory late-fee handling beyond 'fees your terms allow'."
+  ]
+ },
+ {
+  "slug": "duefy",
+  "name": "Duefy",
+  "sector": "chase",
+  "titleTag": "Duefy alternative for invoice reminders | docstoc",
+  "metaDescription": "Looking for a Duefy alternative? docstoc drafts invoice chase emails for $14.99 a month and you send them from your own inbox.",
+  "headline": "A Duefy alternative that drafts the email and lets you send it",
+  "sub": "Check Duefy's current status first: its domain was listed for sale when we looked.",
+  "whatItIs": "Duefy has been described on review sites as automated invoice reminder software for freelancers and small businesses. We could not open Duefy's own product pages: at the time of checking, duefy.com redirected to a domain-sales listing. We therefore make no claims here about its features or prices. If you use Duefy, confirm with its team that the service is running and what your plan covers.",
+  "whereTheyAreStronger": [
+   "We could not verify Duefy's features from an official page, so we list no specific strengths.",
+   "If your Duefy account works for you today, there is no need to move.",
+   "Review-site listings suggest it targets the same freelancer audience as docstoc, but we have not confirmed this on Duefy's own site."
+  ],
+  "whereDocstocFits": [
+   "You need a working product with a live website, published prices and a support address: founder@docstoc.io.",
+   "You want drafts tuned to how many days a payment is overdue, with softer, firmer and shorter rewrites on Pro.",
+   "You prefer to send every message yourself from Gmail, Outlook or Apple Mail.",
+   "You want QuickBooks Online or Xero import, CSV upload, or free reminder templates."
+  ],
+  "comparison": [
+   {
+    "topic": "Official information",
+    "competitor": "Not verified. duefy.com redirected to a domain listing when we checked.",
+    "docstoc": "docstoc.io has public pricing, templates and a published summary of what it does and does not do."
+   },
+   {
+    "topic": "Pricing",
+    "competitor": "Not verified from an official source, so not stated.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month, 5 free drafts a month with no signup."
+   },
+   {
+    "topic": "Sending",
+    "competitor": "Not verified.",
+    "docstoc": "Draft only. You send each email yourself."
+   },
+   {
+    "topic": "Accounting links",
+    "competitor": "Not verified.",
+    "docstoc": "QuickBooks Online and Xero on Pro, plus CSV and manual paste."
+   },
+   {
+    "topic": "Extras",
+    "competitor": "Not verified.",
+    "docstoc": "Free document templates, document certificates, and SSL automation on paid plans."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Stay with Duefy if your account works, the service is maintained and you like automated reminders going out for you. Ask the vendor for current plan details before relying on any third-party listing.",
+   "docstoc": "Move to docstoc if you need a service with a live site and want help writing reminders rather than automated sending. Nothing is sent without you, and docstoc does not collect debts."
+  },
+  "faq": [
+   {
+    "q": "Is Duefy still available?",
+    "a": "We could not confirm. When we checked, duefy.com redirected to a domain-sales listing, and we could not open an official product page. Contact the vendor before relying on it."
+   },
+   {
+    "q": "How do I move my invoices from Duefy?",
+    "a": "Export or copy your open invoices, then paste them into docstoc or upload a CSV. On Pro you can connect QuickBooks Online or Xero instead."
+   },
+   {
+    "q": "Will docstoc send reminders like Duefy did?",
+    "a": "No. docstoc writes the email and you send it. Switch off any automated sending elsewhere before you start so clients do not get duplicates."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.hugedomains.com/domain_profile.cfm?d=duefy.com",
+    "supports": "duefy.com redirected here and was listed for sale at the time of checking",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Duefy is close in spirit but sends for you and prices Solo/Pro/Team' is unverified: no official page could be opened, and third-party snippets showed a single $19 Solo plan.",
+   "'Stay on Duefy if you want auto-send' assumes the product is live; the domain was listed for sale.",
+   "The page uses em dashes."
+  ],
+  "gaps": [
+   "No official Duefy page was reachable (domain-sales redirect; G2 and Capterra returned 403). Pricing, plans, integrations and auto-send behaviour left out. Recommend the owner decide whether to keep this page at all."
+  ]
+ },
+ {
+  "slug": "satago",
+  "name": "Satago",
+  "sector": "chase",
+  "titleTag": "Satago alternative for invoice chasing | docstoc",
+  "metaDescription": "Satago combines credit checks, chasing and invoice finance from £45 a month. docstoc only drafts chase emails, for $14.99 a month.",
+  "headline": "A Satago alternative if you only need the chase email",
+  "sub": "Satago bundles credit checks, chasing and invoice finance; docstoc drafts the reminder and nothing more.",
+  "whatItIs": "Satago is a cash flow platform for UK businesses with three parts: credit checks on customers (Risk Insights), automated payment chasing (Credit Control) and invoice finance with advance rates of up to 90%. It is aimed at businesses, accountants and brokers, and lists itself on the Sage, Xero and QuickBooks marketplaces.",
+  "whereTheyAreStronger": [
+   "Invoice finance in the same place as chasing, selective or full, with advances up to 90%.",
+   "Credit scores, credit limit suggestions and risk alerts on every plan.",
+   "Accountant and broker routes, so firms can offer it to clients.",
+   "Higher plans add SMS reminders, card payments and Buy Now Pay Later acceptance."
+  ],
+  "whereDocstocFits": [
+   "You do not want credit checks or financing, only a well-worded reminder.",
+   "You want one flat price without credit report allowances.",
+   "You want to send each email yourself from your own mailbox.",
+   "You want free reminder and contract templates alongside the drafts."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "At the time of writing in GBP: Basic £45, Premium £80, Platinum £200 a month, with cheaper annual billing. Invoice finance pricing is not on the pricing page.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month, 5 free drafts a month."
+   },
+   {
+    "topic": "Credit checks",
+    "competitor": "25 credit reports on Basic, 100 on Premium, unlimited under fair usage on Platinum.",
+    "docstoc": "None. Business gives a client payment risk score based on payment history, not a bureau report."
+   },
+   {
+    "topic": "Chasing",
+    "competitor": "Customisable emails and schedules; email reminders capped at 100 per rolling 30 days on Basic.",
+    "docstoc": "AI-drafted emails matched to days overdue. Pro is unlimited. You send them."
+   },
+   {
+    "topic": "Finance",
+    "competitor": "Selective and full invoice finance.",
+    "docstoc": "None. docstoc is not a lender."
+   },
+   {
+    "topic": "Currency and focus",
+    "competitor": "Priced in pounds, built for UK businesses.",
+    "docstoc": "Priced in dollars, drafts in plain English for any country."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Satago if you want credit scores on customers, automated chasing and the option of invoice finance in one UK platform, or if your accountant already works with it.",
+   "docstoc": "Choose docstoc if you only need the email written and want to press send yourself. It offers no credit data, no finance and no automated sending."
+  },
+  "faq": [
+   {
+    "q": "Is Satago free?",
+    "a": "No for the business plans. At the time of writing its pricing page lists Basic at £45 a month, Premium at £80 and Platinum at £200. Check Satago for current terms."
+   },
+   {
+    "q": "Does docstoc offer invoice finance or credit checks?",
+    "a": "No. docstoc drafts chase emails and offers templates and certificates. For credit scores or financing, a product like Satago does a different job."
+   },
+   {
+    "q": "Can I keep Satago for finance and use docstoc for the wording?",
+    "a": "Yes. Export overdue invoices from Satago or Xero into docstoc. Only chase an invoice in one place at a time."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.satago.com/pricing",
+    "supports": "Basic £45, Premium £80, Platinum £200, credit report and reminder allowances, features per plan",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.satago.com",
+    "supports": "Three services: Risk Insights, Credit Control, invoice finance up to 90% advance; audiences; marketplaces",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'~£45+' is correct as the Basic monthly price; the page compares GBP with USD without saying so.",
+   "'Experian' is not stated on the Satago pages I opened; do not name a credit bureau without a source.",
+   "'Satago is UK credit control plus chasing' omits invoice finance as a core part.",
+   "The page uses em dashes."
+  ],
+  "gaps": [
+   "Did not verify which credit bureau Satago uses, or its invoice finance fees."
+  ]
+ },
+ {
+  "slug": "chaseai",
+  "name": "ChaseAI",
+  "sector": "chase",
+  "titleTag": "ChaseAI alternative for invoice reminders | docstoc",
+  "metaDescription": "ChaseAI sends AI-written invoice reminders from $9 a month. docstoc drafts them for $14.99 and adds templates and QuickBooks or Xero import.",
+  "headline": "A ChaseAI alternative with QuickBooks and Xero import",
+  "sub": "ChaseAI is cheaper on Starter; docstoc suits you if you want to send each email yourself.",
+  "whatItIs": "ChaseAI (chaseai.app) is invoice chasing software for freelancers, consultants and small businesses. It reads invoice PDFs for client, amount and due date, or takes manual entry, and builds escalating follow-up sequences in friendly, professional, firm or humorous tones. It tracks email opens and supports several currencies. It does not need an accounting connection. Not to be confused with chaseai.io, which is unrelated.",
+  "whereTheyAreStronger": [
+   "Lower entry price: Starter is $9 a month and Pro $19, in USD at the time of writing.",
+   "Reads invoice PDFs directly, so no accounting software is needed.",
+   "Follow-up sequences are built for you and sent on schedule, so nothing depends on you remembering.",
+   "Open tracking and a recovery dashboard showing overdue totals and success rates."
+  ],
+  "whereDocstocFits": [
+   "You use QuickBooks Online or Xero and want invoices imported rather than uploaded as PDFs.",
+   "You want to read and send each message yourself, with no schedule running.",
+   "You want free reminder and contract templates in the same account.",
+   "You want Business features such as promised-pay-date detection and a demand letter draft."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "Starter $9 a month (50 sequence generations a month), Pro $19 a month. 14-day trial, card required.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month. 5 free drafts a month, no signup."
+   },
+   {
+    "topic": "Sending",
+    "competitor": "Emails go out on schedule; its page says you can preview and approve before anything sends.",
+    "docstoc": "Draft only. You send each email yourself."
+   },
+   {
+    "topic": "Invoice input",
+    "competitor": "Invoice PDFs or manual entry; no QuickBooks or Xero link needed.",
+    "docstoc": "CSV, paste, QuickBooks Online and Xero on Pro, cloud storage PDF import on Pro."
+   },
+   {
+    "topic": "Tone",
+    "competitor": "Friendly, professional, firm or humorous.",
+    "docstoc": "Tone matched to days overdue, with softer, firmer and shorter rewrites."
+   },
+   {
+    "topic": "Extras",
+    "competitor": "Open tracking, multi-currency, recovery analytics on Pro.",
+    "docstoc": "Templates, document certificates, client list and SSL automation on paid plans."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose ChaseAI if you want the lowest monthly price, work from invoice PDFs and like a ready-made follow-up sequence that sends itself after you approve it.",
+   "docstoc": "Choose docstoc if you use QuickBooks or Xero, want every email sent by you, or value templates and certificates. docstoc will cost more per month than ChaseAI Starter."
+  },
+  "faq": [
+   {
+    "q": "Is ChaseAI cheaper than docstoc?",
+    "a": "Yes. At the time of writing ChaseAI Starter is $9 a month and Pro $19, against docstoc Pro at $14.99. Compare the plan limits, since Starter caps sequence generations at 50 a month."
+   },
+   {
+    "q": "Does ChaseAI send emails automatically?",
+    "a": "Yes, on a schedule, though its page says you review and approve messages first. It does not say whether that applies per message or per sequence."
+   },
+   {
+    "q": "Can I move from ChaseAI to docstoc?",
+    "a": "Yes. Copy or export your open invoices, paste or upload CSV, or connect QuickBooks or Xero on Pro. Pause ChaseAI's schedule so clients do not get two emails."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://chaseai.app",
+    "supports": "Features, Starter $9 / Pro $19, trial, PDF reading, tones, no accounting link needed, send on schedule with preview and approve",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.producthunt.com/products/chaseai-2",
+    "supports": "ChaseAI audience: freelancers and agencies; chaseai.app URL",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.chaseai.io",
+    "supports": "chaseai.io is an unrelated AI education site",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'ChaseAI is chasing-only' holds, but its Starter price is $9, so 'can undercut Pro' understates it by $5.99.",
+   "'ChaseAI auto-sends' needs nuance: its page says you preview and approve before anything sends.",
+   "The brand name overlaps with chaseai.io, an unrelated Claude Code education site; make clear which product is meant.",
+   "Page uses 'Native QBO/Xero' as a docstoc advantage; true against ChaseAI's PDF approach, but it should not imply ChaseAI cannot work without them.",
+   "The page uses em dashes."
+  ],
+  "gaps": [
+   "Did not verify ChaseAI's company, jurisdiction or data handling."
+  ]
+ },
+ {
+  "slug": "upflow",
+  "name": "Upflow",
+  "sector": "chase",
+  "titleTag": "Upflow alternative for small teams | docstoc",
+  "metaDescription": "Upflow is a full accounts receivable platform with collections, payments and cash application. docstoc just drafts chase emails, from $14.99 a month.",
+  "headline": "An Upflow alternative when you only need the chase email",
+  "sub": "Upflow covers the whole receivables cycle for finance teams; docstoc drafts reminders for people who chase by hand.",
+  "whatItIs": "Upflow is accounts receivable software for B2B finance teams. It combines analytics and forecasting, automated collections across email, SMS, calls and letters, a branded payment portal and cash application that matches payments to invoices. It connects to NetSuite, Sage Intacct, QuickBooks Online, Xero, Salesforce, HubSpot, Stripe Billing and more. Its site names CFOs, controllers and AR managers as users.",
+  "whereTheyAreStronger": [
+   "Cash application with ERP sync, which docstoc does not do at all.",
+   "A payment portal with several payment methods and surcharge controls.",
+   "Wider integrations: NetSuite, Sage Intacct, Salesforce, HubSpot, Zuora, Chargebee and Slack.",
+   "AI agents with adjustable autonomy, plus analytics and forecasting dashboards."
+  ],
+  "whereDocstocFits": [
+   "You have a few dozen invoices, not a finance team, and no ERP.",
+   "You want a publicly listed price rather than a quote.",
+   "You want to review and send each email yourself.",
+   "You want templates and document certificates in the same account."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "Plans (Starter to Enterprise) are tiered by annual invoiced revenue and show 'Ask for a quote'. A free Discover plan gives dashboard access. Upflow Payments lists a $390 a month platform fee.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month, 5 free drafts a month."
+   },
+   {
+    "topic": "Collections",
+    "competitor": "Automated outreach by email, SMS, calls and letters with adjustable AI autonomy.",
+    "docstoc": "One AI-drafted email at a time. No SMS, calls or letters, and no automated sending."
+   },
+   {
+    "topic": "Payments",
+    "competitor": "Branded B2B portal and cash application.",
+    "docstoc": "None. docstoc does not take payments or match them."
+   },
+   {
+    "topic": "Integrations",
+    "competitor": "NetSuite, Sage Intacct, QuickBooks Online, Xero, Salesforce, HubSpot, Stripe Billing, Gmail, Slack and an MCP server.",
+    "docstoc": "QuickBooks Online and Xero, Dropbox, OneDrive, Box and Google Drive PDF import, HTTP API and MCP on Pro."
+   },
+   {
+    "topic": "Who it suits",
+    "competitor": "B2B finance teams, including SaaS and staffing firms.",
+    "docstoc": "Freelancers and small businesses chasing by hand."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Upflow if a finance team manages receivables across many customers, you use an ERP, and you want collections, payments and cash application in one system with a vendor to implement it.",
+   "docstoc": "Choose docstoc if one person chases invoices and wants better wording. It is not an AR suite, does not send, take payments or apply cash."
+  },
+  "faq": [
+   {
+    "q": "Does Upflow publish its prices?",
+    "a": "Partly. Its pricing page shows plan names tiered by annual invoiced revenue with 'Ask for a quote', a free Discover plan, and payment fees. Subscription prices were not listed at the time of writing."
+   },
+   {
+    "q": "Is docstoc a replacement for Upflow?",
+    "a": "No, for finance teams. docstoc drafts chase emails only. It has no cash application, payment portal or automated sending."
+   },
+   {
+    "q": "Can docstoc connect to my accounting software?",
+    "a": "Yes, QuickBooks Online and Xero on Pro. It does not connect to NetSuite or Sage Intacct."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.upflow.io",
+    "supports": "Products, integrations, target users, AI agents, MCP server",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.upflow.io/pricing",
+    "supports": "Revenue-tiered plans with 'Ask for a quote', free Discover plan, Payments fees and $390/month platform fee",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Sales-led AR. We publish $14.99.' is mostly true, but Upflow also lists a free Discover plan and some payment fees; say subscription prices are 'on request'.",
+   "'Heavier AR automation than a freelancer usually wants to operate' is opinion; rewrite as a fact about Upflow's target users.",
+   "'Native QBO/Xero' as an advantage: Upflow supports both too.",
+   "The page uses em dashes."
+  ],
+  "gaps": [
+   "Did not verify Upflow's implementation time or contract terms."
+  ]
+ },
+ {
+  "slug": "invoicesherpa",
+  "name": "InvoiceSherpa",
+  "sector": "chase",
+  "titleTag": "InvoiceSherpa alternative for chasing | docstoc",
+  "metaDescription": "InvoiceSherpa starts at $49 a month with payments and a 1% fee. docstoc drafts chase emails from $14.99 a month and you send them.",
+  "headline": "An InvoiceSherpa alternative if you want drafts, not payments",
+  "sub": "InvoiceSherpa automates reminders and collects payments; docstoc writes the email and you send it.",
+  "whatItIs": "InvoiceSherpa automates invoice reminders and payment collection for accounting firms, agencies, IT and consulting firms, law firms and small businesses. It sends reminders from your own domain by email and SMS, offers payment links, autopay, instalment plans, late fees and a branded client portal, and connects to QuickBooks Online, Xero and Clio. Plans are priced by number of open invoices.",
+  "whereTheyAreStronger": [
+   "Payments built in: links, autopay, batch payments and instalment plans.",
+   "Reminders by email and SMS from your own company domain, with custom scripting and scheduling.",
+   "Reconciliation with accounting software and a branded client portal.",
+   "A Clio integration, useful for law firms."
+  ],
+  "whereDocstocFits": [
+   "You want wording help, not a payments platform.",
+   "You would rather not pay a 1% fee on paid invoices.",
+   "You want each reminder reviewed and sent by you.",
+   "You want free templates for reminders and contracts."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "At the time of writing: $49 a month up to 100 open invoices, $99 up to 500, $199 unlimited. 14-day trial. A 1% transaction fee applies to paid invoices.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month. No transaction fee, because docstoc takes no payments."
+   },
+   {
+    "topic": "Sending",
+    "competitor": "Automated reminders by email and SMS, triggered by scripts and schedules.",
+    "docstoc": "Draft only. You send each message."
+   },
+   {
+    "topic": "Payments",
+    "competitor": "Payment links, autopay, batch payments, instalment plans, late fees and surcharging.",
+    "docstoc": "None."
+   },
+   {
+    "topic": "Integrations",
+    "competitor": "QuickBooks Online, Xero and Clio.",
+    "docstoc": "QuickBooks Online and Xero on Pro, plus CSV and cloud PDF import."
+   },
+   {
+    "topic": "Limits",
+    "competitor": "Plans are capped by open invoices; unlimited customers and users.",
+    "docstoc": "Unlimited drafts on Pro; team invites are included on Pro."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose InvoiceSherpa if you want reminders to run themselves and customers to pay online through a portal, autopay or instalments, especially if you are an accounting or law firm using Clio.",
+   "docstoc": "Choose docstoc if you want to write and send reminders yourself with AI help. It does not collect payments, schedule sends or charge late fees."
+  },
+  "faq": [
+   {
+    "q": "How much does InvoiceSherpa cost?",
+    "a": "At the time of writing its pricing page lists $49 a month for up to 100 open invoices, $99 for up to 500 and $199 for unlimited, plus a 1% fee on paid invoices."
+   },
+   {
+    "q": "Does docstoc charge a fee on payments?",
+    "a": "No, because docstoc does not process payments. Customers pay you however you invoice them today."
+   },
+   {
+    "q": "Can I import my InvoiceSherpa invoices?",
+    "a": "Yes. Export open invoices from InvoiceSherpa or the accounting tool behind it, then upload CSV or connect QuickBooks or Xero in docstoc. Pause automated reminders first."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.invoicesherpa.com/pricing",
+    "supports": "$49/$99/$199 tiers by open invoices, 14-day trial, 1% transaction fee, features, integrations QBO/Xero/Clio, audiences",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Trigger auto-send from $49' is accurate as the entry price for up to 100 open invoices, but it omits the 1% transaction fee.",
+   "The page shows $41, $83 and $166 as unlabelled figures, likely annual; do not quote them.",
+   "The page uses em dashes."
+  ],
+  "gaps": [
+   "Annual rates are unlabelled on the pricing page, so not stated."
+  ]
+ },
+ {
+  "slug": "gaviti",
+  "name": "Gaviti",
+  "sector": "chase",
+  "titleTag": "Gaviti alternative for small teams | docstoc",
+  "metaDescription": "Gaviti is an AR platform with credit, collections and cash application, priced by quote. docstoc drafts chase emails from $14.99 a month.",
+  "headline": "A Gaviti alternative with a price you can read",
+  "sub": "Gaviti covers invoice-to-cash for finance teams on a custom quote; docstoc drafts reminders for $14.99 a month.",
+  "whatItIs": "Gaviti is an accounts receivable platform for B2B finance and receivables teams. Its site describes credit and risk management, collections automation, a customer payment portal, AI cash application, dispute management, an AI assistant, and analytics and forecasting. It says it works with any ERP without changing it, and prices by custom quote based on usage.",
+  "whereTheyAreStronger": [
+   "Cash application and deduction management, which docstoc does not offer.",
+   "Dispute management with routing and trend tracking.",
+   "Credit checks and ongoing risk assessment for onboarding customers.",
+   "A self-service portal with ACH and card payments, and a claimed ability to work with any ERP."
+  ],
+  "whereDocstocFits": [
+   "You have no ERP and no receivables team.",
+   "You want a price on the website, not a quote request.",
+   "You want to read and send each chase email yourself.",
+   "You want free templates and document certificates beside the drafts."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "Custom pricing by quote, based on usage rather than per user. No prices published.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month, 5 free drafts a month."
+   },
+   {
+    "topic": "Collections",
+    "competitor": "Automated reminders, escalations, follow-ups and task prioritisation.",
+    "docstoc": "AI-drafted email by days overdue. You send. No escalation workflow."
+   },
+   {
+    "topic": "Cash application",
+    "competitor": "AI payment-to-invoice matching and deduction management.",
+    "docstoc": "None."
+   },
+   {
+    "topic": "Disputes and credit",
+    "competitor": "Dispute routing, credit checks and risk assessment.",
+    "docstoc": "Business adds a payment risk score and a collections evidence pack. No credit bureau data."
+   },
+   {
+    "topic": "Who it suits",
+    "competitor": "CFOs, finance directors and receivables teams.",
+    "docstoc": "Freelancers and small businesses."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Gaviti if a receivables team needs one system for collections, portal payments, cash application and disputes, and a vendor-led rollout against your ERP is acceptable.",
+   "docstoc": "Choose docstoc if you handle a modest number of invoices and want the email written for you. It is a drafting tool and does not match payments or manage disputes."
+  },
+  "faq": [
+   {
+    "q": "How much does Gaviti cost?",
+    "a": "Gaviti does not publish prices. Its site says pricing is custom and based on usage, and sends you to a quote request."
+   },
+   {
+    "q": "Is docstoc an enterprise AR tool?",
+    "a": "No. docstoc drafts chase emails, offers templates and certificates, and leaves sending to you. It has no cash application or dispute workflow."
+   },
+   {
+    "q": "Can I move from Gaviti to docstoc?",
+    "a": "Yes, for the chasing part. Export open invoices as CSV or connect QuickBooks or Xero on Pro, then pause Gaviti's automated reminders."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.gaviti.com",
+    "supports": "Features, ERP compatibility claim, target roles, quote-based pricing",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.gaviti.com/pricing",
+    "supports": "'Custom Pricing for Your Company's Needs', usage-based, request a quote",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Enterprise AR, no public price' is half-verified: no price is published, but the pages I read describe finance teams, not a size band; enterprise is not confirmed.",
+   "'Heavier AR automation than a freelancer usually wants to operate' is opinion.",
+   "The page uses em dashes."
+  ],
+  "gaps": [
+   "Did not verify which ERPs Gaviti connects to; its site names none."
+  ]
+ },
+ {
+  "slug": "yaypay",
+  "name": "Quadient AR (YayPay)",
+  "sector": "chase",
+  "titleTag": "YayPay and Quadient AR alternative | docstoc",
+  "metaDescription": "yaypay.com now redirects to Quadient AR, a credit-to-cash platform with quote pricing. docstoc drafts chase emails from $14.99 a month.",
+  "headline": "A YayPay alternative now that it points to Quadient AR",
+  "sub": "Quadient AR covers credit to cash for finance teams; docstoc drafts reminders for people who chase by hand.",
+  "whatItIs": "yaypay.com now redirects to Quadient AR, an accounts receivable automation platform. Its page lists credit management, collections workflows, invoice delivery, dispute management, customer payments, cash application and dashboards, plus AI that predicts payment behaviour and drafts suggested actions from inbound emails for review. It targets B2B finance teams, including regulated industries, and integrates with NetSuite, SAP, Dynamics, Sage, QuickBooks and Xero.",
+  "whereTheyAreStronger": [
+   "Print and digital invoice delivery according to customer preference.",
+   "Cash application and a dispute hub in one platform.",
+   "Integrations with large ERPs such as SAP, NetSuite, Dynamics and Sage Intacct.",
+   "Role-based access, audit trails and governance controls for regulated industries."
+  ],
+  "whereDocstocFits": [
+   "You chase invoices without an ERP or finance team.",
+   "You want a public price rather than a demo request.",
+   "You want to read every email and send it yourself.",
+   "You want free templates and document certificates alongside the drafts."
+  ],
+  "comparison": [
+   {
+    "topic": "Pricing",
+    "competitor": "Not public. Its FAQ says cost varies and points to a demo.",
+    "docstoc": "Pro $14.99 a month, Business $39.99 a month, 5 free drafts a month."
+   },
+   {
+    "topic": "Collections",
+    "competitor": "Automated workflows, reminders and escalation by your rules, with AI prioritisation.",
+    "docstoc": "One AI-drafted email at a time. You send. No automation."
+   },
+   {
+    "topic": "Back office",
+    "competitor": "Invoice delivery, cash application, disputes and credit decisions.",
+    "docstoc": "None of these."
+   },
+   {
+    "topic": "Governance",
+    "competitor": "Role-based access, audit trails and configurable controls.",
+    "docstoc": "Business adds a collections evidence pack and timestamped certificates. Not an audit or compliance guarantee."
+   },
+   {
+    "topic": "Integrations",
+    "competitor": "NetSuite, SAP, Dynamics, Acumatica, Sage, QuickBooks, Xero, Salesforce.",
+    "docstoc": "QuickBooks Online and Xero on Pro, plus CSV."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Quadient AR if finance teams need credit, collections, disputes and cash application across a larger ERP estate, and a vendor demo and quote are part of the buying process.",
+   "docstoc": "Choose docstoc if one person chases invoices and wants help with wording. docstoc does not send, apply cash or manage disputes."
+  },
+  "faq": [
+   {
+    "q": "What happened to YayPay?",
+    "a": "yaypay.com redirects to Quadient's AR automation page. That page does not mention YayPay, so we cannot say more about the transition."
+   },
+   {
+    "q": "Does Quadient AR publish its pricing?",
+    "a": "No. Its FAQ says cost depends on business size, process complexity and features, and directs you to request a demo."
+   },
+   {
+    "q": "Can docstoc replace Quadient AR?",
+    "a": "Not for finance teams that need cash application or dispute handling. docstoc only drafts chase emails, and you send them."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.yaypay.com",
+    "supports": "Redirects (308) to quadient.com/ar-automation",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.quadient.com/ar-automation",
+    "supports": "Features, integrations, audience, pricing not public, no mention of YayPay",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc facts: Pro $14.99, Business $39.99, 5 free drafts a month, draft-only, QuickBooks/Xero on Pro, templates, boundaries",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "Page names the competitor 'Quadient AR' but the slug is yaypay; the Quadient page does not mention YayPay, so a connection should be stated only as 'redirects to'.",
+   "'Mid-market collections' is not stated on Quadient's page, which says finance teams generally and over 2,100 finance teams.",
+   "'We write freelancer drafts' is a docstoc claim; fine, but not a comparison point.",
+   "The page uses em dashes."
+  ],
+  "gaps": [
+   "Did not verify YayPay's history, its acquisition by Quadient, or YayPay-specific features and prices."
+  ]
+ }
+]

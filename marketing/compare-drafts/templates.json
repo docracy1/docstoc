@@ -1,0 +1,535 @@
+[
+ {
+  "slug": "legalzoom",
+  "name": "LegalZoom",
+  "sector": "templates",
+  "titleTag": "LegalZoom alternative for free templates | docstoc",
+  "metaDescription": "LegalZoom handles formation and attorney plans. docstoc is a free library of 1,000+ business and legal templates. Compare what each is built for.",
+  "headline": "A free template library next to LegalZoom's legal services",
+  "sub": "LegalZoom sells formation, filings and attorney plans: docstoc gives you the template, free to copy.",
+  "whatItIs": "LegalZoom is an online legal services company. Its site lists business formation (LLC, corporation, DBA, nonprofit), registered agent and annual reports, trademark and copyright filings, estate planning documents, attorney plans, and tools such as legal form templates and eSignature. It is built for founders and households who want a provider to handle a filing, not only supply a form.",
+  "whereTheyAreStronger": [
+   "Formation work: LLC, corporation, nonprofit and DBA filings are core products, and docstoc does none of them.",
+   "Registered agent, annual reports and business licences, so ongoing compliance can sit with one provider.",
+   "Trademark, copyright and provisional patent services.",
+   "Attorney access through business and personal plans, which a template library cannot replace."
+  ],
+  "whereDocstocFits": [
+   "You only need a document, such as an NDA, a lease or a policy, and want to copy and edit it without paying for a service.",
+   "You want 1,000+ templates in business, legal, real estate, finance and HR that you can open without a membership.",
+   "You want a tamper-evident certificate for the final file: the SHA-256 hash is computed in your browser and the file is never uploaded.",
+   "You also chase late invoices: docstoc drafts the reminder email and you send it yourself."
+  ],
+  "comparison": [
+   {
+    "topic": "Main job",
+    "competitor": "Legal services: formation, filings, attorney plans, with legal form templates among its tools.",
+    "docstoc": "Template library plus invoice chase drafts, document certificates and SSL automation."
+   },
+   {
+    "topic": "Filings and registered agent",
+    "competitor": "Offered, as listed on its site.",
+    "docstoc": "Not offered."
+   },
+   {
+    "topic": "Attorney access",
+    "competitor": "Business and personal attorney plans.",
+    "docstoc": "None. Templates are information, not legal advice."
+   },
+   {
+    "topic": "Templates",
+    "competitor": "Legal form templates are listed as a tool; this page does not state whether they need a paid plan.",
+    "docstoc": "1,000+ free templates, editable online, PDF download with a docstoc.io footer."
+   },
+   {
+    "topic": "Pricing",
+    "competitor": "The homepage describes flat-rate fees but states no amounts; check current prices at checkout.",
+    "docstoc": "Templates free. Pro is $14.99 per month and Business $39.99 per month, listed on the docstoc pricing page."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose LegalZoom if you are forming a company, need a registered agent, want a trademark filed or want an attorney plan. A provider handling the filing is the point, and a template library does not do that work.",
+   "docstoc": "Choose docstoc if your company already exists and you need the next agreement or policy. Copy the template, edit it, certify the finished file, and ask a lawyer when the matter carries real risk."
+  },
+  "faq": [
+   {
+    "q": "Is docstoc a replacement for LegalZoom?",
+    "a": "No, it covers a smaller job. docstoc is a template library, so formation, filings, registered agent and attorney plans stay with a provider like LegalZoom."
+   },
+   {
+    "q": "Do I need an account to copy a docstoc template?",
+    "a": "The library is described as free and editable, and docstoc's own summary describes it as a no signup library. Certificates and paid features need an account."
+   },
+   {
+    "q": "Are docstoc templates legally valid?",
+    "a": "They are general starting points, not legal advice. Check them against your jurisdiction and have a lawyer review anything important."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.legalzoom.com/",
+    "supports": "LegalZoom lists formation, registered agent, trademark, estate planning, attorney plans, legal form templates, eSignature; flat-rate fees with no dollar amounts shown",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://docstoc.io/document-templates/",
+    "supports": "Library of 1156 free, editable templates across business, legal, real estate, finance and HR; copy, fill in, certify",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Ongoing document access is sold as a subscription or a la carte service, not a free copy library': LegalZoom's homepage lists legal form templates as a tool but does not say how they are priced. Its pricing page returned HTTP 410. Unverified.",
+   "'Pro is a flat $14.99/mo, not a legal-plan retainer' is a fair docstoc statement but compares different products."
+  ],
+  "gaps": [
+   "LegalZoom template pricing and access terms could not be confirmed (pricing page returned 410).",
+   "Whether the docstoc library needs no signup: llms-full.txt says so, but the template page itself did not confirm it."
+  ]
+ },
+ {
+  "slug": "rocket-lawyer",
+  "name": "Rocket Lawyer",
+  "sector": "templates",
+  "titleTag": "Rocket Lawyer alternative: free templates | docstoc",
+  "metaDescription": "Rocket Lawyer bundles documents, e-signatures and attorney Q&A in a membership. docstoc offers a free template library. See where each fits.",
+  "headline": "Free templates when you do not need a legal membership",
+  "sub": "Rocket Lawyer bundles documents with attorney access: docstoc is the form library on its own.",
+  "whatItIs": "Rocket Lawyer is a legal membership service. Its Standard, Plus and Pro plans include unlimited personalised documents and e-signatures, AI legal Q&A and contract review, and a set number of Ask an Attorney and live attorney consultations depending on the tier. Plans start with a 7 day free trial. It is built for individuals and small businesses who want documents and lawyer access under one subscription.",
+  "whereTheyAreStronger": [
+   "Attorney access is part of the plan: Standard lists 12 Ask an Attorney requests, Plus adds 12 live consultations, Pro lists both as unlimited.",
+   "E-signatures are included with unlimited documents on every tier, which docstoc does not offer.",
+   "AI contract review described as backed by attorneys.",
+   "Premium legal add-ons, with 4, 7 or 10 available by tier."
+  ],
+  "whereDocstocFits": [
+   "You want to open and edit a template without starting a membership or a trial clock.",
+   "You need a document that is not tied to an interview flow: pick from 1,000+ templates in business, legal, real estate, finance and HR.",
+   "You want proof of the version you sent: a browser-side SHA-256 certificate with a public verify page.",
+   "You also send invoices and want chase drafts you review and send yourself."
+  ],
+  "comparison": [
+   {
+    "topic": "Model",
+    "competitor": "Annual membership with a 7 day trial.",
+    "docstoc": "Free library; paid plans only for extra features."
+   },
+   {
+    "topic": "Price at the time of writing",
+    "competitor": "Standard $149, Plus $249, Pro $349 per year as listed on its pricing page.",
+    "docstoc": "Templates free. Pro $14.99 per month, Business $39.99 per month."
+   },
+   {
+    "topic": "E-signature",
+    "competitor": "Included with unlimited documents.",
+    "docstoc": "Not part of the feature list."
+   },
+   {
+    "topic": "Attorney access",
+    "competitor": "Included by tier, plus separate Legal Advice Sessions priced at $149 for 30 minutes or $249 for 60 minutes.",
+    "docstoc": "None. Templates are not legal advice."
+   },
+   {
+    "topic": "Proof of a file",
+    "competitor": "Not covered by the sources checked.",
+    "docstoc": "Free certificate with hash, timestamp and optional Bitcoin OpenTimestamps anchoring."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Rocket Lawyer if you want e-signatures and lawyer access under one plan and expect to ask questions regularly. The attorney allowances are the main reason to pay for it.",
+   "docstoc": "Choose docstoc if you mostly need the form itself. Copy it, edit it, certify the final file, and pay a lawyer only for the matters that need one."
+  },
+  "faq": [
+   {
+    "q": "Can I use docstoc instead of a Rocket Lawyer membership?",
+    "a": "Only if you need documents without attorney access or e-signatures. docstoc has the templates, not the lawyers or the signing."
+   },
+   {
+    "q": "Does docstoc have a trial period for templates?",
+    "a": "No trial clock applies to the library, which is described as free. Paid plans cover chase drafts, CRM, API access and other features."
+   },
+   {
+    "q": "Can docstoc templates be e-signed?",
+    "a": "Not inside docstoc. Download the PDF and sign with the tool you already use, then certify the final file if you want a verify link."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.rocketlawyer.com/pricing",
+    "supports": "Standard/Plus/Pro prices, 7 day trial, attorney allowances, add-ons, session prices",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.rocketlawyer.com/documents",
+    "supports": "Unlimited personalised documents and e-signatures per tier",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://docstoc.io/document-templates/",
+    "supports": "Library of 1156 free, editable templates across business, legal, real estate, finance and HR; copy, fill in, certify",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'No per-document unlock after a 7-day trial' is unverifiable from the pages checked; the pricing page says unlimited documents with membership and says nothing about per-document unlocks.",
+   "'Rocket Lawyer gates unlimited documents and e-sign behind membership' is consistent with the pricing page, but 'expensive' is a judgement and should go."
+  ],
+  "gaps": [
+   "Whether Rocket Lawyer offers any free documents without membership was not confirmed.",
+   "Monthly versus annual price differs on the page ($12.41 per month billed yearly versus $34.99 in the FAQ); only annual totals are used."
+  ]
+ },
+ {
+  "slug": "pandadoc",
+  "name": "PandaDoc",
+  "sector": "templates",
+  "titleTag": "PandaDoc alternative for free templates | docstoc",
+  "metaDescription": "PandaDoc is a document workflow and e-signature tool priced per seat. docstoc is a free library of business and legal templates. Compare.",
+  "headline": "A free template library beside PandaDoc's document workflows",
+  "sub": "PandaDoc routes, signs and tracks documents: docstoc supplies the legal template to start from.",
+  "whatItIs": "PandaDoc is a document creation and e-signature platform. Its plans cover a drag-and-drop editor, templates, real-time tracking, approval workflows, custom quotes and sales agreements, and CRM integrations on higher tiers. Plans are priced per seat, from a Free plan to Starter, Business and a custom Enterprise tier. It is built for teams that send proposals, quotes and agreements and want to track them to signature.",
+  "whereTheyAreStronger": [
+   "E-signature and tracking: even the Free plan includes e-sign, real-time tracking and notifications.",
+   "Sales workflows: Business lists custom quotes, approval workflows, deal rooms, a content library and custom branding.",
+   "Integrations: CRM integrations, web forms and bulk send are listed as add-ons, and an API is available.",
+   "Enterprise options include single sign-on and data residency in the US or EU."
+  ],
+  "whereDocstocFits": [
+   "You need the legal or business document itself, such as a contractor agreement or a lease, while PandaDoc lists up to 5 templates on the Free and Starter plans.",
+   "You want to read and copy templates without paying per seat.",
+   "You want a hash certificate for the final file with a public verify page.",
+   "You want invoice reminder drafts in the same account; you send the email yourself."
+  ],
+  "comparison": [
+   {
+    "topic": "Main job",
+    "competitor": "Document workflow, proposals and e-signature.",
+    "docstoc": "Template library, certificates, chase drafts, SSL automation."
+   },
+   {
+    "topic": "Free plan",
+    "competitor": "5 documents per month and up to 5 templates, as listed at the time of writing.",
+    "docstoc": "Library free; 5 AI chase drafts per month without signup."
+   },
+   {
+    "topic": "Paid pricing",
+    "competitor": "Starter $19 and Business $49 per seat per month as listed; Enterprise on quote.",
+    "docstoc": "Pro $14.99 and Business $39.99 per month for the workspace."
+   },
+   {
+    "topic": "E-signature",
+    "competitor": "Included in all plans.",
+    "docstoc": "Not offered."
+   },
+   {
+    "topic": "Template library",
+    "competitor": "Your own templates, up to 5 on Free and Starter.",
+    "docstoc": "1,000+ free templates in business, legal, real estate, finance and HR."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose PandaDoc if your team sends quotes and proposals and needs signing, approvals and CRM links. Per-seat pricing buys a workflow that docstoc does not attempt.",
+   "docstoc": "Choose docstoc if you need a starting document, a proof of the final file, or invoice reminders. Use it before PandaDoc or next to it, and keep signing wherever you already sign."
+  },
+  "faq": [
+   {
+    "q": "Is docstoc a PandaDoc alternative for e-signatures?",
+    "a": "No. docstoc has no e-signature routing, so it fits the step before signing: finding and editing the document."
+   },
+   {
+    "q": "Can I use docstoc templates inside PandaDoc?",
+    "a": "Yes in practice: download the PDF or copy the text and rebuild it in your PandaDoc editor. Fields and signing order are not transferred."
+   },
+   {
+    "q": "Is the docstoc library limited per month?",
+    "a": "No monthly cap is stated for the template library. The limit of 5 per month applies to AI chase drafts without a paid plan."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.pandadoc.com/pricing/",
+    "supports": "Free: 5 documents per month; Starter $19 and Business $49 per seat per month; up to 5 templates; features and add-ons; Enterprise data residency",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://docstoc.io/document-templates/",
+    "supports": "Library of 1156 free, editable templates across business, legal, real estate, finance and HR; copy, fill in, certify",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'no 60-document/year cap' refers to an older PandaDoc free limit. The pricing page now says 5 documents per month on the Free plan. Update or drop.",
+   "'The free cap on documents is easy to hit' is a judgement, not a sourced fact."
+  ],
+  "gaps": [
+   "Whether PandaDoc publishes a public template library was not checked."
+  ]
+ },
+ {
+  "slug": "google-workspace",
+  "name": "Google Workspace",
+  "sector": "templates",
+  "titleTag": "Google Docs alternative: ready legal templates | docstoc",
+  "metaDescription": "Google Workspace is where documents are written and shared. docstoc supplies the business and legal template to start from. See how they fit.",
+  "headline": "Start from a legal template, not a blank Google Doc",
+  "sub": "Google Workspace is where you write and share: docstoc gives you the starting text.",
+  "whatItIs": "Google Workspace is a subscription suite with Gmail, Docs, Sheets, Slides and Drive. Its pricing page lists Starter, Standard, Plus and Enterprise plans billed per user, with Drive storage from 30 GB per user on Starter to 5 TB on Plus and Enterprise. Standard and above include eSignature in Docs and PDFs. It is built for teams that need shared files and collaborative editing.",
+  "whereTheyAreStronger": [
+   "Collaboration: shared editing in Docs, Sheets and Slides is listed on all plans.",
+   "Storage and sharing through Drive, from 30 GB per user to 5 TB per user.",
+   "eSignature for Docs and PDFs on Standard, Plus and Enterprise.",
+   "Gemini in Docs on Standard and above, useful for drafting and rewriting."
+  ],
+  "whereDocstocFits": [
+   "You do not want to start a contractor agreement, lease or policy from nothing: 1,000+ templates are ready to copy.",
+   "You want a template library that is not tied to a Workspace subscription tier.",
+   "You want to prove which version you sent: a SHA-256 hash made in your browser, with a shareable verify page.",
+   "You can copy a template into Docs after editing and keep working in Google as before."
+  ],
+  "comparison": [
+   {
+    "topic": "Main job",
+    "competitor": "Files, collaborative editing and the other Workspace apps.",
+    "docstoc": "Ready business and legal templates, certificates, chase drafts."
+   },
+   {
+    "topic": "Price at the time of writing",
+    "competitor": "Starter €6.80, Standard €13.60, Plus €21.10 per user per month on the monthly plan, excluding tax, as shown on the page we opened.",
+    "docstoc": "Templates free. Pro $14.99 per month, Business $39.99 per month."
+   },
+   {
+    "topic": "Templates",
+    "competitor": "The pricing page does not mention templates.",
+    "docstoc": "1,000+ in business, legal, real estate, finance and HR."
+   },
+   {
+    "topic": "E-signature",
+    "competitor": "On Standard and above.",
+    "docstoc": "Not offered."
+   },
+   {
+    "topic": "File proof",
+    "competitor": "Not covered by the pricing page.",
+    "docstoc": "Free hash certificate with timestamp and optional Bitcoin anchoring."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Google Workspace for shared drives and editing together with colleagues. docstoc does none of that and is not meant to replace it.",
+   "docstoc": "Choose docstoc when you open a blank Doc and need a proper first draft of a legal or business document. Copy the template, finish it in Docs if you prefer, and certify the version you send."
+  },
+  "faq": [
+   {
+    "q": "Do I have to leave Google Docs to use docstoc templates?",
+    "a": "No. You can edit the template online at docstoc or copy the text into Google Docs and carry on there."
+   },
+   {
+    "q": "Does Google Workspace include legal templates?",
+    "a": "We could not confirm it: the pricing page does not mention templates. Check the template gallery in your own account."
+   },
+   {
+    "q": "Does docstoc need access to my Google Drive?",
+    "a": "Not for templates. Pro plans can import PDFs from Google Drive for invoices and chasing, which is a separate connector you switch on."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://workspace.google.com/pricing",
+    "supports": "Plans and per user prices in EUR, Drive storage, eSignature on Standard and above, Gemini in Docs, no mention of templates",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://docstoc.io/document-templates/",
+    "supports": "Library of 1156 free, editable templates across business, legal, real estate, finance and HR; copy, fill in, certify",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'No extra Workspace SKU for legal templates' is unverifiable: the pricing page does not mention templates either way.",
+   "'Workspace is not a library of contractor agreements, leases, or demand letters' is unverified; Google's template gallery was not checked here."
+  ],
+  "gaps": [
+   "Google's own template gallery contents were not checked.",
+   "Prices shown are the EUR page we reached; USD prices were not verified."
+  ]
+ },
+ {
+  "slug": "bonsai",
+  "name": "Bonsai",
+  "sector": "templates",
+  "titleTag": "Bonsai alternative for contracts and templates | docstoc",
+  "metaDescription": "Bonsai is a per-seat client and project tool for freelancers. docstoc offers free contract templates and chase drafts. Compare plans and fit.",
+  "headline": "Free contract templates without a per-seat freelancer suite",
+  "sub": "Bonsai runs projects, contracts and invoices for freelancers: docstoc is the template library on its own.",
+  "whatItIs": "Bonsai is a client and project management tool. Its pricing page lists Basic, Essentials, Premium and Elite plans, priced per user per month, with time tracking on all plans and proposals, contracts and invoices from Essentials up. Its site also shows a template library of 500+ contracts, proposals, invoices and briefs. It is built for people who want one tool for the whole client workflow.",
+  "whereTheyAreStronger": [
+   "Client workflow: proposals, contracts, invoices and payments in one tool from Essentials up.",
+   "Time tracking on every plan, with timesheet locking on Elite.",
+   "Templates filtered by industry, covering contracts, proposals, scopes of work and timesheets.",
+   "A 7 day full-access trial and onboarding support for teams of 10+ users."
+  ],
+  "whereDocstocFits": [
+   "You need a contract or policy but not a project suite: 1,000+ free templates across business, legal, real estate, finance and HR.",
+   "You work alone or in a pair and prefer a flat workspace price over per-user pricing.",
+   "You want a hash certificate for the signed PDF, with a public verify page.",
+   "You want AI-drafted reminder emails for late invoices, which you review and send yourself."
+  ],
+  "comparison": [
+   {
+    "topic": "Main job",
+    "competitor": "Client and project management with contracts and invoices.",
+    "docstoc": "Templates, certificates, chase drafts, SSL automation."
+   },
+   {
+    "topic": "Price at the time of writing",
+    "competitor": "Per user per month: Basic $9, Essentials $19, Premium $29, Elite $49 billed annually; $15, $25, $39, $59 monthly.",
+    "docstoc": "Templates free. Pro $14.99 per month, Business $39.99 per month."
+   },
+   {
+    "topic": "Contracts and invoices",
+    "competitor": "Listed from Essentials up.",
+    "docstoc": "Contract templates free; invoice chase drafts on the free tier, up to 5 per month."
+   },
+   {
+    "topic": "Template library",
+    "competitor": "500+ templates; whether they are free to use was not confirmed.",
+    "docstoc": "1,000+ free, editable templates."
+   },
+   {
+    "topic": "Time tracking and CRM",
+    "competitor": "Time tracking on all plans.",
+    "docstoc": "Clients CRM on Pro; no time tracking."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Bonsai if you want proposals, contracts, invoices and time tracking in one place and bill clients from the same tool. The per-user price buys that workflow.",
+   "docstoc": "Choose docstoc if you only need the document or the follow-up. Copy a contract, certify the final PDF, and keep your project tracking wherever it is today."
+  },
+  "faq": [
+   {
+    "q": "Is Bonsai cheaper than docstoc?",
+    "a": "It depends on the plan and seats. At the time of writing Basic is $9 per user per month billed annually, but contracts and invoices are listed from Essentials at $19. docstoc Pro is $14.99 per month for the workspace."
+   },
+   {
+    "q": "Does Bonsai have free contract templates?",
+    "a": "We could not confirm it. Bonsai shows a library of 500+ templates, but the page does not say whether they are free, and contract templates link to a sign up page."
+   },
+   {
+    "q": "Can I move Bonsai contracts to docstoc?",
+    "a": "Download them as PDF from Bonsai and keep them. docstoc can certify those files and offers templates for the next contract."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.hellobonsai.com/pricing",
+    "supports": "Plan names, per user monthly and annual prices, 7 day trial, contracts/invoices from Essentials, time tracking on all plans",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://www.hellobonsai.com/templates",
+    "supports": "500+ templates, categories, contract templates link to sign up page; free status not stated",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://docstoc.io/document-templates/",
+    "supports": "Library of 1156 free, editable templates across business, legal, real estate, finance and HR; copy, fill in, certify",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'There is no real free template library': Bonsai shows a 500+ template library; whether it is free was not confirmed. Rewrite.",
+   "'Document certificates Bonsai does not offer': not found in the pages checked, but absence was not proven. Soften.",
+   "'Flat Pro $14.99/mo, not $9 x seats': $9 is the Basic annual price, which excludes contracts and invoices. Compare against Essentials $19."
+  ],
+  "gaps": [
+   "Whether Bonsai templates need an account or payment.",
+   "Storage per plan (the page did not label it)."
+  ]
+ },
+ {
+  "slug": "honeybook",
+  "name": "HoneyBook",
+  "sector": "templates",
+  "titleTag": "HoneyBook alternative for templates and invoices | docstoc",
+  "metaDescription": "HoneyBook is a client portal for service businesses with contracts and invoices. docstoc offers free templates and chase drafts. Compare.",
+  "headline": "Free templates and invoice chasing beside a client portal",
+  "sub": "HoneyBook runs client projects end to end: docstoc covers the template and the late invoice.",
+  "whatItIs": "HoneyBook is a client management platform. Its Starter, Essentials and Premium plans include proposals, contracts with eSign, invoices and payments, a client portal and lead forms, with a scheduler and automations from Essentials. Its pricing page offers a 30 day free trial and a 60 day money-back guarantee. It is built for service businesses that want booking, signing and payment in one branded place.",
+  "whereTheyAreStronger": [
+   "Booking and automation: the scheduler and automations start on Essentials.",
+   "Contracts with eSign and invoices (one-time, recurring or scheduled) in every plan.",
+   "A client portal for files and project details, plus lead forms.",
+   "A QuickBooks Online integration on Essentials and above, and a 30 day trial with no card required."
+  ],
+  "whereDocstocFits": [
+   "You need a general business or legal document, not a client project: 1,000+ free templates are listed.",
+   "You want to avoid paying for a portal and scheduler you will not use.",
+   "You want a certificate with a public verify page for the final file.",
+   "You want chase drafts for unpaid invoices with tone matched to days overdue, which you send from your own email."
+  ],
+  "comparison": [
+   {
+    "topic": "Main job",
+    "competitor": "Client portal, booking, contracts, invoices.",
+    "docstoc": "Templates, certificates, chase drafts, SSL automation."
+   },
+   {
+    "topic": "Price at the time of writing",
+    "competitor": "Starter $29, Essentials $49, Premium $109 per month when billed yearly.",
+    "docstoc": "Templates free. Pro $14.99 per month, Business $39.99 per month."
+   },
+   {
+    "topic": "Trial",
+    "competitor": "30 days free, no card required, and a 60 day money-back guarantee.",
+    "docstoc": "Templates free; 5 AI chase drafts per month without signup."
+   },
+   {
+    "topic": "E-signature",
+    "competitor": "Clients can eSign contracts and forms.",
+    "docstoc": "Not offered."
+   },
+   {
+    "topic": "Scheduler",
+    "competitor": "From Essentials.",
+    "docstoc": "Not offered. Reminder calendar for chasing on Pro."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose HoneyBook if clients book, sign and pay through you, and a branded portal with scheduling is part of how you sell. Its pricing reflects that scope.",
+   "docstoc": "Choose docstoc if you want a clean template for the next agreement, a proof of the final file, and reminder drafts for late payers. Keep HoneyBook for booking if you already use it."
+  },
+  "faq": [
+   {
+    "q": "Is docstoc cheaper than HoneyBook?",
+    "a": "At the entry level, yes: Pro is $14.99 per month against HoneyBook Starter at $29 per month when billed yearly, at the time of writing. The products cover different work, so compare features too."
+   },
+   {
+    "q": "Does docstoc replace the HoneyBook client portal?",
+    "a": "No. docstoc has no portal or scheduler. It supplies templates, certificates and chase drafts."
+   },
+   {
+    "q": "Can I chase HoneyBook invoices with docstoc?",
+    "a": "Yes. Paste the invoice details or upload a CSV, review the draft, and send it from your own email. docstoc does not send it for you."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.honeybook.com/pricing",
+    "supports": "Starter $29, Essentials $49, Premium $109 per month billed yearly; 30 day trial; 60 day guarantee; features per plan",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://docstoc.io/document-templates/",
+    "supports": "Library of 1156 free, editable templates across business, legal, real estate, finance and HR; copy, fill in, certify",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Free templates vs trial-only HoneyBook': HoneyBook has a 30 day trial and a 60 day guarantee; the pricing page does not say templates are trial only. Rewrite.",
+   "'$29+/mo entry' matches Starter billed yearly; the monthly-billed price was not clear on the page, so say 'billed yearly'.",
+   "'HoneyBook is a branded client OS for creatives' is not HoneyBook's own wording as far as the page checked shows."
+  ],
+  "gaps": [
+   "HoneyBook processing fees were inconsistent on the page and are left out.",
+   "The HoneyBook plan prices when billed monthly."
+  ]
+ }
+]

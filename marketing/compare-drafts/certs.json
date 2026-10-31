@@ -1,0 +1,273 @@
+[
+  {
+    "slug": "adobe-acrobat",
+    "name": "Adobe Acrobat",
+    "sector": "certificates",
+    "titleTag": "Adobe Acrobat alternative for file proof | docstoc",
+    "metaDescription": "Need proof a file has not changed? Compare Acrobat's certified PDFs with docstoc's free SHA-256 certificate and public verify link for any file type.",
+    "headline": "A verify link for any file, beside your Acrobat PDFs",
+    "sub": "Acrobat certifies PDFs with a digital ID: docstoc fingerprints any file and gives you a link to share.",
+    "whatItIs": "Adobe Acrobat is the PDF editor many offices already use. Beyond editing, it can fill and sign PDFs, collect e-signatures, and apply certificate-based signatures that approve a document and limit which changes are allowed afterwards. It is built for people and teams who work in PDFs every day and want one tool for editing, signing and protecting them.",
+    "whereTheyAreStronger": [
+      "Acrobat edits, fills, signs and protects PDFs in one application. docstoc does none of the editing.",
+      "A certifying signature in Acrobat can approve a document and state which changes remain permitted. A hash certificate has no such rules.",
+      "Acrobat's paid plans include e-signature collection with response tracking, and the Pro tier adds reusable e-sign templates and bulk sending (Adobe pricing page, at the time of writing).",
+      "Certificate-based signatures are tied to a digital ID, so they say who applied the signature. A docstoc certificate only says which bytes existed."
+    ],
+    "whereDocstocFits": [
+      "You need to prove that a zip, a scan, a spreadsheet or a contract export is unchanged, and the file is not a PDF.",
+      "You want a public verify page you can send to a client who has no Acrobat and no digital ID.",
+      "The file is hashed in your browser with SHA-256 and never uploaded. Creating and checking a certificate is free.",
+      "You want an independent timestamp: certificates can carry an OpenTimestamps proof anchored to Bitcoin."
+    ],
+    "comparison": [
+      {"topic": "What it proves", "competitor": "A certifying or approval signature on a PDF, linked to a digital ID.", "docstoc": "That a file with this SHA-256 hash existed at the certificate's timestamp. It does not say who signed."},
+      {"topic": "File types", "competitor": "PDFs. Certificate signatures apply to PDFs that carry no other signatures yet.", "docstoc": "Any file, because only the hash matters."},
+      {"topic": "Checking", "competitor": "In Acrobat, through Validate all signatures.", "docstoc": "On a shareable verify page that anyone can open, with no account."},
+      {"topic": "Pricing", "competitor": "Subscription. At the time of writing the EU store lists Acrobat Standard from 18,45 EUR a month on an annual plan billed monthly, incl. VAT.", "docstoc": "Certificates are free to create and free to check. Business ($39.99 a month) adds your own logo on certificates."},
+      {"topic": "Editing PDFs", "competitor": "Full editing, forms, signing and protection.", "docstoc": "None. docstoc does not edit documents."}
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Acrobat if your work happens inside PDFs, if you need a certifying signature with permitted-change rules, or if recipients expect a signature from a named digital ID. Keep it for editing and forms even if you add anything else.",
+      "docstoc": "Choose docstoc if you need a simple, shareable proof that a file of any type is unchanged, without asking the other side to install anything. Many people use both: Acrobat for the PDF work, a docstoc certificate for the exact file you sent."
+    },
+    "faq": [
+      {"q": "Is a docstoc certificate the same as a certified PDF in Acrobat?", "a": "No. A certified PDF in Acrobat carries a signature from a digital ID and can limit later changes. A docstoc certificate records the SHA-256 hash of a file and a timestamp. It shows the bytes are unchanged, not who approved them."},
+      {"q": "Can I certify a file that is not a PDF?", "a": "Yes. docstoc hashes any file type in your browser. Acrobat's certificate signatures are for PDFs, so a zip, image or spreadsheet needs a different route."},
+      {"q": "Do I have to upload my document to docstoc?", "a": "No. The file is hashed in your browser and never leaves your device. Only the hash is stored, plus a filename if you choose to add one."}
+    ],
+    "sources": [
+      {"url": "https://www.adobe.com/acrobat/pricing.html", "supports": "Plan names, EU prices incl. VAT and e-signature features per tier; page does not mention certifying", "checked": "2026-10-31"},
+      {"url": "https://helpx.adobe.com/acrobat/desktop/e-sign-documents/manage-digital-signatures/certify-pdfs.html", "supports": "Certifying approves content and sets permitted changes; needs a digital ID; only for PDFs without other signatures (via search summary, page itself not opened)", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt", "supports": "docstoc certificate behaviour, Business branding, price", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/app/src/lib/i18n/en.ts", "supports": "Browser hashing, file never leaves device, OpenTimestamps anchoring (line 1238)", "checked": "2026-10-31"}
+    ],
+    "existingClaimIssues": [
+      "Headline uses an em dash, against the style file.",
+      "\"It is not a public verify link for an arbitrary zip or contract scan\" is true of certificate signatures (PDF only per Adobe help) but the Adobe help page was only seen as a search summary; reword to the PDF-only point.",
+      "\"Optional BTC timestamp\" conflicts with en.ts (line 1238) which says every certificate is anchored; llms-full.txt says optional. Owner to confirm which is right before publishing."
+    ],
+    "gaps": [
+      "Adobe help pages returned 403 or were only available as search summaries; the PDF-only rule rests on that summary.",
+      "No Adobe statement about public verify links was found, so none is made.",
+      "Prices are EU store, incl. VAT, and vary by region."
+    ]
+  },
+  {
+    "slug": "docusign",
+    "name": "DocuSign",
+    "sector": "certificates",
+    "titleTag": "DocuSign alternative for file integrity proof | docstoc",
+    "metaDescription": "DocuSign records who signed an envelope. docstoc proves a file is unchanged with a free SHA-256 certificate. See where each one fits.",
+    "headline": "File integrity proof, next to your DocuSign envelopes",
+    "sub": "DocuSign handles signing workflows: docstoc fingerprints a finished file and gives you a link to verify it.",
+    "whatItIs": "DocuSign is an electronic signature platform. You send an envelope, signers complete it, and DocuSign keeps a record of the process, including a certificate of completion with envelope details, signer information and an event log. It offers 1,100+ integrations and extra signer authentication on higher plans. It suits businesses that need signature workflows with an audit trail.",
+    "whereTheyAreStronger": [
+      "DocuSign runs the whole signing workflow: routing, reminders, signer fields and completion. docstoc has no e-signature product.",
+      "Each envelope has a certificate of completion with signer details such as IP address, key event timestamps and an event log (DocuSign support documentation).",
+      "Advanced signer authentication is offered with the Enterprise Pro offering, and the product page lists 1,100+ pre-built integrations such as Salesforce, Microsoft 365 and SAP.",
+      "Plans scale from a Personal tier to enterprise, with business features such as bulk send and payment collection on Business Pro."
+    ],
+    "whereDocstocFits": [
+      "You want to prove a file is the one you had on a given day, and the file never went through DocuSign.",
+      "You want to certify the final signed PDF you downloaded, so it has its own verify link.",
+      "You do not want to pay a per-user signing subscription just for integrity proof: certificates are free to create and check.",
+      "The file stays on your device. It is hashed in the browser and only the SHA-256 hash is stored."
+    ],
+    "comparison": [
+      {"topic": "Job", "competitor": "Collects signatures and keeps a record of the signing process.", "docstoc": "Records the SHA-256 hash of a file and a timestamp. It is not an e-signature product."},
+      {"topic": "Who is on record", "competitor": "Signers, with details such as IP address and event times in the certificate of completion.", "docstoc": "Nobody. A certificate says which bytes existed, not who agreed to them."},
+      {"topic": "Pricing", "competitor": "Per user. At the time of writing the US page lists Personal at $10 a month (5 envelopes), Standard at $25 and Business Pro at $40; enterprise on request.", "docstoc": "Certificates are free. Pro is $14.99 a month and Business $39.99, mainly for chase drafts and SSL."},
+      {"topic": "File scope", "competitor": "Documents sent as envelopes.", "docstoc": "Any file type, including documents that never touched DocuSign."},
+      {"topic": "Legal framing", "competitor": "Built around e-signature workflows. Check what your use case needs.", "docstoc": "Not a legal signature and not legal advice."}
+    ],
+    "whenToChoose": {
+      "competitor": "Choose DocuSign when several people must sign, when you need signer authentication and a record of the signing process, or when your systems already integrate with it. Whether a given signature meets a legal requirement is a question for your adviser.",
+      "docstoc": "Choose docstoc when the question is whether a file is unchanged, not who signed it. It also works after DocuSign: download the completed PDF and certify it, so you hold a link that proves those exact bytes."
+    },
+    "faq": [
+      {"q": "Does docstoc replace DocuSign?", "a": "No. docstoc has no signing workflow, no signer fields and no signer identity checks. It proves a file is unchanged. Keep DocuSign if you need people to sign."},
+      {"q": "Can I certify a PDF I downloaded from DocuSign?", "a": "Yes. Download the completed PDF, hash it in docstoc and share the verify link. docstoc never asks for your DocuSign login."},
+      {"q": "Is a docstoc certificate legally binding like a signature?", "a": "No. It shows that a file with a given hash existed at a given time. It does not show agreement by anyone. Ask your adviser what evidence you need."}
+    ],
+    "sources": [
+      {"url": "https://www.docusign.com/products/electronic-signature", "supports": "Personal $10, Standard $25, Business Pro $40 per month; 1,100+ integrations; advanced signer authentication with Enterprise Pro", "checked": "2026-10-31"},
+      {"url": "https://support.docusign.com/s/document-item?language=en_US&bundleId=oeq1643226594604&topicId=gpa1578456339545.html", "supports": "Certificate of completion contents (seen via search summary)", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt", "supports": "docstoc plans, certificates free, no email sending, not legal advice", "checked": "2026-10-31"}
+    ],
+    "existingClaimIssues": [
+      "Headline uses an em dash.",
+      "\"DocuSign proves who signed an envelope\" overstates: identity depends on the authentication level chosen. Say it records signing events and signer details.",
+      "\"No per-seat e-sign tax\" is a loaded phrase; remove it. Say certificates are free instead.",
+      "\"Honest: not an e-sign product\" reads as an item in a feature list; fold into the comparison."
+    ],
+    "gaps": [
+      "DocuSign pricing page (ecom.docusign.com) timed out; prices come from the product page and are US dollars.",
+      "Certificate of completion contents seen only through a search summary of support pages.",
+      "No eIDAS or legal-validity claims made for DocuSign."
+    ]
+  },
+  {
+    "slug": "digicert-doc",
+    "name": "DigiCert Document Trust Manager",
+    "sector": "certificates",
+    "titleTag": "DigiCert Document Trust alternative | docstoc",
+    "metaDescription": "DigiCert Document Trust Manager governs enterprise signing keys and policy. docstoc gives small teams a free SHA-256 file certificate with a verify link.",
+    "headline": "A simple file certificate where you do not need a signing programme",
+    "sub": "DigiCert governs signing keys and policy for organisations: docstoc just proves a file is unchanged.",
+    "whatItIs": "DigiCert Document Trust Manager is a governance layer for document signing. DigiCert describes it as a way to manage signing policy, roles, audit logs and keys across signing workflows, with HSM-backed key custody, trusted timestamps, long-term validation and eSealing. It supports advanced and qualified signatures and works behind Adobe, DocuSign and Microsoft 365. It is aimed at regulated or high-volume signing.",
+    "whereTheyAreStronger": [
+      "It governs signing across tools: policy, roles with SSO and MFA, audit logs and key custody in one place.",
+      "It covers advanced and qualified signatures and organisational eSeals, which DigiCert says support eIDAS and ZertES requirements. docstoc offers no signatures.",
+      "HSM-backed key custody and configurable identity proofing suit organisations with compliance mandates.",
+      "It lists trusted timestamps, long-term validation and a 99.99% uptime SLA."
+    ],
+    "whereDocstocFits": [
+      "You are a small team that needs to show one file is unchanged, not run a signing programme.",
+      "You want a verify page the other side can open without an account, a key or a certificate chain.",
+      "Certificates are free to create and check, and the file is hashed in the browser, so it is never uploaded.",
+      "You also want chase drafts, templates or Let's Encrypt SSL automation in the same account."
+    ],
+    "comparison": [
+      {"topic": "What it is", "competitor": "Governance for signing policy, keys and audit records across signing workflows.", "docstoc": "A browser-side SHA-256 hash with a public verify page. No signing."},
+      {"topic": "Signature types", "competitor": "eSignature, digital, advanced and qualified signatures and eSeals.", "docstoc": "None. A certificate shows bytes existed at a time, not who signed."},
+      {"topic": "Who it targets", "competitor": "Security leaders and organisations with regulated or high-volume signing.", "docstoc": "Freelancers and small businesses."},
+      {"topic": "Pricing", "competitor": "Not listed on the product page. DigiCert points to a data sheet and a contact route.", "docstoc": "Certificates are free. Business ($39.99 a month) adds your own logo."},
+      {"topic": "Timestamps", "competitor": "Trusted timestamps and long-term validation.", "docstoc": "Certificates can carry an OpenTimestamps proof anchored to Bitcoin."}
+    ],
+    "whenToChoose": {
+      "competitor": "Choose DigiCert Document Trust Manager if you must control signing keys, enforce policy across several signing tools, or issue qualified signatures and eSeals under eIDAS. Ask DigiCert about pricing and fit for your case.",
+      "docstoc": "Choose docstoc if you only need a quick, shareable proof that a file has not changed and you have no signing infrastructure to govern. It will not give you a qualified signature, and it does not claim to."
+    },
+    "faq": [
+      {"q": "Is a docstoc certificate an eIDAS qualified signature?", "a": "No. It is a SHA-256 hash with a timestamp and a verify page. It involves no signer and no qualified trust service. If you need a qualified signature, use a provider that offers it."},
+      {"q": "Can I use docstoc and DigiCert together?", "a": "Yes. They do different jobs. You can keep DigiCert for signing and certify the finished file in docstoc if you want a simple link for people outside your signing setup."},
+      {"q": "Does docstoc import my DigiCert keys or documents?", "a": "No. There is no connection and no key import. You download the document yourself and certify it in your browser; only its hash is stored."}
+    ],
+    "sources": [
+      {"url": "https://www.digicert.com/document-trust-manager", "supports": "Features, signature types, intended audience, no pricing on page", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt", "supports": "docstoc certificate features, plans and boundaries", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/app/src/lib/i18n/en.ts", "supports": "Browser hashing and OpenTimestamps anchoring (line 1238)", "checked": "2026-10-31"}
+    ],
+    "existingClaimIssues": [
+      "\"DigiCert Document Trust is enterprise signing/identity. Pricing and sales motion match that\" is unverifiable: the product page lists no pricing. Remove the sales and pricing claim.",
+      "\"Enterprise sales cycle\" in compares is likewise unverified.",
+      "Headline and sub use em dashes.",
+      "The name changed in the product page to Document Trust Manager and it is governance, not a signing app; the old text calls it signing/identity."
+    ],
+    "gaps": [
+      "No DigiCert pricing found, so no price comparison made.",
+      "eIDAS/ZertES support is DigiCert's own statement and is attributed to DigiCert."
+    ]
+  },
+  {
+    "slug": "originstamp",
+    "name": "OriginStamp",
+    "sector": "certificates",
+    "titleTag": "OriginStamp alternative for file timestamps | docstoc",
+    "metaDescription": "OriginStamp anchors file hashes to Bitcoin and Ethereum. docstoc offers free SHA-256 certificates with a verify link and an OpenTimestamps proof.",
+    "headline": "Timestamp a file and send a link, without wiring an API",
+    "sub": "OriginStamp offers timestamping and an enterprise archive: docstoc is a free certificate for one file at a time.",
+    "whatItIs": "OriginStamp is a timestamping service built around blockchain anchoring. Its timestamp page says the SHA-256 hash is calculated locally in your browser, written into a Bitcoin and Ethereum transaction within 24 hours, and returned as a downloadable PDF certificate. It also offers a REST API, hash chaining for version histories, and OriginVault, an archive for ERP and legacy data aimed at larger organisations.",
+    "whereTheyAreStronger": [
+      "OriginStamp has a documented REST API for creating and verifying timestamps, with credit-based plans that scale to 100,000 credits a month.",
+      "Hash chaining lets you build a tamper-evident version history of many hashes.",
+      "Its anchoring uses a Bitcoin and Ethereum transaction and returns a PDF certificate with hash, block time and transaction reference.",
+      "OriginVault extends the company into archiving and AI search over legacy ERP data, which docstoc does not do."
+    ],
+    "whereDocstocFits": [
+      "You want certificates for single files by hand, with a public verify page, inside the same account as chase drafts and templates.",
+      "You do not want to manage API credits: creating and checking certificates is free.",
+      "Certificates can carry an OpenTimestamps proof anchored to Bitcoin, which anyone can verify without trusting docstoc.",
+      "You want your own logo on certificates, which is part of the Business plan at $39.99 a month."
+    ],
+    "comparison": [
+      {"topic": "Anchoring", "competitor": "Hash written to a Bitcoin and Ethereum transaction within 24 hours (OriginStamp timestamp page).", "docstoc": "SHA-256 certificate, with an optional OpenTimestamps proof anchored to Bitcoin. Confirmation can take hours."},
+      {"topic": "Privacy", "competitor": "Hash calculated locally; the file never leaves your device.", "docstoc": "Same approach: the file is hashed in your browser and only the hash is stored."},
+      {"topic": "Interface", "competitor": "Web timestamp page without an account, plus a REST API.", "docstoc": "Web app with a shareable verify page. docstoc's HTTP API covers chase drafts and SSL, not certificates."},
+      {"topic": "Pricing", "competitor": "Per its docs a free account has 50 credits a month, with paid tiers of 1,000, 10,000 and 100,000 credits; prices were not visible to us.", "docstoc": "Certificates are free to create and check."},
+      {"topic": "Beyond timestamps", "competitor": "OriginVault archive for ERP and legacy systems, aimed at larger organisations.", "docstoc": "Chase drafts, free templates and Let's Encrypt SSL automation."}
+    ],
+    "whenToChoose": {
+      "competitor": "Choose OriginStamp if you are building timestamping into software, need hash chaining, want its Bitcoin and Ethereum anchoring, or need an archive for legacy data. Its API and credit tiers are designed for that.",
+      "docstoc": "Choose docstoc if you issue certificates by hand for a few files, want a verify link for a client, and prefer one account for documents, templates and SSL. For custom integrations, use OriginStamp."
+    },
+    "faq": [
+      {"q": "Does docstoc anchor to Bitcoin like OriginStamp?", "a": "Yes, through OpenTimestamps, which anchors to Bitcoin. OriginStamp's timestamp page says it writes to a Bitcoin and Ethereum transaction. docstoc does not use Ethereum."},
+      {"q": "Is OriginStamp only an API?", "a": "No. It has a web page where you can timestamp a file without an account, as well as a REST API. The API is the main route for automation."},
+      {"q": "Can I import my OriginStamp timestamps into docstoc?", "a": "No. Timestamps cannot be imported. Keep the original file and your OriginStamp proof, then hash the same file in docstoc to get a new certificate."}
+    ],
+    "sources": [
+      {"url": "https://originstamp.com/", "supports": "OriginVault archive, API-first, MCP server, target industries; no pricing listed", "checked": "2026-10-31"},
+      {"url": "https://originstamp.com/pricing", "supports": "Page loaded but pricing text truncated; only the timestamp product description (local hashing, Bitcoin and Ethereum within 24 hours, PDF certificate, hash chaining, REST endpoint, no account) was visible", "checked": "2026-10-31"},
+      {"url": "https://docs.originstamp.com/general/faq", "supports": "Bitcoin anchoring, only hash needed, verification without OriginStamp", "checked": "2026-10-31"},
+      {"url": "https://docs.originstamp.com/guide/credits", "supports": "Free plan 50 credits a month and paid tiers 1,000 / 10,000 / 100,000 (via search summary only)", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt", "supports": "docstoc certificate features, plans", "checked": "2026-10-31"}
+    ],
+    "existingClaimIssues": [
+      "\"OriginStamp is a specialist timestamp API\" is out of date: the site now leads with OriginVault, and the timestamp page offers a web interface and PDF certificate without an account.",
+      "\"UI + link, not only an API\" implies OriginStamp has no UI; it does. Remove it.",
+      "\"A productized timestamp, not an API you have to wire\" implies OriginStamp has no product for single files; reword.",
+      "Headline uses an em dash.",
+      "\"Optional BTC timestamp\" conflicts with en.ts line 1238 (every certificate is anchored)."
+    ],
+    "gaps": [
+      "Paid-tier prices not seen on any page opened.",
+      "Credit figures come from a search summary, not the opened page.",
+      "Whether docstoc certificates include a downloadable PDF was not confirmed, so it is not claimed."
+    ]
+  },
+  {
+    "slug": "opentimestamps",
+    "name": "OpenTimestamps",
+    "sector": "certificates",
+    "titleTag": "OpenTimestamps alternative with a verify page | docstoc",
+    "metaDescription": "OpenTimestamps is a free Bitcoin timestamp standard. docstoc builds on it with a SHA-256 certificate and a public verify link anyone can open.",
+    "headline": "A verify page on top of OpenTimestamps",
+    "sub": "OpenTimestamps is the open standard: docstoc is a hosted certificate that uses it.",
+    "whatItIs": "OpenTimestamps is an open timestamping standard that anchors data to the Bitcoin blockchain. Hashing happens in your browser. The hash is recorded on Bitcoin directly or through a calendar server, and you can verify the resulting .ots proof later. The calendar servers are free to use without registration, and clients exist for Python, JavaScript, Java and Rust. It suits people who are comfortable keeping proof files themselves.",
+    "whereTheyAreStronger": [
+      "It is an open standard with free calendar servers that need no registration or API key.",
+      "Clients exist in Python, JavaScript, Java and Rust, so you can script it into your own tooling.",
+      "A proof is a small .ots file you hold yourself. It does not depend on any company's website staying online.",
+      "The site offers an in-browser verifier where you drop a proof file in."
+    ],
+    "whereDocstocFits": [
+      "You want a link to send rather than a proof file to explain. The verify page shows the hash, the timestamp and the status.",
+      "You do not want to install a client or run commands.",
+      "You want certificates, document templates and chase drafts in one account.",
+      "Business adds your own logo to certificates."
+    ],
+    "comparison": [
+      {"topic": "What it is", "competitor": "An open protocol, with free calendar servers and several open clients.", "docstoc": "A hosted product that hashes the file in your browser and publishes a verify page."},
+      {"topic": "Proof format", "competitor": ".ots proof file that you keep and verify with a client or the browser verifier.", "docstoc": "A public page at a docstoc.io address, plus an OpenTimestamps proof where anchoring is on."},
+      {"topic": "Cost", "competitor": "Calendar servers are free and run on donations. Stamping directly on Bitcoin means paying the fees.", "docstoc": "Certificates are free to create and check."},
+      {"topic": "Trust", "competitor": "You rely on the Bitcoin proof, not on a vendor.", "docstoc": "The verify page depends on docstoc being online. The OpenTimestamps proof can be checked without docstoc."},
+      {"topic": "Setup", "competitor": "Install a client such as pip install opentimestamps-client, or use the browser tools.", "docstoc": "Sign in and drop in a file."}
+    ],
+    "whenToChoose": {
+      "competitor": "Choose OpenTimestamps directly if you already automate it, want no hosted dependency, or want to build your own tooling. The protocol is free and open, and you can keep using it alongside anything else.",
+      "docstoc": "Choose docstoc if the people checking your file will not run a client. They get a page with the hash and timestamp, and you still keep an OpenTimestamps proof underneath for independent checking."
+    },
+    "faq": [
+      {"q": "Does docstoc use OpenTimestamps?", "a": "Yes. docstoc certificates can carry an OpenTimestamps proof anchored to Bitcoin, so the timestamp can be checked without trusting docstoc. Confirmation on Bitcoin can take several hours."},
+      {"q": "Do I need docstoc if I already use OpenTimestamps?", "a": "No. If your counterparties are comfortable with .ots files, OpenTimestamps alone does the job for free. docstoc only adds a shareable page for people who are not."},
+      {"q": "Is OpenTimestamps hard to use?", "a": "It depends on you. The project provides command-line clients and an in-browser verifier. Stamping from a terminal is easy for developers and unfamiliar to many clients, which is where a link helps."}
+    ],
+    "sources": [
+      {"url": "https://opentimestamps.org/", "supports": "Open standard, Bitcoin only, browser hashing, free calendar servers, clients, in-browser verifier", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/app/src/lib/i18n/en.ts", "supports": "docstoc hashes in browser, OpenTimestamps anchoring, verifiable independent of docstoc (line 1238)", "checked": "2026-10-31"},
+      {"url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt", "supports": "Verify page, free certificates, Business branding", "checked": "2026-10-31"}
+    ],
+    "existingClaimIssues": [
+      "\"OpenTimestamps is free and correct, and invisible to a non-technical counterparty\" is partly wrong: the project has an in-browser verifier. Reword to say it needs a proof file.",
+      "\"No DIY tooling\" is fine for docstoc, but opentimestamps.org offers a browser verifier, so do not imply tooling is the only route.",
+      "Headline and problem text use dashes.",
+      "\"Optional BTC timestamp\" conflicts with en.ts line 1238 (every certificate is anchored). Owner to confirm."
+    ],
+    "gaps": [
+      "Whether docstoc's verify page offers the .ots download was not confirmed in the repo, so it is not claimed beyond the SOX evidence pack.",
+      "Verification of docstoc's own pending versus confirmed states is described only from i18n strings."
+    ]
+  }
+]

@@ -1,0 +1,753 @@
+[
+  {
+    "slug": "invoicely",
+    "name": "Invoicely",
+    "sector": "invoices",
+    "titleTag": "Invoicely alternative for chasing invoices | docstoc",
+    "metaDescription": "Invoicely bills your clients. docstoc writes the follow-up for invoices that run late. See plans, limits and where each one fits.",
+    "headline": "Invoicely sends the invoice. docstoc writes the chase.",
+    "sub": "Keep Invoicely for billing: add tone-matched follow-up drafts for the invoices that run late.",
+    "whatItIs": "Invoicely is an online invoicing service for small businesses. At the time of writing its pricing page lists four plans: Free at $0 with 5 invoices a month and 3 saved clients, Basic at $9.99, Professional at $19.99 and Enterprise at $29.99. Higher plans raise the invoice and client limits and allow up to 25 team members. It connects to PayPal, Stripe, Authorize.net and Mollie, tracks time, expenses and mileage, and has mobile apps.",
+    "whereTheyAreStronger": [
+      "Online payments: Invoicely lists PayPal, Stripe, Authorize.net and Mollie as gateways, so a client can pay from the invoice. docstoc does not take payments.",
+      "Time, expense and mileage tracking that can be turned into invoices or estimates. docstoc has no time tracking.",
+      "Recurring invoices, estimates, bills and multiple currencies in one invoicing tool.",
+      "A clear ladder of prices: $9.99, $19.99 and $29.99 a month, each with stated invoice, client and team limits."
+    ],
+    "whereDocstocFits": [
+      "You already invoice somewhere and the problem is the email after the due date. docstoc drafts it, matched to how many days late the invoice is.",
+      "You want to try it without an account: the Free plan gives 5 AI drafts a month, from pasted invoices or a CSV.",
+      "You send from your own mailbox. docstoc never sends for you, so the reminder arrives in the same thread as your normal mail.",
+      "You also need contracts or notices: docstoc has 1,000+ free document templates and 28+ payment reminder templates."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Creating and sending invoices, taking payments, tracking time and expenses.",
+        "docstoc": "Drafting follow-up emails for overdue invoices, plus templates, certificates and SSL automation."
+      },
+      {
+        "topic": "Pricing at the time of writing",
+        "competitor": "Free $0, Basic $9.99, Professional $19.99, Enterprise $29.99 a month, with limits on invoices, clients and team members.",
+        "docstoc": "Free (5 drafts a month), Pro $14.99, Business $39.99 a month."
+      },
+      {
+        "topic": "Limits",
+        "competitor": "Free: 5 invoices a month and 3 saved clients. Enterprise: unlimited.",
+        "docstoc": "Free: 5 AI drafts a month. Pro: unlimited drafts."
+      },
+      {
+        "topic": "Payments",
+        "competitor": "PayPal, Stripe, Authorize.net and Mollie; Free accepts PayPal only.",
+        "docstoc": "No payment processing."
+      },
+      {
+        "topic": "Who sends the reminder",
+        "competitor": "The Invoicely site lists automatic payment reminders. Its pricing page does not say which plans include them.",
+        "docstoc": "You send it. docstoc produces a subject and body to copy or open in your mail client."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Invoicely if you want one tool to create invoices, take card or PayPal payments and track billable time, and its plan limits fit your client list. It is a billing tool first, with reminders as part of the package.",
+      "docstoc": "Choose docstoc if invoices already exist and you want better words for the late ones, or if you want free templates and file certificates alongside. Many people use both: Invoicely for billing, docstoc for the chase."
+    },
+    "faq": [
+      {
+        "q": "Can I use docstoc with Invoicely?",
+        "a": "Yes. Export a CSV or download PDFs from Invoicely, then paste the overdue rows into docstoc or upload the CSV. docstoc does not log in to Invoicely and has no Invoicely connector."
+      },
+      {
+        "q": "Does Invoicely already send payment reminders?",
+        "a": "Its site lists automatic payment reminders, but the pricing page does not show which plan includes them, so check your plan. docstoc differs in one way: each draft is written for how late the invoice is, and you review it before sending."
+      },
+      {
+        "q": "Is docstoc cheaper than Invoicely?",
+        "a": "Not on every plan, and they do different jobs. At the time of writing Invoicely starts at $0 and docstoc Pro is $14.99 a month, between Invoicely's Basic and Professional prices. Compare what you need: invoicing and payments, or follow-up wording."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.invoicely.com/pricing",
+        "supports": "Plans and prices (Free $0, Basic $9.99, Professional $19.99, Enterprise $29.99), invoice, client and team limits, gateways, time and expense tracking, 100 emails a month listed",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://www.invoicely.com/",
+        "supports": "Automatic payment reminders and recurring invoices listed, mobile apps, product described as invoicing for small businesses",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "problem: 'does not include a legal-template library, SSL, or hash certificates' is an absence claim. Invoicely's pricing page does not list them, but that proves nothing about the whole product. Reword to 'its pricing page does not list'.",
+      "problem names only Free, Basic and Professional. The Enterprise plan ($29.99, unlimited invoices and clients, 25 team members) is missing, which makes Invoicely look capped at $19.99.",
+      "way: 'Stay on Invoicely if you only want their payment-gateway invoicing UI' reads as dismissive. Rewrite neutrally.",
+      "compares: 'Flat workspace price vs Invoicely's invoice/client caps' is true for lower plans only: Enterprise is uncapped."
+    ],
+    "gaps": [
+      "Which Invoicely plans include automatic reminders is not stated on the pricing page.",
+      "Invoicely yearly prices not shown, so none quoted.",
+      "Invoicely hosting and data location not checked."
+    ]
+  },
+  {
+    "slug": "wave",
+    "name": "Wave",
+    "sector": "invoices",
+    "titleTag": "Wave alternative for overdue invoice emails | docstoc",
+    "metaDescription": "Wave handles free invoicing and bookkeeping. docstoc drafts the follow-up when an invoice runs late. Compare plans and limits.",
+    "headline": "Keep Wave for the books. Add docstoc for the late ones.",
+    "sub": "Wave records and sends invoices; docstoc writes the reminder wording you review and send yourself.",
+    "whatItIs": "Wave is invoicing and bookkeeping software for small businesses, priced in US and Canadian dollars. At the time of writing its Starter plan is $0 and includes unlimited estimates, invoices, bills and bookkeeping records. Pro costs $19 USD a month and adds bank transaction auto-import, receipt capture, automated late payment reminders and multi-user access. Online payments cost 2.9% + $0.60 per card transaction on Starter, with a lower rate listed for the first ten monthly transactions on Pro.",
+    "whereTheyAreStronger": [
+      "Real bookkeeping at no cost: unlimited invoices, bills and accounting records on the $0 Starter plan. docstoc is not a ledger.",
+      "Bank import on Pro through Plaid, with auto-merge and categorisation of transactions, where the bank is supported.",
+      "Online payments from the invoice, with published card rates. docstoc takes no payments.",
+      "Extras around the books: receipt capture, payroll add-on and a bookkeeper service (Wave Advisors) listed on the pricing page."
+    ],
+    "whereDocstocFits": [
+      "Your Wave invoices are overdue and you want the email written for you, in a tone that fits 3 days late or 45 days late.",
+      "You want reminders without paying for Pro: docstoc Free gives 5 drafts a month, and nothing is sent without you.",
+      "You want a reviewable draft per invoice, with rewrite buttons for softer, firmer or shorter on Pro.",
+      "You need a contract, notice or letter as well: 1,000+ free templates, plus document certificates."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Free invoicing and bookkeeping, with optional payments, payroll and bookkeeper add-ons.",
+        "docstoc": "Follow-up email drafts, templates, certificates and SSL automation. Not a general ledger."
+      },
+      {
+        "topic": "Pricing at the time of writing",
+        "competitor": "Starter $0; Pro $19 USD a month ($190 a year). Payment processing fees apply.",
+        "docstoc": "Free, Pro $14.99, Business $39.99 a month."
+      },
+      {
+        "topic": "Late payment reminders",
+        "competitor": "Listed as automated late payment reminders under Pro.",
+        "docstoc": "AI drafts matched to days overdue on every plan; 5 a month free, unlimited on Pro."
+      },
+      {
+        "topic": "Accounting",
+        "competitor": "Full bookkeeping records, bank import on Pro.",
+        "docstoc": "None. Keep your books in Wave."
+      },
+      {
+        "topic": "Who sends",
+        "competitor": "Wave sends its automated reminders.",
+        "docstoc": "You send every email from your own mailbox."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Wave if you need free accounting with invoicing in one place, want card payments from the invoice, and are happy with the Pro plan for automated reminders. It is the system of record in this pairing.",
+      "docstoc": "Choose docstoc if you want to read and edit each chase email before it goes, or you want to stay on Wave Starter and still get decent follow-up wording. Run it beside Wave rather than instead of it."
+    },
+    "faq": [
+      {
+        "q": "Does Wave send late payment reminders for free?",
+        "a": "Not on Starter, according to its pricing page: automated late payment reminders are listed under Pro at $19 USD a month. Starter users can still write their own emails, which is where docstoc's free drafts help."
+      },
+      {
+        "q": "Can docstoc replace Wave?",
+        "a": "No. docstoc has no bookkeeping, bank import or tax reports. It drafts follow-ups and offers templates. Keep Wave for the accounts."
+      },
+      {
+        "q": "How do I get Wave invoices into docstoc?",
+        "a": "Export a CSV or download PDFs from Wave, then upload the CSV or paste the overdue rows into docstoc. There is no Wave connector; docstoc only has QuickBooks Online and Xero connectors on Pro."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.waveapps.com/pricing",
+        "supports": "Starter $0 and Pro $19 USD a month, features per plan, automated late payment reminders under Pro, card fees, bank import via Plaid, add-ons",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "problem: 'Reminders and extras often sit behind Payments or Pro'. Wave's pricing page confirms reminders under Pro; the 'Payments' part is not confirmed. 'often' is vague, name Pro.",
+      "problem: 'It will not give you a legal-template library' is an absence claim not covered by the pricing page.",
+      "compares: 'You send from your inbox, not a Wave reminder skin' implies how Wave's reminders look. That was not checked.",
+      "Wave's pricing page text I opened carried a Pro promotion dated into early 2026. Do not quote promotional prices."
+    ],
+    "gaps": [
+      "How Wave's reminders are worded or branded was not verified.",
+      "Wave's main site wave.com is a different company (mobile money); only waveapps.com was used.",
+      "Wave availability by country not verified."
+    ]
+  },
+  {
+    "slug": "freshbooks",
+    "name": "FreshBooks",
+    "sector": "invoices",
+    "titleTag": "FreshBooks alternative for invoice follow-ups | docstoc",
+    "metaDescription": "FreshBooks covers accounting and time tracking. docstoc drafts the late-payment email for you to send. Compare plans and limits.",
+    "headline": "FreshBooks runs the books. docstoc drafts the awkward email.",
+    "sub": "Use FreshBooks reminders as they are, or add drafts written for exactly how late an invoice is.",
+    "whatItIs": "FreshBooks is cloud accounting software for freelancers and small businesses. At the time of writing its pricing page lists Lite at $23 a month for 5 billable clients, Plus at $43 for 50 and Premium at $70 for unlimited clients, with a promotional discount shown for the first four months. All three include unlimited time tracking and automated late payment reminders. Team members cost $11 a month per user, and a custom-priced Select plan sits above them.",
+    "whereTheyAreStronger": [
+      "A full accounting suite: invoices, expenses, estimates, tax-time reports, and on Plus accountant access and financial reports. docstoc keeps no books.",
+      "Unlimited time tracking on every plan, which suits people who bill by the hour.",
+      "Automated reminders built in: FreshBooks lets you set up to three per client, each with a personal message, timed before or after the due date.",
+      "Payments, payroll and a Select tier with phone support and data import, listed as add-ons or plan inclusions."
+    ],
+    "whereDocstocFits": [
+      "You want the wording to change with lateness, so a 5 day nudge and a 45 day final notice do not read alike.",
+      "You want to review and edit each email, and send it from your own address.",
+      "You do not need a $23 to $70 accounting plan, only a way to chase. Free covers 5 drafts a month; Pro is $14.99.",
+      "You are paying for FreshBooks already and want a second opinion on tone for the one difficult client."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Accounting, invoicing, expenses and time tracking.",
+        "docstoc": "Overdue-invoice drafts, templates, certificates and SSL automation."
+      },
+      {
+        "topic": "Pricing at the time of writing",
+        "competitor": "Lite $23, Plus $43, Premium $70 a month list price, with a stated promotional discount for the first four months.",
+        "docstoc": "Free, Pro $14.99, Business $39.99 a month."
+      },
+      {
+        "topic": "Client limits",
+        "competitor": "5 billable clients on Lite, 50 on Plus, unlimited on Premium.",
+        "docstoc": "No client limit; Free allows 5 drafts a month, Pro unlimited drafts."
+      },
+      {
+        "topic": "Reminders",
+        "competitor": "Up to three automated reminders per client, each with an optional personal message.",
+        "docstoc": "One draft per invoice, tone matched to days overdue, rewritten softer, firmer or shorter on Pro."
+      },
+      {
+        "topic": "Email template editing",
+        "competitor": "Customised email templates are listed under Premium.",
+        "docstoc": "Every draft is editable text before you copy it."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose FreshBooks if you want accounting, time tracking and invoicing together and an automated reminder schedule per client. It suits people who bill hourly and want everything in one place.",
+      "docstoc": "Choose docstoc if what you need is the right sentence for a late invoice, reviewed by you, or if you want to chase without moving to a full accounting plan. It can sit beside FreshBooks."
+    },
+    "faq": [
+      {
+        "q": "Does FreshBooks send automatic payment reminders?",
+        "a": "Yes. Its pricing page lists automated late payment reminders on all plans, and its help article describes up to three reminders per client with a personal message. docstoc does not automate sending."
+      },
+      {
+        "q": "Is docstoc a FreshBooks replacement?",
+        "a": "No. docstoc has no accounting, time tracking or tax reports. It writes follow-up emails and offers document templates."
+      },
+      {
+        "q": "How do I move overdue invoices from FreshBooks to docstoc?",
+        "a": "Export invoices as CSV or download PDFs from FreshBooks, filter to unpaid, then upload the CSV or paste rows into docstoc. docstoc does not connect to FreshBooks directly."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.freshbooks.com/pricing",
+        "supports": "Lite $23, Plus $43, Premium $70 list prices, promo for 4 months, billable client limits, late payment reminders on all plans, customised email templates under Premium, add-ons",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://support.freshbooks.com/hc/en-us/articles/227559727",
+        "supports": "Up to three automated reminders per client, personal message per reminder, days before or after",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "problem: 'about $19 to $23 a month' is not what the pricing page shows. It shows $23 as the Lite list price. The $19 figure could not be sourced.",
+      "problem: 'one reminder template through their system' is wrong or at best incomplete: FreshBooks documents up to three reminders per client, each with a personal message.",
+      "compares: 'Send from your inbox vs FreshBooks-hosted mail': the help article does not say who reminders come from. Unverified.",
+      "compares: 'Zapier/CSV if you do not want another suite' is not backed by anything opened here.",
+      "Prices change often and carry promotions. Keep 'at the time of writing'."
+    ],
+    "gaps": [
+      "Sender address of FreshBooks reminders not stated in the help article.",
+      "Yearly prices not shown, so none quoted.",
+      "Whether the personal message can differ by lateness inside the three reminders: each reminder has its own message, so it can, but this was not tested."
+    ]
+  },
+  {
+    "slug": "quickbooks",
+    "name": "QuickBooks Online",
+    "sector": "invoices",
+    "titleTag": "QuickBooks Online alternative for chasing | docstoc",
+    "metaDescription": "QuickBooks Online keeps the books and sends scheduled reminders. docstoc drafts a follow-up per invoice. Pro connects to QBO.",
+    "headline": "Keep QuickBooks Online. Draft the chase beside it.",
+    "sub": "docstoc Pro connects to QuickBooks Online, reads overdue invoices and drafts the email you send yourself.",
+    "whatItIs": "QuickBooks Online is Intuit's cloud accounting software. At the time of writing its US pricing page lists a Free plan with up to 2 invoices a month, then Simple Start at $38, Essentials at $85, Plus at $140 and Advanced at $340 a month list price, each shown with a 50% discount for the first three months. Plans differ in users, reports and tools such as inventory, project profitability and workflow automation.",
+    "whereTheyAreStronger": [
+      "Full accounting: bank connection, reports, tax estimates and reconciliation on higher plans. docstoc keeps no books.",
+      "Scheduled reminders inside the invoice flow: up to three, between 90 days before and 90 days after the due date, with an editable subject, greeting and message that can use variables such as invoice number.",
+      "Room to grow: from 1 user on Simple Start to 25 on Advanced, plus accountant access on every paid plan.",
+      "Payments and bill pay, with project and inventory tools on Plus and Advanced."
+    ],
+    "whereDocstocFits": [
+      "You want tone that follows lateness, with a draft per invoice rather than one template per reminder number.",
+      "Pro connects to QuickBooks Online over OAuth, so overdue invoices arrive without retyping. You can also upload a CSV.",
+      "Every email is yours to read, edit and send. Nothing leaves docstoc on its own.",
+      "You want to spend $14.99 a month on chasing, not move up a QuickBooks tier for it."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Accounting and bookkeeping with invoicing, payments and reports.",
+        "docstoc": "Overdue-invoice drafts, templates, certificates and SSL automation."
+      },
+      {
+        "topic": "Pricing at the time of writing",
+        "competitor": "Free; Simple Start $38, Essentials $85, Plus $140, Advanced $340 a month list price, 50% off for the first 3 months.",
+        "docstoc": "Free, Pro $14.99, Business $39.99 a month."
+      },
+      {
+        "topic": "Reminders",
+        "competitor": "Up to three scheduled reminders for emailed, unpaid invoices; text editable.",
+        "docstoc": "One AI draft per invoice, tone set by days overdue; 5 drafts a month free."
+      },
+      {
+        "topic": "Integration",
+        "competitor": "It is the accounting system.",
+        "docstoc": "Native OAuth connector for QuickBooks Online on Pro and above."
+      },
+      {
+        "topic": "Who sends",
+        "competitor": "QuickBooks sends scheduled reminders; you can also send one manually.",
+        "docstoc": "You do. docstoc never sends email."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose QuickBooks Online if you need the accounting system itself, want reminders scheduled automatically and are happy to edit one template per reminder. Its own reminders are enough for many businesses.",
+      "docstoc": "Choose docstoc as an add-on if you prefer a fresh, reviewed draft for each late invoice, or want templates and file certificates in the same place. It does not replace QuickBooks."
+    },
+    "faq": [
+      {
+        "q": "Does QuickBooks Online send invoice reminders by itself?",
+        "a": "Yes. You can turn on automatic reminders and set up to three, before or after the due date, for invoices you have already emailed. The wording is editable, and the sender address is not described in the help article I opened."
+      },
+      {
+        "q": "Can docstoc connect to QuickBooks Online?",
+        "a": "Yes, on Pro and above, using Intuit's OAuth sign-in. docstoc does not ask for your Intuit password. On Free you can export a CSV from QuickBooks and upload it."
+      },
+      {
+        "q": "Is docstoc cheaper than QuickBooks Online?",
+        "a": "They are not like for like. QuickBooks Simple Start lists at $38 a month and docstoc Pro at $14.99. docstoc does not do accounting. Choose it only for the follow-up part."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://quickbooks.intuit.com/pricing/",
+        "supports": "US plans, list prices, 50% for 3 months, users, Free plan 2 invoices a month",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://quickbooks.intuit.com/learn-support/en-us/help-article/invoicing/send-invoice-reminders-automatically-manually/L84cQjpxo_US_en_US",
+        "supports": "Up to 3 automatic reminders, 90 days before or after, editable subject, greeting and message with variables, emailed unpaid invoices only, manual reminder option",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "problem: 'auto-reminders go out from an Intuit no-reply address with a static template'. The help article does not state the sender address, and the template is editable (subject, greeting, message, variables). 'Static' is misleading.",
+      "problem: 'Simple Start already costs more than docstoc Pro' holds at list price ($38) and during the promo ($19 for 3 months), but plans change. Add 'at the time of writing'.",
+      "compares: 'Drafts from your inbox vs Intuit no-reply' repeats the unverified sender claim.",
+      "The Pro connector claim (QuickBooks Online OAuth) matches docstoc's llms-full.txt, fine."
+    ],
+    "gaps": [
+      "Sender address of QuickBooks reminders not stated in the article.",
+      "Regional pricing (UK, Canada and others) not checked; only US."
+    ]
+  },
+  {
+    "slug": "zoho-invoice",
+    "name": "Zoho Invoice",
+    "sector": "invoices",
+    "titleTag": "Zoho Invoice alternative for follow-ups | docstoc",
+    "metaDescription": "Zoho Invoice is a free invoicing app with automated reminders. docstoc drafts tone-matched follow-ups you review and send yourself.",
+    "headline": "Zoho Invoice is free. The chase email is the part you still write.",
+    "sub": "Keep Zoho for invoices; use docstoc when a reminder needs better words.",
+    "whatItIs": "Zoho Invoice is a free invoicing app from Zoho. At the time of writing its pricing page lists one plan at $0 for up to 2 users, 3 projects and 500 invoices a year, with up to 2 organisations per account. It includes recurring invoices, quotes, expense tracking, timesheets, a customer portal, payments by card, e-wallet and ACH, and integrations with Zoho CRM and Zoho Books. Invoices carry a Powered by Zoho Invoice line.",
+    "whereTheyAreStronger": [
+      "Price: a full invoicing app at $0, with timesheets, projects, quotes and a customer portal. docstoc's invoicing is basic.",
+      "Automated reminders already built in: three preloaded reminders, switched on and given criteria in days before or after the due date, or after an expected payment date.",
+      "Zoho ecosystem: integrations with Zoho CRM, Analytics and Books if you grow into them.",
+      "Payments by card, e-wallet and ACH from the invoice, and support by email and voice on weekdays."
+    ],
+    "whereDocstocFits": [
+      "You want a draft written for one specific invoice, not one template filled with placeholders.",
+      "You want the follow-up sent from your own mailbox, in your own voice.",
+      "You need documents Zoho Invoice does not list: 1,000+ free templates, hashed file certificates and SSL automation on paid plans.",
+      "You want rewrites on demand: softer, firmer or shorter, on Pro."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Free invoicing with quotes, timesheets and payments.",
+        "docstoc": "Overdue-invoice drafts, templates, certificates and SSL automation."
+      },
+      {
+        "topic": "Pricing at the time of writing",
+        "competitor": "One free plan; limits include 500 invoices a year and 2 users.",
+        "docstoc": "Free, Pro $14.99, Business $39.99 a month."
+      },
+      {
+        "topic": "Reminders",
+        "competitor": "Automated reminders with three preloaded, editable templates using placeholders, set by days before or after.",
+        "docstoc": "AI draft per invoice, tone set by days overdue, plus manual rewrite options."
+      },
+      {
+        "topic": "Who gets the reminder",
+        "competitor": "For due-date reminders you pick yourself, the customer, or both.",
+        "docstoc": "A text you copy and send."
+      },
+      {
+        "topic": "Branding",
+        "competitor": "Invoices show Powered by Zoho Invoice.",
+        "docstoc": "Pro adds branding options for your own documents."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Zoho Invoice if you want invoicing at no cost, automated reminders and room to connect Zoho CRM or Books later. For many freelancers the built-in reminders are enough.",
+      "docstoc": "Choose docstoc if you want a human-sounding, reviewed message for the invoices that really matter, or other documents alongside. You can use both without changing your invoicing."
+    },
+    "faq": [
+      {
+        "q": "Does Zoho Invoice send payment reminders automatically?",
+        "a": "Yes. It has three preloaded reminders that you can turn on and edit, timed in days before or after the due date. You can choose who receives each one."
+      },
+      {
+        "q": "Is Zoho Invoice really free?",
+        "a": "Yes, at the time of writing, within its limits: up to 2 users, 3 projects, 500 invoices a year and 2 organisations. Check the pricing page for current limits."
+      },
+      {
+        "q": "What does docstoc add on top of Zoho Invoice?",
+        "a": "A drafted email per invoice, matched to days overdue, that you review and send yourself. It also adds free templates and file certificates. It does not generate Zoho invoices or connect to Zoho."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.zoho.com/invoice/pricing/",
+        "supports": "Free plan, limits (2 users, 3 projects, 500 invoices a year, 2 organisations), features, branding line",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://www.zoho.com/invoice/help/settings/reminders.html",
+        "supports": "3 preloaded reminders, editable subject and body with placeholders, days before or after due date or expected payment date, recipient choice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "problem: 'The wording does not change with lateness' is misleading. Zoho's three preloaded reminders can each carry different text and timing, so wording can differ by stage. The limit is that you write it.",
+      "compares: 'You send it, Zoho branding stays off that email' was not verified. Zoho's page says Powered by Zoho Invoice appears on invoices, not on reminder mail.",
+      "compares: 'Document templates Zoho Invoice does not include' is an absence claim; reword to 'not listed on its pricing page'.",
+      "problem: 'volume caps' is accurate (500 invoices a year); name the number."
+    ],
+    "gaps": [
+      "Placeholder list for Zoho templates is not shown on the help page.",
+      "Paid Zoho plans (Zoho Billing) not researched.",
+      "Sender address of Zoho reminders not verified."
+    ]
+  },
+  {
+    "slug": "xero",
+    "name": "Xero",
+    "sector": "invoices",
+    "titleTag": "Xero alternative for overdue invoice emails | docstoc",
+    "metaDescription": "Xero is full accounting software. docstoc connects on Pro, reads overdue invoices and drafts the chase email you send.",
+    "headline": "Xero holds the ledger. docstoc writes the follow-up.",
+    "sub": "Connect Xero on Pro, pull the overdue invoices and review a draft for each before you send it.",
+    "whatItIs": "Xero is cloud accounting software for small businesses and their advisers. At the time of writing its US pricing page lists three plans: Early at $27 a month, Growing at $59 and Established at $97, with a discounted rate shown for the first six months. Early is limited to 20 invoices and 5 bills a month. All plans include bank reconciliation, quotes, online invoice payments, sales tax and real-time reports. Payroll through Gusto is an add-on.",
+    "whereTheyAreStronger": [
+      "Complete accounting: bank reconciliation, real-time reports, sales tax, W-9 and 1099 management, and Smart Document Capture on every plan.",
+      "Scale across plans: budgets from Growing, and multiple currencies, project tracking, expense claims and KPIs on Established.",
+      "Payments and payroll: online invoice payments on all plans, and payroll as an add-on.",
+      "Advisers: Xero is built around accountants and bookkeepers working in the same file, which docstoc is not."
+    ],
+    "whereDocstocFits": [
+      "You already keep Xero as the source of truth and need only the words for late invoices.",
+      "Pro includes a Xero connector over OAuth, so overdue invoices come across without retyping. Export to CSV also works.",
+      "You do not want a send button you can press by accident. docstoc only produces a draft.",
+      "You want free templates and a record of what a file looked like at a given time, which Xero's pricing page does not list."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Accounting, bank reconciliation, invoicing, reporting.",
+        "docstoc": "Overdue-invoice drafts, templates, certificates and SSL automation."
+      },
+      {
+        "topic": "Pricing at the time of writing",
+        "competitor": "US: Early $27, Growing $59, Established $97 a month after the introductory period.",
+        "docstoc": "Free, Pro $14.99, Business $39.99 a month."
+      },
+      {
+        "topic": "Invoice limits",
+        "competitor": "Early: 20 invoices and 5 bills a month. Higher plans: no limit stated on the page.",
+        "docstoc": "Free: 5 drafts a month. Pro: unlimited."
+      },
+      {
+        "topic": "Integration",
+        "competitor": "It is the ledger.",
+        "docstoc": "Native Xero connector on Pro and above."
+      },
+      {
+        "topic": "Reminder wording",
+        "competitor": "Not covered by the pricing page; check Xero's help centre.",
+        "docstoc": "AI draft per invoice, tone set by days overdue."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Xero if you need real accounting with bank feeds, multi-user access with your adviser and reporting, and your volume fits the plan limits. Invoice reminders are one small part of what it does.",
+      "docstoc": "Choose docstoc as a companion if you want better follow-up wording and a review step. It is not a replacement and does not post anything to your ledger."
+    },
+    "faq": [
+      {
+        "q": "Can docstoc connect to Xero?",
+        "a": "Yes, on Pro and above, through Xero's OAuth sign-in. docstoc does not ask for your Xero password. You can also export a CSV from Xero and upload it."
+      },
+      {
+        "q": "Does docstoc replace Xero?",
+        "a": "No. docstoc has no bank reconciliation, ledger or tax reports. It drafts follow-up emails and offers document templates."
+      },
+      {
+        "q": "How many invoices can I send on Xero's cheapest plan?",
+        "a": "20 a month, according to the US pricing page at the time of writing. The same page lists 5 bills for the Early plan. Check your region's page, since limits and prices vary."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.xero.com/us/pricing-plans/",
+        "supports": "US plans and prices, Early plan 20 invoices and 5 bills, features per plan, introductory pricing, payroll add-on",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "problem: 'Xero reminders default to noreply@xero.com with a fixed schedule and template'. Not confirmed: Xero's pricing page says nothing about reminders, and its help article did not load for me. Third-party sources describe editable reminder stages. Remove or verify at central.xero.com.",
+      "headline: 'not noreply@xero.com' repeats the unverified sender claim.",
+      "compares: 'Flat Pro vs Xero's accounting SKU' compares different products; reword to say they do different jobs.",
+      "The Xero connector on Pro matches docstoc's llms-full.txt."
+    ],
+    "gaps": [
+      "Xero's own help article on reminders could not be read, so no reminder claims are made.",
+      "UK, AU and NZ pricing not checked; only the US page.",
+      "Introductory promo codes and dates deliberately left out."
+    ]
+  },
+  {
+    "slug": "zervant",
+    "name": "Zervant",
+    "sector": "invoices",
+    "titleTag": "Zervant alternative for payment reminders | docstoc",
+    "metaDescription": "Zervant is invoicing for sole traders with reminders on paid plans. docstoc offers 5 free AI follow-up drafts a month. Compare both.",
+    "headline": "Zervant invoices. docstoc drafts what you say when they are late.",
+    "sub": "Free AI drafts for overdue invoices: useful when your Zervant plan does not include reminders.",
+    "whatItIs": "Zervant is online invoicing software for sole traders and small businesses, now branded Zervant by Shine and part of Ageras. Its site has versions for Belgium, France, Germany, the Netherlands, Finland, Sweden and the United Kingdom. On the UK pricing page at the time of writing, Free is £0 with 5 customers and 5 invoices a month, Starter £10.99, Pro £18.99 and Growth £41.99 a month excluding VAT. Payment reminders are listed from Starter upwards.",
+    "whereTheyAreStronger": [
+      "E-invoicing: Zervant lists multiple delivery formats, and its paid plans include premium deliveries (e-invoice or post), from 3 to 30 a month.",
+      "Local versions in seven countries and six languages, so a Dutch or Finnish freelancer finds a native interface. docstoc is English only.",
+      "Quotes, recurring invoices, time tracking and bookkeeping reports in one invoicing tool, plus a free mobile app with any subscription.",
+      "Reminders live inside the invoice tool on Starter, Pro and Growth, so nothing leaves the system."
+    ],
+    "whereDocstocFits": [
+      "You are on Zervant Free, which does not include payment reminders, and an invoice is late.",
+      "You want the text of each reminder written for how overdue it is, then edited by you.",
+      "You want to try it with no account: 5 drafts a month, from pasted rows or a CSV.",
+      "You also need contract or notice templates: 1,000+ free ones."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Invoicing, quotes, e-invoicing and simple bookkeeping reports for small firms.",
+        "docstoc": "Overdue-invoice drafts, templates, certificates and SSL automation."
+      },
+      {
+        "topic": "Pricing at the time of writing (UK page, excluding VAT)",
+        "competitor": "Free £0; Starter £10.99, Pro £18.99, Growth £41.99 a month; cheaper if billed annually.",
+        "docstoc": "Free, Pro $14.99, Business $39.99 a month, in US dollars."
+      },
+      {
+        "topic": "Customer and invoice limits",
+        "competitor": "Free: 5 customers, 5 invoices a month. Starter: 30 customers. Pro and Growth: unlimited.",
+        "docstoc": "Free: 5 drafts a month. Pro: unlimited."
+      },
+      {
+        "topic": "Payment reminders",
+        "competitor": "Not on Free; included on Starter, Pro and Growth.",
+        "docstoc": "AI drafts on every plan, including Free."
+      },
+      {
+        "topic": "Who sends",
+        "competitor": "Zervant sends reminders from the invoice tool on paid plans.",
+        "docstoc": "You send each email yourself."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Zervant if you want invoicing in your own language and country, with e-invoicing and reminders in the same tool. If you invoice more than 5 customers, one of the paid plans is the realistic fit.",
+      "docstoc": "Choose docstoc if you stay on Zervant Free and still need to chase, or if you want a reviewed, tone-matched draft. It sits beside Zervant and takes a CSV export."
+    },
+    "faq": [
+      {
+        "q": "Does Zervant Free include payment reminders?",
+        "a": "No. On the UK pricing page at the time of writing, payment reminders are listed for Starter, Pro and Growth but not for Free."
+      },
+      {
+        "q": "Is Zervant a European company?",
+        "a": "Zervant's footer lists a UK office in Leamington Spa and a Made in Finland badge. It is part of Ageras. Check the legal entity for your country if it matters to you."
+      },
+      {
+        "q": "Can I import Zervant invoices into docstoc?",
+        "a": "Yes, by hand: export or download invoices from Zervant, then paste overdue rows or upload a CSV. There is no direct connection between the two."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.zervant.com/en/pricing/",
+        "supports": "UK plans and prices excluding VAT, customer and invoice limits, premium deliveries, payment reminders by plan",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://www.zervant.com/en/",
+        "supports": "Product description, Ageras and Shine branding, country versions, languages, footer location, mobile app",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "headline: 'EU-based follow-ups Zervant gates to paid'. Zervant's footer lists a UK address (Leamington Spa) with a Made in Finland badge; calling it EU-based is not clear-cut.",
+      "compares: 'EU-hosted like Zervant' is unsupported. Zervant's page does not state hosting, and docstoc's own docs say its AI runs on Cloudflare's edge, with no EU-hosting claim.",
+      "problem: 'Paid reminders are schedules, not AI copy' was not verified; the pricing page only says reminders are included.",
+      "Name: the site now says Zervant by Shine; consider mentioning it."
+    ],
+    "gaps": [
+      "Reminder schedule options and wording control inside Zervant not verified.",
+      "Hosting location of Zervant and docstoc data not stated, so no hosting comparison made.",
+      "Euro or other country pricing not quoted."
+    ]
+  },
+  {
+    "slug": "billomat",
+    "name": "Billomat",
+    "sector": "invoices",
+    "titleTag": "Billomat alternative for payment reminders | docstoc",
+    "metaDescription": "Billomat is German online accounting with dunning. docstoc drafts English follow-up emails for overdue invoices, free to try.",
+    "headline": "Billomat handles the Mahnwesen. docstoc drafts the email.",
+    "sub": "For overdue invoices where you want your own words: reviewed, edited and sent from your inbox.",
+    "whatItIs": "Billomat is online accounting software, available in English and German, for small and medium-sized businesses that do their own bookkeeping or work with an accountant. Its pricing page lists three plans in euros excluding VAT: Professional from 29 € a month (19 € billed yearly), Business from 39 € (29 €) and Enterprise from 119 € (99 €). It offers a 14 day trial with no card, automated dunning, and DATEV on higher plans.",
+    "whereTheyAreStronger": [
+      "Dunning built for the German-speaking market: Billomat lists automated dunning as a popular feature, with reminders on all three plans and a debt collection add-on on higher ones.",
+      "DATEV connection on the higher plans, which matters if your tax adviser works in DATEV.",
+      "Accountant access and team collaboration, with extra users from 10 € a month each.",
+      "Invoice creation with mandatory fields in templates, receipt scanning on the mobile app and confirmations, delivery notes and invoices from offers."
+    ],
+    "whereDocstocFits": [
+      "You write in English or want a message that does not look like a standard dunning stage.",
+      "You want to see and change the text before anything goes out. docstoc only drafts; you send.",
+      "You are not ready for a 29 € plan and want 5 free AI drafts a month first.",
+      "You also want contract templates, hashed file certificates or SSL automation."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Online accounting, invoicing and dunning, with DATEV on higher plans.",
+        "docstoc": "Overdue-invoice drafts, templates, certificates and SSL automation. Not a ledger."
+      },
+      {
+        "topic": "Pricing at the time of writing (excluding VAT)",
+        "competitor": "Professional from 29 €, Business from 39 €, Enterprise from 119 € a month; lower if billed yearly.",
+        "docstoc": "Free, Pro $14.99, Business $39.99 a month, in US dollars."
+      },
+      {
+        "topic": "Trial and free option",
+        "competitor": "14 day trial, no card needed. No permanent free plan is listed.",
+        "docstoc": "Free plan with 5 AI drafts a month, no signup needed."
+      },
+      {
+        "topic": "Dunning",
+        "competitor": "Payment reminders on all plans; debt collection add-on on higher plans.",
+        "docstoc": "No dunning stages and no fees. A draft per invoice, tone by days overdue."
+      },
+      {
+        "topic": "Language and market",
+        "competitor": "Site in English and German; built for the German market.",
+        "docstoc": "English interface and drafts."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Billomat if you invoice in Germany or Austria, need dunning stages and DATEV, and want accounting and invoices in one tool. Its automation fits routine, repeated cases.",
+      "docstoc": "Choose docstoc if you want a personal, English-language message for a specific late client, or a free way to start. Treat it as a side tool; docstoc is not legal advice or a collections agency."
+    },
+    "faq": [
+      {
+        "q": "Does Billomat have a free plan?",
+        "a": "Not that its pricing page shows. It offers a 14 day free trial without a credit card, then paid plans. docstoc has a free plan of 5 AI drafts a month."
+      },
+      {
+        "q": "Can docstoc replace Billomat's dunning?",
+        "a": "No. docstoc has no dunning stages, fees or Mahnung forms. It drafts reminder emails, which you send yourself. For formal German dunning, Billomat's feature is the better fit."
+      },
+      {
+        "q": "How do I move overdue Billomat invoices into docstoc?",
+        "a": "Export open invoices from Billomat, then paste the overdue rows or upload a CSV into docstoc. There is no live connection between them."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.billomat.com/en/pricing/",
+        "supports": "Plans and euro prices excluding VAT, users, payment reminders, debt collection add-on, DATEV, 14 day trial",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://www.billomat.com/en/",
+        "supports": "Product description, automated dunning, English and German site, receipt scanning, accountant access",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/llms-full.txt",
+        "supports": "docstoc plans, prices, boundaries (Free 5 drafts, Pro $14.99, Business $39.99, user sends every email)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "problem: 'full automation is a higher tier' is not supported: the pricing page lists payment reminders on all three plans; the debt collection add-on and DATEV connection sit on higher plans (reading of the table, see gaps).",
+      "sub: 'No 14-day-only wall for a first follow-up' is awkward but correct: Billomat has a 14 day trial. Reword plainly.",
+      "problem: 'Billomat dunning is stage templates' is not stated by Billomat's page, which only says Automated Dunning.",
+      "compares: 'Not a DATEV replacement' is fine, but docstoc has no DATEV export; do not imply one."
+    ],
+    "gaps": [
+      "Which plan holds the debt collection add-on and DATEV is a reading of unlabelled check marks (Business and Enterprise); confirm with Billomat.",
+      "Billomat's dunning stages and templates were not documented on pages I could open.",
+      "Monthly versus yearly price labels on the page are unlabelled; read as monthly first, yearly second.",
+      "Hosting location not stated."
+    ]
+  }
+]

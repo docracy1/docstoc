@@ -1,0 +1,766 @@
+[
+ {
+  "slug": "zerossl",
+  "name": "ZeroSSL",
+  "sector": "ssl",
+  "titleTag": "ZeroSSL alternative for Let's Encrypt | docstoc",
+  "metaDescription": "ZeroSSL sells its own certificates and a dedicated dashboard. docstoc runs Let's Encrypt DV inside your workspace. See what each does and costs.",
+  "headline": "ZeroSSL or docstoc: a certificate authority or an automation layer",
+  "sub": "ZeroSSL is a certificate authority with its own console: docstoc manages Let's Encrypt certificates beside your invoices and documents.",
+  "whatItIs": "ZeroSSL is a certificate authority with a control panel, ACME support, monitoring and a REST API. Its pricing page lists a free plan with 3 certificates of 90 days, and paid plans that add annual certificates and annual wildcards. It suits people who want a dedicated place to order, track and automate certificates, from a single site to a larger set of domains.",
+  "whereTheyAreStronger": [
+   "ZeroSSL issues certificates itself, including 1-year certificates on paid plans. docstoc only issues 90-day Let's Encrypt certificates.",
+   "Paid plans list unlimited 90-day certificates. docstoc caps every plan at 5 certificate slots.",
+   "ZeroSSL offers monitoring and a REST API as part of its core feature list, and lists several validation methods. docstoc validates by DNS only.",
+   "Higher plans include several annual wildcards. docstoc Business includes one wildcard."
+  ],
+  "whereDocstocFits": [
+   "Free gives you 5 Let's Encrypt certificates of 90 days, against 3 on ZeroSSL's free plan at the time of writing.",
+   "Certificates live in the same workspace as your chase drafts, document templates and file certificates, so there is one login.",
+   "Validation is always DNS-01: you publish one TXT record and click verify. There is no email or file-upload path to choose between.",
+   "docstoc is an automation layer, not a certificate seller. Let's Encrypt issues the certificate and you do not buy a certificate product."
+  ],
+  "comparison": [
+   {
+    "topic": "Who issues the certificate",
+    "competitor": "ZeroSSL is a certificate authority.",
+    "docstoc": "Let's Encrypt. docstoc manages the ACME order for domains you control."
+   },
+   {
+    "topic": "Free allowance",
+    "competitor": "3 certificates of 90 days on the Free plan, at the time of writing.",
+    "docstoc": "5 certificates of 90 days on Free."
+   },
+   {
+    "topic": "Paid pricing",
+    "competitor": "Basic from $14.99 a month up to Platinum at $219.99 a month, at the time of writing.",
+    "docstoc": "Pro $14.99 a month and Business $39.99 a month, covering the whole workspace and not only SSL."
+   },
+   {
+    "topic": "Certificate types",
+    "competitor": "90-day and annual certificates, with annual wildcards on higher plans.",
+    "docstoc": "90-day DV only. One wildcard on Business."
+   },
+   {
+    "topic": "Renewal",
+    "competitor": "ACME clients renew unattended.",
+    "docstoc": "docstoc sends a reminder email about 30 days before expiry. You then open the app, click Renew, publish a new DNS TXT value and verify. Renewal is a guided manual step, not unattended."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose ZeroSSL if you want a dedicated certificate console, annual certificates, several wildcards, or an ACME client that renews without your involvement. It is the better fit for a set of domains that changes often.",
+   "docstoc": "Choose docstoc if you run a handful of hostnames, already use it for invoice chasing or documents, and are happy to renew each certificate by hand every few months with a reminder to prompt you."
+  },
+  "faq": [
+   {
+    "q": "Is docstoc a replacement for ZeroSSL?",
+    "a": "Only for simple needs. docstoc issues Let's Encrypt DV certificates with a guided DNS step, but it does not issue annual certificates and renewal is not unattended. If you rely on ACME automation, ZeroSSL or a standard ACME client fits better."
+   },
+   {
+    "q": "Can I move my ZeroSSL certificate into docstoc?",
+    "a": "No, you issue a new one. docstoc never takes a private key. Add the hostname, publish the DNS TXT record, verify, then switch your host to the new certificate and let the ZeroSSL one lapse."
+   },
+   {
+    "q": "How many free certificates do I get?",
+    "a": "docstoc Free includes 5 certificates of 90 days, one hostname each. ZeroSSL's pricing page lists 3 on its Free plan at the time of writing. Check both pages before you decide, since limits change."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://zerossl.com/pricing/",
+    "supports": "Plans, prices and limits: Free 3 90-day certs; Basic $14.99, Premium $68.99, Business $129.99, Platinum $219.99 per month; annual certificates and wildcards on paid plans; ACME on all plans",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://zerossl.com/features/",
+    "supports": "Feature list: control panel, ACME, monitoring, REST API, multiple validation methods, CA role",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc slot, multi-SAN and wildcard limits",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/routes/ssl.ts",
+    "supports": "docstoc renewal issues a new order and TXT value",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "Existing page says Free 'includes 5 x 90-day' and 'renewals in-product' and compares with 'auto-renew'. Renewal is guided manual (new TXT per renewal).",
+   "Several existing pages say 'auto-renew' or 'renewals in-product' (zerossl, digicert, sectigo, letsencrypt 'leave it for renewals'). The code (worker/src/routes/ssl.ts /domains/:id/renew, lib/customerCertificates.ts) creates a new ACME order with a new TXT value on each renewal and sends a reminder 30 days before expiry. It is not unattended renewal. These claims should change.",
+   "Existing page states ZeroSSL 'Free is capped (3 certs)': matches pricing page at 2026-10-31. 'Paid tiers exist for volume and wildcards': partly right, wildcards are on paid plans only for annual counts."
+  ],
+  "gaps": [
+   "Whether ZeroSSL's free plan can issue wildcards is unclear on its pricing page, so it is left out.",
+   "ZeroSSL ACME renewal behaviour is not stated on the pages opened, so 'renews unattended' is a property of ACME clients generally, not a ZeroSSL claim."
+  ]
+ },
+ {
+  "slug": "letsencrypt",
+  "name": "Let's Encrypt",
+  "sector": "ssl",
+  "titleTag": "Let's Encrypt without certbot | docstoc",
+  "metaDescription": "Let's Encrypt is free and run by a nonprofit. docstoc uses it too and adds a guided DNS workflow. See when DIY is enough and when it is not.",
+  "headline": "Let's Encrypt on your own or through docstoc",
+  "sub": "Same certificate authority: the question is who runs the ACME client and how much you want to click.",
+  "whatItIs": "Let's Encrypt is a free, automated and open certificate authority, operated by the nonprofit Internet Security Research Group. It issues Domain Validation certificates only, valid for 90 days, with an opt-in six-day option. You run an ACME client on your own server or use one built into your host, and it renews the certificate by itself. Support comes from documentation and community forums.",
+  "whereTheyAreStronger": [
+   "Let's Encrypt is free and docstoc is not. If you can run certbot or a host-integrated client, you pay nothing.",
+   "A good ACME client renews unattended every 60 days or so. docstoc asks you to renew by hand.",
+   "Let's Encrypt offers six-day certificates as an option. docstoc issues 90-day certificates only.",
+   "There is no certificate slot cap on the CA side. docstoc limits each plan to 5 certificates."
+  ],
+  "whereDocstocFits": [
+   "You do not install or maintain an ACME client. docstoc generates the order and shows the exact TXT name and value.",
+   "DNS-01 works when the site is not live yet or sits behind a CDN, and it is the only route for wildcards.",
+   "Certificates, expiry dates and reminders sit with your invoices and documents in one workspace.",
+   "Free covers 5 certificates, which suits a small business with a few hostnames and no sysadmin."
+  ],
+  "comparison": [
+   {
+    "topic": "Cost",
+    "competitor": "Free certificates.",
+    "docstoc": "Free for 5 certificates, then Pro at $14.99 a month or Business at $39.99 a month for the whole workspace."
+   },
+   {
+    "topic": "Who runs ACME",
+    "competitor": "You, with certbot or another client, or your host.",
+    "docstoc": "docstoc runs the order. You publish the TXT record and click verify."
+   },
+   {
+    "topic": "Renewal",
+    "competitor": "Clients renew about every 60 days, automatically.",
+    "docstoc": "docstoc sends a reminder email about 30 days before expiry. You then open the app, click Renew, publish a new DNS TXT value and verify. Renewal is a guided manual step, not unattended."
+   },
+   {
+    "topic": "Validation",
+    "competitor": "HTTP-01, DNS-01 and others. Wildcards need DNS-01.",
+    "docstoc": "DNS-01 only."
+   },
+   {
+    "topic": "Support",
+    "competitor": "Documentation and community forums, no direct support.",
+    "docstoc": "Email support at founder@docstoc.io."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Let's Encrypt directly if you already run an ACME client or your host offers one. It costs nothing, renews itself and is the standard route for servers you control.",
+   "docstoc": "Choose docstoc if nobody on the team wants to maintain certbot, you manage few hostnames, and a reminder plus a few clicks every quarter is acceptable to you."
+  },
+  "faq": [
+   {
+    "q": "Are docstoc certificates real Let's Encrypt certificates?",
+    "a": "Yes. docstoc is an automation layer on Let's Encrypt and does not resell another authority's certificates. The browser padlock is the same as a certificate you get through certbot."
+   },
+   {
+    "q": "Do docstoc certificates renew automatically?",
+    "a": "No. Renewal is guided: you get a reminder about 30 days before expiry, click Renew, publish a new TXT value and verify. If you want unattended renewal, run an ACME client yourself."
+   },
+   {
+    "q": "Do I need docstoc if my host already gives me HTTPS?",
+    "a": "No. If your host provisions Let's Encrypt for you, you already have what docstoc offers. docstoc helps when you manage the DNS yourself or need a wildcard."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://letsencrypt.org/about/",
+    "supports": "Nonprofit ISRG, free, automated, open CA",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://letsencrypt.org/docs/faq/",
+    "supports": "90-day certificates, six-day opt-in, DV only, no OV or EV planned, wildcards need DNS-01, no direct support",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://letsencrypt.org/docs/challenge-types/",
+    "supports": "DNS-01 needs a TXT record; HTTP-01 cannot issue wildcards",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/routes/ssl.ts",
+    "supports": "docstoc renewal flow",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc plan limits",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'One DNS record, leave it for renewals' is wrong: each renewal produces a new TXT value.",
+   "'No ACME client to babysit' is true for issuance but renewal still needs a manual click.",
+   "Several existing pages say 'auto-renew' or 'renewals in-product' (zerossl, digicert, sectigo, letsencrypt 'leave it for renewals'). The code (worker/src/routes/ssl.ts /domains/:id/renew, lib/customerCertificates.ts) creates a new ACME order with a new TXT value on each renewal and sends a reminder 30 days before expiry. It is not unattended renewal. These claims should change."
+  ],
+  "gaps": [
+   "Let's Encrypt site count was not stated on the pages opened, so no number is given.",
+   "Support email founder@docstoc.io is taken from llms-full.txt contact line."
+  ]
+ },
+ {
+  "slug": "digicert",
+  "name": "DigiCert",
+  "sector": "ssl",
+  "titleTag": "DigiCert alternative for simple HTTPS | docstoc",
+  "metaDescription": "DigiCert sells OV and EV certificates with CertCentral. docstoc automates free Let's Encrypt DV. See the limits of each before you switch.",
+  "headline": "DigiCert for verified identity, docstoc for a plain padlock",
+  "sub": "DigiCert sells organisation-validated certificates and a management platform: docstoc only issues domain-validated ones.",
+  "whatItIs": "DigiCert sells TLS certificates in organisation validated (OV) and extended validation (EV) tiers, with single-domain, multi-domain and wildcard coverage. Its certificate pages describe the CertCentral management portal, DigiCert ONE and Trust Lifecycle Manager. It is built for organisations that need verified company details in the certificate and central control over many certificates.",
+  "whereTheyAreStronger": [
+   "DigiCert issues OV and EV certificates that carry a verified organisation. docstoc cannot issue either.",
+   "Its Basic tier lists unlimited issuance and replacement, free ACME automation and CertCentral.",
+   "Higher tiers add priority order processing, domain reputation monitoring and brand protection through certificate transparency log monitoring.",
+   "DigiCert ONE and Trust Lifecycle Manager cover discovery and lifecycle control at a scale docstoc does not attempt."
+  ],
+  "whereDocstocFits": [
+   "If you only need HTTPS on a marketing site or portal, domain validation is what docstoc issues, and Free covers 5 certificates.",
+   "Paid plans start at $14.99 a month for the whole workspace, against DigiCert's OV list prices from $372 a year per domain at the time of writing.",
+   "Setup is one DNS TXT record. There is no organisation vetting to wait for.",
+   "Certificates sit beside invoice chasing, templates and file certificates in one login."
+  ],
+  "comparison": [
+   {
+    "topic": "Validation levels",
+    "competitor": "OV and EV certificates are listed for purchase.",
+    "docstoc": "DV only, through Let's Encrypt."
+   },
+   {
+    "topic": "Pricing",
+    "competitor": "OV Basic $372 a year and EV Basic $540 a year per standard domain, at the time of writing.",
+    "docstoc": "Free for 5 certificates; Pro $14.99 a month; Business $39.99 a month."
+   },
+   {
+    "topic": "Management",
+    "competitor": "CertCentral, DigiCert ONE, Trust Lifecycle Manager.",
+    "docstoc": "A simple domain list with expiry, TXT instructions and PEM download."
+   },
+   {
+    "topic": "Wildcards",
+    "competitor": "OV wildcard tiers are listed.",
+    "docstoc": "One wildcard on Business."
+   },
+   {
+    "topic": "Renewal",
+    "competitor": "Free ACME automation is listed on the Basic tier.",
+    "docstoc": "docstoc sends a reminder email about 30 days before expiry. You then open the app, click Renew, publish a new DNS TXT value and verify. Renewal is a guided manual step, not unattended."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose DigiCert if your customers, auditors or procurement rules call for a verified organisation name, if you manage many certificates centrally, or if you need EV or a vendor-backed support relationship.",
+   "docstoc": "Choose docstoc if all you need is a working HTTPS certificate on a few hostnames, you accept that it names only the domain, and you want it in the same workspace as your other business paperwork."
+  },
+  "faq": [
+   {
+    "q": "Can docstoc replace my DigiCert OV certificate?",
+    "a": "No. docstoc issues domain validated certificates only, so the certificate will not carry your organisation's verified details. If a contract or policy requires OV or EV, stay with a commercial authority."
+   },
+   {
+    "q": "Is a Let's Encrypt certificate less secure than a DigiCert one?",
+    "a": "Not in encryption terms. Both secure the connection. The difference is the identity checking: DV proves control of a domain, OV and EV also check the organisation. Whether that matters depends on your requirements."
+   },
+   {
+    "q": "How do I switch a hostname from DigiCert to docstoc?",
+    "a": "Issue the new certificate first, install it on your host, check HTTPS, then let the DigiCert order lapse. docstoc never takes a private key, so the old key is not moved."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.digicert.com/tls-ssl/tls-ssl-certificates",
+    "supports": "OV and EV tiers and prices, CertCentral, DigiCert ONE, Trust Lifecycle Manager, free ACME on Basic; no DV product listed",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc plan limits",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc prices and SSL scope",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Retail DV is hundreds a year' is not supported: the DigiCert page opened lists no DV product, only OV and EV from $372 a year.",
+   "'Business plan for more hostnames' is overstated: every plan has 5 slots; Business raises names per certificate to 100 and adds one wildcard.",
+   "'Automated renewals' should read guided renewal."
+  ],
+  "gaps": [
+   "DigiCert warranty terms are not on the page opened, so none are stated.",
+   "DigiCert DV products may exist elsewhere or via partners; not verified."
+  ]
+ },
+ {
+  "slug": "sectigo",
+  "name": "Sectigo",
+  "sector": "ssl",
+  "titleTag": "Sectigo alternative for DV certificates | docstoc",
+  "metaDescription": "Sectigo sells DV, OV and EV certificates, including multi-domain. docstoc offers Let's Encrypt DV with a DNS step. Compare scope and price.",
+  "headline": "Sectigo for the full range, docstoc for a basic DV certificate",
+  "sub": "Sectigo sells DV, OV and EV with up to 100 names per certificate: docstoc covers the domain-validated end of that range.",
+  "whatItIs": "Sectigo is a commercial certificate authority. Its TLS page lists DV, OV and EV validation, single-domain, wildcard and multi-domain (SAN) certificates covering up to 100 names, and a one-year single-domain DV certificate from $110. It also promotes SCM Pro for automating issuance and renewal as certificate lifetimes shorten. It is built for businesses that want a vendor to validate and support their certificates.",
+  "whereTheyAreStronger": [
+   "Sectigo sells OV and EV, where a human specialist completes the strictest vetting. docstoc issues neither.",
+   "Its multi-domain certificates cover up to 100 names, and wildcard options are offered across validation levels.",
+   "It lists a money-back guarantee and 24/7 support. docstoc offers email support only.",
+   "SCM Pro is aimed at automating issuance and renewal for organisations that face 47-day certificates by 2029."
+  ],
+  "whereDocstocFits": [
+   "For DV you pay nothing for a certificate: Free covers 5 Let's Encrypt certificates, against a listed $110 a year for one single-domain Sectigo DV certificate at the time of writing.",
+   "Paid plans cost $14.99 or $39.99 a month for the whole workspace, not for each certificate.",
+   "Validation is one DNS TXT record, usually a few minutes after the record propagates.",
+   "Certificates live beside invoice chasing and documents, so a small team has one login."
+  ],
+  "comparison": [
+   {
+    "topic": "Validation levels",
+    "competitor": "DV, OV and EV.",
+    "docstoc": "DV only."
+   },
+   {
+    "topic": "Starting price",
+    "competitor": "One-year single-domain DV from $110, at the time of writing.",
+    "docstoc": "Free for 5 certificates."
+   },
+   {
+    "topic": "Names per certificate",
+    "competitor": "Up to 100 on multi-domain certificates.",
+    "docstoc": "1 on Free, up to 10 on Pro, up to 100 on Business."
+   },
+   {
+    "topic": "Lifetime",
+    "competitor": "Annual certificates, moving to shorter lifetimes under industry rules.",
+    "docstoc": "90 days."
+   },
+   {
+    "topic": "Renewal",
+    "competitor": "SCM Pro is promoted for automation.",
+    "docstoc": "docstoc sends a reminder email about 30 days before expiry. You then open the app, click Renew, publish a new DNS TXT value and verify. Renewal is a guided manual step, not unattended."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Sectigo if you need OV or EV, a vendor guarantee, round-the-clock support, or certificate management for many names and teams under a commercial contract.",
+   "docstoc": "Choose docstoc if your site only needs a domain-validated certificate, you can handle a DNS record, and you do not want a separate certificate invoice for a handful of hostnames."
+  },
+  "faq": [
+   {
+    "q": "Is a docstoc certificate the same as a Sectigo DV certificate?",
+    "a": "They do the same job for visitors: an encrypted connection and a padlock. They differ in who issues them. docstoc uses Let's Encrypt, Sectigo is a commercial authority with its own support and guarantee terms."
+   },
+   {
+    "q": "Can I get an organisation-validated certificate through docstoc?",
+    "a": "No. docstoc issues Let's Encrypt DV certificates only. For OV or EV, buy from a commercial authority such as Sectigo."
+   },
+   {
+    "q": "Will docstoc certificates still work as lifetimes shorten?",
+    "a": "They already run on 90 days, and renewal needs your action each time. If shorter lifetimes would make that tiresome, an unattended ACME client is the safer choice."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.sectigo.com/ssl-certificates-tls",
+    "supports": "DV, OV, EV, wildcard and SAN up to 100 domains, DV from $110 per year, SCM Pro, money-back guarantee, 24/7 support, 47-day outlook",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc limits",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc prices",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Skip the $70-460+/yr cert SKU' is not backed: the Sectigo page opened shows DV from $110 a year only. Drop the range or source it.",
+   "'Sectigo (and resellers) sell paid DV/OV/EV. Fine for org validation; overkill for a brochure site' is a judgement; reword neutrally.",
+   "'Auto-renew' should read guided renewal.",
+   "'$0 extra SSL SKU on paid docstoc' hides that Free already includes 5 certificates and that Pro and Business are priced for the whole workspace."
+  ],
+  "gaps": [
+   "Sectigo's current wildcard and EV prices were not shown on the page, so none are given.",
+   "Sectigo ACME availability was not verified."
+  ]
+ },
+ {
+  "slug": "cloudflare-ssl",
+  "name": "Cloudflare",
+  "sector": "ssl",
+  "titleTag": "Cloudflare Universal SSL alternative | docstoc",
+  "metaDescription": "Cloudflare Universal SSL is free for proxied hostnames on Cloudflare. docstoc issues Let's Encrypt certificates for hosts you run yourself.",
+  "headline": "Cloudflare Universal SSL or a certificate you install yourself",
+  "sub": "Cloudflare's certificate sits at its edge for proxied records: docstoc gives you a certificate and key to install on your own server.",
+  "whatItIs": "Cloudflare Universal SSL issues free, unshared, publicly trusted domain validated certificates for domains that are active on Cloudflare, on every plan. Cloudflare renews them automatically and, for proxied DNS records, serves the certificate at its edge. It picks the authority itself, among Let's Encrypt, Google Trust Services and SSL.com. It suits sites that already use Cloudflare's proxy and DNS.",
+  "whereTheyAreStronger": [
+   "Universal SSL is free on every Cloudflare plan and renews automatically with nothing for you to do.",
+   "The certificate is served at Cloudflare's edge for proxied records, so you install nothing on your origin to get HTTPS for visitors.",
+   "It sits inside a wider platform with DNS, caching and security, which docstoc does not provide.",
+   "Advanced Certificate Manager and custom certificates exist for deeper subdomains, cipher suites and a chosen authority."
+  ],
+  "whereDocstocFits": [
+   "You get a PEM certificate and key to install on a server you control, which is what you need when the origin or a mail server must present its own certificate.",
+   "It works with any DNS provider. You publish a TXT record where your DNS already lives, including Cloudflare DNS.",
+   "You can request a wildcard on Business, validated by DNS-01.",
+   "Certificates, expiry dates and reminders sit next to your invoices and documents."
+  ],
+  "comparison": [
+   {
+    "topic": "Cost",
+    "competitor": "Free on all plans for domains active on Cloudflare.",
+    "docstoc": "Free for 5 certificates; paid plans from $14.99 a month."
+   },
+   {
+    "topic": "What you need",
+    "competitor": "The domain active on Cloudflare; a certificate is served for proxied records.",
+    "docstoc": "Control of a DNS zone anywhere, and a place to install a PEM."
+   },
+   {
+    "topic": "Authority",
+    "competitor": "Chosen by Cloudflare, which can change it without notice.",
+    "docstoc": "Let's Encrypt."
+   },
+   {
+    "topic": "Coverage",
+    "competitor": "Root and first-level subdomains on a full setup.",
+    "docstoc": "Names you list per certificate, one wildcard on Business."
+   },
+   {
+    "topic": "Renewal",
+    "competitor": "Automatic.",
+    "docstoc": "docstoc sends a reminder email about 30 days before expiry. You then open the app, click Renew, publish a new DNS TXT value and verify. Renewal is a guided manual step, not unattended."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose Cloudflare if your domain already runs through its proxy. Universal SSL is free, automatic and needs no installation, which is hard to beat for a standard website.",
+   "docstoc": "Choose docstoc if you need a certificate you hold and install yourself, for a server that is not proxied, and you are fine renewing it with a guided DNS step."
+  },
+  "faq": [
+   {
+    "q": "Do I need Cloudflare to use docstoc SSL?",
+    "a": "No. docstoc works with whichever DNS provider you use, as long as you can add a TXT record. You may keep Cloudflare for DNS and still get a certificate from docstoc."
+   },
+   {
+    "q": "Is Cloudflare Universal SSL really free?",
+    "a": "Yes, on every plan, for domains that are active on Cloudflare. Cloudflare serves it only for proxied records. For DNS-only records your origin must provide its own certificate."
+   },
+   {
+    "q": "Why would I need a separate certificate if I use Cloudflare?",
+    "a": "Usually to run HTTPS on the origin itself, or on a hostname that is not proxied. Then you need a certificate on the server, and a Let's Encrypt one from docstoc or a client of your own does that."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/",
+    "supports": "Free on all plans, domain must be active, DV, automatic renewal",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/limitations/",
+    "supports": "Served for proxied records only; DNS-only needs origin SSL; root and first-level subdomains on full setup; Cloudflare can change the CA",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "https://developers.cloudflare.com/ssl/reference/certificate-authorities/",
+    "supports": "CAs used: Let's Encrypt, Google Trust Services, SSL.com; customers cannot choose",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc limits",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "'Same Let's Encrypt trust': Cloudflare picks among several authorities, so it may not be Let's Encrypt. Reword.",
+   "'Universal SSL not required' / 'No orange-cloud requirement' are about docstoc and fine, but the page implies Cloudflare forces a proxy move; the docs only say the domain must be active on Cloudflare and the certificate is served for proxied records.",
+   "'Auto-renew' for docstoc should read guided renewal."
+  ],
+  "gaps": [
+   "Whether a nameserver change is required for Universal SSL is not stated on the pages opened, so it is left out."
+  ]
+ },
+ {
+  "slug": "ssl-com",
+  "name": "SSL.com",
+  "sector": "ssl",
+  "titleTag": "SSL.com alternative for DV certificates | docstoc",
+  "metaDescription": "SSL.com sells DV, OV and EV certificates and supports ACME. docstoc automates Let's Encrypt DV with one DNS record. Compare scope and price.",
+  "headline": "SSL.com for the whole range, docstoc for free DV",
+  "sub": "SSL.com sells certificates from DV to EV with warranties: docstoc issues Let's Encrypt DV only.",
+  "whatItIs": "SSL.com is a commercial certificate authority. Its certificates page lists DV, OV and EV products with warranties and starting prices, multi-domain and wildcard options, an SSL Manager desktop app for Windows, and ACME for automated issuance and renewal. It suits buyers who want a paid certificate with a vendor behind it, from one domain to many.",
+  "whereTheyAreStronger": [
+   "SSL.com sells OV and EV certificates. docstoc issues DV only.",
+   "Each product lists a warranty, from $10,000 on its Basic DV to $1,750,000 on EV. docstoc has no warranty.",
+   "It supports ACME (RFC 8555) for issuing, renewing and revoking certificates automatically. docstoc renews by hand.",
+   "Multi-domain and wildcard certificates are sold across validation levels, with no slot cap tied to a plan."
+  ],
+  "whereDocstocFits": [
+   "Free covers 5 Let's Encrypt certificates, while SSL.com lists its Basic DV from $36.75 a year at the time of writing.",
+   "Pro and Business are workspace prices ($14.99 and $39.99 a month), not per-certificate prices.",
+   "Validation is one DNS TXT record with exact name and value shown.",
+   "Certificates sit beside invoice chasing and documents in one login."
+  ],
+  "comparison": [
+   {
+    "topic": "Validation levels",
+    "competitor": "DV, OV and EV.",
+    "docstoc": "DV only."
+   },
+   {
+    "topic": "Starting price",
+    "competitor": "Basic DV from $36.75 a year, at the time of writing.",
+    "docstoc": "Free for 5 certificates."
+   },
+   {
+    "topic": "Warranty",
+    "competitor": "Listed per product, $10,000 to $1,750,000.",
+    "docstoc": "None."
+   },
+   {
+    "topic": "Automation",
+    "competitor": "ACME supported; SSL Manager for Windows.",
+    "docstoc": "Web app with a DNS step. ACME API on Pro and Business."
+   },
+   {
+    "topic": "Lifetime",
+    "competitor": "Maximum 200 days from 11 March 2026.",
+    "docstoc": "90 days."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose SSL.com if you need OV or EV, a warranty, a vendor to call, or ACME against a commercial authority for many hostnames.",
+   "docstoc": "Choose docstoc if one or a few hostnames need plain DV, you want it free or bundled with other business tools, and a manual renewal every few months is acceptable."
+  },
+  "faq": [
+   {
+    "q": "Does docstoc offer the same certificates as SSL.com?",
+    "a": "Only the DV type. docstoc issues Let's Encrypt DV certificates. SSL.com also sells OV and EV with warranties, which docstoc does not."
+   },
+   {
+    "q": "Is SSL.com's ACME service free?",
+    "a": "The page opened does not say. It confirms ACME support, not the price. Check SSL.com's own pricing before you assume."
+   },
+   {
+    "q": "Will a docstoc certificate show my company name?",
+    "a": "No. DV certificates prove control of a domain and carry no organisation details. For a certificate that names your company, use OV or EV from a commercial authority."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.ssl.com/certificates/",
+    "supports": "Product table with validation levels, warranties and starting prices; ACME RFC 8555; SSL Manager; 200-day maximum lifetime from 11 March 2026",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc limits",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc prices and ACME API",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "The SSL landing page says SSL.com suits 'Developers wanting free ACME DV plus optional paid OV/EV'. The SSL.com page opened does not state free ACME DV. Remove or source it.",
+   "'Auto-renew' should read guided renewal.",
+   "Generic 'another dashboard, often another invoice, sometimes a manual renew' is not specific to SSL.com and not sourced."
+  ],
+  "gaps": [
+   "SSL.com's free ACME offering could not be confirmed: the guide URL I tried returned 404, so the claim is left out.",
+   "ACME pricing at SSL.com not verified."
+  ]
+ },
+ {
+  "slug": "globalsign",
+  "name": "GlobalSign",
+  "sector": "ssl",
+  "titleTag": "GlobalSign alternative for simple HTTPS | docstoc",
+  "metaDescription": "GlobalSign offers PKI, Atlas and certificate lifecycle tools for enterprises. docstoc issues Let's Encrypt DV for small teams. Compare the two.",
+  "headline": "GlobalSign for enterprise PKI, docstoc for a few hostnames",
+  "sub": "GlobalSign is a platform for managing identity and certificates at scale: docstoc issues basic Let's Encrypt certificates and stops there.",
+  "whatItIs": "GlobalSign sells TLS certificates in DV, OV and EV, with wildcard and multi-domain options, alongside much more: its Atlas platform, managed PKI, ACME, certificate lifecycle management, IoT identity, document signing, code signing and S/MIME. Its pages address enterprises, cloud providers, IoT makers and partners, in sectors such as finance, government and health.",
+  "whereTheyAreStronger": [
+   "GlobalSign covers DV, OV and EV certificates. docstoc issues DV only.",
+   "Atlas, managed PKI and certificate lifecycle tools give central control over certificates and users, which docstoc does not provide.",
+   "It offers dedicated intermediate CAs and private PKI for internal servers. docstoc has nothing like it.",
+   "It integrates with tools such as HashiCorp Vault, cert-manager for Kubernetes and ServiceNow."
+  ],
+  "whereDocstocFits": [
+   "There is no sales process: add a hostname, publish a TXT record, download the PEM.",
+   "Free covers 5 certificates, and paid plans are $14.99 and $39.99 a month, shown openly on the pricing page.",
+   "It is scoped for a small business with a few hostnames, which GlobalSign's enterprise offering is not aimed at.",
+   "Certificates live next to invoice chasing, templates and file certificates in one workspace."
+  ],
+  "comparison": [
+   {
+    "topic": "Built for",
+    "competitor": "Enterprises, IoT, cloud providers and partners.",
+    "docstoc": "Small businesses with a few hostnames."
+   },
+   {
+    "topic": "Certificate types",
+    "competitor": "DV, OV, EV, wildcard, multi-domain, plus code signing, S/MIME and private PKI.",
+    "docstoc": "Let's Encrypt DV, one wildcard on Business."
+   },
+   {
+    "topic": "Pricing",
+    "competitor": "The page opened shows 'From / year' without amounts.",
+    "docstoc": "Free for 5 certificates; Pro $14.99 and Business $39.99 a month."
+   },
+   {
+    "topic": "Management",
+    "competitor": "Atlas, managed PKI, lifecycle management, ACME.",
+    "docstoc": "Domain list, expiry reminders, PEM download, ACME API on paid plans."
+   },
+   {
+    "topic": "Renewal",
+    "competitor": "Automation is promoted for shorter lifetimes.",
+    "docstoc": "docstoc sends a reminder email about 30 days before expiry. You then open the app, click Renew, publish a new DNS TXT value and verify. Renewal is a guided manual step, not unattended."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose GlobalSign if you manage many certificates or identities, need OV or EV, private PKI, IoT or signing certificates, or want integrations with enterprise tooling and a vendor contract.",
+   "docstoc": "Choose docstoc if you need HTTPS on a few public hostnames, want no sales call, and can manage a reminder and a DNS record each time a certificate nears expiry."
+  },
+  "faq": [
+   {
+    "q": "Is docstoc an alternative to GlobalSign Atlas?",
+    "a": "No. Atlas is an identity and certificate management platform. docstoc is a small-business tool that issues Let's Encrypt DV certificates for domains you control, and nothing else in that space."
+   },
+   {
+    "q": "Can docstoc issue S/MIME, code signing or document signing certificates?",
+    "a": "No. docstoc issues TLS certificates only. Its file certificates are SHA-256 hash proofs, which are not electronic signatures and do not replace a signing certificate."
+   },
+   {
+    "q": "How much does GlobalSign cost?",
+    "a": "The page opened gives no prices, only 'From / year'. Ask GlobalSign or a reseller. docstoc publishes its prices: Pro $14.99 and Business $39.99 a month at the time of writing."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.globalsign.com/en/ssl",
+    "supports": "Certificate types, Atlas, managed PKI, ACME, private CA, integrations, target audiences; no amounts shown",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc limits",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/web/public/llms-full.txt",
+    "supports": "docstoc prices; file certificates are hash proofs",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "The SSL landing page calls GlobalSign suited to 'Enterprises and manufacturers needing full PKI platforms'. The page supports enterprises and IoT but 'manufacturers' is a stretch; reword to enterprises and IoT.",
+   "'Auto-renew' should read guided renewal.",
+   "Generic template wording ('another dashboard, often another invoice') is not specific to GlobalSign and unsourced."
+  ],
+  "gaps": [
+   "GlobalSign prices were not available.",
+   "Whether GlobalSign offers a self-service tier for small businesses was not verified."
+  ]
+ },
+ {
+  "slug": "sslforfree",
+  "name": "SSL For Free",
+  "sector": "ssl",
+  "titleTag": "SSL For Free alternative with a workspace | docstoc",
+  "metaDescription": "SSL For Free is a front end to ZeroSSL certificates. docstoc runs Let's Encrypt with DNS validation in one workspace. See how they differ.",
+  "headline": "SSL For Free or docstoc: a ZeroSSL front end or Let's Encrypt in a workspace",
+  "sub": "SSL For Free hands out ZeroSSL certificates in a web form: docstoc issues Let's Encrypt certificates and keeps them with your business paperwork.",
+  "whatItIs": "SSL For Free is a web service powered by ZeroSSL. It issues certificates through ACME (free 90-day certificates) or a web app and REST API, with email, HTTP and DNS verification. Its page says the private key is generated and encrypted on your device and downloaded only through your logged-in browser. It lists a free plan with 3 certificates and paid plans from $13.99 a month.",
+  "whereTheyAreStronger": [
+   "It offers email, HTTP and DNS verification, so you can validate without touching DNS. docstoc uses DNS only.",
+   "The key is generated and encrypted on your device per the page, so the service does not hold a usable copy of it.",
+   "Paid plans list unlimited 90-day certificates and 1-year certificates. docstoc has a 5-slot cap and 90-day certificates only.",
+   "It names ACME access on paid plans for fully automated renewal with clients such as Certbot."
+  ],
+  "whereDocstocFits": [
+   "Free covers 5 certificates, against 3 on SSL For Free's listed free plan at the time of writing.",
+   "You publish one DNS TXT record and verify. No file upload and no email alias.",
+   "Certificates, expiry reminders, invoices, templates and file certificates share one login.",
+   "Pro at $14.99 a month and Business at $39.99 cover the whole workspace, not only SSL."
+  ],
+  "comparison": [
+   {
+    "topic": "Who issues",
+    "competitor": "ZeroSSL, via SSL For Free's front end.",
+    "docstoc": "Let's Encrypt, managed by docstoc."
+   },
+   {
+    "topic": "Free plan",
+    "competitor": "3 certificates of 90 days, at the time of writing.",
+    "docstoc": "5 certificates of 90 days."
+   },
+   {
+    "topic": "Paid plans",
+    "competitor": "Basic $13.99 a month ($9.99 yearly), Premium $74.99, Business $149.99, at the time of writing.",
+    "docstoc": "Pro $14.99 and Business $39.99 a month."
+   },
+   {
+    "topic": "Validation",
+    "competitor": "Email, HTTP and DNS.",
+    "docstoc": "DNS only."
+   },
+   {
+    "topic": "Wildcards",
+    "competitor": "Premium and Business plans.",
+    "docstoc": "One on Business."
+   }
+  ],
+  "whenToChoose": {
+   "competitor": "Choose SSL For Free if you want a quick web form, HTTP or email validation, annual certificates, or a larger number of wildcards, and you are happy with ZeroSSL behind it.",
+   "docstoc": "Choose docstoc if you manage a few hostnames, prefer DNS validation, and want certificates in the same account as invoice chasing and documents, with a reminder-led renewal."
+  },
+  "faq": [
+   {
+    "q": "Is SSL For Free the same as ZeroSSL?",
+    "a": "Closely related. SSL For Free's page says it is powered by ZeroSSL, which provides the infrastructure, and paid plans are sign-ups on ZeroSSL's app. docstoc is separate and uses Let's Encrypt."
+   },
+   {
+    "q": "Which gives more free certificates?",
+    "a": "docstoc Free includes 5 certificates of 90 days; SSL For Free lists 3 on its free plan at the time of writing. Check both pages, as plans change."
+   },
+   {
+    "q": "Do I have to renew a docstoc certificate by hand?",
+    "a": "Yes. You get a reminder about 30 days before expiry, click Renew, publish a new TXT value and verify. SSL For Free recommends automating renewal with ZeroSSL ACME or Certbot."
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.sslforfree.com/",
+    "supports": "Powered by ZeroSSL; ACME and web app; email, HTTP, DNS verification; plans and prices; key generated on device; wildcards on Premium and Business",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/lib/plan.ts",
+    "supports": "docstoc limits",
+    "checked": "2026-10-31"
+   },
+   {
+    "url": "/Users/reinhold/chasa/apps/worker/src/routes/ssl.ts",
+    "supports": "docstoc renewal flow",
+    "checked": "2026-10-31"
+   }
+  ],
+  "existingClaimIssues": [
+   "The SSL landing page says SSL For Free suits 'Hobbyists OK repeating manual validation every ~90 days'. That is a judgement; the page offers ACME automation, so it is not accurate to imply manual only.",
+   "'Auto-renew' should read guided renewal.",
+   "SSL For Free page prices ($13.99 Basic) differ from ZeroSSL's own pricing page ($14.99 Basic) at the same date; both are cited as 'at the time of writing' and flagged for recheck."
+  ],
+  "gaps": [
+   "SSL For Free's own terms of service were not read.",
+   "The page's claim that yearly billing saves 20% does not match its listed yearly prices; left out."
+  ]
+ }
+]

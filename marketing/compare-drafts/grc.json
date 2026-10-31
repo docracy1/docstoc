@@ -1,0 +1,884 @@
+[
+  {
+    "slug": "vanta",
+    "name": "Vanta",
+    "titleTag": "Vanta alternative for file evidence | docstoc",
+    "metaDescription": "Vanta automates compliance programmes. docstoc certifies single files with a hash and a verify link. How they differ and when each one fits.",
+    "headline": "Vanta runs the programme, docstoc certifies the file",
+    "sub": "Different jobs: Vanta automates compliance work across your tools, docstoc fixes a single document in time with a public verify link.",
+    "whatItIs": "Vanta is a compliance and risk platform. Its site lists compliance automation, continuous GRC, risk management, third party risk, questionnaire automation and a Trust Center. It names SOC 2, ISO 27001, GDPR, HIPAA and HITRUST among its frameworks, claims 35+ frameworks in total, and says it pulls data from 400+ tools. Vanta describes its customers as startups, mid-market and enterprise.",
+    "whereTheyAreStronger": [
+      "Automated evidence collection: Vanta says it pulls data from 400+ tools, which docstoc does not do.",
+      "Framework coverage: the site cites 35+ frameworks, including SOC 2, ISO 27001, HIPAA and GDPR.",
+      "Wider scope: risk management, third party risk, questionnaire automation and a Trust Center sit in the same product.",
+      "A named customer base from startup to enterprise, which suits teams heading into a formal audit."
+    ],
+    "whereDocstocFits": [
+      "You have a file that must stay unchanged, such as a contract, an invoice or an exported report, and want a fingerprint that anyone can re-check.",
+      "Hashing happens in the browser with SHA-256, so the file itself need not be uploaded to create the certificate.",
+      "Counterparties get a public verify link without needing an account or a Vanta login.",
+      "The same workspace drafts invoice chase emails, which you review and send yourself."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Compliance and risk automation across frameworks and connected tools.",
+        "docstoc": "Certifies single files and drafts invoice chase emails."
+      },
+      {
+        "topic": "Frameworks",
+        "competitor": "Lists SOC 2, ISO 27001, GDPR, HIPAA, HITRUST and more, 35+ in total.",
+        "docstoc": "None. docstoc does not map controls or prepare audits."
+      },
+      {
+        "topic": "Evidence",
+        "competitor": "Pulls data from connected tools automatically.",
+        "docstoc": "You supply the file. docstoc records its hash and time."
+      },
+      {
+        "topic": "Proof for outsiders",
+        "competitor": "Trust Center for showing security posture.",
+        "docstoc": "Public verify page per file, optional Bitcoin timestamp."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "No prices on the pages we opened; plans are linked from the site.",
+        "docstoc": "Certificates are free to create and check. Business is $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Vanta if you need to prepare for a SOC 2 or ISO 27001 audit and want evidence gathered continuously from your cloud, identity and ticketing tools, with risk and vendor management in the same place.",
+      "docstoc": "Choose docstoc if you only need to prove that a particular file existed in a given form on a given day, or you want a light tool beside your GRC platform for invoices, contracts and chase evidence. It is not compliance advice."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace Vanta?",
+        "a": "No. docstoc does not replace Vanta. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Can I use docstoc for SOC 2 evidence?",
+        "a": "Only as a supporting record. docstoc can certify an exported report or screenshot pack so its content is fixed in time, but your auditor decides what counts as evidence, and docstoc does not promise any audit outcome."
+      },
+      {
+        "q": "Does docstoc connect to Vanta?",
+        "a": "No. There is no Vanta integration. Export the file you want to prove, certify it in docstoc and store the verify link with your audit packet."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.vanta.com/",
+        "supports": "Vanta products, 35+ frameworks, 400+ tools, customer segments, no prices on page",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "drata",
+    "name": "Drata",
+    "titleTag": "Drata alternative for file evidence | docstoc",
+    "metaDescription": "Drata is trust management and GRC. docstoc is a file certificate with a verify link. Compare scope, evidence and when each tool fits.",
+    "headline": "Drata manages trust, docstoc fixes one file in time",
+    "sub": "Drata monitors controls continuously: docstoc records that a specific document existed in a specific form.",
+    "whatItIs": "Drata describes itself as an agentic trust management platform. Its site lists enterprise GRC, compliance automation, a Trust Center, AI questionnaire assistance and third party risk management. Named frameworks include SOC 2, ISO 27001, ISO 42001, GDPR, HIPAA and PCI DSS. Drata says it connects to hundreds of tools and groups customers as startup, growth and enterprise.",
+    "whereTheyAreStronger": [
+      "Continuous control monitoring and automated evidence collection, which docstoc does not offer.",
+      "Breadth: GRC, Trust Center, questionnaire assistance and third party risk in one vendor.",
+      "Framework library reaching beyond SOC 2 to ISO 42001, PCI DSS, DORA, FedRAMP and CMMC, according to its navigation.",
+      "Support for growing companies: the site separates startup, growth and enterprise paths."
+    ],
+    "whereDocstocFits": [
+      "You need to freeze a single PDF, export or contract and share a link that proves its fingerprint.",
+      "A counterparty or auditor can check the file without an account.",
+      "You want a small add-on that sits beside Drata for files that never pass through a connected tool.",
+      "Invoice chase drafts and a reminder calendar are in the same place, with the sending left to you."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Trust management, compliance automation and GRC.",
+        "docstoc": "File certificates and invoice chase drafts."
+      },
+      {
+        "topic": "Frameworks",
+        "competitor": "SOC 2, ISO 27001, ISO 42001, GDPR, HIPAA, PCI DSS and others.",
+        "docstoc": "No framework mapping."
+      },
+      {
+        "topic": "Integrations",
+        "competitor": "Says it connects to hundreds of tools.",
+        "docstoc": "No GRC integrations. QuickBooks Online and Xero connectors exist on Pro for invoices."
+      },
+      {
+        "topic": "Sharing proof",
+        "competitor": "Trust Center.",
+        "docstoc": "Public verify page per certified file."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "Not shown on the page we opened; the site offers a demo and sales contact.",
+        "docstoc": "Free certificates; Business is $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Drata if you want continuous monitoring of controls and automated evidence collection for an audit, with questionnaires and vendor risk handled in the same platform.",
+      "docstoc": "Choose docstoc if the need is narrow: a verifiable record of a document, or a tool for chasing overdue invoices with drafts you send yourself. It complements a GRC platform and does not replace it."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace Drata?",
+        "a": "No. docstoc does not replace Drata. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Can docstoc give auditors a record of an exported control report?",
+        "a": "Yes, as a file fingerprint. docstoc hashes the export and gives you a verify link. Whether the auditor accepts it is the auditor's decision."
+      },
+      {
+        "q": "Is docstoc a trust centre like Drata's?",
+        "a": "No. docstoc has a domain-verified trust profile for companies on Business after SSL is issued, but it is not a security questionnaire or GRC trust centre."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://drata.com/",
+        "supports": "Drata description, frameworks, hundreds of tools, segments, no prices",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc trust profile after domain verification (Business)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "secureframe",
+    "name": "Secureframe",
+    "titleTag": "Secureframe alternative for file evidence | docstoc",
+    "metaDescription": "Secureframe automates compliance with tests and expert support. docstoc certifies single files. See what each covers and when to use both.",
+    "headline": "Secureframe handles compliance tasks, docstoc seals the file",
+    "sub": "One automates tests and readiness: the other gives a document a fingerprint and a public check.",
+    "whatItIs": "Secureframe is a compliance platform that automates security, risk and compliance work. Its site lists automated tests, continuous monitoring, readiness reports, a Trust Center, questionnaire automation and AI tools for remediation and risk. Frameworks named include SOC 2, ISO 27001, HIPAA, CMMC 2.0, PCI DSS, GDPR and NIST. It also offers Secureframe Defense for defence contractors, and says 30+ in-house experts and former auditors support customers.",
+    "whereTheyAreStronger": [
+      "Automated tests and continuous monitoring against frameworks, which docstoc does not run.",
+      "Human help: the site says more than 30 in-house compliance experts and former auditors support customers.",
+      "A defence-specific offering, Secureframe Defense, for contractors handling CUI.",
+      "Readiness reports and a Trust Center that package posture for customers."
+    ],
+    "whereDocstocFits": [
+      "You need a tamper-evident record of one file, not a monitored programme.",
+      "Anyone can check the verify page without logging in anywhere.",
+      "You want to certify documents that sit outside the tools Secureframe tests, such as signed PDFs or customer-facing exports.",
+      "Overdue invoices need chasing: docstoc drafts the email and you send it."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Compliance automation, tests, monitoring and readiness.",
+        "docstoc": "File certificates, invoice chase drafts, templates."
+      },
+      {
+        "topic": "Frameworks",
+        "competitor": "SOC 2, ISO 27001, HIPAA, CMMC 2.0, PCI DSS, GDPR, NIST.",
+        "docstoc": "None; no control mapping."
+      },
+      {
+        "topic": "Expert help",
+        "competitor": "30+ in-house compliance experts and former auditors, per its site.",
+        "docstoc": "No compliance advisers. Templates are informational, not advice."
+      },
+      {
+        "topic": "Evidence",
+        "competitor": "Automated evidence collection and automated tests.",
+        "docstoc": "SHA-256 fingerprint of a file you provide, hashed in the browser."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "No prices on the page we opened.",
+        "docstoc": "Certificates free; Business $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Secureframe if you want a platform that tests your environment against a framework, tracks remediation and gives you access to compliance experts while you prepare for an audit.",
+      "docstoc": "Choose docstoc if you want a lightweight way to prove a document has not changed since a given date, or to keep chase emails and certified files in one small workspace beside your compliance tool."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace Secureframe?",
+        "a": "No. docstoc does not replace Secureframe. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Will a docstoc certificate count as audit evidence?",
+        "a": "It can support your evidence, but it is not a substitute for what the auditor asks for. docstoc proves a file's integrity at a point in time, not that a control operated."
+      },
+      {
+        "q": "Can I import Secureframe data into docstoc?",
+        "a": "No. docstoc has no Secureframe import. Export the files you want to prove, then certify them one by one."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://secureframe.com/",
+        "supports": "Secureframe capabilities, frameworks, Defense offering, 30+ experts, no prices",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "thoropass",
+    "name": "Thoropass",
+    "titleTag": "Thoropass alternative for file evidence | docstoc",
+    "metaDescription": "Thoropass pairs software with its own licensed audit team. docstoc only certifies files. A fair look at scope and where each one fits.",
+    "headline": "Thoropass delivers the audit, docstoc certifies the file",
+    "sub": "Thoropass combines software with its own audit firm: docstoc has no auditors and certifies documents only.",
+    "whatItIs": "Thoropass pairs a software platform with an audit firm. Its site says Thoropass Assurance is a licensed CPA firm registered with the AICPA, and that the platform organises evidence and readiness work. It lists SOC 1, SOC 2, ISO 27001, ISO 42001, PCI DSS, HIPAA, HITRUST, CMMC Level 1, NIST CSF 2.0 and more, plus penetration testing and vulnerability scanning. It says it serves more than 2,000 organisations.",
+    "whereTheyAreStronger": [
+      "An audit firm in the same offer: the site describes the Thoropass Audit as expert-led and delivered through the platform.",
+      "Penetration testing by CREST-accredited testers and vulnerability scanning with exportable evidence.",
+      "Mapping of overlapping controls across frameworks to avoid duplicate work.",
+      "API and MCP server connectivity, and it can complement a customer's existing GRC platform."
+    ],
+    "whereDocstocFits": [
+      "No audit is involved: you just need a document fixed in time with a verify link.",
+      "Certificates are free to create and check, with no quote process.",
+      "Hashing is done in the browser with SHA-256 so the original file need not leave your machine.",
+      "You also chase invoices and want drafts that you review and send yourself."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Software plus a licensed audit team, with testing services.",
+        "docstoc": "File certificates and invoice chase drafts. No audit services."
+      },
+      {
+        "topic": "Frameworks",
+        "competitor": "SOC 1, SOC 2, ISO 27001, PCI DSS, HIPAA, HITRUST and others.",
+        "docstoc": "None."
+      },
+      {
+        "topic": "Auditors",
+        "competitor": "Thoropass Assurance, a licensed CPA firm registered with the AICPA.",
+        "docstoc": "None. docstoc is not an audit firm and gives no assurance opinion."
+      },
+      {
+        "topic": "Integrations",
+        "competitor": "Cloud, identity, HR and ticketing tools, plus API and MCP.",
+        "docstoc": "No GRC integrations; HTTP API and MCP for chase drafts on paid plans."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "Quote based; depends on frameworks, scope, size and services, per its site.",
+        "docstoc": "Free certificates; Business $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Thoropass if you want one vendor for readiness software and the audit itself, for example a SOC 2 or ISO 27001 report, with testing services available alongside.",
+      "docstoc": "Choose docstoc if you need no audit at all and only want a verifiable fingerprint of a document, or if you already work with Thoropass and want a small tool for files outside the platform."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace Thoropass?",
+        "a": "No. docstoc does not replace Thoropass. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Is docstoc an audit firm?",
+        "a": "No. docstoc is not an audit firm, and a docstoc certificate is not an audit opinion. It records a file's SHA-256 fingerprint and the time."
+      },
+      {
+        "q": "Can I use both Thoropass and docstoc?",
+        "a": "Yes. Thoropass says it can complement an existing GRC platform, and docstoc has no overlap with an audit. Use docstoc for standalone files you want to prove."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.thoropass.com/",
+        "supports": "Thoropass audit firm, frameworks, testing, 2,000+ organisations, quote-based pricing, integrations",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells.",
+      "The generic text does not mention that Thoropass includes a licensed audit firm, so 'GRC platform' alone misdescribes it."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "tugboat",
+    "name": "Tugboat Logic",
+    "titleTag": "Tugboat Logic alternative for file evidence | docstoc",
+    "metaDescription": "Tugboat Logic was acquired by OneTrust in 2021. If you used it for evidence, here is where docstoc file certificates differ and fit.",
+    "headline": "Tugboat Logic is now part of OneTrust, docstoc is a file certificate",
+    "sub": "If Tugboat Logic was your audit tool, check OneTrust first: docstoc covers only the document-proof part.",
+    "whatItIs": "Tugboat Logic was a security assurance platform that automated information security policies, audit readiness and security questionnaires for frameworks such as ISO 27001, SOC 2, CMMC, HIPAA and PCI DSS. OneTrust announced its acquisition on 21 September 2021 and said Tugboat Logic had about 800 customers. OneTrust described it as an entry point that smaller security teams could grow from into its enterprise GRC solutions.",
+    "whereTheyAreStronger": [
+      "Policy creation, audit readiness and questionnaire answers, none of which docstoc does.",
+      "Framework support for ISO 27001, SOC 2, CMMC, HIPAA and PCI DSS, per OneTrust's announcement.",
+      "A route into OneTrust's wider GRC, privacy and third party risk products.",
+      "The backing of an established vendor with over 10,000 customers, as OneTrust stated in 2021."
+    ],
+    "whereDocstocFits": [
+      "You want a record that a document existed in a specific form, shareable by link.",
+      "You are moving away from a security assurance tool and only need file integrity proof.",
+      "Certificates are free to create and check, and need no account to verify.",
+      "You also want chase drafts for overdue invoices that you send from your own mail client."
+    ],
+    "comparison": [
+      {
+        "topic": "Status",
+        "competitor": "Acquired by OneTrust, announced 21 September 2021. We could not confirm the current product name on a vendor page.",
+        "docstoc": "Independent product of RELACON GmbH, live at docstoc.io."
+      },
+      {
+        "topic": "Main job",
+        "competitor": "Policies, audit readiness and security questionnaires.",
+        "docstoc": "File certificates and invoice chase drafts."
+      },
+      {
+        "topic": "Frameworks",
+        "competitor": "ISO 27001, SOC 2, CMMC, HIPAA, PCI DSS.",
+        "docstoc": "None."
+      },
+      {
+        "topic": "Proof for outsiders",
+        "competitor": "Audit readiness outputs and questionnaire answers.",
+        "docstoc": "Public verify page with fingerprint and timestamp per file."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "Not found on a vendor page we opened.",
+        "docstoc": "Free certificates; Business $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose OneTrust's offering that grew out of Tugboat Logic if you want automated policy and audit readiness work, or a path towards a wider GRC and privacy platform.",
+      "docstoc": "Choose docstoc if what you actually need is smaller: to fix a document in time, share a verify link and keep invoice chase drafts in one place. It does not manage a security programme."
+    },
+    "faq": [
+      {
+        "q": "Is Tugboat Logic still available?",
+        "a": "Not as a separate product, according to what we could confirm. OneTrust announced the acquisition in 2021 and positioned Tugboat Logic as a step into its GRC platform. Check with OneTrust for the current name and plans."
+      },
+      {
+        "q": "Does docstoc replace Tugboat Logic?",
+        "a": "No. docstoc does not replace Tugboat Logic. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Can docstoc import my Tugboat Logic data?",
+        "a": "No. There is no importer. Export the files you want to keep provable and certify them in docstoc."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://onetrust.com/blog/onetrust-tugboat-logic/",
+        "supports": "OneTrust announced acquisition 21 Sept 2021; Tugboat Logic functions, about 800 customers, frameworks",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells.",
+      "The current page treats Tugboat Logic as a live GRC platform ('Use Tugboat Logic for GRC'). OneTrust announced its acquisition in 2021; whether the Tugboat Logic brand still exists as a product is unconfirmed, so the wording needs care."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used.",
+      "Current Tugboat Logic or OneTrust Certification Automation product page and pricing not opened; current product name left unconfirmed."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "hyperproof",
+    "name": "Hyperproof",
+    "titleTag": "Hyperproof alternative for file evidence | docstoc",
+    "metaDescription": "Hyperproof is a GRC platform with 160+ frameworks. docstoc certifies single files with a hash. How they differ and when to use each.",
+    "headline": "Hyperproof runs your GRC programme, docstoc proves one file",
+    "sub": "Hyperproof connects controls to evidence: docstoc simply records that a file existed unchanged on a given day.",
+    "whatItIs": "Hyperproof is a governance, risk and compliance platform. Its site lists modules for compliance, risk, audit, trust, third party risk and policy governance, plus Hyperproof Gov for government work. It cites 160+ pre-built frameworks including SOC 2, ISO 27001, NIST SP 800-53, DORA, NIS2 and FedRAMP, and 200+ integrations. It targets mid-market and enterprise GRC teams.",
+    "whereTheyAreStronger": [
+      "Scale of coverage: 160+ pre-built frameworks and custom frameworks, against none in docstoc.",
+      "200+ integrations that feed evidence into controls automatically.",
+      "An audit module for connecting evidence to requests and working with auditors.",
+      "Hyperproof Gov, which its site says runs in a FedRAMP Certified Class C (Rev5) environment."
+    ],
+    "whereDocstocFits": [
+      "You need a standalone integrity check for a file, with no programme to set up.",
+      "A verify link lets a client or auditor confirm a PDF without a login.",
+      "The certificate can sit beside an evidence item in Hyperproof as an extra proof of the file's state.",
+      "Business adds custom branding on certificates, so your logo appears on them."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "GRC: compliance, risk, audit, trust and third party risk.",
+        "docstoc": "File certificates and invoice chase drafts."
+      },
+      {
+        "topic": "Frameworks",
+        "competitor": "160+ pre-built, plus custom.",
+        "docstoc": "None."
+      },
+      {
+        "topic": "Integrations",
+        "competitor": "200+, including AWS, Okta, GitHub, Jira and Slack per its site.",
+        "docstoc": "No GRC integrations. QuickBooks Online and Xero on Pro."
+      },
+      {
+        "topic": "Audit work",
+        "competitor": "Audit module for linking evidence to auditor requests.",
+        "docstoc": "No audit module. Verify links can be added to an audit packet."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "No prices on the page we opened.",
+        "docstoc": "Free certificates; Business $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Hyperproof if you run compliance across several frameworks, need risk and audit workflows in one system, and have a team that will operate a GRC platform with many integrations.",
+      "docstoc": "Choose docstoc if you need a quick, free way to prove a document is unchanged, or a small companion for files that live outside your GRC system. It makes no compliance claims."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace Hyperproof?",
+        "a": "No. docstoc does not replace Hyperproof. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Can I attach a docstoc verify link in Hyperproof?",
+        "a": "Yes, as a link or note, since it is just a URL. docstoc has no integration with Hyperproof, so nothing syncs automatically."
+      },
+      {
+        "q": "Does docstoc do SOX reporting like a GRC tool?",
+        "a": "Not in the GRC sense. docstoc's SOX reporting on Business covers invoice chase controls such as maker-checker approval, and it does not manage a whole SOX programme."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.hyperproof.io/",
+        "supports": "Hyperproof modules, 160+ frameworks, 200+ integrations, FedRAMP Gov environment, no prices",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs",
+        "supports": "docstoc SoD / maker-checker on chase sends, SOX reporting on Business (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells.",
+      "The separate hyperproof-sox page says 'docstoc delivers AR SOX reporting for collections'. Needs a reviewer to confirm the exact scope of the reporting before saying it next to a named competitor."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "auditboard",
+    "name": "AuditBoard",
+    "titleTag": "AuditBoard alternative for file evidence | docstoc",
+    "metaDescription": "AuditBoard, now Optro, is an enterprise GRC platform. docstoc certifies single files with a hash and a verify page. Scope and fit compared.",
+    "headline": "AuditBoard (now Optro) runs enterprise GRC, docstoc certifies one file",
+    "sub": "AuditBoard's site now redirects to Optro: docstoc is a small file-proof tool, not an enterprise audit suite.",
+    "whatItIs": "AuditBoard now trades as Optro, which describes itself as a GRC intelligence platform. The site lists audit, risk, infosec and compliance solution areas, including controls management, autonomous testing, AI governance and third party risk. It says it is trusted by over 50% of the Fortune 500 and cites recognition in Forrester and Gartner GRC evaluations. It is aimed at large enterprises.",
+    "whereTheyAreStronger": [
+      "Enterprise depth: separate audit, risk, infosec and compliance areas, which docstoc has no equivalent for.",
+      "Controls management and autonomous testing, according to its product list.",
+      "Scale of adoption: the site says over 50% of the Fortune 500 use it.",
+      "Analyst recognition: it cites a Forrester Wave GRC leader placement (Q2 2026) and the Gartner 2025 Magic Quadrant."
+    ],
+    "whereDocstocFits": [
+      "You need a hash and a verify link for a particular file, not an enterprise rollout.",
+      "You are a smaller business, or a team inside a larger one, that wants a free way to prove a document is unchanged.",
+      "The certificate can accompany an exported report you hand to an auditor.",
+      "Chase email drafts for overdue invoices are in the same workspace, sent by you."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Enterprise GRC: audit, risk, infosec and compliance.",
+        "docstoc": "File certificates and invoice chase drafts."
+      },
+      {
+        "topic": "Audience",
+        "competitor": "Large enterprises, per its site.",
+        "docstoc": "Freelancers, small teams and businesses chasing invoices."
+      },
+      {
+        "topic": "Naming",
+        "competitor": "Site redirects to Optro; Gartner entry says formerly AuditBoard.",
+        "docstoc": "docstoc by RELACON GmbH."
+      },
+      {
+        "topic": "Proof for outsiders",
+        "competitor": "Audit trails for AI governance decisions and GRC workflows.",
+        "docstoc": "Public verify page, SHA-256 fingerprint and optional Bitcoin timestamp."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "No prices on the page we opened; demo requested.",
+        "docstoc": "Free certificates; Business $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose AuditBoard/Optro if you run audit, risk and compliance as a connected programme across a large organisation and need controls testing and reporting at that scale.",
+      "docstoc": "Choose docstoc if your gap is one narrow thing: proving a document is unchanged, or keeping invoice chase approvals traceable. It sits beside an enterprise GRC system and does not claim to do its job."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace AuditBoard?",
+        "a": "No. docstoc does not replace AuditBoard. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Is AuditBoard the same as Optro?",
+        "a": "Yes, according to what we found. auditboard.com redirects to optro.ai, and a Gartner entry on that page reads 'Optro (formerly AuditBoard)'. Check Optro for current product names."
+      },
+      {
+        "q": "Can docstoc support SOX evidence for invoice collections?",
+        "a": "Partly. On Business, docstoc offers SOX reporting with maker-checker approval on chase sends and a log. It covers that slice only and does not promise any audit result."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://optro.ai/",
+        "supports": "AuditBoard redirects to Optro; solution areas, Fortune 500 claim, enterprise audience, formerly AuditBoard",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/scripts/generate-sox-seo-pages.mjs",
+        "supports": "docstoc maker-checker / SoD on chase sends (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells.",
+      "auditboard.com now redirects (301) to optro.ai and AuditBoard is described as 'formerly AuditBoard'. Current pages use the old name only.",
+      "In the SOX landing page: 'You do not need AuditBoard to enforce dual control on AR chase sends.' This is a comparative claim that cannot be verified from the vendor site (the Optro page did not mention SOX modules) and should be reworded or removed.",
+      "'AuditBoard runs enterprise SOX / GRC programs' (auditboard-sox) was not confirmed: the Optro home page names no SOX module."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used.",
+      "AuditBoard's SOX product pages were not opened; SOX capability left unclaimed."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "purview",
+    "name": "Microsoft Purview",
+    "titleTag": "Microsoft Purview alternative for file proof | docstoc",
+    "metaDescription": "Purview governs and secures data inside the Microsoft estate. docstoc only certifies a single file. Where they differ and when to use each.",
+    "headline": "Purview governs your Microsoft data, docstoc certifies one file",
+    "sub": "Purview manages data security, retention and audit logs: docstoc gives a single document a fingerprint and a public check.",
+    "whatItIs": "Microsoft Purview is Microsoft's product family for securing and governing data across on-premises, multicloud and SaaS environments. Its compliance side includes Audit, Communication Compliance, Compliance Manager, Data Lifecycle Management, eDiscovery and Records Management. Compliance Manager offers prebuilt assessments for more than 360 industry and regional standards, according to Microsoft Learn. Pricing is through the Purview Suite or pay as you go.",
+    "whereTheyAreStronger": [
+      "A unified audit log capturing user and admin operations across Microsoft 365 services, with long-term retention.",
+      "Retention and deletion policies across Exchange, SharePoint, OneDrive and Teams.",
+      "Records Management, which can declare items as immutable records and give proof of deletion.",
+      "eDiscovery for legal cases, and Compliance Manager with prebuilt assessments for 360+ standards."
+    ],
+    "whereDocstocFits": [
+      "The file sits outside Microsoft 365, or you want proof that works without any tenant.",
+      "A person with no Microsoft licence can still open the verify page.",
+      "The fingerprint is created in the browser, so setup takes seconds and no admin rights.",
+      "You also want drafted chase emails for unpaid invoices, which docstoc does not send for you."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Data security, governance and compliance across a data estate.",
+        "docstoc": "Certifies single files; drafts invoice chase emails."
+      },
+      {
+        "topic": "Records",
+        "competitor": "Records Management can declare items as immutable regulatory records.",
+        "docstoc": "No records management. A certificate records a hash and time but does not lock the file."
+      },
+      {
+        "topic": "Audit trail",
+        "competitor": "Unified audit log across Microsoft 365 services.",
+        "docstoc": "Public verify page per certificate; SoD approval history on chase sends (Business)."
+      },
+      {
+        "topic": "Who verifies",
+        "competitor": "Admins inside your Microsoft tenant.",
+        "docstoc": "Anyone with the link, no account."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "Purview Suite or pay as you go, per Microsoft; no figures on the page we opened.",
+        "docstoc": "Free certificates; Business $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose Purview if your documents and email live in Microsoft 365 and you need retention, audit logging, eDiscovery and compliance assessments managed by IT under one set of policies.",
+      "docstoc": "Choose docstoc if you need a simple, outward-facing proof that one file existed in one form, shareable with someone outside your organisation. It is not records management or legal advice."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace Microsoft Purview?",
+        "a": "No. docstoc does not replace Microsoft Purview. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Does docstoc lock a file like a Purview record?",
+        "a": "No. docstoc stores a fingerprint and a timestamp. Anyone can later re-hash the file and compare, but docstoc does not prevent changes to your copy."
+      },
+      {
+        "q": "Can I certify files from SharePoint in docstoc?",
+        "a": "Yes, download the file and hash it in the browser. There is no direct Purview or SharePoint connector."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/purview/purview-compliance",
+        "supports": "Purview compliance solutions: Audit, Compliance Manager 360+ standards, Records Management, eDiscovery",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://www.microsoft.com/en-us/security/business/microsoft-purview",
+        "supports": "Purview overview and pricing plans (Suite, pay as you go)",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells.",
+      "'Purview automates compliance checks' is imprecise: Purview is a data security, governance and compliance family (audit, retention, eDiscovery, Compliance Manager), not primarily a control-check tool."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used."
+    ],
+    "sector": "certificates"
+  },
+  {
+    "slug": "aws-security-hub",
+    "name": "AWS Security Hub",
+    "titleTag": "AWS Security Hub alternative for files | docstoc",
+    "metaDescription": "AWS Security Hub aggregates cloud security findings and checks. docstoc certifies single files. See the difference and where each one fits.",
+    "headline": "AWS Security Hub reads your cloud, docstoc seals a file",
+    "sub": "Security Hub checks your AWS accounts: docstoc has no cloud scanning and only fixes a document in time.",
+    "whatItIs": "AWS Security Hub (documented as Security Hub CSPM) gives a view of your security state in AWS and checks your environment against standards. AWS lists the AWS Foundational Security Best Practices, CIS, PCI DSS and NIST among them. It collects findings from services such as GuardDuty, Inspector and Macie, plus supported partner products, in a standard format. Automation rules and EventBridge can trigger remediation.",
+    "whereTheyAreStronger": [
+      "Continuous security checks against AWS best practices, CIS, PCI DSS and NIST, producing control findings.",
+      "Findings from several AWS services and partner products in one place, in one format.",
+      "Automation: rules that update findings and EventBridge actions for tickets or remediation.",
+      "Multi-account view with cross-Region aggregation and a dashboard."
+    ],
+    "whereDocstocFits": [
+      "You are not looking for cloud posture checks but for a proof of a file, such as an exported findings report you send to a customer.",
+      "The certificate shows when that export was fixed, with a public verify page.",
+      "No AWS account or Config setup is needed to create or check a certificate.",
+      "Chase drafts for unpaid invoices are on the same site, with sending left to you."
+    ],
+    "comparison": [
+      {
+        "topic": "Main job",
+        "competitor": "Cloud security posture checks and findings aggregation.",
+        "docstoc": "File certificates and invoice chase drafts."
+      },
+      {
+        "topic": "Standards",
+        "competitor": "AWS FSBP, CIS, PCI DSS, NIST, per AWS documentation.",
+        "docstoc": "None."
+      },
+      {
+        "topic": "Scope",
+        "competitor": "AWS accounts, services and supported partner products.",
+        "docstoc": "Individual files you choose to certify."
+      },
+      {
+        "topic": "Setup",
+        "competitor": "Needs AWS Config enabled for most control findings.",
+        "docstoc": "Hash in the browser; no cloud account."
+      },
+      {
+        "topic": "Pricing",
+        "competitor": "30-day free trial, then charges for security checks and ingested findings; see AWS pricing page.",
+        "docstoc": "Free certificates; Business $39.99 per month at the time of writing."
+      }
+    ],
+    "whenToChoose": {
+      "competitor": "Choose AWS Security Hub if you run workloads in AWS and want ongoing checks, aggregated findings and automated responses across accounts and Regions.",
+      "docstoc": "Choose docstoc if you need to prove a report, contract or export has not changed since a date, or want a tool outside AWS for invoice chasing. It does not assess cloud security."
+    },
+    "faq": [
+      {
+        "q": "Does docstoc replace AWS Security Hub?",
+        "a": "No. docstoc does not replace AWS Security Hub. It certifies individual files with a SHA-256 fingerprint and a public verification page, and it does not map controls or run compliance checks."
+      },
+      {
+        "q": "Can docstoc show my AWS environment is secure?",
+        "a": "No. docstoc does not scan cloud accounts. It can certify a report you exported from Security Hub so its content is fixed in time, but it says nothing about the state of your environment."
+      },
+      {
+        "q": "Does docstoc import Security Hub findings?",
+        "a": "No. There is no connector. Export what you need, then certify the file."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+        "supports": "Security Hub CSPM: standards (FSBP, CIS, PCI DSS, NIST), findings sources, automation, AWS Config prerequisite, 30-day trial",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://aws.amazon.com/security-hub/",
+        "supports": "Security Hub marketing page: aggregation, pricing plans, no dollar figures",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "https://docstoc.io/certificate",
+        "supports": "docstoc certificates: SHA-256 fingerprint, public verification page, optional Bitcoin timestamp, not e-signature, not legal advice",
+        "checked": "2026-10-31"
+      },
+      {
+        "url": "file:///Users/reinhold/chasa/apps/web/public/llms-full.txt",
+        "supports": "docstoc free tier, Business plan at $39.99/month, custom certificate branding, browser-side hashing, drafts not sent by docstoc (repo file)",
+        "checked": "2026-10-31"
+      }
+    ],
+    "existingClaimIssues": [
+      "Headline 'File evidence — not a X GRC platform' uses a dash connector, against the style guide.",
+      "'Cheap enough to sit beside GRC, not instead of it' is a price comparison. None of the vendor sites opened publish prices, so it cannot be verified. Remove or reword.",
+      "'Honest roadmap vs live' is unclear and unsupported as a comparison point; replace with concrete live features.",
+      "'docstoc is not SOC 2 automation' is correct but the generic problem text ('automates compliance checks') is applied to every vendor regardless of what the vendor actually sells.",
+      "'AWS Security Hub automates compliance checks' is only partly right: it runs security control checks and aggregates findings. Its docs now call the product Security Hub CSPM, so the name may need updating."
+    ],
+    "gaps": [
+      "Vendor pricing: not published on the pages opened, so no prices are quoted.",
+      "Third-party review or analyst claims were not used.",
+      "Exact Security Hub pricing figures not quoted."
+    ],
+    "sector": "certificates"
+  }
+]
