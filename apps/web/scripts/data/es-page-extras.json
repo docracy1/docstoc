@@ -1,0 +1,122 @@
+{
+"/es/guides/invoice-chasing/": {
+"sections": [
+{"h2": "Por dónde empezar según tu situación", "paragraphs": ["Esta página reúne todo lo que docstoc ofrece para cobrar facturas atrasadas. Si tienes una sola factura vencida, lo más rápido es pegar los datos en la plataforma y revisar el borrador. Si prefieres escribir tú mismo, copia una de las plantillas gratuitas y adáptala.", "En todos los casos el flujo es el mismo: docstoc redacta, tú revisas y tú envías desde tu propia bandeja. Nada sale automáticamente y tu cliente siempre recibe el mensaje de ti, no de nosotros."], "bullets": ["Una factura vencida: pega nombre del cliente, importe y fecha de vencimiento y obtén un borrador con el tono adecuado.", "Varias facturas: sube un CSV o ingrésalas a mano. En Pro puedes importar facturas vencidas desde QuickBooks Online o Xero.", "Prefieres escribir tú: usa las plantillas de recordatorio gratuitas, sin crear cuenta."]},
+{"h2": "El tono depende de los días de retraso", "paragraphs": ["Un mensaje amable funciona cuando la factura lleva pocos días vencida. Con semanas de retraso hace falta algo más directo. docstoc ajusta el tono según los días: amable durante la primera semana, profesional entre el día 8 y el 30, y directo pasado el día 30.", "Antes del vencimiento también conviene escribir. Un aviso cortés unos siete días antes, con número de factura, importe y enlace de pago, evita muchos retrasos. Después del vencimiento, un primer toque suave al día 1 a 3 y recordatorios cada vez más firmes a los 7, 30 y 60 días suelen ordenar la conversación."]},
+{"h2": "Qué incluye cada plan para cobrar", "paragraphs": ["El plan gratuito incluye 5 borradores con IA al mes y las plantillas de recordatorio. Pro cuesta 14,99 USD al mes e incluye borradores ilimitados, reescritura más suave, más firme o más breve, un CRM de clientes, calendario de recordatorios y un resumen diario por correo. Business, a 39,99 USD al mes, añade carta formal de reclamación y un pack de evidencia de cobros.", "docstoc no es una agencia de cobranza ni ofrece asesoría legal. Las plantillas son un punto de partida informativo."]}
+],
+"faq": [
+{"q": "¿Qué página del centro me sirve si es mi primera vez?", "a": "Empieza por Seguimiento de facturas: explica cómo docstoc adapta el tono a los días de retraso y te lleva a probar los 5 borradores gratuitos del mes. Si solo necesitas texto para copiar, ve directo a las plantillas de recordatorio."},
+{"q": "¿Necesito cuenta para usar las plantillas?", "a": "No. Las plantillas de recordatorio se copian sin crear cuenta. Los borradores con IA incluyen 5 al mes en el plan gratuito, y para más hay que pasar a Pro."},
+{"q": "¿docstoc contacta a mis clientes por mí?", "a": "No. docstoc solo redacta el borrador. Tú lo revisas, lo copias a Gmail, Outlook o Apple Mail y lo envías tú mismo."}
+]
+},
+"/es/payment-reminder": {
+"sections": [
+{"h2": "Antes del vencimiento: un aviso de cortesía", "paragraphs": ["Un recordatorio unos siete días antes de la fecha de pago evita buena parte de los retrasos. No es una reclamación, es un aviso útil: incluye el número de factura, el importe, la fecha de vencimiento y el enlace o los datos para pagar.", "Mantén el mensaje corto. Una o dos frases y los datos clave bastan para que el cliente sepa qué hacer sin tener que buscar la factura."]},
+{"h2": "Después del vencimiento: sube el tono poco a poco", "paragraphs": ["Cuando la factura ya venció, el primer paso es un recordatorio amable entre el día 1 y el 3. Si no hay respuesta, puedes ir subiendo la firmeza a los 7, 30 y 60 días. Cada etapa tiene su propia plantilla gratuita, y docstoc puede escoger el tono por ti según los días de retraso."], "bullets": ["Días 1 a 3: recordatorio amable, con la factura adjunta o enlazada.", "Día 7: segundo aviso, más concreto sobre la fecha que necesitas.", "Días 30 y 60: mensaje directo, con la consecuencia práctica de seguir sin pago.", "Siempre: una sola petición clara y una forma fácil de pagar."]},
+{"h2": "Plantillas o borrador con IA", "paragraphs": ["Las plantillas son gratuitas, se copian sin cuenta y sirven si quieres controlar cada palabra. Si prefieres que docstoc escriba el texto con los datos de tu factura, el plan gratuito incluye 5 borradores con IA al mes. Pro añade borradores ilimitados y la opción de reescribir más suave, más firme o más breve.", "En ambos casos tú envías el correo desde tu bandeja. Las plantillas son informativas y no constituyen asesoría legal."]}
+],
+"faq": [
+{"q": "¿Cuántos días antes del vencimiento conviene avisar?", "a": "Unos siete días antes. Es suficiente para que el cliente programe el pago y todavía no suena a reclamo. Incluye número de factura, importe y forma de pago."},
+{"q": "¿Qué hago si el primer recordatorio no recibe respuesta?", "a": "Envía un segundo aviso a los 7 días de retraso, más concreto sobre la fecha que necesitas, y escala a los 30 y 60 días con un tono más directo. Conserva siempre un registro de lo enviado."},
+{"q": "¿Puedo pedir un borrador más suave o más firme?", "a": "Sí, en Pro. Puedes reescribir el borrador más suave, más firme o más breve. En el plan gratuito eliges entre las plantillas por etapa o usas los 5 borradores mensuales."}
+]
+},
+"/es/use-cases/auditor-evidence-pack": {
+"sections": [
+{"h2": "Cómo crear el pack en el producto", "paragraphs": ["El pack se genera desde el panel de informes SOX. Inicia sesión, abre la pestaña Evidencia y exportaciones, elige las fechas de inicio y fin y pulsa Crear pack con timestamp. Cuando termina, descargas el HTML, el archivo .sha256 y el archivo .ots, y se los envías juntos al auditor.", "La función forma parte de los informes SOX y está incluida en el plan Business."]},
+{"h2": "Qué contiene el pack", "paragraphs": ["El HTML congela la situación del periodo elegido. No es un resumen editable, es un archivo único cuyo contenido queda fijado por su huella digital."], "bullets": ["Foto de la cobertura de controles en el momento de generar el pack.", "Facturas con actividad en el periodo, con estadísticas de aperturas y clics de los correos.", "Línea de tiempo de cobros con el actor de cada evento.", "Aprobaciones maker-checker, donde quien solicita y quien aprueba son personas distintas.", "Acciones SOX y anclajes diarios de hash en Bitcoin."]},
+{"h2": "Por qué OpenTimestamps y no solo un PDF", "paragraphs": ["Un PDF emitido por el propio proveedor no demuestra nada si ese proveedor puede reescribir el historial. Por eso docstoc calcula el SHA-256 de los bytes exactos del HTML que descargas y ancla esa huella a Bitcoin mediante calendarios públicos de OpenTimestamps. Es el mismo enfoque que usamos para los certificados de documentos y los anclajes diarios.", "El auditor calcula el hash del HTML, lo compara con el archivo .sha256 y verifica el .ots con el cliente de OpenTimestamps u otro verificador compatible. La confirmación en Bitcoin puede tardar horas; un pack pendiente sigue siendo válido y el .ots se actualiza cuando los calendarios publican. Esta información no es asesoría de auditoría ni garantiza un resultado."]}
+],
+"faq": [
+{"q": "¿Qué tres archivos debo entregar al auditor?", "a": "El HTML, el .sha256 y el .ots, siempre juntos. Con ellos el auditor puede comprobar que el HTML no cambió y verificar la prueba contra Bitcoin sin depender de nuestra base de datos."},
+{"q": "¿Tengo que esperar la confirmación de Bitcoin para entregar el pack?", "a": "No. Los calendarios suelen confirmar en unas horas, pero un pack pendiente se puede descargar y conservar. El archivo .ots se actualiza cuando los calendarios publican la confirmación."},
+{"q": "¿En qué plan está disponible?", "a": "En Business, 39,99 USD al mes, como parte de los informes SOX. Los usuarios Free y Pro ven una invitación a actualizar en el panel."}
+]
+},
+"/es/chase-invoices": {
+"sections": [
+{"h2": "Un flujo sencillo para reclamar", "paragraphs": ["Reclamar una factura no debería convertirse en un proyecto. El proceso en docstoc tiene tres pasos y cada uno es tuyo: añades la factura, revisas el borrador y envías.", "Primero registras las facturas vencidas: puedes escribirlas a mano, subir un CSV o, en los planes de pago, sincronizarlas desde QuickBooks o Xero. Después revisas el borrador. Con Pro puedes ajustarlo con Suavizar o Endurecer. Por último copias el texto a tu cliente de correo, lo envías y marcas la factura como cobrada cuando llegue el pago."]},
+{"h2": "Reclamar no es lo mismo que cobrar", "paragraphs": ["Reclamar es un seguimiento cortés que envías tú. La cobranza, en cambio, implica a terceros y, en muchos casos, pasos legales. docstoc no es una agencia de cobranza y no ofrece asesoría legal. Solo redacta el mensaje, y la decisión de cuándo y cómo enviarlo es tuya.", "Eso protege la relación con el cliente. Quien recibe el correo ve tu nombre y tu dirección, no la de un tercero."]},
+{"h2": "Cuándo conviene dar el siguiente paso", "paragraphs": ["Si un cliente no responde, sube la firmeza de forma gradual: un primer toque amable, un segundo aviso más concreto y, pasados 30 días, un mensaje directo. En Business hay una carta formal de reclamación y un pack de evidencia de cobros para los casos que lo requieren."], "bullets": ["Free: 5 borradores con IA al mes, CSV o ingreso manual.", "Pro (14,99 USD al mes): borradores ilimitados, importación desde QuickBooks y Xero, CRM de clientes.", "Business (39,99 USD al mes): carta formal, pack de evidencia y puntuación de riesgo de pago."]}
+],
+"faq": [
+{"q": "¿Puedo reclamar sin conectar mi contabilidad?", "a": "Sí. En el plan gratuito puedes escribir las facturas a mano o subir un CSV. La sincronización con QuickBooks Online y Xero está disponible en Pro y Business."},
+{"q": "¿Qué hago cuando el cliente promete pagar y no paga?", "a": "Escribe un segundo mensaje que cite esa promesa y fije una fecha concreta. En Business, docstoc detecta fechas de pago prometidas en las respuestas, pero el envío sigue siendo tuyo."},
+{"q": "¿Mis clientes saben que uso docstoc?", "a": "No tienen por qué. El correo sale desde tu bandeja y con tu nombre. docstoc no envía nada a tus clientes."}
+]
+},
+"/es/use-cases/sox-reporting": {
+"sections": [
+{"h2": "Cómo leer Ready, Partial y Missing", "paragraphs": ["El panel muestra el estado de cada control con tres etiquetas. Son una lectura en vivo de tu cuenta, no una lista de funciones futuras.", "Ready significa que ya hay suficiente evidencia o configuración para ese control. Partial indica que la capacidad existe, pero falta actividad de cobros, un compañero o más historial. Missing quiere decir que aún no está activado o que todavía no se ha generado evidencia, por ejemplo con SoD desactivado o sin anclajes diarios."]},
+{"h2": "Dónde está el archivo final para el auditor", "paragraphs": ["Entra en Informes SOX, abre Evidencia y exportaciones, elige las fechas y pulsa Crear pack con timestamp. Descarga el HTML, el .sha256 y el .ots, y envíalos juntos. La pestaña también muestra la lista de packs congelados anteriores.", "Los anclajes diarios combinan la actividad de cobros y las aperturas y clics de los correos en una cadena de hashes anclada con OpenTimestamps. La confirmación suele llegar en unas horas."]},
+{"h2": "Para quién es y qué no es", "paragraphs": ["Está pensado para equipos de finanzas que reclaman facturas vencidas y necesitan evidencia útil para el control interno, ya sea para auditores externos, auditoría interna o el cierre mensual, sin montar una suite GRC completa.", "No es una plataforma completa de cumplimiento SOX. Cubre la parte del control interno que toca el cobro de facturas. Esta página es informativa y no constituye asesoría legal ni de auditoría, ni promete un resultado de auditoría."]}
+],
+"faq": [
+{"q": "¿En qué plan están los informes SOX?", "a": "En Business, 39,99 USD al mes. Los usuarios Free y Pro ven una invitación a actualizar en el panel."},
+{"q": "¿Cuánto tarda la confirmación en Bitcoin?", "a": "Normalmente unas horas. Mientras tanto el pack se puede descargar, y el archivo .ots se actualiza cuando los calendarios de OpenTimestamps publican la confirmación."},
+{"q": "¿Reemplaza a mi herramienta de cierre o GRC?", "a": "No. Aporta la capa de evidencia de los cobros de cuentas por cobrar. Tu herramienta de cierre o GRC sigue cubriendo el resto de controles de la entidad."}
+]
+},
+"/es/use-cases/segregation-of-duties-collections": {
+"sections": [
+{"h2": "Cómo funciona la separación en la práctica", "paragraphs": ["Con SoD activado, la persona que redacta o solicita un cobro no es la misma que aprueba Marcar como enviado. Se activa en Informes SOX, dentro de Retención y SoD, y requiere al menos un compañero en el espacio de trabajo.", "Quien prepara el cobro lo solicita desde la tarjeta del cobro. El equipo recibe un aviso por correo y la solicitud aparece en la cola de aprobaciones. Cuando otra persona la aprueba, la autorización se consume al registrar el envío y no se puede reutilizar."]},
+{"h2": "Roles y registro para el auditor", "paragraphs": ["Cada espacio de trabajo distingue entre Admin y Miembro. Cada solicitud y cada decisión queda registrada con el correo y el rol de quien actúa, de modo que el historial de aprobaciones muestra quién pidió qué y quién lo autorizó.", "El historial entra en el pack de evidencia del periodo, junto con las facturas y la línea de tiempo de cobros."], "bullets": ["La API rechaza la autoaprobación mientras SoD esté activo.", "Cada aprobación se consume una sola vez tras el envío.", "Las decisiones forman parte de la pista de auditoría con actor."]},
+{"h2": "Qué no cambia", "paragraphs": ["docstoc sigue sin enviar correos a tus clientes. La aprobación controla el paso de marcar como enviado, que es el que deja constancia en la evidencia. El mensaje real lo envías tú desde tu bandeja.", "La función está incluida en Business. Es una ayuda para documentar el doble control y no garantiza resultados de auditoría ni sustituye asesoría profesional."]}
+],
+"faq": [
+{"q": "¿Necesito un compañero para activar SoD?", "a": "Sí. El doble control exige a otra persona que apruebe, así que hay que invitar al menos a un compañero al espacio de trabajo antes de usarlo."},
+{"q": "¿Qué pasa si el aprobador está ausente?", "a": "La solicitud queda pendiente en la cola de Informes SOX hasta que otra persona autorizada la apruebe. El solicitante no puede aprobarla por su cuenta."},
+{"q": "¿Dónde veo el historial de aprobaciones?", "a": "En Informes SOX, con el actor de cada decisión. El mismo historial se incluye en el pack de evidencia que entregas al auditor."}
+]
+},
+"/es/accounts-receivable-sox": {
+"sections": [
+{"h2": "Qué puedes hacer desde Informes SOX", "paragraphs": ["Cuando el auditor pregunte quién aprobó un seguimiento de cobro, el panel responde en un solo lugar. Muestra el estado de cada control (Ready, Partial o Missing), la cola de aprobaciones SoD y una biblioteca de controles con pruebas por periodo.", "Desde ahí también generas el pack con timestamp, un HTML congelado con su SHA-256 y una prueba OpenTimestamps que el auditor verifica sin confiar en nuestra base de datos."]},
+{"h2": "Cómo se obtiene el archivo del auditor", "paragraphs": ["El camino es corto: Informes SOX, Evidencia y exportaciones, fechas del periodo y Crear pack con timestamp. Descarga el HTML, el .sha256 y el .ots, y envíalos los tres a la vez.", "El auditor calcula el hash del HTML, lo compara con el archivo .sha256 y verifica el .ots contra Bitcoin. Si la confirmación aún está pendiente, el pack sigue siendo válido y se actualiza cuando los calendarios publican."], "bullets": ["Atribución con correo y rol en los eventos de cobro.", "Doble control opcional antes de marcar un cobro como enviado.", "Anclajes diarios de hash vía OpenTimestamps.", "Retención configurable, retención legal y purga opcional."]},
+{"h2": "Alcance y límites", "paragraphs": ["Los informes SOX de cuentas por cobrar están incluidos en Business, a 39,99 USD al mes. docstoc cubre la evidencia de los cobros y no pretende ser una plataforma de cumplimiento completa. No envía correos a clientes: el envío lo haces tú. Este contenido es informativo y no constituye asesoría legal, fiscal ni de auditoría."]}
+],
+"faq": [
+{"q": "¿Necesito una suite GRC para usarlo?", "a": "No. Está pensado para equipos que ya reclaman facturas y necesitan evidencia atribuible sin comprar una plataforma GRC completa. Si ya tienes una, esto aporta la capa de cobros."},
+{"q": "¿Qué página abro primero?", "a": "Informes SOX para ver el panel y el estado de los controles. Después, maker-checker o segregación de funciones si quieres activar el doble control."},
+{"q": "¿El auditor tiene que confiar en docstoc?", "a": "No necesita hacerlo para verificar el archivo. Comprueba el hash del HTML y la prueba OpenTimestamps contra Bitcoin con un verificador compatible."}
+]
+},
+"/es/invoice-follow-up": {
+"sections": [
+{"h2": "Cómo se adapta el tono a los días de retraso", "paragraphs": ["docstoc escoge el tono según el tiempo que lleva vencida la factura. Durante la primera semana el mensaje es amable, entre los días 8 y 30 es profesional y pasados los 30 días pasa a ser directo.", "Así evitas dos errores comunes: un correo tan suave que nadie lo toma en serio, o uno tan seco que daña la relación con un cliente que quizás solo olvidó pagar."]},
+{"h2": "Qué incluye un buen seguimiento", "paragraphs": ["Un seguimiento eficaz es corto y específico. Menciona el número de factura, el importe, la fecha de vencimiento y la forma de pagar, y pide una acción concreta.", "El borrador de docstoc parte de los datos que pegas, como nombre del cliente, importe y fecha. Antes de enviarlo puedes retocar cualquier frase."], "bullets": ["Free: 5 borradores con IA al mes y plantillas gratuitas.", "Pro (14,99 USD al mes): borradores ilimitados, importación desde QuickBooks y Xero, y reescritura más suave, firme o breve.", "Business (39,99 USD al mes): carta formal de reclamación y pack de evidencia de cobros."]},
+{"h2": "Tú envías, siempre", "paragraphs": ["docstoc no manda ningún correo a tus clientes. Copias el borrador en Gmail, Outlook o Apple Mail y lo envías tú. Tu cliente recibe el mensaje de ti, con tu nombre y tu dirección. Las plantillas y los borradores son informativos y no constituyen asesoría legal."]}
+],
+"faq": [
+{"q": "¿Cuándo debo hacer el primer seguimiento?", "a": "Cuando la factura pasa de la fecha de vencimiento, con un mensaje amable entre el día 1 y el 3. Si quieres anticiparte, un aviso de cortesía unos siete días antes evita muchos retrasos."},
+{"q": "¿Puedo usar docstoc sin pagar?", "a": "Sí. El plan gratuito incluye 5 borradores con IA al mes y plantillas de correo gratuitas. Pro añade borradores ilimitados y sincronización con QuickBooks y Xero."},
+{"q": "¿Qué tono usa docstoc con una factura de 45 días?", "a": "Un tono directo, que es el que corresponde a más de 30 días de retraso. Puedes revisarlo y, en Pro, reescribirlo más suave o más breve antes de enviarlo."}
+]
+},
+"/es/use-cases/icfr-accounts-receivable": {
+"sections": [
+{"h2": "Qué pruebas puede pedir un auditor sobre los cobros", "paragraphs": ["Al muestrear seguimientos de cuentas por cobrar, un auditor suele querer saber quién gestionó el cobro, quién autorizó el envío y cuándo ocurrió cada paso. Con correos sueltos y hojas de cálculo esa información es difícil de reconstruir.", "docstoc registra el correo y el rol del actor en los eventos de cobro y en las acciones SOX, de modo que la pista de auditoría responde a esas preguntas sin trabajo manual."]},
+{"h2": "La biblioteca de controles de AR", "paragraphs": ["El producto incluye una biblioteca de controles de cuentas por cobrar con pruebas por periodo que pueden resultar en aprobado, fallo o excepción. Sirve para ver de un vistazo qué controles tienen evidencia y cuáles necesitan más actividad.", "Cada día, la actividad de cobros y las aperturas y clics se combinan en una cadena de hashes anclada a Bitcoin con OpenTimestamps. Al cierre del periodo puedes generar un pack congelado con HTML, SHA-256 y .ots."], "bullets": ["Retención configurable de los registros.", "Retención legal (legal hold) para casos concretos.", "Purga opcional cuando la política lo permita."]},
+{"h2": "Dónde termina docstoc", "paragraphs": ["docstoc cubre únicamente la capa de evidencia de los cobros de cuentas por cobrar. Para los demás controles de la entidad sigue haciendo falta tu herramienta de cierre o de GRC. Los informes SOX están en el plan Business. Este texto es informativo, no es asesoría de auditoría y no promete resultados."]}
+],
+"faq": [
+{"q": "¿Qué significa aprobado, fallo o excepción?", "a": "Son los resultados posibles de la prueba de un control en un periodo. Aprobado indica que la evidencia cumple la prueba, fallo que no la cumple y excepción que hubo un caso puntual fuera de la regla."},
+{"q": "¿Puedo conservar los registros más tiempo del habitual?", "a": "Sí. Puedes configurar la ventana de retención y aplicar una retención legal a los registros que debas conservar. La purga es opcional."},
+{"q": "¿Sustituye a la auditoría interna?", "a": "No. Aporta evidencia atribuible y verificable de los cobros. La evaluación de los controles sigue siendo trabajo de tu equipo y de tus auditores."}
+]
+},
+"/es/use-cases/maker-checker-invoice-chase": {
+"sections": [
+{"h2": "Cómo se activa y cómo fluye", "paragraphs": ["El maker-checker se activa en Informes SOX, dentro de Retención y SoD. Después, quien prepara el cobro lo solicita desde la tarjeta del cobro y otro miembro del equipo recibe un aviso por correo para revisarlo.", "Si el revisor aprueba, la autorización queda disponible para ese envío concreto. Cuando marcas el cobro como enviado, la aprobación se consume y no puede reutilizarse en otro."], "bullets": ["El solicitante y el aprobador deben ser personas distintas.", "La API rechaza la autoaprobación.", "Cada solicitud y decisión queda en la pista de auditoría."]},
+{"h2": "Qué ve el auditor", "paragraphs": ["En el pack de evidencia del periodo aparecen las aprobaciones maker-checker junto con la línea de tiempo de cobros y las acciones SOX. El auditor puede ver quién pidió cada envío, quién lo autorizó y cuándo, sin depender de capturas de pantalla ni de correos reenviados.", "Como el pack está congelado y anclado con OpenTimestamps, también puede comprobar que el archivo no se reescribió después de generarlo."]},
+{"h2": "Un control ligero para equipos pequeños", "paragraphs": ["No hace falta un despliegue largo. Basta con activar la opción e invitar a un compañero. Para equipos que cobran pocas facturas, es una forma simple de dejar por escrito que ninguna persona decide sola. Esta función ayuda a documentar el control, pero no garantiza resultados de auditoría ni sustituye asesoría profesional."]}
+],
+"faq": [
+{"q": "¿Puede aprobar quien solicitó el cobro?", "a": "No. Con el control activado, la API rechaza que el solicitante apruebe su propia solicitud. Debe hacerlo otra persona del espacio de trabajo."},
+{"q": "¿Una aprobación sirve para varios envíos?", "a": "No. Cada aprobación se consume una sola vez, cuando el envío se marca como enviado. Para otro cobro hay que solicitar una nueva aprobación."},
+{"q": "¿Qué ocurre si el cliente responde y hay que volver a escribir?", "a": "Un nuevo mensaje es un nuevo cobro y necesita su propia solicitud y aprobación, con su propio registro en la pista de auditoría."}
+]
+}
+}

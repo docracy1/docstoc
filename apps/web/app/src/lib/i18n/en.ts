@@ -285,6 +285,7 @@ const en: Messages = {
   "login.genericError": "Something went wrong.",
   "login.emailPlaceholder": "you@example.com",
   "login.passwordPlaceholder": "Password",
+  "login.totpPlaceholder": "6-digit code from your authenticator app",
 
   "common.loading": "Loading…",
   "common.error": "Something went wrong.",

@@ -1,5 +1,6 @@
 import type { Context, MiddlewareHandler } from "hono";
 import { getCookie, setCookie, deleteCookie } from "hono/cookie";
+import { verifyTotp } from "./totp";
 import type { Env } from "../types";
 import { getAdminEmail } from "./adminAuth";
 import { isPaidPlan, type Plan } from "./billing";
@@ -101,6 +102,9 @@ export async function requestMagicLink(
   if (!normalized || !normalized.includes("@")) {
     return { ok: false, error: "Enter a valid email address." };
   }
+  if (env.ADMIN_TOTP_SECRET && normalized === getAdminEmail(env)) {
+    return { ok: false, error: "Sign in with your password and code." };
+  }
 
   // Prefer an existing account's stored preference over the current browser's language — a
   // returning user on a borrowed device shouldn't suddenly get emails in the wrong language.
@@ -191,6 +195,9 @@ export async function consumeMagicLink(
     return { ok: false, error: "That link is invalid or has expired. Request a new one." };
   }
 
+  if (env.ADMIN_TOTP_SECRET && row.email.trim().toLowerCase() === getAdminEmail(env)) {
+    return { ok: false, error: "Sign in with your password and code." };
+  }
   const account = await findOrCreateAccount(env, row.email, detectLocaleFromHeader(acceptLanguage));
   await purgeExpiredSessions(env);
   await env.CHASA_DB.prepare(`DELETE FROM sessions WHERE account_id = ?`).bind(account.id).run();
@@ -229,7 +236,8 @@ export async function adminPasswordLogin(
   env: Env,
   email: string,
   password: string,
-  ip: string
+  ip: string,
+  totpCode?: string
 ): Promise<
   | { ok: true; sessionToken: string; accountId: string; isNew: boolean; isPaid: boolean; plan: Plan }
   | { ok: false; error: string; status?: number }
@@ -248,6 +256,9 @@ export async function adminPasswordLogin(
   const passOk = timingSafeEqual(password, env.ADMIN_PASSWORD);
   if (!emailOk || !passOk) {
     return { ok: false, error: "Invalid email or password." };
+  }
+  if (env.ADMIN_TOTP_SECRET && !(await verifyTotp(env.ADMIN_TOTP_SECRET, totpCode))) {
+    return { ok: false, error: "Invalid email, password or code." };
   }
 
   const account = await findOrCreateAccount(env, normalized);
@@ -493,6 +504,9 @@ export async function handleGoogleLoginCallback(
   if (!verified) return { ok: false, error: "Email isn't verified" };
   if (tokenInfo.aud && tokenInfo.aud !== env.GOOGLE_LOGIN_CLIENT_ID) {
     return { ok: false, error: "Invalid token audience" };
+  }
+  if (env.ADMIN_TOTP_SECRET && email.trim().toLowerCase() === getAdminEmail(env)) {
+    return { ok: false, error: "Sign in with your password and code." };
   }
   const account = await findOrCreateAccount(env, email, detectLocaleFromHeader(acceptLanguage));
   await purgeExpiredSessions(env);

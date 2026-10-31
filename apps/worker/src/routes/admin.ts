@@ -39,10 +39,10 @@ const admin = new Hono<AdminEnv>();
 admin.post("/login", async (c) => {
   const parsed = await parseJsonBody(c.req, adminLoginSchema);
   if (!parsed.ok) return c.json({ error: parsed.error }, 400);
-  const { email, password, turnstileToken } = parsed.data;
+  const { email, password, totpCode, turnstileToken } = parsed.data;
   const check = await verifyTurnstile(c.env, turnstileToken, clientIp(c));
   if (!check.ok) return c.json({ error: check.error }, 400);
-  const result = await loginAdmin(c.env, email, password, clientIp(c) || "unknown");
+  const result = await loginAdmin(c.env, email, password, clientIp(c) || "unknown", totpCode);
   if (!result.ok) return c.json({ error: result.error }, (result.status ?? 401) as 401 | 429);
   setAdminCookie(c, c.env, result.token);
   return c.json({ ok: true, email: email.trim().toLowerCase() });

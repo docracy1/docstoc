@@ -35951,6 +35951,36 @@ const indexJsonLd = JSON.stringify(
   2
 );
 
+const TITLE_STOPWORDS = new Set(["free", "template", "agreement", "form", "letter", "notice", "of", "and", "for", "the", "a", "an", "to", "in", "on", "with", "or", "by"]);
+
+function titleWords(t) {
+  return new Set(
+    t.name.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !TITLE_STOPWORDS.has(w))
+  );
+}
+
+/** Same subject first (shared title words), then a stable spread through the category, so links
+ *  reach the whole library rather than only the first few templates of each category. */
+function relatedDocumentTemplates(t, limit) {
+  const mine = titleWords(t);
+  const scored = DOCUMENT_TEMPLATES.filter((x) => x.slug !== t.slug).map((x) => {
+    let overlap = 0;
+    for (const w of titleWords(x)) if (mine.has(w)) overlap += 1;
+    return { x, score: overlap * 2 + (x.category === t.category ? 1 : 0) };
+  });
+  const seed = [...t.slug].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+  const rank = (s) => (seed ^ [...s.slug].reduce((h, c) => (h * 33 + c.charCodeAt(0)) >>> 0, 5)) >>> 0;
+  return scored
+    .filter((s) => s.score > 0)
+    .sort((a, b) => b.score - a.score || rank(a.x) - rank(b.x))
+    .slice(0, limit)
+    .map((s) => s.x);
+}
+
+function docCategoryPath(name) {
+  return name.toLowerCase().replace(/\s+/g, "-");
+}
+
 function slugifyCategory(name) {
   return "cat-" + name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
@@ -36901,8 +36931,7 @@ for (const t of DOCUMENT_TEMPLATES) {
     2
   );
 
-  const others = DOCUMENT_TEMPLATES.filter((x) => x.slug !== t.slug && x.category === t.category)
-    .slice(0, 5)
+  const others = relatedDocumentTemplates(t, 8)
     .map((x) => `<li><a href="/document-templates/${x.slug}">${escapeHtml(x.name)}</a></li>`)
     .join("\n");
   const othersFallback =
@@ -36990,9 +37019,10 @@ for (const t of DOCUMENT_TEMPLATES) {
   <h2>FAQ</h2>
   ${faqHtml}
 
-  <h2>More free document templates</h2>
+  <h2>Related document templates</h2>
   <ul class="tpl-more">${othersHtml}
   </ul>
+  <p><a href="/document-templates/category/${docCategoryPath(t.category)}">All ${escapeHtml(t.category)} templates</a> · <a href="/document-templates/">Full template library</a></p>
 
   ${productsStripHtml()}
 
@@ -37246,6 +37276,47 @@ ${DOC_INDEX_FAQ.map((item) => `  <details class="faq-item"><summary>${escapeHtml
 });
 
 writeFileSync(join(docOutDir, "index.html"), docIndexHtml);
+
+// One page per category, so each template sits two clicks from the library by subject.
+const DOCUMENT_CATEGORY_INTROS = {
+  Business: "Agreements, letters, policies and plans for running a company: from a first supplier contract to board paperwork.",
+  Legal: "Notices, waivers, affidavits and other legal documents as a starting structure. A lawyer should review anything that matters.",
+  "Real Estate": "Leases, purchase and construction documents, and notices between landlords, tenants, buyers and sellers.",
+  Finance: "Loan agreements, promissory notes, receivables and payment documents, with the amounts and terms left for you to fill in.",
+  HR: "Offer letters, employment documents, policies and termination paperwork for hiring and managing a team.",
+};
+mkdirSync(join(docOutDir, "category"), { recursive: true });
+for (const cat of DOCUMENT_CATEGORIES) {
+  const items = DOCUMENT_TEMPLATES.filter((t) => t.category === cat);
+  const slug = docCategoryPath(cat);
+  const others = DOCUMENT_CATEGORIES.filter((c) => c !== cat)
+    .map((c) => `<a href="/document-templates/category/${docCategoryPath(c)}">${escapeHtml(c)}</a>`)
+    .join(" · ");
+  writeFileSync(
+    join(docOutDir, "category", `${slug}.html`),
+    chrome({
+      title: `Free ${cat} Document Templates | docstoc`,
+      description: `${items.length} free ${cat.toLowerCase()} document templates. ${DOCUMENT_CATEGORY_INTROS[cat]}`.slice(0, 155).replace(/\s+\S*$/, ""),
+      canonical: `https://docstoc.io/document-templates/category/${slug}`,
+      activeNav: "templates",
+      jsonLd: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: `Free ${cat} document templates`,
+        url: `https://docstoc.io/document-templates/category/${slug}`,
+      }),
+      depth: 2,
+      mainHtml: `<main class="wrap">
+  <h1>Free ${escapeHtml(cat)} document templates</h1>
+  <p class="tpl-hero-lede">${escapeHtml(DOCUMENT_CATEGORY_INTROS[cat])} ${items.length} templates, free to view, copy and edit with no account.</p>
+  <p><a href="/document-templates/">Full template library</a> · ${others}</p>
+  <div class="tpl-grid">
+${items.map(docTemplateCard).join("\n")}
+  </div>
+</main>`,
+    })
+  );
+}
 console.log(`Wrote ${DOCUMENT_TEMPLATES.length} document templates + index → ${docOutDir}`);
 
 function markdownToHtml(md) {

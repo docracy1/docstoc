@@ -287,6 +287,7 @@ const es: Messages = {
   "login.genericError": "Algo salió mal.",
   "login.emailPlaceholder": "tu@ejemplo.com",
   "login.passwordPlaceholder": "Contraseña",
+  "login.totpPlaceholder": "Código de 6 dígitos de tu app de autenticación",
 
   "common.loading": "Cargando…",
   "common.error": "Algo salió mal.",

@@ -30,6 +30,7 @@ auth.get("/config", (c) => {
     ),
     /** Non-secret — login UI shows a password field when the typed email matches. */
     adminEmail: getAdminEmail(c.env),
+    adminTotpRequired: !!c.env.ADMIN_TOTP_SECRET,
   });
 });
 
@@ -62,7 +63,8 @@ auth.post("/admin-login", async (c) => {
     c.env,
     parsed.data.email,
     parsed.data.password,
-    clientIp(c) || "unknown"
+    clientIp(c) || "unknown",
+    parsed.data.totpCode
   );
   if (!result.ok) return c.json({ error: result.error }, (result.status ?? 401) as 401 | 429);
 

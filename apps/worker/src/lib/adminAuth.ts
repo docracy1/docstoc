@@ -4,6 +4,7 @@ import type { Env } from "../types";
 import { resolveAccount, SESSION_COOKIE_NAME } from "./auth";
 import { generateOpaqueToken, hashOpaqueToken, hashOpaqueTokenLookup } from "./token";
 import { timingSafeEqual } from "./cryptoUtils";
+import { verifyTotp } from "./totp";
 import { checkRateLimit } from "./rateLimit";
 
 const ADMIN_SESSION_TTL_SECONDS = 12 * 60 * 60;
@@ -36,11 +37,16 @@ function cookieOptions(env: Env) {
   };
 }
 
+export async function adminCodeOk(env: Env, code: string | undefined): Promise<boolean> {
+  return !env.ADMIN_TOTP_SECRET || verifyTotp(env.ADMIN_TOTP_SECRET, code);
+}
+
 export async function loginAdmin(
   env: Env,
   email: string,
   password: string,
-  ip: string
+  ip: string,
+  totpCode?: string
 ): Promise<{ ok: true; token: string } | { ok: false; error: string; status?: number }> {
   const rl = await checkRateLimit(env, `admin_login:${ip}`, 10, 900);
   if (!rl.ok) {
@@ -55,6 +61,9 @@ export async function loginAdmin(
   const passOk = timingSafeEqual(password, env.ADMIN_PASSWORD);
   if (!emailOk || !passOk) {
     return { ok: false, error: "Invalid email or password." };
+  }
+  if (!(await adminCodeOk(env, totpCode))) {
+    return { ok: false, error: "Invalid email, password or code." };
   }
 
   await env.CHASA_DB.prepare(`DELETE FROM admin_sessions WHERE email = ?`).bind(normalized).run();

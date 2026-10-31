@@ -700,11 +700,12 @@ export function requestMagicLink(email: string, turnstileToken?: string | null) 
 export function adminPasswordLogin(
   email: string,
   password: string,
-  turnstileToken?: string | null
+  turnstileToken?: string | null,
+  totpCode?: string
 ) {
   return jsonFetch<{ ok: true }>("/auth/admin-login", {
     method: "POST",
-    body: JSON.stringify({ email, password, turnstileToken: turnstileToken || undefined }),
+    body: JSON.stringify({ email, password, totpCode: totpCode || undefined, turnstileToken: turnstileToken || undefined }),
   });
 }
 
@@ -714,6 +715,7 @@ export type AuthConfig = {
   googleLoginEnabled?: boolean;
   /** When set, login UI shows a password field for this address. */
   adminEmail?: string;
+  adminTotpRequired?: boolean;
 };
 
 export function logout() {

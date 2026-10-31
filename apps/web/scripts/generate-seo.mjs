@@ -17,7 +17,14 @@ import {
   HIGH_PRIORITY_DOC_TEMPLATE_SLUGS,
 } from "./data/seo-config.mjs";
 import { renderSeoHead } from "./lib/seo-head.mjs";
-import { fitDescription, fitTitle, parseGitLastmods, rewriteCanonicalLinks } from "./lib/seo-postprocess.mjs";
+import {
+  applyExtraSections,
+  applyShortTitle,
+  fitDescription,
+  fitTitle,
+  parseGitLastmods,
+  rewriteCanonicalLinks,
+} from "./lib/seo-postprocess.mjs";
 import { en as marketingEn } from "./data/marketing-i18n.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -346,10 +353,13 @@ function postprocessPages() {
       ?.replace(/^https?:\/\/[^/]+/, "");
     if (canonical && canonical !== urlPath) canonicalByPath.set(urlPath, canonical);
   }
+  const extras = JSON.parse(readFileSync(join(__dirname, "data/es-page-extras.json"), "utf8"));
   let changed = 0;
   for (const file of files) {
     const html = readFileSync(file, "utf8");
-    const next = fitDescription(fitTitle(rewriteCanonicalLinks(html, canonicalByPath)));
+    const urlPath = htmlPathToUrl(file);
+    let next = fitDescription(fitTitle(applyShortTitle(rewriteCanonicalLinks(html, canonicalByPath), urlPath)));
+    if (extras[urlPath]) next = applyExtraSections(next, extras[urlPath], escapeXml);
     if (next !== html) {
       writeFileSync(file, next, "utf8");
       changed += 1;

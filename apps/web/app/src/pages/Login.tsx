@@ -27,12 +27,14 @@ export default function Login() {
 
   const [email, setEmail] = useState(emailFromUrl);
   const [password, setPassword] = useState("");
+  const [totpCode, setTotpCode] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [turnstileRequired, setTurnstileRequired] = useState(false);
   const [configLoaded, setConfigLoaded] = useState(false);
+  const [adminTotpRequired, setAdminTotpRequired] = useState(false);
   const [googleLoginEnabled, setGoogleLoginEnabled] = useState(false);
   const [adminEmail, setAdminEmail] = useState<string | null>(null);
   const autoStartedRef = useRef(false);
@@ -44,6 +46,7 @@ export default function Login() {
       setError("google_auth");
     }
     void loadAuthConfig().then((cfg) => {
+      setAdminTotpRequired(!!cfg?.adminTotpRequired);
       setTurnstileRequired(Boolean(cfg?.turnstileRequired));
       setGoogleLoginEnabled(Boolean(cfg?.googleLoginEnabled));
       setAdminEmail(cfg?.adminEmail?.trim().toLowerCase() || null);
@@ -98,7 +101,7 @@ export default function Login() {
     setError(null);
     try {
       if (treatAsAdminLogin) {
-        await adminPasswordLogin(email, password, turnstileToken);
+        await adminPasswordLogin(email, password, turnstileToken, totpCode);
         window.location.href = "/app/admin/analytics";
         return;
       }
@@ -225,6 +228,20 @@ export default function Login() {
                 autoFocus
               />
             </div>
+            {adminTotpRequired && (
+              <div className="field-row" style={{ gridTemplateColumns: "1fr", marginTop: 10 }}>
+                <input
+                  id="admin-totp-code"
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="one-time-code"
+                  placeholder={t("login.totpPlaceholder")}
+                  value={totpCode}
+                  onChange={(e) => setTotpCode(e.target.value)}
+                  required
+                />
+              </div>
+            )}
             <button
               type="submit"
               className="btn-primary"

@@ -81,6 +81,8 @@ export interface Env {
   FEEDBACK_EMAIL?: string;
   ADMIN_EMAIL?: string;
   ADMIN_PASSWORD?: string;
+  /** Base32 TOTP secret. When set, admin sign-in needs a code and only works with the password. */
+  ADMIN_TOTP_SECRET?: string;
   /** Second password-login allowlist entry, for app-store/OAuth reviewers who can't receive magic links. */
   REVIEWER_EMAIL?: string;
   REVIEWER_PASSWORD?: string;

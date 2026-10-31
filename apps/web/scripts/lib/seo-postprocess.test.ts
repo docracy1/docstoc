@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 // @ts-expect-error plain .mjs build script without types
-import { fitDescription, fitTitle, parseGitLastmods, rewriteCanonicalLinks } from "./seo-postprocess.mjs";
+import { applyExtraSections, applyShortTitle, fitDescription, fitTitle, parseGitLastmods, rewriteCanonicalLinks, SHORT_TITLES } from "./seo-postprocess.mjs";
 
 const title = (t: string) => `<title>${t}</title>`;
 const desc = (d: string) => `<meta name="description" content="${d}">`;
@@ -11,10 +11,14 @@ describe("fitTitle", () => {
     expect(fitTitle(title("Short | docstoc"))).toBe(title("Short | docstoc"));
   });
   it("drops the brand from long titles", () => {
-    const long = "Free Authorization for Temporary Guardianship of Minor Template";
+    const long = "Authorization for Temporary Guardianship of a Young Minor";
     expect(fitTitle(title(`${long} | docstoc`))).toBe(title(long));
     expect(fitTitle(title(`${long} — docstoc`))).toBe(title(long));
     expect(fitTitle(title(`${long} | docstoc Blog`))).toBe(title(long));
+  });
+  it("then drops a leading Free", () => {
+    const rest = "Assignment of Limited Partnership Interest and Consent Template";
+    expect(fitTitle(title(`Free ${rest} | docstoc`))).toBe(title(rest));
   });
 });
 
@@ -51,5 +55,28 @@ describe("parseGitLastmods", () => {
     const m = parseGitLastmods("@2026-10-27\n\na.html\nb.html\n@2026-09-01\n\na.html\nc.html\n");
     expect(m.get("a.html")).toBe("2026-10-27");
     expect(m.get("c.html")).toBe("2026-09-01");
+  });
+});
+
+describe("short titles", () => {
+  it("all fit the limit", () => {
+    for (const [path, t] of Object.entries(SHORT_TITLES as Record<string, string>)) {
+      expect(t.length, path).toBeLessThanOrEqual(60);
+    }
+  });
+  it("escape ampersands and leave other pages alone", () => {
+    expect(applyShortTitle(title("x"), "/")).toContain("&amp;");
+    expect(applyShortTitle(title("x"), "/nope")).toBe(title("x"));
+  });
+});
+
+describe("applyExtraSections", () => {
+  const extra = { sections: [{ h2: "A", paragraphs: ["<p>"], bullets: ["b"] }], faq: [{ q: "q", a: "a" }] };
+  const esc = (s: string) => s.replace(/</g, "&lt;");
+  it("goes inside main, escapes and does not stack on a rebuild", () => {
+    const once = applyExtraSections("<main>x</main>", extra, esc);
+    expect(once).toContain("&lt;p>");
+    expect(once.indexOf("extra-copy")).toBeLessThan(once.indexOf("</main>"));
+    expect(applyExtraSections(once, extra, esc)).toBe(once);
   });
 });

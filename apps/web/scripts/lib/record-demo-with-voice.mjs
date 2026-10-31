@@ -16,6 +16,14 @@ const EDGE_VOICE = process.env.DEMO_TTS_VOICE || "en-US-JennyNeural";
 const EDGE_RATE = process.env.DEMO_TTS_RATE || "+0%";
 
 function speakWav(outPath, text) {
+  // Offline fallback on macOS for when the edge-tts service refuses the connection.
+  if (process.env.DEMO_TTS_ENGINE === "say") {
+    const aiff = outPath.replace(/\.wav$/, ".aiff");
+    run("say", ["-v", process.env.DEMO_TTS_SAY_VOICE || "Samantha", "-o", aiff, text]);
+    run("ffmpeg", ["-y", "-i", aiff, "-ar", "44100", "-ac", "1", outPath]);
+    fs.unlinkSync(aiff);
+    return;
+  }
   const mp3 = outPath.replace(/\.wav$/, ".mp3");
   run("python3", [
     "-m",
