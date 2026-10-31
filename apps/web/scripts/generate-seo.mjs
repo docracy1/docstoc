@@ -3,6 +3,7 @@
  * Generates sitemap.xml, robots.txt, blog RSS, IndexNow key file.
  * Patches index.html + ai.html with verification meta when env vars are set.
  */
+import { execFileSync } from "node:child_process";
 import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,6 +17,7 @@ import {
   HIGH_PRIORITY_DOC_TEMPLATE_SLUGS,
 } from "./data/seo-config.mjs";
 import { renderSeoHead } from "./lib/seo-head.mjs";
+import { fitDescription, fitTitle, parseGitLastmods, rewriteCanonicalLinks } from "./lib/seo-postprocess.mjs";
 import { en as marketingEn } from "./data/marketing-i18n.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -39,8 +41,27 @@ function htmlPathToUrl(filePath) {
   return `/${rel.replace(/\.html$/, "")}`;
 }
 
-function mtime(filePath) {
-  return statSync(filePath).mtime.toISOString().slice(0, 10);
+/** Last commit date per public file. A checkout gives every file the same mtime, which made every
+ *  URL in the sitemap look changed on every deploy; CI needs fetch-depth: 0 for this. */
+function loadGitLastmods() {
+  try {
+    const log = execFileSync("git", ["log", "--format=@%cs", "--name-only", "--relative", "--", "."], {
+      cwd: publicDir,
+      encoding: "utf8",
+      maxBuffer: 512 * 1024 * 1024,
+    });
+    return parseGitLastmods(log);
+  } catch {
+    return new Map();
+  }
+}
+
+const gitLastmods = loadGitLastmods();
+
+/** Files not committed yet (posts the build just fetched from the API) fall back to the mtime. */
+function lastmodOf(filePath) {
+  const rel = relative(publicDir, filePath).replace(/\\/g, "/");
+  return gitLastmods.get(rel) ?? statSync(filePath).mtime.toISOString().slice(0, 10);
 }
 
 function shouldExcludeFromSitemap(urlPath) {
@@ -117,7 +138,7 @@ function buildSitemapUrls() {
     if (shouldExcludeFromSitemap(urlPath)) continue;
     if (!keepInSitemap(urlPath, file)) continue;
     if (byPath.has(urlPath)) {
-      byPath.get(urlPath).lastmod = mtime(file);
+      byPath.get(urlPath).lastmod = lastmodOf(file);
       continue;
     }
     const isBlog = urlPath.startsWith("/blog/");
@@ -138,7 +159,7 @@ function buildSitemapUrls() {
     else if (isAlternative) priority = 0.5;
     byPath.set(urlPath, {
       loc: `${SITE_URL}${urlPath}`,
-      lastmod: mtime(file),
+      lastmod: lastmodOf(file),
       changefreq: "monthly",
       priority,
     });
@@ -314,13 +335,38 @@ function patchSeoHead(fileName) {
   console.log(`Patched ${fileName} with SEO head`);
 }
 
-const urls = buildSitemapUrls();
-writeSitemap(urls);
-writeRobots();
-writeBlogFeed();
-writeIndexNowKey();
+/** Runs before the sitemap so its checks see the final pages. */
+function postprocessPages() {
+  const files = walkHtml(publicDir).filter((f) => !relative(publicDir, f).startsWith("app/"));
+  const canonicalByPath = new Map();
+  for (const file of files) {
+    const urlPath = htmlPathToUrl(file);
+    const canonical = readFileSync(file, "utf8")
+      .match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/i)?.[1]
+      ?.replace(/^https?:\/\/[^/]+/, "");
+    if (canonical && canonical !== urlPath) canonicalByPath.set(urlPath, canonical);
+  }
+  let changed = 0;
+  for (const file of files) {
+    const html = readFileSync(file, "utf8");
+    const next = fitDescription(fitTitle(rewriteCanonicalLinks(html, canonicalByPath)));
+    if (next !== html) {
+      writeFileSync(file, next, "utf8");
+      changed += 1;
+    }
+  }
+  console.log(`SEO postprocess: ${changed} pages updated, ${canonicalByPath.size} canonical redirects in links`);
+}
+
 patchHomepageTitle();
 patchHomepageI18nFallbacks();
 for (const file of ["index.html"]) {
   patchSeoHead(file);
 }
+postprocessPages();
+
+const urls = buildSitemapUrls();
+writeSitemap(urls);
+writeRobots();
+writeBlogFeed();
+writeIndexNowKey();

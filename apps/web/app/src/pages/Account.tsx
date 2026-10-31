@@ -200,7 +200,7 @@ export default function Account({
         {error && <div className="error-msg">{error}</div>}
       </section>
 
-      {isPaid && (
+      {isPaid && acc.role === "admin" && (
         <section className="account-plan-section">
           <h2 className="account-section-title">{t("account.digestTitle")}</h2>
           <p className="page-sub">{t("account.digestBody")}</p>

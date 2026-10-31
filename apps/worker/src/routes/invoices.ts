@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { checkRateLimit } from "../lib/rateLimit";
 import type { AuthEnv } from "../lib/auth";
 import { requireAccount } from "../lib/auth";
 import {
@@ -102,12 +103,18 @@ invoices.delete("/:id", requireAccount, async (c) => {
  *  content against its certified hash on every load, rather than trusting a "certified at send
  *  time" flag that could silently go stale if the row was ever altered afterward. */
 invoices.get("/public/:publicId", async (c) => {
+  const ip = c.req.header("cf-connecting-ip") || "unknown";
+  const rl = await checkRateLimit(c.env, `invoice_public:${ip}`, 60, 60);
+  if (!rl.ok) return c.json({ error: "Too many requests. Try again later." }, 429);
+
   const invoice = await getInvoiceByPublicId(c.env, c.req.param("publicId"));
   if (!invoice) return c.json({ error: "Not found" }, 404);
   const branding = await getBrandingRow(c.env, invoice.accountId);
   const certificateStatus = await checkInvoiceCertificate(c.env, invoice);
+  const publicInvoice: Partial<typeof invoice> = { ...invoice };
+  delete publicInvoice.accountId;
   return c.json({
-    invoice,
+    invoice: publicInvoice,
     certificateStatus,
     from: {
       name: invoice.issuerName || branding?.workspace_name || "docstoc.io account",

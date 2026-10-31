@@ -46,6 +46,7 @@ export default function SslCertificatesPage({ account }: { account: Account | nu
   const location = useLocation();
   const isPaid = isPaidPlan(account);
   const isBusiness = isBusinessPlan(account);
+  const isCertAdmin = account?.role === "admin";
   const [certificates, setCertificates] = useState<CustomerCertificate[]>([]);
   const [limit, setLimit] = useState(5);
   const [features, setFeatures] = useState<SslFeatures | null>(null);
@@ -378,7 +379,7 @@ export default function SslCertificatesPage({ account }: { account: Account | nu
                     </div>
                   </div>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                    {(cert.status === "issued" || cert.status === "expiring") && (
+                    {isCertAdmin && (cert.status === "issued" || cert.status === "expiring") && (
                       <button
                         type="button"
                         className="btn-secondary"
@@ -389,14 +390,16 @@ export default function SslCertificatesPage({ account }: { account: Account | nu
                       </button>
                     )}
                     {cert.status === "expiring" ? (
-                      <button
-                        type="button"
-                        className="btn-secondary"
-                        disabled={busy}
-                        onClick={() => handleRenew(cert.id)}
-                      >
-                        {t("ssl.renew")}
-                      </button>
+                      isCertAdmin && (
+                        <button
+                          type="button"
+                          className="btn-secondary"
+                          disabled={busy}
+                          onClick={() => handleRenew(cert.id)}
+                        >
+                          {t("ssl.renew")}
+                        </button>
+                      )
                     ) : cert.status !== "issued" ? (
                       <button
                         type="button"
@@ -407,14 +410,16 @@ export default function SslCertificatesPage({ account }: { account: Account | nu
                         {t("ssl.checkStatus")}
                       </button>
                     ) : null}
-                    <button
-                      type="button"
-                      className="btn-secondary"
-                      disabled={busy}
-                      onClick={() => handleDelete(cert.id)}
-                    >
-                      {t("common.remove")}
-                    </button>
+                    {isCertAdmin && (
+                      <button
+                        type="button"
+                        className="btn-secondary"
+                        disabled={busy}
+                        onClick={() => handleDelete(cert.id)}
+                      >
+                        {t("common.remove")}
+                      </button>
+                    )}
                   </div>
                 </div>
 

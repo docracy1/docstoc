@@ -1,6 +1,7 @@
 import { Hono, type MiddlewareHandler } from "hono";
 import type { AuthEnv } from "../lib/auth";
 import { requireAccount } from "../lib/auth";
+import { checkRateLimit } from "../lib/rateLimit";
 import {
   createOrder,
   dns01RecordName,
@@ -253,6 +254,9 @@ ssl.post("/domains/:id/verify", async (c) => {
 
 ssl.post("/domains/:id/renew", requireCertAdmin, async (c) => {
   const acc = c.get("account")!;
+  // All workspaces share one Let's Encrypt account, so one must not exhaust its order limits.
+  const rl = await checkRateLimit(c.env, `ssl_renew:${acc.workspaceId}`, 10, 86400);
+  if (!rl.ok) return c.json({ error: "Too many renewals today. Try again tomorrow." }, 429);
   const row = await getCertificateRow(c.env, acc.workspaceId, c.req.param("id"));
   if (!row) return c.json({ error: "Not found" }, 404);
   const hostnames = hostnamesFromRow(row);

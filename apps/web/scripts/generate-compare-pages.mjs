@@ -113,7 +113,7 @@ for (const c of COMPETITORS) {
   if (c.customLanding) continue;
   const altMain = alternativeMainHtml(c);
   const altPage = writeLanding({
-    title: `${c.name} Alternative — ${c.headline.replace(/\.$/, "")} | docstoc`,
+    title: `${c.name} Alternative | docstoc`,
     description: `${c.sub} Compare docstoc with ${c.name} and import what you already have.`,
     canonical: altUrl(c),
     mainHtml: altMain,

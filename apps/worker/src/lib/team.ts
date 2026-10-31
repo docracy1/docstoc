@@ -3,6 +3,14 @@ import { seatLimitForPlan, type Plan } from "./billing";
 import { generateOpaqueToken, hashOpaqueToken, hashOpaqueTokenLookup } from "./token";
 
 export type MemberRole = "admin" | "member";
+
+export const INVITE_TTL_DAYS = 14;
+
+export function isInviteExpired(invitedAt: string | null, now = Date.now()): boolean {
+  if (!invitedAt) return false;
+  const sent = Date.parse(invitedAt);
+  return Number.isFinite(sent) && now - sent > INVITE_TTL_DAYS * 86_400_000;
+}
 export type MemberStatus = "pending" | "active";
 
 export type WorkspaceMember = {
@@ -122,19 +130,20 @@ export async function acceptInvite(
 ): Promise<{ ok: true; workspaceId: string } | { error: string; status: number }> {
   const [primaryHash, legacyHash] = await hashOpaqueTokenLookup(inviteToken, env.TOKEN_SECRET, "invite");
   let row = await env.CHASA_DB.prepare(
-    `SELECT id, account_id, email, status FROM workspace_members WHERE invite_token_hash = ?`
+    `SELECT id, account_id, email, status, invited_at FROM workspace_members WHERE invite_token_hash = ?`
   )
     .bind(primaryHash)
-    .first<{ id: string; account_id: string; email: string; status: string }>();
+    .first<{ id: string; account_id: string; email: string; status: string; invited_at: string | null }>();
   if (!row) {
     row = await env.CHASA_DB.prepare(
-      `SELECT id, account_id, email, status FROM workspace_members WHERE invite_token_hash = ?`
+      `SELECT id, account_id, email, status, invited_at FROM workspace_members WHERE invite_token_hash = ?`
     )
       .bind(legacyHash)
-      .first<{ id: string; account_id: string; email: string; status: string }>();
+      .first<{ id: string; account_id: string; email: string; status: string; invited_at: string | null }>();
   }
 
   if (!row) return { error: "Invite is invalid or expired.", status: 404 };
+  if (isInviteExpired(row.invited_at)) return { error: "Invite is invalid or expired.", status: 404 };
   if (row.email.toLowerCase() !== signedInEmail.trim().toLowerCase()) {
     return { error: "Sign in with the invited email address to accept.", status: 403 };
   }

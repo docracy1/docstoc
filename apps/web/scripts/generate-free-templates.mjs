@@ -36935,7 +36935,10 @@ for (const t of DOCUMENT_TEMPLATES) {
 
   // Minimal Markdown-to-HTML: headings, bold, tables, hr, and paragraphs — enough for these
   // templates' structure without adding a Markdown dependency to the build.
-  const bodyHtml = markdownToHtml(t.bodyMarkdown);
+  // The page already has its <h1>; the document's own title must not be a second one.
+  const bodyHtml = markdownToHtml(t.bodyMarkdown)
+    .replace(/<h1>/g, '<h2 class="tpl-doc-title">')
+    .replace(/<\/h1>/g, "</h2>");
   const docFacts = extractDocFacts(t);
 
   const page = chrome({

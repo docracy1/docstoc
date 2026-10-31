@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import type { Context } from "hono";
 import type { Env } from "../types";
 import { generateFollowUpEmail, getToneBand } from "../lib/ai";
-import { checkDraftQuota, incrementDraftUsage, usageScopeKey } from "../lib/usageQuota";
+import { anonIpCapScope, checkDraftQuota, incrementDraftUsage, usageScopeKey } from "../lib/usageQuota";
 import { checkRateLimit, clientIpFromHeaders } from "../lib/rateLimit";
 import { mcpDraftSchema } from "../lib/schemas";
 import { resolveMcpAccount } from "../lib/mcpAuth";
@@ -250,6 +250,7 @@ async function callTool(
       daysOverdue: Math.max(0, daysOverdue),
     });
     await incrementDraftUsage(env, usageScopeKey(account, ip, null));
+    if (!account) await incrementDraftUsage(env, anonIpCapScope("draft", ip));
     return textResult(
       JSON.stringify(
         {

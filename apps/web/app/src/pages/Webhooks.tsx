@@ -124,6 +124,12 @@ export default function WebhooksPage({ account }: { account: Account | null }) {
             {hooks.map((h) => (
               <li key={h.id}>
                 <code>{h.url}</code>
+                {h.signingSecret && (
+                  <details>
+                    <summary>{t("webhooks.signingSecret")}</summary>
+                    <code>{h.signingSecret}</code>
+                  </details>
+                )}
                 {isPaid && (
                   <button
                     type="button"

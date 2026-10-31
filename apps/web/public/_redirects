@@ -60,6 +60,8 @@ https://www.docstoc.io/*  https://docstoc.io/:splat  301
 /tls  /ssl  301
 /tls/  /ssl  301
 /ai  /chase-invoices  301
+/pricing  /#pricing  301
+/contact  /about  301
 /ai/  /chase-invoices  301
 
 # SPA app shell (Vite builds to /app/) — must stay above the catch-all 404.

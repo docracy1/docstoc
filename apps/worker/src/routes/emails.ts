@@ -16,7 +16,7 @@ import { recordChaseEvent } from "../lib/chaseEvents";
 import type { Env } from "../types";
 import { dispatchWebhooks } from "../lib/webhooks";
 import { replaceSequenceReminders } from "../lib/chaseReminders";
-import { checkDraftQuota, incrementDraftUsage, usageScopeKey } from "../lib/usageQuota";
+import { anonIpCapScope, checkDraftQuota, incrementDraftUsage, usageScopeKey } from "../lib/usageQuota";
 import { checkRateLimit, clientIpFromHeaders } from "../lib/rateLimit";
 import { clampOptionalString, clampString } from "../lib/validate";
 import { clientIp } from "../lib/turnstile";
@@ -177,6 +177,7 @@ async function postChaseDraft(c: import("hono").Context<AuthEnv>) {
     const ip = clientIp(c) || "unknown";
     const scope = usageScopeKey(acc ?? null, ip, body.visitorId);
     const remaining = await incrementDraftUsage(c.env, scope);
+    if (!acc) await incrementDraftUsage(c.env, anonIpCapScope("draft", ip));
     if (acc?.isPaid) {
       c.executionCtx.waitUntil(
         dispatchWebhooks(c.env, acc.workspaceId, "chase.drafted", {

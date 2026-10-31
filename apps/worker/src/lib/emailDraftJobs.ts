@@ -1,7 +1,7 @@
 import type { AccountContext } from "./auth";
 import { generateFollowUpEmail } from "./ai";
 import { dispatchWebhooks } from "./webhooks";
-import { incrementDraftUsage, usageScopeKey } from "./usageQuota";
+import { anonIpCapScope, incrementDraftUsage, usageScopeKey } from "./usageQuota";
 import type { Env } from "../types";
 
 export type ChaseDraftInput = {
@@ -112,6 +112,7 @@ export async function runEmailDraftJob(
     );
     const scope = usageScopeKey(account, ip, input.visitorId);
     const remaining = await incrementDraftUsage(env, scope);
+    if (!account) await incrementDraftUsage(env, anonIpCapScope("draft", ip));
     if (account?.isPaid) {
       await dispatchWebhooks(env, account.workspaceId, "chase.drafted", {
         client_name: input.clientName,

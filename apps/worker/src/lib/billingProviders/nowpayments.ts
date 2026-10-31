@@ -1,3 +1,4 @@
+import { timingSafeEqual } from "../cryptoUtils";
 import type { Env } from "../../types";
 
 const API_BASE = "https://api.nowpayments.io/v1";
@@ -87,7 +88,7 @@ export async function verifyIpn(rawBody: string, signatureHeader: string | null,
   }
   const sortedJson = JSON.stringify(sortKeysDeep(parsed));
   const expected = await hmacSha512Hex(env.NOWPAYMENTS_IPN_SECRET, sortedJson);
-  if (expected !== signatureHeader) return null;
+  if (!timingSafeEqual(expected, signatureHeader.trim().toLowerCase())) return null;
   return parsed as Record<string, unknown>;
 }
 

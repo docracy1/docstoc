@@ -2,6 +2,13 @@ import type { Env } from "../types";
 import type { AccountContext } from "./auth";
 
 export const FREE_MONTHLY_DRAFTS = 5;
+/** visitorId is chosen by the client, so a new one resets the per-visitor count. This caps one IP
+ *  across all its visitor ids, high enough for a shared office or mobile carrier address. */
+export const ANON_MONTHLY_IP_CAP = 30;
+
+export function anonIpCapScope(kind: "draft" | "docgen", ip: string): string {
+  return `ipcap:${kind}:${ip.slice(0, 45)}`;
+}
 
 export function monthKey(d = new Date()): string {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
@@ -54,7 +61,8 @@ export async function checkDocgenQuota(
 ): Promise<{ allowed: true; remaining: number } | { allowed: false; remaining: 0; error: string }> {
   const scope = docgenScopeKey(ip, visitorId);
   const used = await getDraftUsageCount(env, scope);
-  if (used >= FREE_MONTHLY_DOCGEN_GENERATIONS) {
+  const ipUsed = await getDraftUsageCount(env, anonIpCapScope("docgen", ip));
+  if (used >= FREE_MONTHLY_DOCGEN_GENERATIONS || ipUsed >= ANON_MONTHLY_IP_CAP) {
     return {
       allowed: false,
       remaining: 0,
@@ -75,7 +83,8 @@ export async function checkDraftQuota(
     return { allowed: true, remaining: 999 };
   }
   const used = await getDraftUsageCount(env, scope);
-  if (used >= FREE_MONTHLY_DRAFTS) {
+  const ipUsed = account ? 0 : await getDraftUsageCount(env, anonIpCapScope("draft", ip));
+  if (used >= FREE_MONTHLY_DRAFTS || ipUsed >= ANON_MONTHLY_IP_CAP) {
     return {
       allowed: false,
       remaining: 0,

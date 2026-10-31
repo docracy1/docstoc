@@ -6,6 +6,7 @@ import {
   dispatchWebhooks,
   isValidWebhookUrl,
   listWebhooks,
+  webhookSigningHex,
 } from "../lib/webhooks";
 import { parseJsonBody, webhookCreateSchema, webhookNotifySchema } from "../lib/schemas";
 
@@ -14,8 +15,17 @@ const webhooks = new Hono<AuthEnv>();
 webhooks.get("/", requirePaidAccount, async (c) => {
   const acc = c.get("account")!;
   const rows = await listWebhooks(c.env, acc.workspaceId);
+  const isAdmin = acc.role === "admin";
   return c.json({
-    webhooks: rows.map((w) => ({ id: w.id, url: w.url, createdAt: w.created_at })),
+    webhooks: await Promise.all(
+      rows.map(async (w) => ({
+        id: w.id,
+        url: w.url,
+        createdAt: w.created_at,
+        // Receivers need this to check X-Docstoc-Signature. Admins only, like adding a webhook.
+        ...(isAdmin ? { signingSecret: await webhookSigningHex(c.env, w.id) } : {}),
+      }))
+    ),
   });
 });
 
@@ -32,7 +42,10 @@ webhooks.post("/", requireWorkspaceAdmin, async (c) => {
     return c.json({ error: "Maximum 10 webhooks per account." }, 400);
   }
   const row = await createWebhook(c.env, acc.workspaceId, url);
-  return c.json({ id: row.id, url: row.url, createdAt: row.created_at }, 201);
+  return c.json(
+    { id: row.id, url: row.url, createdAt: row.created_at, signingSecret: await webhookSigningHex(c.env, row.id) },
+    201
+  );
 });
 
 webhooks.delete("/:id", requireWorkspaceAdmin, async (c) => {

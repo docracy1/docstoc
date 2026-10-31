@@ -36,6 +36,9 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: generate-seo.mjs takes sitemap lastmod from the last commit of each page.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 24

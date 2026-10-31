@@ -31,6 +31,7 @@ type CertificateResponse = {
   originalFilename: string | null;
   fileSizeBytes: number | null;
   issuerName: string;
+  issuerSelfDeclared?: boolean;
   logoDataUrl: string | null;
   isBranded: boolean;
   status: "active" | "revoked";
@@ -137,10 +138,11 @@ export const onRequest: PagesFunction<{ WORKER_URL: string }> = async (context) 
 <div class="brand">
   ${cert.logoDataUrl ? `<img src="${escapeHtml(cert.logoDataUrl)}" alt="">` : `<img src="https://docstoc.io/brand/docstoc-icon.png" alt="">`}
   <strong>${escapeHtml(cert.issuerName)}</strong>
+  ${cert.issuerSelfDeclared ? `<small>Name entered by the uploader, not verified by docstoc</small>` : ""}
 </div>
 <h1>Certificate of Authenticity</h1>
 <p class="status ${isRevoked ? "revoked" : "active"}">
-  ${isRevoked ? "⚠ Revoked" : "✓ Verified"}
+  ${isRevoked ? "⚠ Revoked" : "✓ File fingerprint verified"}
 </p>
 <div class="card">
   <p><strong>Certificate ID:</strong> ${escapeHtml(cert.publicId)}</p>

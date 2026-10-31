@@ -498,7 +498,7 @@ export function updateTeamMemberRole(id: string, role: "admin" | "member") {
   return jsonFetch<{ ok: true }>(`/team/${id}`, { method: "PATCH", body: JSON.stringify({ role }) });
 }
 
-export type WebhookItem = { id: string; url: string; createdAt: string };
+export type WebhookItem = { id: string; url: string; createdAt: string; signingSecret?: string };
 
 export function listWebhooks() {
   return jsonFetch<{ webhooks: WebhookItem[] }>("/webhooks");

@@ -95,5 +95,12 @@ export const onRequest: PagesFunction<{ WORKER_URL: string }> = async (context) 
     );
   }
 
-  return context.next();
+  const response = await context.next();
+  // The pages.dev host serves the same site, so search engines must only index docstoc.io.
+  if (url.hostname.endsWith(".pages.dev")) {
+    const headers = new Headers(response.headers);
+    headers.set("X-Robots-Tag", "noindex");
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  }
+  return response;
 };

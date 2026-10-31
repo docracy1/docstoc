@@ -132,6 +132,8 @@ verify.get("/certificates/:publicId", async (c) => {
     originalFilename: cert.originalFilename,
     fileSizeBytes: cert.fileSizeBytes,
     issuerName: displayIssuer,
+    // An anonymous issuer typed this name in; nothing ties it to a real person or company.
+    issuerSelfDeclared: !cert.accountId,
     logoDataUrl: branding.isBranded ? branding.logoDataUrl : null,
     isBranded: branding.isBranded,
     status: cert.status,

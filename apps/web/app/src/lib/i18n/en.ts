@@ -693,6 +693,7 @@ const en: Messages = {
     "Get notified at a URL you control when a chase is drafted, sent, or completed in your workflow. Payload is JSON — nothing is emailed for you.",
   "webhooks.upgradeNudge": "Webhooks are included on Pro and up.",
   "webhooks.upgradeHint": "to add endpoints.",
+  "webhooks.signingSecret": "Signing secret",
   "webhooks.urlPlaceholder": "https://example.com/hooks/docstoc",
   "webhooks.loadFailed": "Could not load webhooks",
   "webhooks.addFailed": "Could not add webhook",

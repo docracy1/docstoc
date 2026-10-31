@@ -1,0 +1,4 @@
+Contact: mailto:founder@docstoc.io
+Expires: 2027-10-31T00:00:00.000Z
+Preferred-Languages: en, de
+Canonical: https://docstoc.io/.well-known/security.txt

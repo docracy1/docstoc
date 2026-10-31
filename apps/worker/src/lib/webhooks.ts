@@ -44,7 +44,7 @@ export async function deleteWebhook(env: Env, accountId: string, id: string): Pr
   return (res.meta?.changes ?? 0) > 0;
 }
 
-async function webhookSigningHex(env: Env, webhookId: string): Promise<string> {
+export async function webhookSigningHex(env: Env, webhookId: string): Promise<string> {
   return hashOpaqueToken(`webhook:${webhookId}`, env.TOKEN_SECRET, "webhook-signing");
 }
 
@@ -95,6 +95,8 @@ export async function dispatchWebhooks(
           },
           body: payload,
           signal: controller.signal,
+          // A redirect could lead to a host isBlockedWebhookHost would have refused.
+          redirect: "manual",
         });
       } finally {
         clearTimeout(timer);

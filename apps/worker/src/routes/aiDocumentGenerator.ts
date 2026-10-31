@@ -6,7 +6,7 @@ import { clientIp, turnstileSiteKey, verifyTurnstile } from "../lib/turnstile";
 import { findClosestTemplate } from "../lib/documentTemplateMatch";
 import { generateDocumentFromDescription, GeminiError } from "../lib/geminiDocGen";
 import { trackEvent } from "../lib/analytics";
-import { checkDocgenQuota, incrementDraftUsage, docgenScopeKey, FREE_MONTHLY_DOCGEN_GENERATIONS } from "../lib/usageQuota";
+import { anonIpCapScope, checkDocgenQuota, incrementDraftUsage, docgenScopeKey, FREE_MONTHLY_DOCGEN_GENERATIONS } from "../lib/usageQuota";
 
 const aiDocumentGenerator = new Hono<AuthEnv>();
 
@@ -73,6 +73,7 @@ aiDocumentGenerator.post("/generate", async (c) => {
     // or timeout shouldn't burn someone's limited free tries.
     const scope = docgenScopeKey(ip, parsed.data.visitorId);
     const used = await incrementDraftUsage(c.env, scope);
+    await incrementDraftUsage(c.env, anonIpCapScope("docgen", ip));
     const remaining = Math.max(0, FREE_MONTHLY_DOCGEN_GENERATIONS - used);
 
     c.executionCtx.waitUntil(

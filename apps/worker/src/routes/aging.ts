@@ -512,7 +512,8 @@ aging.post("/:id/nowpayments-webhook", async (c) => {
   const rawBody = await c.req.text();
   const signature = c.req.header("x-nowpayments-sig");
   const event = await verifyIpn(rawBody, signature ?? null, c.env);
-  if (event && isSuccessfulPaymentStatus(event.payment_status)) {
+  // order_id is signed; the URL is not. A captured IPN must not settle a different invoice.
+  if (event && String(event.order_id) === id && isSuccessfulPaymentStatus(event.payment_status)) {
     const row = await c.env.CHASA_DB.prepare(`SELECT account_id FROM aging_invoices WHERE id = ?`)
       .bind(id)
       .first<{ account_id: string }>();

@@ -705,6 +705,7 @@ const es: Messages = {
     "Recibe avisos en una URL que controles cuando se redacta, envía o completa un seguimiento en tu flujo. El payload es JSON — nunca se envía correo por ti.",
   "webhooks.upgradeNudge": "Los webhooks están incluidos en Pro y superiores.",
   "webhooks.upgradeHint": "para agregar endpoints.",
+  "webhooks.signingSecret": "Clave de firma",
   "webhooks.urlPlaceholder": "https://ejemplo.com/hooks/docstoc",
   "webhooks.loadFailed": "No se pudieron cargar los webhooks",
   "webhooks.addFailed": "No se pudo agregar el webhook",
