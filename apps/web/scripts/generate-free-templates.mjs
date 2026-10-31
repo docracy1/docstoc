@@ -37308,7 +37308,7 @@ for (const cat of DOCUMENT_CATEGORIES) {
       depth: 2,
       mainHtml: `<main class="wrap">
   <h1>Free ${escapeHtml(cat)} document templates</h1>
-  <p class="tpl-hero-lede">${escapeHtml(DOCUMENT_CATEGORY_INTROS[cat])} ${items.length} templates, free to view, copy and edit with no account.</p>
+  <p>${escapeHtml(DOCUMENT_CATEGORY_INTROS[cat])} ${items.length} templates, free to view, copy and edit with no account.</p>
   <p><a href="/document-templates/">Full template library</a> · ${others}</p>
   <div class="tpl-grid">
 ${items.map(docTemplateCard).join("\n")}
