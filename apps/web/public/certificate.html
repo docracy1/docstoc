@@ -404,7 +404,9 @@
 <p>No. Document certificates prove file integrity. SSL/TLS certificates secure a domain’s HTTPS — see the SSL product page for that.</p>
 </details>
 </div>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>A practical example</h2><p>Say you send a design file and invoice to a client in May, and in July they query the amount. If you certified the PDF when you sent it, you can point to the verification page and the recorded fingerprint. Anyone can hash the file you sent and compare it with that record. It settles which version existed at that time.</p></section>
+<section class="wrap alt-body"><h2>How the check works</h2><p>The hash is calculated in your browser, so the original file does not have to be uploaded. The verification page shows the hash, a timestamp and a status. Optional Bitcoin OpenTimestamps anchoring is available for stronger independent proof of the time.</p><ul><li>Certify the final file, not a draft</li><li>Keep the original unchanged, because even one changed byte gives a different hash</li><li>Share the verification link alongside the document</li></ul></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Does certifying make a document legally binding?</h3><p>No. It shows that a file has not changed since it was certified. It is not an e-signature and not legal advice.</p><h3>Can I add my own logo?</h3><p>Yes. Custom certificate branding is part of the Business plan.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

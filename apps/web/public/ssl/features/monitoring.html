@@ -355,7 +355,10 @@
 <p>Primary path is domains issued through docstoc. For expiry math on any cert, use the SSL certificate calculator tool.</p>
 </details>
 </div>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>What the reminder looks like</h2><p>Once a day docstoc checks which issued certificates expire within 30 days. For each one you get a single email naming the domain, and the certificate is marked as expiring in the console so you are not mailed again every day.</p><p>The status then moves through active, expiring, pending and failed as you renew, so the console doubles as a to do list.</p></section>
+<section class="wrap alt-body"><h2>After the email</h2><p>Open the domain and choose renew. docstoc starts a new order and shows a new TXT value. Publish it, verify, then download and install the new files on your server.</p><ul><li>The email goes to the address on your account.</li><li>Renew before expiry to avoid a gap in HTTPS.</li><li>A failed status usually means the TXT record was not visible yet; retry after DNS has propagated.</li></ul></section>
+<section class="wrap alt-body"><h2>Limits worth knowing</h2><p>Monitoring covers certificates issued through docstoc. It does not watch other certificates, check your site's uptime or confirm that your server is serving the new files.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>How early is the reminder sent?</h3><p>Within 30 days of expiry, sent once per certificate. A certificate lasts 90 days.</p><h3>Does docstoc install the renewed certificate for me?</h3><p>No. You download the new PEM files and install them on the server that handles TLS.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

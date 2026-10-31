@@ -1,0 +1,2208 @@
+{
+  "/es/guides/invoice-chasing/": {
+    "sections": [
+      {
+        "h2": "Por dónde empezar según tu situación",
+        "paragraphs": [
+          "Esta página reúne todo lo que docstoc ofrece para cobrar facturas atrasadas. Si tienes una sola factura vencida, lo más rápido es pegar los datos en la plataforma y revisar el borrador. Si prefieres escribir tú mismo, copia una de las plantillas gratuitas y adáptala.",
+          "En todos los casos el flujo es el mismo: docstoc redacta, tú revisas y tú envías desde tu propia bandeja. Nada sale automáticamente y tu cliente siempre recibe el mensaje de ti, no de nosotros."
+        ],
+        "bullets": [
+          "Una factura vencida: pega nombre del cliente, importe y fecha de vencimiento y obtén un borrador con el tono adecuado.",
+          "Varias facturas: sube un CSV o ingrésalas a mano. En Pro puedes importar facturas vencidas desde QuickBooks Online o Xero.",
+          "Prefieres escribir tú: usa las plantillas de recordatorio gratuitas, sin crear cuenta."
+        ]
+      },
+      {
+        "h2": "El tono depende de los días de retraso",
+        "paragraphs": [
+          "Un mensaje amable funciona cuando la factura lleva pocos días vencida. Con semanas de retraso hace falta algo más directo. docstoc ajusta el tono según los días: amable durante la primera semana, profesional entre el día 8 y el 30, y directo pasado el día 30.",
+          "Antes del vencimiento también conviene escribir. Un aviso cortés unos siete días antes, con número de factura, importe y enlace de pago, evita muchos retrasos. Después del vencimiento, un primer toque suave al día 1 a 3 y recordatorios cada vez más firmes a los 7, 30 y 60 días suelen ordenar la conversación."
+        ]
+      },
+      {
+        "h2": "Qué incluye cada plan para cobrar",
+        "paragraphs": [
+          "El plan gratuito incluye 5 borradores con IA al mes y las plantillas de recordatorio. Pro cuesta 14,99 USD al mes e incluye borradores ilimitados, reescritura más suave, más firme o más breve, un CRM de clientes, calendario de recordatorios y un resumen diario por correo. Business, a 39,99 USD al mes, añade carta formal de reclamación y un pack de evidencia de cobros.",
+          "docstoc no es una agencia de cobranza ni ofrece asesoría legal. Las plantillas son un punto de partida informativo."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué página del centro me sirve si es mi primera vez?",
+        "a": "Empieza por Seguimiento de facturas: explica cómo docstoc adapta el tono a los días de retraso y te lleva a probar los 5 borradores gratuitos del mes. Si solo necesitas texto para copiar, ve directo a las plantillas de recordatorio."
+      },
+      {
+        "q": "¿Necesito cuenta para usar las plantillas?",
+        "a": "No. Las plantillas de recordatorio se copian sin crear cuenta. Los borradores con IA incluyen 5 al mes en el plan gratuito, y para más hay que pasar a Pro."
+      },
+      {
+        "q": "¿docstoc contacta a mis clientes por mí?",
+        "a": "No. docstoc solo redacta el borrador. Tú lo revisas, lo copias a Gmail, Outlook o Apple Mail y lo envías tú mismo."
+      }
+    ]
+  },
+  "/es/payment-reminder": {
+    "sections": [
+      {
+        "h2": "Antes del vencimiento: un aviso de cortesía",
+        "paragraphs": [
+          "Un recordatorio unos siete días antes de la fecha de pago evita buena parte de los retrasos. No es una reclamación, es un aviso útil: incluye el número de factura, el importe, la fecha de vencimiento y el enlace o los datos para pagar.",
+          "Mantén el mensaje corto. Una o dos frases y los datos clave bastan para que el cliente sepa qué hacer sin tener que buscar la factura."
+        ]
+      },
+      {
+        "h2": "Después del vencimiento: sube el tono poco a poco",
+        "paragraphs": [
+          "Cuando la factura ya venció, el primer paso es un recordatorio amable entre el día 1 y el 3. Si no hay respuesta, puedes ir subiendo la firmeza a los 7, 30 y 60 días. Cada etapa tiene su propia plantilla gratuita, y docstoc puede escoger el tono por ti según los días de retraso."
+        ],
+        "bullets": [
+          "Días 1 a 3: recordatorio amable, con la factura adjunta o enlazada.",
+          "Día 7: segundo aviso, más concreto sobre la fecha que necesitas.",
+          "Días 30 y 60: mensaje directo, con la consecuencia práctica de seguir sin pago.",
+          "Siempre: una sola petición clara y una forma fácil de pagar."
+        ]
+      },
+      {
+        "h2": "Plantillas o borrador con IA",
+        "paragraphs": [
+          "Las plantillas son gratuitas, se copian sin cuenta y sirven si quieres controlar cada palabra. Si prefieres que docstoc escriba el texto con los datos de tu factura, el plan gratuito incluye 5 borradores con IA al mes. Pro añade borradores ilimitados y la opción de reescribir más suave, más firme o más breve.",
+          "En ambos casos tú envías el correo desde tu bandeja. Las plantillas son informativas y no constituyen asesoría legal."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuántos días antes del vencimiento conviene avisar?",
+        "a": "Unos siete días antes. Es suficiente para que el cliente programe el pago y todavía no suena a reclamo. Incluye número de factura, importe y forma de pago."
+      },
+      {
+        "q": "¿Qué hago si el primer recordatorio no recibe respuesta?",
+        "a": "Envía un segundo aviso a los 7 días de retraso, más concreto sobre la fecha que necesitas, y escala a los 30 y 60 días con un tono más directo. Conserva siempre un registro de lo enviado."
+      },
+      {
+        "q": "¿Puedo pedir un borrador más suave o más firme?",
+        "a": "Sí, en Pro. Puedes reescribir el borrador más suave, más firme o más breve. En el plan gratuito eliges entre las plantillas por etapa o usas los 5 borradores mensuales."
+      }
+    ]
+  },
+  "/es/use-cases/auditor-evidence-pack": {
+    "sections": [
+      {
+        "h2": "Cómo crear el pack en el producto",
+        "paragraphs": [
+          "El pack se genera desde el panel de informes SOX. Inicia sesión, abre la pestaña Evidencia y exportaciones, elige las fechas de inicio y fin y pulsa Crear pack con timestamp. Cuando termina, descargas el HTML, el archivo .sha256 y el archivo .ots, y se los envías juntos al auditor.",
+          "La función forma parte de los informes SOX y está incluida en el plan Business."
+        ]
+      },
+      {
+        "h2": "Qué contiene el pack",
+        "paragraphs": [
+          "El HTML congela la situación del periodo elegido. No es un resumen editable, es un archivo único cuyo contenido queda fijado por su huella digital."
+        ],
+        "bullets": [
+          "Foto de la cobertura de controles en el momento de generar el pack.",
+          "Facturas con actividad en el periodo, con estadísticas de aperturas y clics de los correos.",
+          "Línea de tiempo de cobros con el actor de cada evento.",
+          "Aprobaciones maker-checker, donde quien solicita y quien aprueba son personas distintas.",
+          "Acciones SOX y anclajes diarios de hash en Bitcoin."
+        ]
+      },
+      {
+        "h2": "Por qué OpenTimestamps y no solo un PDF",
+        "paragraphs": [
+          "Un PDF emitido por el propio proveedor no demuestra nada si ese proveedor puede reescribir el historial. Por eso docstoc calcula el SHA-256 de los bytes exactos del HTML que descargas y ancla esa huella a Bitcoin mediante calendarios públicos de OpenTimestamps. Es el mismo enfoque que usamos para los certificados de documentos y los anclajes diarios.",
+          "El auditor calcula el hash del HTML, lo compara con el archivo .sha256 y verifica el .ots con el cliente de OpenTimestamps u otro verificador compatible. La confirmación en Bitcoin puede tardar horas; un pack pendiente sigue siendo válido y el .ots se actualiza cuando los calendarios publican. Esta información no es asesoría de auditoría ni garantiza un resultado."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué tres archivos debo entregar al auditor?",
+        "a": "El HTML, el .sha256 y el .ots, siempre juntos. Con ellos el auditor puede comprobar que el HTML no cambió y verificar la prueba contra Bitcoin sin depender de nuestra base de datos."
+      },
+      {
+        "q": "¿Tengo que esperar la confirmación de Bitcoin para entregar el pack?",
+        "a": "No. Los calendarios suelen confirmar en unas horas, pero un pack pendiente se puede descargar y conservar. El archivo .ots se actualiza cuando los calendarios publican la confirmación."
+      },
+      {
+        "q": "¿En qué plan está disponible?",
+        "a": "En Business, 39,99 USD al mes, como parte de los informes SOX. Los usuarios Free y Pro ven una invitación a actualizar en el panel."
+      }
+    ]
+  },
+  "/es/chase-invoices": {
+    "sections": [
+      {
+        "h2": "Un flujo sencillo para reclamar",
+        "paragraphs": [
+          "Reclamar una factura no debería convertirse en un proyecto. El proceso en docstoc tiene tres pasos y cada uno es tuyo: añades la factura, revisas el borrador y envías.",
+          "Primero registras las facturas vencidas: puedes escribirlas a mano, subir un CSV o, en los planes de pago, sincronizarlas desde QuickBooks o Xero. Después revisas el borrador. Con Pro puedes ajustarlo con Suavizar o Endurecer. Por último copias el texto a tu cliente de correo, lo envías y marcas la factura como cobrada cuando llegue el pago."
+        ]
+      },
+      {
+        "h2": "Reclamar no es lo mismo que cobrar",
+        "paragraphs": [
+          "Reclamar es un seguimiento cortés que envías tú. La cobranza, en cambio, implica a terceros y, en muchos casos, pasos legales. docstoc no es una agencia de cobranza y no ofrece asesoría legal. Solo redacta el mensaje, y la decisión de cuándo y cómo enviarlo es tuya.",
+          "Eso protege la relación con el cliente. Quien recibe el correo ve tu nombre y tu dirección, no la de un tercero."
+        ]
+      },
+      {
+        "h2": "Cuándo conviene dar el siguiente paso",
+        "paragraphs": [
+          "Si un cliente no responde, sube la firmeza de forma gradual: un primer toque amable, un segundo aviso más concreto y, pasados 30 días, un mensaje directo. En Business hay una carta formal de reclamación y un pack de evidencia de cobros para los casos que lo requieren."
+        ],
+        "bullets": [
+          "Free: 5 borradores con IA al mes, CSV o ingreso manual.",
+          "Pro (14,99 USD al mes): borradores ilimitados, importación desde QuickBooks y Xero, CRM de clientes.",
+          "Business (39,99 USD al mes): carta formal, pack de evidencia y puntuación de riesgo de pago."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puedo reclamar sin conectar mi contabilidad?",
+        "a": "Sí. En el plan gratuito puedes escribir las facturas a mano o subir un CSV. La sincronización con QuickBooks Online y Xero está disponible en Pro y Business."
+      },
+      {
+        "q": "¿Qué hago cuando el cliente promete pagar y no paga?",
+        "a": "Escribe un segundo mensaje que cite esa promesa y fije una fecha concreta. En Business, docstoc detecta fechas de pago prometidas en las respuestas, pero el envío sigue siendo tuyo."
+      },
+      {
+        "q": "¿Mis clientes saben que uso docstoc?",
+        "a": "No tienen por qué. El correo sale desde tu bandeja y con tu nombre. docstoc no envía nada a tus clientes."
+      }
+    ]
+  },
+  "/es/use-cases/sox-reporting": {
+    "sections": [
+      {
+        "h2": "Cómo leer Ready, Partial y Missing",
+        "paragraphs": [
+          "El panel muestra el estado de cada control con tres etiquetas. Son una lectura en vivo de tu cuenta, no una lista de funciones futuras.",
+          "Ready significa que ya hay suficiente evidencia o configuración para ese control. Partial indica que la capacidad existe, pero falta actividad de cobros, un compañero o más historial. Missing quiere decir que aún no está activado o que todavía no se ha generado evidencia, por ejemplo con SoD desactivado o sin anclajes diarios."
+        ]
+      },
+      {
+        "h2": "Dónde está el archivo final para el auditor",
+        "paragraphs": [
+          "Entra en Informes SOX, abre Evidencia y exportaciones, elige las fechas y pulsa Crear pack con timestamp. Descarga el HTML, el .sha256 y el .ots, y envíalos juntos. La pestaña también muestra la lista de packs congelados anteriores.",
+          "Los anclajes diarios combinan la actividad de cobros y las aperturas y clics de los correos en una cadena de hashes anclada con OpenTimestamps. La confirmación suele llegar en unas horas."
+        ]
+      },
+      {
+        "h2": "Para quién es y qué no es",
+        "paragraphs": [
+          "Está pensado para equipos de finanzas que reclaman facturas vencidas y necesitan evidencia útil para el control interno, ya sea para auditores externos, auditoría interna o el cierre mensual, sin montar una suite GRC completa.",
+          "No es una plataforma completa de cumplimiento SOX. Cubre la parte del control interno que toca el cobro de facturas. Esta página es informativa y no constituye asesoría legal ni de auditoría, ni promete un resultado de auditoría."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿En qué plan están los informes SOX?",
+        "a": "En Business, 39,99 USD al mes. Los usuarios Free y Pro ven una invitación a actualizar en el panel."
+      },
+      {
+        "q": "¿Cuánto tarda la confirmación en Bitcoin?",
+        "a": "Normalmente unas horas. Mientras tanto el pack se puede descargar, y el archivo .ots se actualiza cuando los calendarios de OpenTimestamps publican la confirmación."
+      },
+      {
+        "q": "¿Reemplaza a mi herramienta de cierre o GRC?",
+        "a": "No. Aporta la capa de evidencia de los cobros de cuentas por cobrar. Tu herramienta de cierre o GRC sigue cubriendo el resto de controles de la entidad."
+      }
+    ]
+  },
+  "/es/use-cases/segregation-of-duties-collections": {
+    "sections": [
+      {
+        "h2": "Cómo funciona la separación en la práctica",
+        "paragraphs": [
+          "Con SoD activado, la persona que redacta o solicita un cobro no es la misma que aprueba Marcar como enviado. Se activa en Informes SOX, dentro de Retención y SoD, y requiere al menos un compañero en el espacio de trabajo.",
+          "Quien prepara el cobro lo solicita desde la tarjeta del cobro. El equipo recibe un aviso por correo y la solicitud aparece en la cola de aprobaciones. Cuando otra persona la aprueba, la autorización se consume al registrar el envío y no se puede reutilizar."
+        ]
+      },
+      {
+        "h2": "Roles y registro para el auditor",
+        "paragraphs": [
+          "Cada espacio de trabajo distingue entre Admin y Miembro. Cada solicitud y cada decisión queda registrada con el correo y el rol de quien actúa, de modo que el historial de aprobaciones muestra quién pidió qué y quién lo autorizó.",
+          "El historial entra en el pack de evidencia del periodo, junto con las facturas y la línea de tiempo de cobros."
+        ],
+        "bullets": [
+          "La API rechaza la autoaprobación mientras SoD esté activo.",
+          "Cada aprobación se consume una sola vez tras el envío.",
+          "Las decisiones forman parte de la pista de auditoría con actor."
+        ]
+      },
+      {
+        "h2": "Qué no cambia",
+        "paragraphs": [
+          "docstoc sigue sin enviar correos a tus clientes. La aprobación controla el paso de marcar como enviado, que es el que deja constancia en la evidencia. El mensaje real lo envías tú desde tu bandeja.",
+          "La función está incluida en Business. Es una ayuda para documentar el doble control y no garantiza resultados de auditoría ni sustituye asesoría profesional."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Necesito un compañero para activar SoD?",
+        "a": "Sí. El doble control exige a otra persona que apruebe, así que hay que invitar al menos a un compañero al espacio de trabajo antes de usarlo."
+      },
+      {
+        "q": "¿Qué pasa si el aprobador está ausente?",
+        "a": "La solicitud queda pendiente en la cola de Informes SOX hasta que otra persona autorizada la apruebe. El solicitante no puede aprobarla por su cuenta."
+      },
+      {
+        "q": "¿Dónde veo el historial de aprobaciones?",
+        "a": "En Informes SOX, con el actor de cada decisión. El mismo historial se incluye en el pack de evidencia que entregas al auditor."
+      }
+    ]
+  },
+  "/es/accounts-receivable-sox": {
+    "sections": [
+      {
+        "h2": "Qué puedes hacer desde Informes SOX",
+        "paragraphs": [
+          "Cuando el auditor pregunte quién aprobó un seguimiento de cobro, el panel responde en un solo lugar. Muestra el estado de cada control (Ready, Partial o Missing), la cola de aprobaciones SoD y una biblioteca de controles con pruebas por periodo.",
+          "Desde ahí también generas el pack con timestamp, un HTML congelado con su SHA-256 y una prueba OpenTimestamps que el auditor verifica sin confiar en nuestra base de datos."
+        ]
+      },
+      {
+        "h2": "Cómo se obtiene el archivo del auditor",
+        "paragraphs": [
+          "El camino es corto: Informes SOX, Evidencia y exportaciones, fechas del periodo y Crear pack con timestamp. Descarga el HTML, el .sha256 y el .ots, y envíalos los tres a la vez.",
+          "El auditor calcula el hash del HTML, lo compara con el archivo .sha256 y verifica el .ots contra Bitcoin. Si la confirmación aún está pendiente, el pack sigue siendo válido y se actualiza cuando los calendarios publican."
+        ],
+        "bullets": [
+          "Atribución con correo y rol en los eventos de cobro.",
+          "Doble control opcional antes de marcar un cobro como enviado.",
+          "Anclajes diarios de hash vía OpenTimestamps.",
+          "Retención configurable, retención legal y purga opcional."
+        ]
+      },
+      {
+        "h2": "Alcance y límites",
+        "paragraphs": [
+          "Los informes SOX de cuentas por cobrar están incluidos en Business, a 39,99 USD al mes. docstoc cubre la evidencia de los cobros y no pretende ser una plataforma de cumplimiento completa. No envía correos a clientes: el envío lo haces tú. Este contenido es informativo y no constituye asesoría legal, fiscal ni de auditoría."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Necesito una suite GRC para usarlo?",
+        "a": "No. Está pensado para equipos que ya reclaman facturas y necesitan evidencia atribuible sin comprar una plataforma GRC completa. Si ya tienes una, esto aporta la capa de cobros."
+      },
+      {
+        "q": "¿Qué página abro primero?",
+        "a": "Informes SOX para ver el panel y el estado de los controles. Después, maker-checker o segregación de funciones si quieres activar el doble control."
+      },
+      {
+        "q": "¿El auditor tiene que confiar en docstoc?",
+        "a": "No necesita hacerlo para verificar el archivo. Comprueba el hash del HTML y la prueba OpenTimestamps contra Bitcoin con un verificador compatible."
+      }
+    ]
+  },
+  "/es/invoice-follow-up": {
+    "sections": [
+      {
+        "h2": "Cómo se adapta el tono a los días de retraso",
+        "paragraphs": [
+          "docstoc escoge el tono según el tiempo que lleva vencida la factura. Durante la primera semana el mensaje es amable, entre los días 8 y 30 es profesional y pasados los 30 días pasa a ser directo.",
+          "Así evitas dos errores comunes: un correo tan suave que nadie lo toma en serio, o uno tan seco que daña la relación con un cliente que quizás solo olvidó pagar."
+        ]
+      },
+      {
+        "h2": "Qué incluye un buen seguimiento",
+        "paragraphs": [
+          "Un seguimiento eficaz es corto y específico. Menciona el número de factura, el importe, la fecha de vencimiento y la forma de pagar, y pide una acción concreta.",
+          "El borrador de docstoc parte de los datos que pegas, como nombre del cliente, importe y fecha. Antes de enviarlo puedes retocar cualquier frase."
+        ],
+        "bullets": [
+          "Free: 5 borradores con IA al mes y plantillas gratuitas.",
+          "Pro (14,99 USD al mes): borradores ilimitados, importación desde QuickBooks y Xero, y reescritura más suave, firme o breve.",
+          "Business (39,99 USD al mes): carta formal de reclamación y pack de evidencia de cobros."
+        ]
+      },
+      {
+        "h2": "Tú envías, siempre",
+        "paragraphs": [
+          "docstoc no manda ningún correo a tus clientes. Copias el borrador en Gmail, Outlook o Apple Mail y lo envías tú. Tu cliente recibe el mensaje de ti, con tu nombre y tu dirección. Las plantillas y los borradores son informativos y no constituyen asesoría legal."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Cuándo debo hacer el primer seguimiento?",
+        "a": "Cuando la factura pasa de la fecha de vencimiento, con un mensaje amable entre el día 1 y el 3. Si quieres anticiparte, un aviso de cortesía unos siete días antes evita muchos retrasos."
+      },
+      {
+        "q": "¿Puedo usar docstoc sin pagar?",
+        "a": "Sí. El plan gratuito incluye 5 borradores con IA al mes y plantillas de correo gratuitas. Pro añade borradores ilimitados y sincronización con QuickBooks y Xero."
+      },
+      {
+        "q": "¿Qué tono usa docstoc con una factura de 45 días?",
+        "a": "Un tono directo, que es el que corresponde a más de 30 días de retraso. Puedes revisarlo y, en Pro, reescribirlo más suave o más breve antes de enviarlo."
+      }
+    ]
+  },
+  "/es/use-cases/icfr-accounts-receivable": {
+    "sections": [
+      {
+        "h2": "Qué pruebas puede pedir un auditor sobre los cobros",
+        "paragraphs": [
+          "Al muestrear seguimientos de cuentas por cobrar, un auditor suele querer saber quién gestionó el cobro, quién autorizó el envío y cuándo ocurrió cada paso. Con correos sueltos y hojas de cálculo esa información es difícil de reconstruir.",
+          "docstoc registra el correo y el rol del actor en los eventos de cobro y en las acciones SOX, de modo que la pista de auditoría responde a esas preguntas sin trabajo manual."
+        ]
+      },
+      {
+        "h2": "La biblioteca de controles de AR",
+        "paragraphs": [
+          "El producto incluye una biblioteca de controles de cuentas por cobrar con pruebas por periodo que pueden resultar en aprobado, fallo o excepción. Sirve para ver de un vistazo qué controles tienen evidencia y cuáles necesitan más actividad.",
+          "Cada día, la actividad de cobros y las aperturas y clics se combinan en una cadena de hashes anclada a Bitcoin con OpenTimestamps. Al cierre del periodo puedes generar un pack congelado con HTML, SHA-256 y .ots."
+        ],
+        "bullets": [
+          "Retención configurable de los registros.",
+          "Retención legal (legal hold) para casos concretos.",
+          "Purga opcional cuando la política lo permita."
+        ]
+      },
+      {
+        "h2": "Dónde termina docstoc",
+        "paragraphs": [
+          "docstoc cubre únicamente la capa de evidencia de los cobros de cuentas por cobrar. Para los demás controles de la entidad sigue haciendo falta tu herramienta de cierre o de GRC. Los informes SOX están en el plan Business. Este texto es informativo, no es asesoría de auditoría y no promete resultados."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué significa aprobado, fallo o excepción?",
+        "a": "Son los resultados posibles de la prueba de un control en un periodo. Aprobado indica que la evidencia cumple la prueba, fallo que no la cumple y excepción que hubo un caso puntual fuera de la regla."
+      },
+      {
+        "q": "¿Puedo conservar los registros más tiempo del habitual?",
+        "a": "Sí. Puedes configurar la ventana de retención y aplicar una retención legal a los registros que debas conservar. La purga es opcional."
+      },
+      {
+        "q": "¿Sustituye a la auditoría interna?",
+        "a": "No. Aporta evidencia atribuible y verificable de los cobros. La evaluación de los controles sigue siendo trabajo de tu equipo y de tus auditores."
+      }
+    ]
+  },
+  "/es/use-cases/maker-checker-invoice-chase": {
+    "sections": [
+      {
+        "h2": "Cómo se activa y cómo fluye",
+        "paragraphs": [
+          "El maker-checker se activa en Informes SOX, dentro de Retención y SoD. Después, quien prepara el cobro lo solicita desde la tarjeta del cobro y otro miembro del equipo recibe un aviso por correo para revisarlo.",
+          "Si el revisor aprueba, la autorización queda disponible para ese envío concreto. Cuando marcas el cobro como enviado, la aprobación se consume y no puede reutilizarse en otro."
+        ],
+        "bullets": [
+          "El solicitante y el aprobador deben ser personas distintas.",
+          "La API rechaza la autoaprobación.",
+          "Cada solicitud y decisión queda en la pista de auditoría."
+        ]
+      },
+      {
+        "h2": "Qué ve el auditor",
+        "paragraphs": [
+          "En el pack de evidencia del periodo aparecen las aprobaciones maker-checker junto con la línea de tiempo de cobros y las acciones SOX. El auditor puede ver quién pidió cada envío, quién lo autorizó y cuándo, sin depender de capturas de pantalla ni de correos reenviados.",
+          "Como el pack está congelado y anclado con OpenTimestamps, también puede comprobar que el archivo no se reescribió después de generarlo."
+        ]
+      },
+      {
+        "h2": "Un control ligero para equipos pequeños",
+        "paragraphs": [
+          "No hace falta un despliegue largo. Basta con activar la opción e invitar a un compañero. Para equipos que cobran pocas facturas, es una forma simple de dejar por escrito que ninguna persona decide sola. Esta función ayuda a documentar el control, pero no garantiza resultados de auditoría ni sustituye asesoría profesional."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Puede aprobar quien solicitó el cobro?",
+        "a": "No. Con el control activado, la API rechaza que el solicitante apruebe su propia solicitud. Debe hacerlo otra persona del espacio de trabajo."
+      },
+      {
+        "q": "¿Una aprobación sirve para varios envíos?",
+        "a": "No. Cada aprobación se consume una sola vez, cuando el envío se marca como enviado. Para otro cobro hay que solicitar una nueva aprobación."
+      },
+      {
+        "q": "¿Qué ocurre si el cliente responde y hay que volver a escribir?",
+        "a": "Un nuevo mensaje es un nuevo cobro y necesita su propia solicitud y aprobación, con su propio registro en la pista de auditoría."
+      }
+    ]
+  },
+  "/use-cases/document-signing-api": {
+    "sections": [
+      {
+        "h2": "What this API does and does not do",
+        "paragraphs": [
+          "The address says document signing, but docstoc does not offer electronic signatures. The API is about overdue invoices: you send the details of an unpaid invoice and get back a written follow-up draft, with a subject line and a body, in a tone that matches how late the invoice is.",
+          "docstoc does not send the email. Your own system, or you, takes the draft and sends it from your own mail account. That keeps replies, sender reputation and the decision to send with you."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Authentication and plans",
+        "paragraphs": [
+          "API keys are created in the account under Webhooks and API and sent as a Bearer token in the Authorization header. API keys and draft generation over HTTP are part of the paid plans: Pro at $14.99 a month and Business at $39.99 a month.",
+          "If you only want to see what a draft looks like, the free tier gives you 5 AI drafts a month in the web app without an account."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Webhooks and AI agents",
+        "paragraphs": [
+          "Webhooks cover more than drafting. The events are chase.drafted, chase.sent, chase.thank_you, chase.reply_drafted, chase.sequence_planned and chase.downloaded.",
+          "The same drafting step is available through the MCP endpoint at api.docstoc.io/mcp. Three tools are public and need no key: get_chase_tip, recommend_template and list_templates. The fourth, draft_chase_email, needs a signed-in session or an API key and returns a subject and a body."
+        ],
+        "bullets": [
+          "Each delivery carries an X-Docstoc-Event header with the event name.",
+          "Each delivery carries an X-Docstoc-Signature header in the form sha256= followed by an HMAC-SHA256 signature of the payload.",
+          "Check the signature before you trust the payload, then act on the event in your own system."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I use docstoc to collect electronic signatures?",
+        "a": "No. docstoc does not provide e-signatures. For documents it offers free templates and a tamper-evident hash certificate, which proves a file has not changed since a given time but is not a signature."
+      },
+      {
+        "q": "Does the API send the chase email to my customer?",
+        "a": "No. The API returns a draft only. You send it from your own inbox, and docstoc never emails your customers on your behalf."
+      },
+      {
+        "q": "Do I need a paid plan to call the API?",
+        "a": "Yes for API keys and the draft endpoint, which are on Pro and Business. The public MCP tools and the free web drafts need no key."
+      }
+    ]
+  },
+  "/use-cases/flat-fee-esign": {
+    "sections": [
+      {
+        "h2": "What the flat fee covers",
+        "paragraphs": [
+          "docstoc does not offer e-signature envelopes, so there is no per-envelope charge to avoid. What the page can honestly say is that follow-up drafting is priced per plan, not per reminder: on Pro and Business the AI chase drafts are unlimited for the month.",
+          "The free tier gives you 5 AI drafts a month and needs no account. Pro is $14.99 a month and Business is $39.99 a month. Prices are shown in US dollars on the pricing page."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "What changes between the plans",
+        "paragraphs": [
+          "Seats are counted with the owner as one. Pro allows up to 5 seats in total and Business up to 20. The free plan is for one person."
+        ],
+        "bullets": [
+          "Free: 5 AI drafts a month, paste invoices or upload CSVs, copy the result into your own mail client.",
+          "Pro: unlimited drafts, rewrite softer, firmer or shorter, a clients list, reminder calendar, daily chase digest, QuickBooks Online and Xero connectors, webhooks and API keys.",
+          "Business: everything in Pro plus the client risk score, smart reply classifier, formal demand letter, collections evidence pack and maker-checker approval."
+        ]
+      },
+      {
+        "h2": "Reminders that you still send",
+        "paragraphs": [
+          "docstoc plans when a reminder is due and drafts the wording. You read it and send it yourself, so a late-night draft never goes out by accident. That also means reminders cost nothing extra, because docstoc is not sending them."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc send documents for signature?",
+        "a": "No. There is no e-signature feature. The product drafts invoice follow-ups, and it offers free document templates and hash certificates for proving a file has not changed."
+      },
+      {
+        "q": "Are there per-reminder fees?",
+        "a": "No. Drafts are capped at 5 a month on the free tier and unlimited on Pro and Business, with no charge per reminder."
+      },
+      {
+        "q": "How many people can share one plan?",
+        "a": "Pro allows up to 5 seats including the owner, and Business up to 20. Free is limited to one."
+      }
+    ]
+  },
+  "/use-cases/compliance-dashboard": {
+    "sections": [
+      {
+        "h2": "Reading the board each morning",
+        "paragraphs": [
+          "An aging view is only useful if it ends in a decision. The board groups unpaid invoices by how late they are, and each invoice carries its last chase status and the date of the last chase. That lets you see in one pass which customers have heard from you recently and which have not.",
+          "Marking an invoice paid removes it from the open list and skips any reminders still planned for it."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "The daily digest",
+        "paragraphs": [
+          "On Pro and Business, docstoc sends one email a day at 9:00 AM Eastern when you have planned chase steps due that day. It is a prompt to open the app, not a message to your customers.",
+          "Nothing is sent to a customer from there. Every follow-up still goes out from your own inbox after you have read it."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "A simple routine",
+        "paragraphs": [
+          "Teams that keep receivables tidy tend to run the same short loop."
+        ],
+        "bullets": [
+          "Open the board and sort the oldest bucket first.",
+          "Review the draft for each invoice that has a chase step due.",
+          "Send from your own mail account, then mark the chase as sent.",
+          "Mark invoices paid the day money arrives so reminders stop."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does the dashboard send reminders automatically?",
+        "a": "No. It plans reminder dates and drafts the text, and you send each message yourself. The daily digest email goes to you, not to your customers."
+      },
+      {
+        "q": "What happens to reminders when an invoice is paid?",
+        "a": "They stop. Marking an invoice paid skips the remaining planned steps and updates the client's payment history."
+      },
+      {
+        "q": "Which plan includes the digest and calendar?",
+        "a": "Pro and Business. The free tier is limited to 5 AI drafts a month."
+      }
+    ]
+  },
+  "/use-cases/risk-scoring-automation": {
+    "sections": [
+      {
+        "h2": "How the score is calculated",
+        "paragraphs": [
+          "The client risk score runs from 0 to 100, and a higher number means a riskier client. It is based on two things docstoc records: the share of that client's invoices that were paid late, and the average number of days they were late.",
+          "A client with no paid or late invoices on record starts at 50, the neutral midpoint. The score is then kept between 5 and 95, so a single late invoice never reads as certain default. It updates each time an invoice is marked paid."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Using the number in practice",
+        "paragraphs": [
+          "A score is a prompt for a human decision, not a verdict. Typical uses are small and concrete."
+        ],
+        "bullets": [
+          "Ask for a deposit before starting new work for a client with a high score.",
+          "Shorten payment terms on the next invoice.",
+          "Check the chase history before you agree to extra scope.",
+          "Treat a score of 50 with no history as unknown rather than average."
+        ]
+      },
+      {
+        "h2": "Plan and limits",
+        "paragraphs": [
+          "The risk score is part of the Business plan at $39.99 a month. It only sees what is recorded in docstoc, so invoices paid outside the app or never imported are missing from the maths. docstoc is not a credit bureau and the score is not a credit rating."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does a high risk score change what docstoc does?",
+        "a": "No. It does not send or escalate anything by itself. You see the score next to the client and decide the tone and timing of the next follow-up."
+      },
+      {
+        "q": "What does a score of 50 mean?",
+        "a": "It means there is not enough history yet. Until a client has paid or late invoices recorded, docstoc shows the neutral midpoint."
+      },
+      {
+        "q": "Is this a credit check?",
+        "a": "No. The score uses only your own invoice history inside docstoc. It says nothing about the client's finances."
+      }
+    ]
+  },
+  "/use-cases/docstoc-certificate-monitoring": {
+    "sections": [
+      {
+        "h2": "What is recorded and what is not",
+        "paragraphs": [
+          "docstoc records the steps you log: when a chase was drafted, which step of a sequence it belonged to, and when you marked it as sent. Because docstoc does not send email itself, the sent time is the moment you confirm it, not a mail server receipt.",
+          "Opens and clicks are counted only when you use the Copy tracked HTML option, which adds a small image pixel and tracked links to the message. A plain mailto link tracks nothing, and image blocking in a mail client can hide an open."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "How the trail is protected",
+        "paragraphs": [
+          "Chase events and the open and click records are hashed once a day, and the hash is anchored to Bitcoin through OpenTimestamps. Anyone holding the same data can recompute the hash and check it against that anchor, which makes later editing of the history detectable."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Using it with a dispute",
+        "paragraphs": [
+          "For a late payer, the useful record is a dated list of the reminders you sent and any recorded opens. On Business, the collections evidence pack gathers that history for a formal demand. It supports your own file and is not legal advice, so ask a lawyer before relying on it in court or in a collections matter."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does a tracked open prove the customer read the notice?",
+        "a": "No. It shows that an image was loaded from the message, which can be blocked or preloaded by a mail client. Treat it as supporting evidence only."
+      },
+      {
+        "q": "Does docstoc send the notice for me?",
+        "a": "No. You send it from your own inbox, then log it as sent in docstoc."
+      },
+      {
+        "q": "Can I certify a file without an account?",
+        "a": "Yes. Hashing happens in your browser, the file is never uploaded, and creating and checking a certificate are free."
+      }
+    ]
+  },
+  "/use-cases/segregation-of-duties-collections": {
+    "sections": [
+      {
+        "h2": "How the control works day to day",
+        "paragraphs": [
+          "With segregation of duties switched on, one person asks for approval from the chase card and a different teammate approves it. Only then can the chase be marked as sent. The approval is used up by that send, so it cannot be reused for a second message.",
+          "The check is made by the API, not only by the screen, so a requester cannot approve their own request by changing a button. Teammates get an email asking them to review."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Setting it up",
+        "paragraphs": [
+          "The control belongs to the Business plan at $39.99 a month. Business allows up to 20 seats including the owner, each as Admin or Member."
+        ],
+        "bullets": [
+          "Open SOX reporting and go to Retention and SoD.",
+          "Switch SoD on.",
+          "Invite at least one teammate, because a one-person workspace has nobody to approve.",
+          "Use the pending approvals queue to see what is waiting."
+        ]
+      },
+      {
+        "h2": "What it does not do",
+        "paragraphs": [
+          "docstoc does not send the email after approval. The approved person still sends from their own mail account. The control covers the record of the send, and it does not replace your wider internal control framework or an auditor's judgement."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can a small team use this?",
+        "a": "Yes, if there are at least two people. One person requests and another approves, so a solo workspace cannot satisfy the control."
+      },
+      {
+        "q": "Does approval send the email?",
+        "a": "No. Approval allows the chase to be marked as sent. The email itself still goes out from your own inbox."
+      },
+      {
+        "q": "Does this make us SOX compliant?",
+        "a": "No. It produces evidence of dual control on collections sends. Whether that satisfies your controls is for your finance and audit teams to decide."
+      }
+    ]
+  },
+  "/use-cases/icfr-accounts-receivable": {
+    "sections": [
+      {
+        "h2": "A sampled follow-up, step by step",
+        "paragraphs": [
+          "Imagine an auditor picks one overdue invoice from the period and asks who chased it, when, and who agreed to it. In docstoc that question has a place to look: the chase timeline shows each event with the actor's email and role.",
+          "If maker-checker was on, the approval sits next to the send, with the requester and the approver as two different people."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Keeping the record from being rewritten",
+        "paragraphs": [
+          "Chase events are hashed daily and the hash is anchored to Bitcoin through OpenTimestamps. A period pack is frozen as an HTML file with a matching SHA-256 file and an .ots proof, so a reviewer can check the file without logging in to docstoc."
+        ],
+        "bullets": [
+          "Set how long records are kept in the retention window.",
+          "Apply a legal hold when a matter is open.",
+          "Purge is optional and off unless you choose it."
+        ]
+      },
+      {
+        "h2": "Scope",
+        "paragraphs": [
+          "This covers one slice: day to day collections activity on accounts receivable. It does not cover revenue recognition, reserves, ledger reconciliation or any other control. Your auditor decides what evidence is sufficient, and this is not audit advice."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc test my controls for me?",
+        "a": "It gives a control library with period tests for the accounts receivable slice, shown as pass, fail or exception. You and your auditor still judge the result."
+      },
+      {
+        "q": "Which plan includes this?",
+        "a": "The evidence pack and maker-checker are part of Business, at $39.99 a month."
+      },
+      {
+        "q": "Can an auditor check a pack without access to our account?",
+        "a": "Yes. They need the HTML, the .sha256 file and the .ots file. They hash the HTML, compare it with the digest and verify the proof with an OpenTimestamps client."
+      }
+    ]
+  },
+  "/accounts-receivable-sox": {
+    "sections": [
+      {
+        "h2": "A realistic first week",
+        "paragraphs": [
+          "Start by deciding who chases and who approves. Invite a teammate, switch on segregation of duties and let the next real chases run through the approval queue. After a few cycles the readiness view shows which controls have evidence and which do not yet."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "What the readiness view tells you",
+        "paragraphs": [
+          "Each control is shown as Ready, Partial or Missing. Missing is useful: it points to the step nobody has recorded yet, such as an approval that was skipped or a period with no timestamped pack."
+        ],
+        "bullets": [
+          "Controls come from a seeded accounts receivable library.",
+          "Period tests show pass, fail or exception.",
+          "The pending approvals queue shows sends waiting on a checker."
+        ]
+      },
+      {
+        "h2": "Handing over the evidence",
+        "paragraphs": [
+          "When the period closes, create a timestamped pack under Evidence and exports and send the HTML, the SHA-256 file and the .ots proof together. Bitcoin confirmation can take some hours, and a pending pack is still valid to keep."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does using docstoc make accounts receivable SOX compliant?",
+        "a": "No. docstoc records evidence for collections activity. Compliance is a judgement for your management and auditors, and nothing here is audit or legal advice."
+      },
+      {
+        "q": "Do we have to change how we send chase emails?",
+        "a": "Only the approval step. You still send from your own inbox, and docstoc never sends to customers."
+      },
+      {
+        "q": "What does it cost?",
+        "a": "Maker-checker and the auditor packs are on the Business plan at $39.99 a month."
+      }
+    ]
+  },
+  "/ssl/features/acme": {
+    "sections": [
+      {
+        "h2": "What happens in one issuance",
+        "paragraphs": [
+          "You enter a hostname. docstoc creates the ACME order with Let's Encrypt and shows the TXT value to publish at _acme-challenge for that name. Once you click to verify and DNS has caught up, docstoc finishes the order and stores the certificate, which is domain validated and lasts 90 days."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Renewal stays guided",
+        "paragraphs": [
+          "Renewal is not unattended. About 30 days before expiry docstoc emails you once. You start the renewal, publish a fresh TXT value and verify again. The reason is simple: without access to your DNS provider, docstoc cannot change the record for you."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Plan limits",
+        "paragraphs": [
+          "Every plan includes 5 certificate slots. Pro adds several names on one certificate, up to 10, plus the API. Business allows up to 100 names per certificate and one wildcard among the five slots."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc renew my certificate automatically?",
+        "a": "No. It emails a reminder before expiry and gives you a fresh DNS TXT value to publish. You complete the renewal."
+      },
+      {
+        "q": "Which certificate types are issued?",
+        "a": "Let's Encrypt domain validated certificates only. There are no organisation or extended validation certificates."
+      }
+    ]
+  },
+  "/ssl/features/monitoring": {
+    "sections": [
+      {
+        "h2": "What the reminder looks like",
+        "paragraphs": [
+          "Once a day docstoc checks which issued certificates expire within 30 days. For each one you get a single email naming the domain, and the certificate is marked as expiring in the console so you are not mailed again every day.",
+          "The status then moves through active, expiring, pending and failed as you renew, so the console doubles as a to do list."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "After the email",
+        "paragraphs": [
+          "Open the domain and choose renew. docstoc starts a new order and shows a new TXT value. Publish it, verify, then download and install the new files on your server."
+        ],
+        "bullets": [
+          "The email goes to the address on your account.",
+          "Renew before expiry to avoid a gap in HTTPS.",
+          "A failed status usually means the TXT record was not visible yet; retry after DNS has propagated."
+        ]
+      },
+      {
+        "h2": "Limits worth knowing",
+        "paragraphs": [
+          "Monitoring covers certificates issued through docstoc. It does not watch other certificates, check your site's uptime or confirm that your server is serving the new files."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "How early is the reminder sent?",
+        "a": "Within 30 days of expiry, sent once per certificate. A certificate lasts 90 days."
+      },
+      {
+        "q": "Does docstoc install the renewed certificate for me?",
+        "a": "No. You download the new PEM files and install them on the server that handles TLS."
+      }
+    ]
+  },
+  "/use-cases/maker-checker-invoice-chase": {
+    "sections": [
+      {
+        "h2": "A worked example",
+        "paragraphs": [
+          "Ana drafts a firm follow-up for an invoice that is 45 days late and requests approval. Ben gets an email and opens the pending approvals queue. He reads the draft, approves it and Ana can now mark the chase as sent after she sends it from her own inbox. The log shows both names, both roles and the time of each step."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Rules the system enforces",
+        "paragraphs": [
+          "The rules sit in the API, so they hold even if someone tries a different route into the app."
+        ],
+        "bullets": [
+          "The person who requests cannot approve the same request.",
+          "An approval is used up by the send and cannot be reused.",
+          "Send-like status changes are blocked until an approval exists.",
+          "Each request and decision is stored with the actor's email and role."
+        ]
+      },
+      {
+        "h2": "When it is worth the friction",
+        "paragraphs": [
+          "Dual control costs a few minutes per chase. It makes sense for large balances, formal demands or any chase that touches how revenue is reported. For routine small reminders many teams leave it off and switch it on for the sensitive ones. This is a process control and not advice on your audit obligations."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can the approver be the account owner?",
+        "a": "Yes, as long as the owner is a different person from the requester."
+      },
+      {
+        "q": "What if nobody else is available?",
+        "a": "A second person is required. Invite a teammate; Business supports up to 20 seats including the owner."
+      }
+    ]
+  },
+  "/compliance/": {
+    "sections": [
+      {
+        "h2": "How to read these framework pages",
+        "paragraphs": [
+          "Each framework page separates what is live in docstoc today from what is only planned. The live part is narrow: accounts receivable collections. That means who drafted and approved a chase, when it was marked as sent, and a frozen evidence pack for a period.",
+          "docstoc is not a certified auditor and holds no certification on your behalf. Using it produces records. Whether those records meet SOC, SOX, ISO 27001 or GDPR requirements is for your own team and your auditors to decide."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "What stays the same across frameworks",
+        "paragraphs": [
+          "Whatever the framework, three things carry over from the product."
+        ],
+        "bullets": [
+          "Attributable records: chase events carry the actor's email and role.",
+          "Dual control: maker-checker on Business, enforced in the API.",
+          "Verifiable packs: an HTML file, a SHA-256 digest and an OpenTimestamps proof."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc make us compliant with SOX or SOC 2?",
+        "a": "No. It gives you evidence for one process, accounts receivable follow-ups. Compliance is assessed by your auditors, and this is not legal or audit advice."
+      },
+      {
+        "q": "Where do I see what is live and what is planned?",
+        "a": "On the Security and Trust Center linked from this page, and in the live and roadmap lists on each framework page."
+      }
+    ]
+  },
+  "/ssl/features/": {
+    "sections": [
+      {
+        "h2": "A short path from domain to HTTPS",
+        "paragraphs": [
+          "The features follow the order you will use them. Add a hostname, publish one DNS TXT record, verify, download the PEM files and install them on your server. About 30 days before expiry docstoc emails you, and you repeat the DNS step to renew."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "What each plan includes",
+        "paragraphs": [
+          "Every plan has 5 certificate slots of 90 days each."
+        ],
+        "bullets": [
+          "Free: one name per certificate, managed in the web app.",
+          "Pro: up to 10 names per certificate and API access.",
+          "Business: up to 100 names per certificate and one wildcard within the five slots."
+        ]
+      },
+      {
+        "h2": "What you still do yourself",
+        "paragraphs": [
+          "Installation and renewal stay in your hands. docstoc does not log in to your server and does not change your DNS records, which is why renewal needs a fresh TXT value each time."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I get an extended validation certificate?",
+        "a": "No. docstoc issues Let's Encrypt domain validated certificates only."
+      },
+      {
+        "q": "Does renewal happen on its own?",
+        "a": "No. You get an email reminder and publish a fresh DNS TXT value to renew."
+      }
+    ]
+  },
+  "/use-cases/free-ssl-for-your-domain": {
+    "sections": [
+      {
+        "h2": "A handover checklist for agencies",
+        "paragraphs": [
+          "When a client owns the domain and you only build the site, the TXT record is the one thing you need from them. Send them the name and value from docstoc and ask them to add it in their DNS panel."
+        ],
+        "bullets": [
+          "Ask for DNS access or a contact who can add a TXT record.",
+          "Wait until the record is visible, then click verify.",
+          "Download the PEM files and install them on the client's host.",
+          "Tell the client the renewal date and who will handle it."
+        ]
+      },
+      {
+        "h2": "Who handles the renewal",
+        "paragraphs": [
+          "Certificates last 90 days and renewal is not automatic. docstoc emails the account owner about 30 days ahead. If the certificate belongs to a client, decide before launch whether you or the client holds the docstoc account, because that person gets the reminder and must publish the new TXT value."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Free, with limits",
+        "paragraphs": [
+          "Each account has 5 certificate slots on every plan, and one name per certificate on the free plan. Pro allows up to 10 names per certificate and Business adds one wildcard. All certificates are Let's Encrypt domain validated."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does the client need to give me server access?",
+        "a": "No. You need only a place to add one DNS TXT record. Installing the certificate needs access to whatever serves the site."
+      },
+      {
+        "q": "What happens if nobody renews?",
+        "a": "The certificate expires after 90 days and browsers will show a warning until a new one is installed."
+      }
+    ]
+  },
+  "/use-cases/auditor-evidence-pack": {
+    "sections": [
+      {
+        "h2": "A verification walk-through",
+        "paragraphs": [
+          "An auditor receives three files. They run sha256sum on the HTML and compare the result with the .sha256 file. If the digests match, the HTML is the file that was frozen. They then check the .ots proof with an OpenTimestamps client, which shows the earliest Bitcoin block that vouches for that digest."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "What a match does and does not show",
+        "paragraphs": [
+          "A match shows that the pack has not changed since it was created. It does not show that the underlying business was done correctly, and it does not make your controls effective. Your auditor still judges whether the contents are enough."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Practical tips",
+        "paragraphs": [
+          "A few habits make the handover smoother."
+        ],
+        "bullets": [
+          "Create one pack per period and keep all three files together.",
+          "Create it only after the period's chases are marked.",
+          "Do not edit or re-save the HTML, since any change breaks the digest.",
+          "Keep the .ots file; without it the timestamp cannot be checked."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why is my proof still pending?",
+        "a": "Bitcoin confirmation can take hours after creation. A pending pack is still valid to keep and send."
+      },
+      {
+        "q": "Does the auditor need a docstoc login?",
+        "a": "No. The three files are enough to check the pack independently."
+      }
+    ]
+  },
+  "/ssl/features/protection": {
+    "sections": [
+      {
+        "h2": "How the badge is earned",
+        "paragraphs": [
+          "The profile appears after you have issued a certificate for a domain you control, which needs the DNS TXT step. That is the proof: someone who can publish records for the domain has asked docstoc to verify it."
+        ],
+        "bullets": []
+      },
+      {
+        "h2": "Where it helps",
+        "paragraphs": [
+          "A small badge near a contact form, in a proposal footer or on a freelancer's site gives a visitor a link to check the claim, instead of relying on a logo you added yourself."
+        ],
+        "bullets": [
+          "Public profile with a verified since date, anchored with a timestamp.",
+          "Embeddable badge for your site or proposals.",
+          "Available on the Business plan."
+        ]
+      },
+      {
+        "h2": "What a badge does not say",
+        "paragraphs": [
+          "It does not say your site is free of vulnerabilities, that your business is licensed or that your work is good. It says you control the domain."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does the badge scan my site for malware?",
+        "a": "No. docstoc does not scan for malware or vulnerabilities. Use a dedicated security scanner for that."
+      },
+      {
+        "q": "Which plan includes the trust profile?",
+        "a": "Business, after SSL is issued for a domain you control."
+      }
+    ]
+  },
+  "/ssl/features/validation": {
+    "sections": [
+      {
+        "h2": "A step by step with real names",
+        "paragraphs": [
+          "For example.com docstoc shows a TXT record named _acme-challenge.example.com and a value to paste. In your DNS panel you add the record, wait for it to appear and click Check status in docstoc."
+        ],
+        "bullets": [
+          "Add a TXT record at the name shown, not at the bare domain.",
+          "Paste the value exactly, without extra quotes if your provider adds them.",
+          "Retry the check if DNS is still pending."
+        ]
+      },
+      {
+        "h2": "Renewals repeat the step",
+        "paragraphs": [
+          "Each renewal needs a fresh TXT value. Old values do not carry over, so you replace the old record or add the new one. This is what keeps renewal guided, not automatic."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I have to keep the TXT record after issuance?",
+        "a": "No. It is needed only while the check runs. A renewal will give you a new value."
+      },
+      {
+        "q": "Is a wildcard validated the same way?",
+        "a": "Yes, with DNS TXT. Wildcards are part of the Business plan."
+      }
+    ]
+  },
+  "/use-cases/freelance-contract-templates": {
+    "sections": [
+      {
+        "h2": "Terms worth checking before you send it",
+        "paragraphs": [
+          "A template is a starting point, so read each clause against your actual job."
+        ],
+        "bullets": [
+          "Name the deliverables and the date for each.",
+          "State the rate, the invoice date and the payment deadline.",
+          "Say who owns the work and from when.",
+          "Add what happens if either side ends the work early."
+        ]
+      },
+      {
+        "h2": "Why payment terms help later",
+        "paragraphs": [
+          "If an invoice runs late, the follow-up draft can refer to the dates and terms you agreed. Clear terms give the reminder something concrete to point to. The template is informational and not legal advice, so have a lawyer review it for significant projects."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I edit the template online?",
+        "a": "Yes. You can edit it in the browser and download a PDF, which carries a fixed docstoc.io footer."
+      },
+      {
+        "q": "Is the template legal advice?",
+        "a": "No. It is an informational starting point."
+      }
+    ]
+  },
+  "/ssl/developer": {
+    "sections": [
+      {
+        "h2": "A typical call sequence",
+        "paragraphs": [
+          "A script usually runs POST /ssl/domains with a hostname, publishes the returned TXT value in DNS, then calls POST /ssl/domains/:id/verify. When the status is issued it calls GET /ssl/domains/:id/download for the PEM files."
+        ],
+        "bullets": [
+          "Renewals start with POST /ssl/domains/:id/renew and need a fresh TXT value.",
+          "The private key is returned in the download response, so store it securely."
+        ]
+      },
+      {
+        "h2": "Limits",
+        "paragraphs": [
+          "Plan limits apply to the API as to the app: 5 certificate slots, up to 10 names per certificate on Pro and up to 100 on Business, and one wildcard on Business. Certificates are Let's Encrypt, domain validated and valid for 90 days."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does the API renew certificates without me?",
+        "a": "No. A renewal needs a new DNS TXT value from you before it can be verified."
+      },
+      {
+        "q": "Can I point certbot at the API?",
+        "a": "No. It is docstoc's own workspace API, not a public ACME endpoint."
+      }
+    ]
+  },
+  "/ssl/features/installation": {
+    "sections": [
+      {
+        "h2": "Keys and files",
+        "paragraphs": [
+          "The private key is an ECDSA P-256 key, exported as a PEM in the download. Treat it like a password: set restrictive file permissions on the server and keep it out of version control."
+        ],
+        "bullets": [
+          "Set the key file to be readable only by the web server user.",
+          "Reload the server after replacing files.",
+          "Test with a browser and an online TLS checker."
+        ]
+      },
+      {
+        "h2": "At renewal",
+        "paragraphs": [
+          "Renewal produces a new certificate and key. Replace both files together, since the new certificate does not match the old key."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc install certificates on my host?",
+        "a": "No. You download the PEM files and install them yourself."
+      },
+      {
+        "q": "Can I reuse the old private key after renewal?",
+        "a": "No. Use the key from the new download."
+      }
+    ]
+  },
+  "/use-cases/": {
+    "sections": [
+      {
+        "h2": "Where to start",
+        "paragraphs": [
+          "If you chase invoices, begin with the AI follow-up page: it explains how drafts are tuned by days overdue and why you send every message yourself. If you need audit evidence, start with the SOX reporting and auditor pack pages, which cover accounts receivable only."
+        ],
+        "bullets": [
+          "Documents: free templates and tamper-evident hash certificates.",
+          "Receivables: drafts, reminders, a client risk score on Business.",
+          "SSL: Let's Encrypt certificates with guided renewal."
+        ]
+      },
+      {
+        "h2": "What every use case shares",
+        "paragraphs": [
+          "docstoc does not send email for you, does not give legal, tax or audit advice and does not sell certificates."
+        ],
+        "bullets": []
+      }
+    ],
+    "faq": [
+      {
+        "q": "Which use case is free?",
+        "a": "Templates, hash certificates and 5 AI drafts a month need no payment. Features such as the risk score and evidence packs are on paid plans."
+      },
+      {
+        "q": "Does docstoc give tax, legal or audit advice?",
+        "a": "No. Templates, drafts and evidence packs are informational tools, and you should ask a qualified adviser before relying on them."
+      }
+    ]
+  },
+  "/business-kits/independent-landlord-kit": {
+    "sections": [
+      {
+        "h2": "Where the two documents fit in a tenancy",
+        "paragraphs": [
+          "A direct rental has a start and an end, and this kit covers both. The residential lease agreement sets out rent, deposit, term and the basic duties of landlord and tenant. The lease termination letter is for ending a residential lease at the end of its term, whether you are the landlord or the tenant.",
+          "Fill in the lease before the tenant moves in, and keep the termination letter ready for the day you need it, so you are not drafting it under time pressure."
+        ]
+      },
+      {
+        "h2": "Check these details before you sign",
+        "paragraphs": [
+          "A template cannot know your local rules, so read each clause against the place where the property stands. Notice periods, deposit limits and required wording for a termination can differ by state, county or city."
+        ],
+        "bullets": [
+          "Names and addresses of every adult who will live in the property",
+          "Rent amount, due date and how it is paid",
+          "Deposit amount and the conditions for returning it",
+          "Start date, end date and the notice period you intend to use"
+        ]
+      },
+      {
+        "h2": "Keep a record of the final version",
+        "paragraphs": [
+          "Once both parties have agreed the text, you can hash the finished file in your browser and get a shareable verification page. If a copy is questioned later, anyone can re-hash the original and compare it with the recorded fingerprint. The certificate proves the file is unchanged. It does not make the lease legally binding and it is not an e-signature."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is the lease agreement legal advice?",
+        "a": "No. The kit gives you informational starting points, not legal advice. For a tenancy with unusual terms or a dispute, ask a licensed professional in your area."
+      },
+      {
+        "q": "Do I need an account to use these templates?",
+        "a": "No. The templates are free and need no signup. You can edit them online and download a PDF, which carries a fixed docstoc.io footer."
+      },
+      {
+        "q": "Can I certify the lease after it is filled in?",
+        "a": "Yes. Certifying is free. Your file is hashed in the browser, so the document itself is not uploaded, only its hash."
+      }
+    ]
+  },
+  "/business-kits/": {
+    "sections": [
+      {
+        "h2": "Why a kit instead of single templates",
+        "paragraphs": [
+          "Most paperwork problems involve more than one document. Starting a company needs an agreement, a plan and a confidentiality clause. Renting out a flat needs a lease and, eventually, a way to end it. A kit puts those documents next to each other, so you can see what is missing before you start."
+        ]
+      },
+      {
+        "h2": "The three kits at a glance",
+        "paragraphs": [
+          "Each kit is built around one situation and lists its templates with a short description of each."
+        ],
+        "bullets": [
+          "US Small Business Starter Kit: a single-member LLC operating agreement, a one-page business plan and a mutual NDA",
+          "Independent Landlord Kit: a residential lease agreement and a lease termination notice",
+          "Collections & Lending Kit: a demand letter for an unpaid invoice and a simple promissory note"
+        ]
+      },
+      {
+        "h2": "How the templates work",
+        "paragraphs": [
+          "Every template in a kit is free and needs no signup. You edit it online and download a PDF, which carries a fixed docstoc.io footer. Templates are informational starting points and not a substitute for licensed professional advice, so have a professional review anything with real money or liability attached.",
+          "When a document is final, you can hash it for free and share a verification link as proof the file has not changed."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Are the kits free?",
+        "a": "Yes. The kits and the templates inside them are free, with no signup. The PDF you download carries a fixed docstoc.io footer."
+      },
+      {
+        "q": "Can I use just one template from a kit?",
+        "a": "Yes. Each template also has its own page in the document template library, so you can open one without the rest."
+      },
+      {
+        "q": "Are the documents legal advice?",
+        "a": "No. They are informational starting points. For anything with significant risk, have a licensed professional look at the final text."
+      }
+    ]
+  },
+  "/business-kits/collections-and-lending-kit": {
+    "sections": [
+      {
+        "h2": "Two documents for two different moments",
+        "paragraphs": [
+          "The demand letter is for an invoice that is seriously overdue. It is a firm final notice before you consider collections or legal action. The promissory note is for a loan: it records the amount, the repayment terms and the interest, if there is any.",
+          "They sit in one kit because both are about getting money back, but you will rarely use them on the same day."
+        ]
+      },
+      {
+        "h2": "Try the softer steps first",
+        "paragraphs": [
+          "A demand letter lands harder when earlier reminders exist. If you have not yet chased the invoice, start with the free payment reminder templates and the overdue timeline, then move to the letter if nothing happens. Keep copies of what you sent and when."
+        ],
+        "bullets": [
+          "Confirm the invoice number, amount and due date are correct before you write",
+          "Check the client's contract for payment terms or late fees",
+          "Send the letter to the person who approves payment, not only a general mailbox",
+          "Note the date you sent it and the date you gave for payment"
+        ]
+      },
+      {
+        "h2": "Writing down a loan properly",
+        "paragraphs": [
+          "A loan between friends, relatives or a business partner is easier to manage in writing. The promissory note template covers the sum lent, how it will be repaid and any interest. Fill it in with the real figures and dates, and agree the text with the other party before anyone signs."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does a demand letter guarantee payment?",
+        "a": "No. It is a formal request, and nothing in a template promises a legal outcome. For a large unpaid amount, ask a licensed professional about your options."
+      },
+      {
+        "q": "Does docstoc send the demand letter for me?",
+        "a": "No. docstoc does not send email or letters on your behalf. You edit the template, download it and send it yourself."
+      },
+      {
+        "q": "Is this the same as the Business plan demand letter?",
+        "a": "The kit template is a free document you edit yourself. The Business plan has its own formal demand letter feature inside the app."
+      }
+    ]
+  },
+  "/business-kits/us-small-business-starter-kit": {
+    "sections": [
+      {
+        "h2": "What each document is for",
+        "paragraphs": [
+          "The three templates cover different jobs. The single-member LLC operating agreement defines ownership, management and finances for a solo-owned LLC. The one-page business plan is a compact framework for pitching a new business or organising your own thinking. The mutual NDA is for two parties sharing confidential information and covers what counts as confidential, permitted use and term."
+        ]
+      },
+      {
+        "h2": "A sensible order to work in",
+        "paragraphs": [
+          "Start with the one-page plan, because writing it forces you to settle who owns the business and how money moves. Then draft the operating agreement to match. Keep the mutual NDA for the first conversation with a partner, supplier or investor in which you will share something sensitive."
+        ],
+        "bullets": [
+          "Plan: what you sell, to whom and how you will be paid",
+          "Operating agreement: who owns it and who decides",
+          "NDA: what is confidential and for how long"
+        ]
+      },
+      {
+        "h2": "Before you rely on them",
+        "paragraphs": [
+          "LLC rules are set state by state, so read each clause against the state where you form the company. The templates are informational starting points, not legal advice. When the documents are final, hash them for free to get a shareable page that shows the files have not changed since you certified them."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is the operating agreement valid in every US state?",
+        "a": "The template is a starting point and not legal advice. LLC requirements vary by state, so check the rules where you register and consider a professional review."
+      },
+      {
+        "q": "Is the NDA one-way or mutual?",
+        "a": "Mutual. It is written for two parties who both share confidential information."
+      },
+      {
+        "q": "Do I need to sign up to download these?",
+        "a": "No. The templates are free with no signup. You can edit them online and download a PDF with a docstoc.io footer."
+      }
+    ]
+  },
+  "/features/templates": {
+    "sections": [
+      {
+        "h2": "Pick the template by situation",
+        "paragraphs": [
+          "The library is organised by where the invoice stands. Before the due date you want a courtesy nudge with the invoice number, amount and a way to pay. A few days after, a short check-in that assumes an oversight. Later, a clear request with a date, and finally a notice that states what happens next.",
+          "If you are not sure which stage you are at, use the template finder tool and search by situation."
+        ]
+      },
+      {
+        "h2": "What to fill in before you send",
+        "paragraphs": [
+          "Placeholders are yours to complete, and a reminder with gaps looks careless. Check each of these against your own invoice."
+        ],
+        "bullets": [
+          "Client contact name and the correct email address",
+          "Invoice number, issue date and due date",
+          "Amount owed, including any agreed late fee",
+          "Payment details or a link, and the date you expect payment by"
+        ]
+      },
+      {
+        "h2": "When an AI draft is the better choice",
+        "paragraphs": [
+          "A static template is quick when your case is typical. An AI draft uses the invoice data and the days overdue you enter, so the tone shifts as the invoice ages. The free tier includes 5 AI drafts a month. In both cases you copy the text into your own email client and send it yourself, because docstoc does not send email for you."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I edit a template before sending?",
+        "a": "Yes. Copy it, change the wording to sound like you and add your invoice details. Nothing is sent from docstoc."
+      },
+      {
+        "q": "How many AI drafts are free?",
+        "a": "Five per month on the free tier. Templates are separate and can be copied as often as you like."
+      },
+      {
+        "q": "Are there templates for partial payments or disputes?",
+        "a": "Yes. The library includes payment plans, partial payments, disputes and thank-you notes."
+      }
+    ]
+  },
+  "/freelancer-invoice-follow-up": {
+    "sections": [
+      {
+        "h2": "What a good follow-up contains for a solo client",
+        "paragraphs": [
+          "Freelance invoices are often small enough that one person at the client decides when they get paid. That helps you: a short, direct email to that person usually works better than a long one to a general address. Name the project, quote the invoice number and amount, state the original due date and ask for a payment date."
+        ]
+      },
+      {
+        "h2": "A simple routine for a Tuesday afternoon",
+        "paragraphs": [
+          "Set aside twenty minutes once a week rather than reacting to each late payment. Go through the aging board, pick the invoices that have crossed a threshold, and generate one draft each."
+        ],
+        "bullets": [
+          "Under a week late: a friendly check-in",
+          "8 to 30 days late: a clear ask with the invoice details",
+          "Past 30 days: a direct message with a firm payment date",
+          "Mark each invoice when it is paid so the list stays honest"
+        ]
+      },
+      {
+        "h2": "Keep records for yourself",
+        "paragraphs": [
+          "After you send, save the email in the client folder and note the date. If a client later says they never received the invoice, a dated trail makes the conversation easier. Check that the invoice was sent to the right address in the first place, since a wrong recipient is a common reason for silence."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I use docstoc if my invoices are PDFs from Google Docs?",
+        "a": "Yes. You can paste the invoice details by hand or upload a CSV. On paid plans you can also import invoice PDFs from Dropbox, OneDrive, Box or Google Drive."
+      },
+      {
+        "q": "Will the email sound like me?",
+        "a": "You edit the draft and send it from your own inbox, so you decide the final wording."
+      },
+      {
+        "q": "Do I have to chase every late invoice?",
+        "a": "No. You choose which invoices to chase and when. docstoc only writes the draft."
+      }
+    ]
+  },
+  "/integrations/": {
+    "sections": [
+      {
+        "h2": "Which connection suits which situation",
+        "paragraphs": [
+          "Choose by where the invoice lives today, not by what looks most advanced. If the PDFs sit in a folder, a cloud storage connection lets you pull one in without retyping. If you already send from Gmail, the Gmail connection puts the draft where you work. If an accounting system holds the truth, QuickBooks or Xero brings overdue invoices into your list."
+        ]
+      },
+      {
+        "h2": "What stays under your control",
+        "paragraphs": [
+          "Connecting a service does not hand docstoc your outgoing mail. Every draft waits for your review, and you send it yourself.",
+          "Cloud storage import, accounting connectors and the Gmail draft feature belong to the paid plans. Pasting an invoice by hand and uploading a CSV work on the free tier."
+        ],
+        "bullets": [
+          "Cloud storage: Google Drive, OneDrive, Box and Dropbox",
+          "Accounting: QuickBooks Online and Xero",
+          "Email: Gmail drafts",
+          "Everything else: CSV import and Zapier"
+        ]
+      },
+      {
+        "h2": "If your tool is not on the list",
+        "paragraphs": [
+          "A CSV export from a spreadsheet or invoicing tool is enough to get an aging list going. Webhooks, API keys and MCP access for draft generation are also available on the paid plans, for teams that want to build their own flow."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does any integration send email automatically?",
+        "a": "No. docstoc never sends email on your behalf. Drafts are reviewed and sent by you."
+      },
+      {
+        "q": "Do I need a paid plan for integrations?",
+        "a": "The cloud storage, accounting and Gmail features are on the paid plans. Manual entry and CSV upload are free."
+      },
+      {
+        "q": "Can I try it before connecting anything?",
+        "a": "Yes. Paste one invoice by hand and read the draft first."
+      }
+    ]
+  },
+  "/features/": {
+    "sections": [
+      {
+        "h2": "Where to start",
+        "paragraphs": [
+          "The products fall into two groups. One group is about getting paid: invoice generator, email templates and AI invoice chasing. The other is about proving and protecting documents: document templates, document certificates, SSL automation and the company badge.",
+          "If late payment is the problem today, begin with email templates or AI invoice chasing. If you need paperwork, open the document templates and kits."
+        ]
+      },
+      {
+        "h2": "How the products connect",
+        "paragraphs": [
+          "The pieces are designed to pass work along, not to sit apart."
+        ],
+        "bullets": [
+          "Create an invoice, share the link, and chase it from the same workspace if it goes late",
+          "Fill in a template from a kit, then certify the final file",
+          "Issue SSL for a domain you control, then publish a domain-verified company badge"
+        ]
+      },
+      {
+        "h2": "What docstoc does not do",
+        "paragraphs": [
+          "docstoc is not a debt collection agency and does not give legal advice. It drafts chase emails that you send yourself, and its templates are informational starting points. Where a feature needs a paid plan, the product page says so."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Which feature is free?",
+        "a": "Browsing and copying email templates, the document template library, document certificates and the first 5 AI drafts each month are free."
+      },
+      {
+        "q": "Does docstoc send emails for me?",
+        "a": "No. It writes drafts and you send them from your own inbox."
+      },
+      {
+        "q": "Where do I see paid features?",
+        "a": "The plans page lists Pro and Business. Business adds, for example, a formal demand letter and custom certificate branding."
+      }
+    ]
+  },
+  "/overdue-invoice": {
+    "sections": [
+      {
+        "h2": "Before you send an overdue reminder",
+        "paragraphs": [
+          "A late invoice is not always an unpaid one. Check your records first: was it sent to the right address, did the client's approval step stall, and has a payment arrived that you have not matched yet? A two-minute check avoids an awkward email to someone who already paid."
+        ]
+      },
+      {
+        "h2": "What the email should say at each stage",
+        "paragraphs": [
+          "Each message builds on the last, and none of them should surprise the client."
+        ],
+        "bullets": [
+          "Gentle check-in: mention the invoice number and ask whether it was received",
+          "Seven days: state the amount and due date, and ask for a payment date",
+          "Thirty days: reference earlier emails and set a clear date",
+          "Final notice: state the balance and the next step you intend to take"
+        ]
+      },
+      {
+        "h2": "Keep a thread you can point to",
+        "paragraphs": [
+          "Reply in the same email thread where you can, so the history stays together. Attach the invoice again, since it is easier to pay from the message than to search for it. If the client gives a promised date, write it down and diary a check for the day after."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How soon after the due date should I follow up?",
+        "a": "A gentle note after one to three days is common practice. The timeline above is a loose guide, and you should follow any terms in your contract."
+      },
+      {
+        "q": "Does docstoc send the overdue reminder?",
+        "a": "No. It drafts the email and you send it from your own inbox."
+      },
+      {
+        "q": "Is a final notice the same as a legal demand?",
+        "a": "No. A final notice is a firm email. docstoc offers a separate demand letter template, which is a starting point and not legal advice."
+      }
+    ]
+  },
+  "/industry/real-estate": {
+    "sections": [
+      {
+        "h2": "Common invoices a property team chases",
+        "paragraphs": [
+          "Property teams usually owe and are owed in several directions. Typical open items include contractor bills passed on to an owner, reimbursable costs billed to a tenant or client, and service charges. Each has its own contact person and a different level of urgency."
+        ]
+      },
+      {
+        "h2": "Keep the relationship while you chase",
+        "paragraphs": [
+          "A vendor who is late with a payment to you may also be the one you need on short notice next quarter. Keep the first messages factual and short, and save firmer wording for items that have gone quiet.",
+          "Group several open invoices for one vendor in a single message, so the conversation is about the whole balance and not a string of separate nudges."
+        ],
+        "bullets": [
+          "Name the property or project in the subject line",
+          "List invoice numbers and amounts in a small table or list",
+          "Ask for a payment date rather than just a payment",
+          "Copy the right colleague so internal approvals do not stall"
+        ]
+      },
+      {
+        "h2": "Documents around the money",
+        "paragraphs": [
+          "Rental work also produces paperwork outside invoices. The business kits include a residential lease agreement and a lease termination notice for landlords managing a rental directly. They are informational templates, not legal advice."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I chase several invoices from one vendor at once?",
+        "a": "Yes. docstoc offers multi-invoice chase drafts for vendors with several open bills."
+      },
+      {
+        "q": "Does docstoc replace property management software?",
+        "a": "No. It focuses on chase drafts and an aging overview. You can bring invoices in by CSV from the system you already use."
+      },
+      {
+        "q": "Who sends the email?",
+        "a": "You do. docstoc drafts it and you send it from your own inbox."
+      }
+    ]
+  },
+  "/industry/creative-agencies": {
+    "sections": [
+      {
+        "h2": "Different invoices, different chasing",
+        "paragraphs": [
+          "Agencies bill in several ways at once. A retainer invoice is predictable, so a late payment is usually an oversight. A project invoice tied to a milestone can stall because the client is waiting on something. A scope-change bill may be disputed. Each needs a different opening line."
+        ]
+      },
+      {
+        "h2": "Who owns the chase",
+        "paragraphs": [
+          "Decide in advance who sends reminders. If the account manager does, finance should see the status. If finance does, the account manager should know before an email goes out to a client they are mid-pitch with.",
+          "A shared view of open chases stops two people from writing to the same client on the same day."
+        ],
+        "bullets": [
+          "Agree the stage at which an account manager hands over to finance",
+          "Record the promised payment date in the chase notes",
+          "Pause chasing while a scope question is being resolved",
+          "Review the aging list at a fixed weekly time"
+        ]
+      },
+      {
+        "h2": "Sequences for large project bills",
+        "paragraphs": [
+          "A big invoice rarely needs one email. A short sequence works better: a check-in, a clear ask with a date, then a firmer follow-up. The AI chase plans on paid plans lay out three steps, and you edit each before it goes out."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can the whole account team see the chases?",
+        "a": "Yes. Team invites and shared chase status are part of the Pro plan."
+      },
+      {
+        "q": "Does it connect to our accounting system?",
+        "a": "Pro and Business include QuickBooks Online and Xero connectors for pulling overdue invoices. CSV upload also works."
+      },
+      {
+        "q": "Will it email our clients itself?",
+        "a": "No. Drafts stay in your account until you copy and send them."
+      }
+    ]
+  },
+  "/industry/construction": {
+    "sections": [
+      {
+        "h2": "Write it down so the call is easier",
+        "paragraphs": [
+          "If you need to phone a client about a late invoice, an email beforehand helps. It gives them the job reference, the stage completed, the invoice number and the amount, so the call starts with facts and not accusations."
+        ]
+      },
+      {
+        "h2": "What to include for a finished job stage",
+        "paragraphs": [
+          "Trades invoices often follow a stage of work, and a client may query the stage rather than the amount. Reference the stage in the email so there is less to dispute."
+        ],
+        "bullets": [
+          "Job or site name and the stage completed",
+          "Invoice number, amount and original due date",
+          "Any agreed variation or extra work covered by the invoice",
+          "A specific date by which you expect payment"
+        ]
+      },
+      {
+        "h2": "Escalating without burning the client",
+        "paragraphs": [
+          "A firm message can still be courteous. Say what you did, what you are owed and when you need it. If a client has gone quiet for more than a month, a more direct email and a short call afterwards is a normal next move. Keep photos, sign-offs and earlier emails together in case there is a later disagreement. docstoc offers a demand letter template for the last step, which is an informational document and not legal advice."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Should I call or email first?",
+        "a": "That depends on the client. Many people email first so the details are in writing, then follow with a call."
+      },
+      {
+        "q": "Can I chase several job invoices for one client?",
+        "a": "Yes. You can add several invoices and draft a message that covers the balance."
+      },
+      {
+        "q": "Does docstoc contact my customer?",
+        "a": "No. You send every message yourself."
+      }
+    ]
+  },
+  "/industry/small-business": {
+    "sections": [
+      {
+        "h2": "A routine that fits a busy counter",
+        "paragraphs": [
+          "Small teams do not have time to review the books daily. A weekly slot is enough: open the list of unpaid invoices, sort by how late each is, and send a message to the oldest first."
+        ]
+      },
+      {
+        "h2": "Details that get invoices paid",
+        "paragraphs": [
+          "Local customers often pay as soon as the request is clear. Make the email easy to act on."
+        ],
+        "bullets": [
+          "State the job or product in plain words",
+          "Put the amount and due date in the first lines",
+          "Say how to pay and who to contact with questions",
+          "Offer to resend the invoice as an attachment"
+        ]
+      },
+      {
+        "h2": "Keeping simple records",
+        "paragraphs": [
+          "A spreadsheet is a fine place to track invoices. Export it as CSV, upload it, and docstoc builds an aging view from it. When a customer pays, mark the invoice done. When a customer promises a date, note it and check that day. The result is a short, honest list of what is still owed."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Do I need accounting software to use docstoc?",
+        "a": "No. You can paste invoices by hand or upload a CSV. QuickBooks and Xero connections are available on paid plans."
+      },
+      {
+        "q": "Is there a limit on free use?",
+        "a": "The free tier includes 5 AI drafts a month. The template library is separate and free to browse and copy."
+      },
+      {
+        "q": "Will customers know a tool wrote the email?",
+        "a": "You edit the draft and send it from your own inbox, so it goes out under your name and wording."
+      }
+    ]
+  },
+  "/industry/freelancers": {
+    "sections": [
+      {
+        "h2": "Chasing without damaging the next project",
+        "paragraphs": [
+          "Many freelance clients come back, so the aim of a reminder is to get the invoice paid and keep the working relationship. A reminder that assumes good faith, states the facts and asks for a date usually does both."
+        ]
+      },
+      {
+        "h2": "Practical habits that reduce late payment",
+        "paragraphs": [
+          "Some of the work happens before the invoice is late."
+        ],
+        "bullets": [
+          "State payment terms on every quote and invoice",
+          "Send the invoice to the person who approves it, and ask them to confirm receipt",
+          "Send a courtesy nudge a week before the due date",
+          "Keep a short list of clients who always pay late, and adjust terms for them"
+        ]
+      },
+      {
+        "h2": "What to do with a long-running balance",
+        "paragraphs": [
+          "If an invoice passes 30 days with no answer, change the channel. A short call or message to a second contact at the client can reveal a stuck approval. For a larger unpaid amount, a formal demand letter template is available in the free Collections & Lending Kit. It is a starting point, not legal advice."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I upload invoices from my invoicing tool?",
+        "a": "Yes. A CSV export works, for example from QuickBooks, Xero, FreshBooks or Wave."
+      },
+      {
+        "q": "Is the free tier enough for one person?",
+        "a": "For a handful of late invoices a month, 5 AI drafts plus the template library may be enough. Pro adds unlimited drafts."
+      },
+      {
+        "q": "Does docstoc contact my clients?",
+        "a": "No. You send each email yourself."
+      }
+    ]
+  },
+  "/integrations/box-invoice-follow-up": {
+    "sections": [
+      {
+        "h2": "What you need before importing from Box",
+        "paragraphs": [
+          "The import reads an invoice PDF, so it works best when the file is a clean copy of what the client received. Check that each PDF in Box shows an invoice number, a due date and a total, because those are the details the follow-up draws on.",
+          "Putting the client name and invoice number in the file name saves you opening several files later."
+        ]
+      },
+      {
+        "h2": "From the PDF to the email you send",
+        "paragraphs": [
+          "After the import you review the amount and due date, then read the draft. The tone follows how many days the invoice is overdue, so a note two days late reads differently from one at forty days.",
+          "Copy the text into your own email client and attach the PDF. Nothing is sent from docstoc."
+        ],
+        "bullets": [
+          "Check the client's contact name and address",
+          "Confirm the invoice is still unpaid",
+          "Edit anything that does not sound like you",
+          "Add a payment date you are asking for"
+        ]
+      },
+      {
+        "h2": "Plan and privacy notes",
+        "paragraphs": [
+          "Cloud storage import is part of the paid plans. If you would rather not connect Box yet, you can paste the invoice details by hand or upload a CSV and get the same kind of draft."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc send the PDF from Box to my client?",
+        "a": "No. The import only pulls the invoice into docstoc to build the draft. You send the email yourself."
+      },
+      {
+        "q": "Do I need a paid plan to import from Box?",
+        "a": "Yes. Cloud storage import is a Pro feature. The free tier supports manual entry and CSV upload."
+      },
+      {
+        "q": "What if the invoice is not in a PDF?",
+        "a": "Paste the key details by hand: client name, amount and due date."
+      }
+    ]
+  },
+  "/integrations/google-drive-invoice-follow-up": {
+    "sections": [
+      {
+        "h2": "What you need before importing from Google Drive",
+        "paragraphs": [
+          "The import reads an invoice PDF, so it works best when the file is a clean copy of what the client received. Check that each PDF in Google Drive shows an invoice number, a due date and a total, because those are the details the follow-up draws on.",
+          "Putting the client name and invoice number in the file name saves you opening several files later."
+        ]
+      },
+      {
+        "h2": "From the PDF to the email you send",
+        "paragraphs": [
+          "After the import you review the amount and due date, then read the draft. The tone follows how many days the invoice is overdue, so a note two days late reads differently from one at forty days.",
+          "Copy the text into your own email client and attach the PDF. Nothing is sent from docstoc."
+        ],
+        "bullets": [
+          "Check the client's contact name and address",
+          "Confirm the invoice is still unpaid",
+          "Edit anything that does not sound like you",
+          "Add a payment date you are asking for"
+        ]
+      },
+      {
+        "h2": "Plan and privacy notes",
+        "paragraphs": [
+          "Cloud storage import is part of the paid plans. If you would rather not connect Google Drive yet, you can paste the invoice details by hand or upload a CSV and get the same kind of draft."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc send the PDF from Google Drive to my client?",
+        "a": "No. The import only pulls the invoice into docstoc to build the draft. You send the email yourself."
+      },
+      {
+        "q": "Do I need a paid plan to import from Google Drive?",
+        "a": "Yes. Cloud storage import is a Pro feature. The free tier supports manual entry and CSV upload."
+      },
+      {
+        "q": "What if the invoice is not in a PDF?",
+        "a": "Paste the key details by hand: client name, amount and due date."
+      }
+    ]
+  },
+  "/integrations/onedrive-invoice-follow-up": {
+    "sections": [
+      {
+        "h2": "What you need before importing from OneDrive",
+        "paragraphs": [
+          "The import reads an invoice PDF, so it works best when the file is a clean copy of what the client received. Check that each PDF in OneDrive shows an invoice number, a due date and a total, because those are the details the follow-up draws on.",
+          "Putting the client name and invoice number in the file name saves you opening several files later."
+        ]
+      },
+      {
+        "h2": "From the PDF to the email you send",
+        "paragraphs": [
+          "After the import you review the amount and due date, then read the draft. The tone follows how many days the invoice is overdue, so a note two days late reads differently from one at forty days.",
+          "Copy the text into your own email client and attach the PDF. Nothing is sent from docstoc."
+        ],
+        "bullets": [
+          "Check the client's contact name and address",
+          "Confirm the invoice is still unpaid",
+          "Edit anything that does not sound like you",
+          "Add a payment date you are asking for"
+        ]
+      },
+      {
+        "h2": "Plan and privacy notes",
+        "paragraphs": [
+          "Cloud storage import is part of the paid plans. If you would rather not connect OneDrive yet, you can paste the invoice details by hand or upload a CSV and get the same kind of draft."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc send the PDF from OneDrive to my client?",
+        "a": "No. The import only pulls the invoice into docstoc to build the draft. You send the email yourself."
+      },
+      {
+        "q": "Do I need a paid plan to import from OneDrive?",
+        "a": "Yes. Cloud storage import is a Pro feature. The free tier supports manual entry and CSV upload."
+      },
+      {
+        "q": "What if the invoice is not in a PDF?",
+        "a": "Paste the key details by hand: client name, amount and due date."
+      }
+    ]
+  },
+  "/integrations/gmail-invoice-follow-up": {
+    "sections": [
+      {
+        "h2": "What lands in your Drafts folder",
+        "paragraphs": [
+          "The draft is created as a normal Gmail draft. Open it like any other, read it, change the greeting, attach the invoice PDF and send it when you are ready. If you decide not to chase after all, delete it."
+        ]
+      },
+      {
+        "h2": "Using replies to decide the next step",
+        "paragraphs": [
+          "Chasing often stalls after the first reply. A client may write that payment is coming on a given date, or that the invoice needs a purchase order number. docstoc can read client replies to suggest what to say next, which is a paid feature. You read the suggestion, adjust it and send it yourself."
+        ],
+        "bullets": [
+          "Note any promised date and check the day after",
+          "Reply in the same thread so the history stays together",
+          "Send the missing reference or document straight away if the client asks for one"
+        ]
+      },
+      {
+        "h2": "Why clients answer you and not a system",
+        "paragraphs": [
+          "A message from your own address, in your usual voice, reads as personal. That is why docstoc stops at the draft and leaves sending to you. The Gmail draft feature needs a paid plan."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does docstoc send the email from my Gmail?",
+        "a": "No. It saves a draft in Gmail. You review it and press send."
+      },
+      {
+        "q": "Can I use Gmail without connecting it?",
+        "a": "Yes. Copy the draft from docstoc and paste it into a new Gmail message."
+      },
+      {
+        "q": "Is the Gmail connection free?",
+        "a": "No. The Gmail draft feature requires a paid account."
+      }
+    ]
+  },
+  "/features/ai-tone": {
+    "sections": [
+      {
+        "h2": "Why days overdue is the signal",
+        "paragraphs": [
+          "Tone changes with time because the situation changes. At three days a payment is most likely a slip. At forty days the client has either forgotten or is avoiding the subject. The draft reflects that, so the email you send fits what has actually happened."
+        ]
+      },
+      {
+        "h2": "Editing the draft before you send",
+        "paragraphs": [
+          "Treat the draft as a first version. Add a personal line if you know the client, correct the greeting and check that the amount and due date match the invoice. Paid plans add one-click rewrites to soften, firm up or shorten the text."
+        ],
+        "bullets": [
+          "Read it aloud once",
+          "Remove anything you would not say to the person",
+          "Keep the payment date you are asking for clear"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can the AI send emails for me?",
+        "a": "No. Drafts stay in your account until you copy or send them yourself."
+      },
+      {
+        "q": "What happens if I do not like the tone?",
+        "a": "Edit it by hand. On paid plans you can also ask for a softer, firmer or shorter version."
+      }
+    ]
+  },
+  "/chase-invoices": {
+    "sections": [
+      {
+        "h2": "When to start chasing",
+        "paragraphs": [
+          "Start earlier than feels comfortable. A short message soon after the due date is easier to write and to receive than a long one weeks later. Chasing is a routine step in getting paid, and clients who pay on time will not mind a quick check."
+        ]
+      },
+      {
+        "h2": "Keep a clear trail",
+        "paragraphs": [
+          "Write down each chase so you can see what has been sent and when. This keeps follow-ups consistent and avoids sending the same message twice."
+        ],
+        "bullets": [
+          "Date of each email and who received it",
+          "Any date the client promised to pay",
+          "The next day you plan to check",
+          "The date the invoice was paid"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How many times should I chase one invoice?",
+        "a": "There is no fixed number. A common pattern is a gentle note, a clear ask and a formal notice, spaced out as the invoice ages."
+      },
+      {
+        "q": "What if the client does not respond at all?",
+        "a": "Try a second contact or a different channel such as a short call, and follow your contract terms. For large amounts, ask a licensed professional about next steps."
+      }
+    ]
+  },
+  "/certificate": {
+    "sections": [
+      {
+        "h2": "A practical example",
+        "paragraphs": [
+          "Say you send a design file and invoice to a client in May, and in July they query the amount. If you certified the PDF when you sent it, you can point to the verification page and the recorded fingerprint. Anyone can hash the file you sent and compare it with that record. It settles which version existed at that time."
+        ]
+      },
+      {
+        "h2": "How the check works",
+        "paragraphs": [
+          "The hash is calculated in your browser, so the original file does not have to be uploaded. The verification page shows the hash, a timestamp and a status. Optional Bitcoin OpenTimestamps anchoring is available for stronger independent proof of the time."
+        ],
+        "bullets": [
+          "Certify the final file, not a draft",
+          "Keep the original unchanged, because even one changed byte gives a different hash",
+          "Share the verification link alongside the document"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Does certifying make a document legally binding?",
+        "a": "No. It shows that a file has not changed since it was certified. It is not an e-signature and not legal advice."
+      },
+      {
+        "q": "Can I add my own logo?",
+        "a": "Yes. Custom certificate branding is part of the Business plan."
+      }
+    ]
+  },
+  "/invoice-follow-up": {
+    "sections": [
+      {
+        "h2": "Build the email in four lines",
+        "paragraphs": [
+          "Most follow-ups work with four short pieces: a greeting, a reference to the invoice, the request and a date. Anything beyond that tends to bury the ask."
+        ],
+        "bullets": [
+          "Reference: invoice number, amount and original due date",
+          "Request: please arrange payment or tell me when to expect it",
+          "Date: the day by which you would like to hear back",
+          "Contact: how to reach you if there is a problem"
+        ]
+      },
+      {
+        "h2": "Common reasons for silence",
+        "paragraphs": [
+          "Silence is usually dull rather than hostile. The invoice went to the wrong person, a purchase order number was missing, or it is waiting in someone's queue. Asking directly whether anything is blocking payment often gets a quicker answer than repeating the request."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Should I attach the invoice again?",
+        "a": "Yes. It saves the client from searching, and it keeps the amount and number in front of them."
+      },
+      {
+        "q": "Is it fine to chase by phone as well?",
+        "a": "Yes. Many people send an email first and follow with a call if there is no reply."
+      }
+    ]
+  },
+  "/payment-reminder": {
+    "sections": [
+      {
+        "h2": "What a reminder should contain",
+        "paragraphs": [
+          "A reminder is easy to act on when everything needed is in the message. Do not make the client open three attachments to learn what they owe."
+        ],
+        "bullets": [
+          "Invoice number and amount",
+          "Due date",
+          "How to pay, or a link to pay",
+          "A contact for questions"
+        ]
+      },
+      {
+        "h2": "Keep the courtesy version separate",
+        "paragraphs": [
+          "A reminder before the due date is a courtesy, not a chase, so keep it short and warm. Save firmer wording for after the date has passed. Mixing the two makes the first one sound like an accusation and the second one weaker than it should be."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Should a reminder mention late fees?",
+        "a": "Only if they are in your agreement or terms. If you mention them, state the amount or rate plainly."
+      },
+      {
+        "q": "Can I use the same reminder for every client?",
+        "a": "The structure can stay the same. Change the greeting and the invoice details, and adjust the tone for long-standing clients."
+      }
+    ]
+  },
+  "/invoices": {
+    "sections": [
+      {
+        "h2": "Details that prevent late payment",
+        "paragraphs": [
+          "A clear invoice is the first defence against a chase. Put the invoice number, issue date, due date, line items, tax and total where they are easy to find. State how you want to be paid and who to contact with questions. The less the client has to guess, the fewer reasons they have to delay."
+        ],
+        "bullets": [
+          "Use a unique invoice number for each invoice",
+          "Show the currency on every amount",
+          "Write the payment terms in plain words, for example the number of days"
+        ]
+      },
+      {
+        "h2": "From invoice to reminder",
+        "paragraphs": [
+          "Because the invoice and the follow-up live in the same workspace, the details carry over: the client, amount and due date do not need retyping. If the invoice goes late, the draft is already based on the right data."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can my client pay through the invoice link?",
+        "a": "The shareable link is a page your client can open or print. Include your payment details on the invoice itself."
+      },
+      {
+        "q": "Is the invoice link private?",
+        "a": "Treat it as a link you share with your client. Send it only to the person who needs to pay."
+      }
+    ]
+  }
+}

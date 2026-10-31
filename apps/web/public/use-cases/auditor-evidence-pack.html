@@ -113,7 +113,10 @@
     <a href="../app/sox-reporting" style="display: inline-block; padding: 12px 24px; background: #F58025; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600;">Open Evidence &amp; exports</a>
   </section>
 </article>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>A verification walk-through</h2><p>An auditor receives three files. They run sha256sum on the HTML and compare the result with the .sha256 file. If the digests match, the HTML is the file that was frozen. They then check the .ots proof with an OpenTimestamps client, which shows the earliest Bitcoin block that vouches for that digest.</p></section>
+<section class="wrap alt-body"><h2>What a match does and does not show</h2><p>A match shows that the pack has not changed since it was created. It does not show that the underlying business was done correctly, and it does not make your controls effective. Your auditor still judges whether the contents are enough.</p></section>
+<section class="wrap alt-body"><h2>Practical tips</h2><p>A few habits make the handover smoother.</p><ul><li>Create one pack per period and keep all three files together.</li><li>Create it only after the period's chases are marked.</li><li>Do not edit or re-save the HTML, since any change breaks the digest.</li><li>Keep the .ots file; without it the timestamp cannot be checked.</li></ul></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Why is my proof still pending?</h3><p>Bitcoin confirmation can take hours after creation. A pending pack is still valid to keep and send.</p><h3>Does the auditor need a docstoc login?</h3><p>No. The three files are enough to check the pack independently.</p></section><!-- /extra-copy --></main>
 
 <footer class="site-footer">
   <div class="wrap site-footer-inner">

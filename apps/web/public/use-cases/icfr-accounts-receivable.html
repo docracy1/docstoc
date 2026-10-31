@@ -121,7 +121,10 @@
   </div>
 </section>
 </article>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>A sampled follow-up, step by step</h2><p>Imagine an auditor picks one overdue invoice from the period and asks who chased it, when, and who agreed to it. In docstoc that question has a place to look: the chase timeline shows each event with the actor's email and role.</p><p>If maker-checker was on, the approval sits next to the send, with the requester and the approver as two different people.</p></section>
+<section class="wrap alt-body"><h2>Keeping the record from being rewritten</h2><p>Chase events are hashed daily and the hash is anchored to Bitcoin through OpenTimestamps. A period pack is frozen as an HTML file with a matching SHA-256 file and an .ots proof, so a reviewer can check the file without logging in to docstoc.</p><ul><li>Set how long records are kept in the retention window.</li><li>Apply a legal hold when a matter is open.</li><li>Purge is optional and off unless you choose it.</li></ul></section>
+<section class="wrap alt-body"><h2>Scope</h2><p>This covers one slice: day to day collections activity on accounts receivable. It does not cover revenue recognition, reserves, ledger reconciliation or any other control. Your auditor decides what evidence is sufficient, and this is not audit advice.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Does docstoc test my controls for me?</h3><p>It gives a control library with period tests for the accounts receivable slice, shown as pass, fail or exception. You and your auditor still judge the result.</p><h3>Which plan includes this?</h3><p>The evidence pack and maker-checker are part of Business, at $39.99 a month.</p><h3>Can an auditor check a pack without access to our account?</h3><p>Yes. They need the HTML, the .sha256 file and the .ots file. They hash the HTML, compare it with the digest and verify the proof with an OpenTimestamps client.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

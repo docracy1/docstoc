@@ -255,7 +255,7 @@
 <article>
     <div style="margin-bottom: 40px; text-align: center;">
       <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent, #F58025); letter-spacing: 0.05em;">Developer / API Integration</span>
-      <h1 style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 700; margin: 12px 0 16px;">Document & Invoice Follow-up API</h1>
+      <h1 style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 700; margin: 12px 0 16px;">Invoice follow-up API</h1>
       <p style="font-size: 18px; color: #4b5563; line-height: 1.6; max-width: 720px; margin: 0 auto;">Automate payment follow-ups programmatically. Send overdue invoice metadata to our REST API endpoint and receive AI-written drafts tuned to overdue severity.</p>
     </div>
 
@@ -265,7 +265,7 @@
         <li><strong>REST API Endpoint:</strong> <code>POST /api/v1/chase/draft</code> with API key authentication.</li>
         <li><strong>Outbound Webhooks:</strong> Subscribe to real-time events like <code>chase.drafted</code> and <code>chase.sent</code> with HMAC signatures.</li>
         <li><strong>MCP Server Integration:</strong> Connect AI agents directly via <code>https://api.docstoc.io/mcp</code>.</li>
-        <li><strong>Zapier & Make Support:</strong> Connect 1,000+ apps without writing custom code.</li>
+        <li><strong>Zapier and Make:</strong> Connect them through your API key and outbound webhooks.</li>
       </ul>
     </section>
 
@@ -283,7 +283,10 @@
       </div>
     </section>
   </article>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>What this API does and does not do</h2><p>The address says document signing, but docstoc does not offer electronic signatures. The API is about overdue invoices: you send the details of an unpaid invoice and get back a written follow-up draft, with a subject line and a body, in a tone that matches how late the invoice is.</p><p>docstoc does not send the email. Your own system, or you, takes the draft and sends it from your own mail account. That keeps replies, sender reputation and the decision to send with you.</p></section>
+<section class="wrap alt-body"><h2>Authentication and plans</h2><p>API keys are created in the account under Webhooks and API and sent as a Bearer token in the Authorization header. API keys and draft generation over HTTP are part of the paid plans: Pro at $14.99 a month and Business at $39.99 a month.</p><p>If you only want to see what a draft looks like, the free tier gives you 5 AI drafts a month in the web app without an account.</p></section>
+<section class="wrap alt-body"><h2>Webhooks and AI agents</h2><p>Webhooks cover more than drafting. The events are chase.drafted, chase.sent, chase.thank_you, chase.reply_drafted, chase.sequence_planned and chase.downloaded.</p><p>The same drafting step is available through the MCP endpoint at api.docstoc.io/mcp. Three tools are public and need no key: get_chase_tip, recommend_template and list_templates. The fourth, draft_chase_email, needs a signed-in session or an API key and returns a subject and a body.</p><ul><li>Each delivery carries an X-Docstoc-Event header with the event name.</li><li>Each delivery carries an X-Docstoc-Signature header in the form sha256= followed by an HMAC-SHA256 signature of the payload.</li><li>Check the signature before you trust the payload, then act on the event in your own system.</li></ul></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Can I use docstoc to collect electronic signatures?</h3><p>No. docstoc does not provide e-signatures. For documents it offers free templates and a tamper-evident hash certificate, which proves a file has not changed since a given time but is not a signature.</p><h3>Does the API send the chase email to my customer?</h3><p>No. The API returns a draft only. You send it from your own inbox, and docstoc never emails your customers on your behalf.</p><h3>Do I need a paid plan to call the API?</h3><p>Yes for API keys and the draft endpoint, which are on Pro and Business. The public MCP tools and the free web drafts need no key.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

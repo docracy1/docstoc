@@ -145,7 +145,8 @@ function canonicalInvoicePayload(invoice: Invoice): string {
 const PUBLIC_ID_ALPHABET = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
 
 function generatePublicId(): string {
-  const bytes = crypto.getRandomValues(new Uint8Array(8));
+  // 60 bits: this ID is the only thing protecting a shared invoice link.
+  const bytes = crypto.getRandomValues(new Uint8Array(12));
   let code = "";
   for (const b of bytes) code += PUBLIC_ID_ALPHABET[b % PUBLIC_ID_ALPHABET.length];
   return `INV-${code}`;

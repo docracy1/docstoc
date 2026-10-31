@@ -254,18 +254,16 @@
 <main class="wrap page-main">
 <article>
     <div style="margin-bottom: 40px; text-align: center;">
-      <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent, #F58025); letter-spacing: 0.05em;">Use Case / Pro Feature</span>
+      <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent, #F58025); letter-spacing: 0.05em;">Use Case / Business Feature</span>
       <h1 style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 700; margin: 12px 0 16px;">Client Payment Risk Scoring Automation</h1>
-      <p style="font-size: 18px; color: #4b5563; line-height: 1.6; max-width: 720px; margin: 0 auto;">Stop waiting 60 days to realize a client isn't paying. docstoc automatically evaluates historical payment trends, overdue ratios, and promised payment reliability to generate an instant risk score.</p>
+      <p style="font-size: 18px; color: #4b5563; line-height: 1.6; max-width: 720px; margin: 0 auto;">Stop waiting 60 days to realize a client isn't paying. docstoc automatically evaluates historical payment trends and overdue ratios to generate an instant risk score.</p>
     </div>
 
     <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 40px;">
       <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">Why Client Risk Scoring Matters</h2>
       <ul style="font-size: 16px; line-height: 1.8; color: #374151; padding-left: 20px;">
         <li><strong>Early Detection:</strong> Spot high-risk clients before delivering additional work or issuing new invoices.</li>
-        <li><strong>Adaptive AI Escalation:</strong> Automatically trigger earlier, firmer follow-up drafts for high-risk accounts.</li>
-        <li><strong>Promised Date Tracking:</strong> Monitor clients who repeatedly break payment promises and auto-adjust their risk tier.</li>
-        <li><strong>Seamless Accounting Integration:</strong> Syncs directly with QuickBooks Online and Xero accounts.</li>
+        <li><strong>Accounting sync:</strong> Works with QuickBooks Online and Xero accounts.</li>
       </ul>
     </section>
 
@@ -287,7 +285,10 @@
       </div>
     </section>
   </article>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>How the score is calculated</h2><p>The client risk score runs from 0 to 100, and a higher number means a riskier client. It is based on two things docstoc records: the share of that client's invoices that were paid late, and the average number of days they were late.</p><p>A client with no paid or late invoices on record starts at 50, the neutral midpoint. The score is then kept between 5 and 95, so a single late invoice never reads as certain default. It updates each time an invoice is marked paid.</p></section>
+<section class="wrap alt-body"><h2>Using the number in practice</h2><p>A score is a prompt for a human decision, not a verdict. Typical uses are small and concrete.</p><ul><li>Ask for a deposit before starting new work for a client with a high score.</li><li>Shorten payment terms on the next invoice.</li><li>Check the chase history before you agree to extra scope.</li><li>Treat a score of 50 with no history as unknown rather than average.</li></ul></section>
+<section class="wrap alt-body"><h2>Plan and limits</h2><p>The risk score is part of the Business plan at $39.99 a month. It only sees what is recorded in docstoc, so invoices paid outside the app or never imported are missing from the maths. docstoc is not a credit bureau and the score is not a credit rating.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Does a high risk score change what docstoc does?</h3><p>No. It does not send or escalate anything by itself. You see the score next to the client and decide the tone and timing of the next follow-up.</p><h3>What does a score of 50 mean?</h3><p>It means there is not enough history yet. Until a client has paid or late invoices recorded, docstoc shows the neutral midpoint.</p><h3>Is this a credit check?</h3><p>No. The score uses only your own invoice history inside docstoc. It says nothing about the client's finances.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

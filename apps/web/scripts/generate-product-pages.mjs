@@ -441,7 +441,7 @@ const PRODUCTS = [
       faqs: [
         {
           q: "Do I need an account?",
-          a: "No for browsing and copying templates. An account is only needed for AI drafts and saving work in the app.",
+          a: "No for browsing and copying templates, or for your first 5 AI drafts a month. An account is needed for saving work in the app.",
         },
       ],
     },

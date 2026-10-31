@@ -350,7 +350,10 @@
 <p>No — docstoc is not a public ACME CA endpoint. We are a managed client of Let's Encrypt for domains in your account.</p>
 </details>
 </div>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>What happens in one issuance</h2><p>You enter a hostname. docstoc creates the ACME order with Let's Encrypt and shows the TXT value to publish at _acme-challenge for that name. Once you click to verify and DNS has caught up, docstoc finishes the order and stores the certificate, which is domain validated and lasts 90 days.</p></section>
+<section class="wrap alt-body"><h2>Renewal stays guided</h2><p>Renewal is not unattended. About 30 days before expiry docstoc emails you once. You start the renewal, publish a fresh TXT value and verify again. The reason is simple: without access to your DNS provider, docstoc cannot change the record for you.</p></section>
+<section class="wrap alt-body"><h2>Plan limits</h2><p>Every plan includes 5 certificate slots. Pro adds several names on one certificate, up to 10, plus the API. Business allows up to 100 names per certificate and one wildcard among the five slots.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Does docstoc renew my certificate automatically?</h3><p>No. It emails a reminder before expiry and gives you a fresh DNS TXT value to publish. You complete the renewal.</p><h3>Which certificate types are issued?</h3><p>Let's Encrypt domain validated certificates only. There are no organisation or extended validation certificates.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

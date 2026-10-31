@@ -713,8 +713,8 @@ export type AuthConfig = {
   turnstileSiteKey: string | null;
   turnstileRequired: boolean;
   googleLoginEnabled?: boolean;
-  /** When set, login UI shows a password field for this address. */
-  adminEmail?: string;
+  /** SHA-256 of the admin address: login UI shows a password field when the typed email matches. */
+  adminEmailHash?: string;
   adminTotpRequired?: boolean;
 };
 

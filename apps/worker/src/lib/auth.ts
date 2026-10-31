@@ -417,6 +417,18 @@ export function clearSessionCookie(c: Context, env?: Env) {
 
 const GOOGLE_LOGIN_STATE_TTL_SECONDS = 10 * 60;
 
+export const GOOGLE_STATE_COOKIE = "chasa_google_state";
+
+/** Same host scope as the session cookie: the flow starts on docstoc.io and returns to the API host. */
+export function googleStateCookieOptions(env: Env) {
+  return { ...sessionCookieOptions(env), path: "/api/auth/google", maxAge: GOOGLE_LOGIN_STATE_TTL_SECONDS };
+}
+
+export async function sha256Hex(text: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
 export async function createGoogleLoginState(env: Env): Promise<string> {
   const expiry = String(Math.floor(Date.now() / 1000) + GOOGLE_LOGIN_STATE_TTL_SECONDS);
   const nonce = generateOpaqueToken().slice(0, 16);
@@ -439,7 +451,7 @@ async function parseGoogleLoginState(env: Env, state: string): Promise<boolean> 
 
 export async function getGoogleLoginAuthorizeUrl(
   env: Env
-): Promise<{ ok: true; url: string } | { ok: false; error: string }> {
+): Promise<{ ok: true; url: string; state: string } | { ok: false; error: string }> {
   if (!env.GOOGLE_LOGIN_CLIENT_ID || !env.GOOGLE_LOGIN_CLIENT_SECRET) {
     return { ok: false, error: "Google sign-in isn't configured" };
   }
@@ -452,7 +464,7 @@ export async function getGoogleLoginAuthorizeUrl(
     scope: "openid email profile",
     state,
   });
-  return { ok: true, url: `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}` };
+  return { ok: true, state, url: `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}` };
 }
 
 export async function handleGoogleLoginCallback(

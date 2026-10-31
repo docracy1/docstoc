@@ -458,7 +458,7 @@ const hubEn = {
   keywords:
     "accounts receivable SOX, AR SOX software, SOX collections reporting, invoice chase audit trail, OpenTimestamps auditor pack",
   h1: "Accounts receivable SOX reporting",
-  lede: "The searchable home for docstoc AR SOX: dual-control chase sends, attributable evidence, and auditor packs anyone can verify without trusting our database.",
+  lede: "The searchable home for docstoc AR SOX: dual-control chase sends, attributable evidence, and auditor packs whose hash and timestamp anyone can verify.",
   eyebrow: "SOX / Accounts receivable",
   sections: [
     {

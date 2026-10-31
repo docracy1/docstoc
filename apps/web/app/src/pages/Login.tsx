@@ -4,6 +4,11 @@ import { track } from "../lib/analytics";
 import { useT } from "../lib/i18n";
 import TurnstileWidget, { resetTurnstile } from "../components/TurnstileWidget";
 
+async function sha256Hex(text: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
 async function loadAuthConfig(): Promise<AuthConfig | null> {
   try {
     const res = await fetch("/api/auth/config", { credentials: "include" });
@@ -36,7 +41,8 @@ export default function Login() {
   const [configLoaded, setConfigLoaded] = useState(false);
   const [adminTotpRequired, setAdminTotpRequired] = useState(false);
   const [googleLoginEnabled, setGoogleLoginEnabled] = useState(false);
-  const [adminEmail, setAdminEmail] = useState<string | null>(null);
+  const [adminEmailHash, setAdminEmailHash] = useState<string | null>(null);
+  const [isAdminEmail, setIsAdminEmail] = useState(false);
   const autoStartedRef = useRef(false);
 
   useEffect(() => {
@@ -49,7 +55,7 @@ export default function Login() {
       setAdminTotpRequired(!!cfg?.adminTotpRequired);
       setTurnstileRequired(Boolean(cfg?.turnstileRequired));
       setGoogleLoginEnabled(Boolean(cfg?.googleLoginEnabled));
-      setAdminEmail(cfg?.adminEmail?.trim().toLowerCase() || null);
+      setAdminEmailHash(cfg?.adminEmailHash || null);
       setConfigLoaded(true);
     });
     // The static SPA shell (index.html) carries one shared title/description for every /app/*
@@ -65,8 +71,19 @@ export default function Login() {
     }
   }, []);
 
-  const isAdminEmail =
-    Boolean(adminEmail) && email.trim().toLowerCase() === adminEmail;
+  useEffect(() => {
+    let current = true;
+    if (!adminEmailHash) {
+      setIsAdminEmail(false);
+      return;
+    }
+    void sha256Hex(email.trim().toLowerCase()).then((hash) => {
+      if (current) setIsAdminEmail(hash === adminEmailHash);
+    });
+    return () => {
+      current = false;
+    };
+  }, [email, adminEmailHash]);
   // Arriving via a "Try free" signup CTA should always mean "sign up," even if the visitor types
   // the admin's own email while testing — the password-login special case is only for someone
   // deliberately navigating to the bare /app/login screen, not a marketing CTA click. The admin

@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certificate Monitoring — Proof of Delivery | docstoc</title>
-<meta name="description" content="Maintain cryptographic proof of notice delivery and chase history with docstoc Certificate Monitoring. Verify payment reminder timestamps and audit records.">
+<title>Chase History and Timestamped Certificates | docstoc</title>
+<meta name="description" content="Keep a chase history and timestamped certificates with docstoc: tracked links, logged follow-ups and files anyone can verify. Not proof a client read a notice.">
 <link rel="canonical" href="https://docstoc.io/use-cases/docstoc-certificate-monitoring">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="docstoc">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Certificate Monitoring — Proof of Delivery | docstoc">
-<meta property="og:description" content="Maintain cryptographic proof of notice delivery and chase history with docstoc Certificate Monitoring. Verify payment reminder timestamps and audit records.">
+<meta property="og:title" content="Chase History and Timestamped Certificates | docstoc">
+<meta property="og:description" content="Keep a chase history and timestamped certificates with docstoc: tracked links, logged follow-ups and files anyone can verify. Not proof a client read a notice.">
 <meta property="og:url" content="https://docstoc.io/use-cases/docstoc-certificate-monitoring">
 <meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DocstocHQ">
-<meta name="twitter:title" content="Certificate Monitoring — Proof of Delivery | docstoc">
-<meta name="twitter:description" content="Maintain cryptographic proof of notice delivery and chase history with docstoc Certificate Monitoring. Verify payment reminder timestamps and audit records.">
+<meta name="twitter:title" content="Chase History and Timestamped Certificates | docstoc">
+<meta name="twitter:description" content="Keep a chase history and timestamped certificates with docstoc: tracked links, logged follow-ups and files anyone can verify. Not proof a client read a notice.">
 <meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <link rel="alternate" type="application/rss+xml" title="docstoc Blog" href="../blog/feed.xml">
 <link rel="me" href="https://www.linkedin.com/company/docstochq">
@@ -255,16 +255,16 @@
 <article>
     <div style="margin-bottom: 40px; text-align: center;">
       <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--accent, #F58025); letter-spacing: 0.05em;">Use Case / Certificate Proof</span>
-      <h1 style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 700; margin: 12px 0 16px;">Certificate of Chasing & Proof of Delivery</h1>
-      <p style="font-size: 18px; color: #4b5563; line-height: 1.6; max-width: 720px; margin: 0 auto;">Eliminate "I never received the notice" excuses. docstoc logs each sent follow-up with cryptographic verification, email open/click tracking, and timestamped certificate proof.</p>
+      <h1 style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 700; margin: 12px 0 16px;">Chase history and timestamped certificates</h1>
+      <p style="font-size: 18px; color: #4b5563; line-height: 1.6; max-width: 720px; margin: 0 auto;">Keep a record of when you chased. docstoc logs each follow-up you mark as sent, offers open and click tracking on tracked copies, and can certify a file with a timestamp. It records your steps: it cannot prove a client read your email.</p>
     </div>
 
     <section style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin-bottom: 40px;">
       <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">Certificate Verification Features</h2>
       <ul style="font-size: 16px; line-height: 1.8; color: #374151; padding-left: 20px;">
         <li><strong>Tracked HTML Link Generation:</strong> Generate tracked copy-paste links to know exactly when clients open invoice details.</li>
-        <li><strong>Delivery Time Stamping:</strong> Log exact date, time, recipient email, and chase sequence step.</li>
-        <li><strong>Certificate of Notice:</strong> Download verifiable PDF certificates detailing notice delivery for legal proceedings.</li>
+        <li><strong>Chase log:</strong> Date, time, client and event for each follow-up.</li>
+        <li><strong>Evidence pack:</strong> Export a chase timeline for an invoice on the Business plan.</li>
       </ul>
     </section>
 
@@ -292,7 +292,10 @@
       </div>
     </section>
   </article>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>What is recorded and what is not</h2><p>docstoc records the steps you log: when a chase was drafted, which step of a sequence it belonged to, and when you marked it as sent. Because docstoc does not send email itself, the sent time is the moment you confirm it, not a mail server receipt.</p><p>Opens and clicks are counted only when you use the Copy tracked HTML option, which adds a small image pixel and tracked links to the message. A plain mailto link tracks nothing, and image blocking in a mail client can hide an open.</p></section>
+<section class="wrap alt-body"><h2>How the trail is protected</h2><p>Chase events and the open and click records are hashed once a day, and the hash is anchored to Bitcoin through OpenTimestamps. Anyone holding the same data can recompute the hash and check it against that anchor, which makes later editing of the history detectable.</p></section>
+<section class="wrap alt-body"><h2>Using it with a dispute</h2><p>For a late payer, the useful record is a dated list of the reminders you sent and any recorded opens. On Business, the collections evidence pack gathers that history for a formal demand. It supports your own file and is not legal advice, so ask a lawyer before relying on it in court or in a collections matter.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Does a tracked open prove the customer read the notice?</h3><p>No. It shows that an image was loaded from the message, which can be blocked or preloaded by a mail client. Treat it as supporting evidence only.</p><h3>Does docstoc send the notice for me?</h3><p>No. You send it from your own inbox, then log it as sent in docstoc.</p><h3>Can I certify a file without an account?</h3><p>Yes. Hashing happens in your browser, the file is never uploaded, and creating and checking a certificate are free.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

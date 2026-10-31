@@ -368,7 +368,9 @@ Base URL: https://docstoc.io/api</pre>
 <p>Start at /docs for auth and general API keys; SSL routes are listed on this page and implemented under /api/ssl.</p>
 </details>
 </div>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>A typical call sequence</h2><p>A script usually runs POST /ssl/domains with a hostname, publishes the returned TXT value in DNS, then calls POST /ssl/domains/:id/verify. When the status is issued it calls GET /ssl/domains/:id/download for the PEM files.</p><ul><li>Renewals start with POST /ssl/domains/:id/renew and need a fresh TXT value.</li><li>The private key is returned in the download response, so store it securely.</li></ul></section>
+<section class="wrap alt-body"><h2>Limits</h2><p>Plan limits apply to the API as to the app: 5 certificate slots, up to 10 names per certificate on Pro and up to 100 on Business, and one wildcard on Business. Certificates are Let's Encrypt, domain validated and valid for 90 days.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Does the API renew certificates without me?</h3><p>No. A renewal needs a new DNS TXT value from you before it can be verified.</p><h3>Can I point certbot at the API?</h3><p>No. It is docstoc's own workspace API, not a public ACME endpoint.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

@@ -353,13 +353,13 @@ function postprocessPages() {
       ?.replace(/^https?:\/\/[^/]+/, "");
     if (canonical && canonical !== urlPath) canonicalByPath.set(urlPath, canonical);
   }
-  const extras = JSON.parse(readFileSync(join(__dirname, "data/es-page-extras.json"), "utf8"));
+  const extras = JSON.parse(readFileSync(join(__dirname, "data/page-extras.json"), "utf8"));
   let changed = 0;
   for (const file of files) {
     const html = readFileSync(file, "utf8");
     const urlPath = htmlPathToUrl(file);
     let next = fitDescription(fitTitle(applyShortTitle(rewriteCanonicalLinks(html, canonicalByPath), urlPath)));
-    if (extras[urlPath]) next = applyExtraSections(next, extras[urlPath], escapeXml);
+    if (extras[urlPath]) next = applyExtraSections(next, extras[urlPath], escapeXml, urlPath.startsWith("/es/") ? "Preguntas frecuentes" : "FAQ");
     if (next !== html) {
       writeFileSync(file, next, "utf8");
       changed += 1;

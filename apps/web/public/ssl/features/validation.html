@@ -355,7 +355,9 @@
 <p>Usually a few minutes after the TXT record is visible worldwide. Click Check status in the app; if DNS is still propagating you will see pending and can retry.</p>
 </details>
 </div>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>A step by step with real names</h2><p>For example.com docstoc shows a TXT record named _acme-challenge.example.com and a value to paste. In your DNS panel you add the record, wait for it to appear and click Check status in docstoc.</p><ul><li>Add a TXT record at the name shown, not at the bare domain.</li><li>Paste the value exactly, without extra quotes if your provider adds them.</li><li>Retry the check if DNS is still pending.</li></ul></section>
+<section class="wrap alt-body"><h2>Renewals repeat the step</h2><p>Each renewal needs a fresh TXT value. Old values do not carry over, so you replace the old record or add the new one. This is what keeps renewal guided, not automatic.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Do I have to keep the TXT record after issuance?</h3><p>No. It is needed only while the check runs. A renewal will give you a new value.</p><h3>Is a wildcard validated the same way?</h3><p>Yes, with DNS TXT. Wildcards are part of the Business plan.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

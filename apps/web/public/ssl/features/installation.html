@@ -362,7 +362,9 @@
 <p>Not today. You download PEMs and install them where TLS terminates. Edge platforms that issue their own certs (e.g. Cloudflare Universal SSL) remain a separate architecture choice.</p>
 </details>
 </div>
-</main>
+<!-- extra-copy --><section class="wrap alt-body"><h2>Keys and files</h2><p>The private key is an ECDSA P-256 key, exported as a PEM in the download. Treat it like a password: set restrictive file permissions on the server and keep it out of version control.</p><ul><li>Set the key file to be readable only by the web server user.</li><li>Reload the server after replacing files.</li><li>Test with a browser and an online TLS checker.</li></ul></section>
+<section class="wrap alt-body"><h2>At renewal</h2><p>Renewal produces a new certificate and key. Replace both files together, since the new certificate does not match the old key.</p></section>
+<section class="wrap alt-body"><h2>FAQ</h2><h3>Does docstoc install certificates on my host?</h3><p>No. You download the PEM files and install them yourself.</p><h3>Can I reuse the old private key after renewal?</h3><p>No. Use the key from the new download.</p></section><!-- /extra-copy --></main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">

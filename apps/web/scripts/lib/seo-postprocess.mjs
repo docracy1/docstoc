@@ -66,15 +66,15 @@ export function applyShortTitle(html, urlPath) {
   return html.replace(/<title>[^<]*<\/title>/i, () => `<title>${safe}</title>`);
 }
 
-/** Extra Spanish text for thin pages. Idempotent: replaces its own block on a rebuild. */
-export function applyExtraSections(html, extra, esc) {
+/** Extra text for thin pages. Idempotent: replaces its own block on a rebuild. */
+export function applyExtraSections(html, extra, esc, faqHeading = "FAQ") {
   const block = [
     ...extra.sections.map((s) =>
       `<section class="wrap alt-body"><h2>${esc(s.h2)}</h2>${(s.paragraphs || []).map((p) => `<p>${esc(p)}</p>`).join("")}${
         s.bullets?.length ? `<ul>${s.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>` : ""
       }</section>`
     ),
-    `<section class="wrap alt-body"><h2>Preguntas frecuentes</h2>${extra.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join("")}</section>`,
+    `<section class="wrap alt-body"><h2>${esc(faqHeading)}</h2>${extra.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join("")}</section>`,
   ].join("\n");
   const marked = `<!-- extra-copy -->${block}<!-- /extra-copy -->`;
   const clean = html.replace(/<!-- extra-copy -->[\s\S]*?<!-- \/extra-copy -->/, "");

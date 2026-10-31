@@ -1,5 +1,6 @@
 import { Hono } from "hono";
-import { getCookie, setCookie } from "hono/cookie";
+import { deleteCookie, getCookie, setCookie } from "hono/cookie";
+import { timingSafeEqual } from "../lib/cryptoUtils";
 import { getAdminEmail } from "../lib/adminAuth";
 import type { AuthEnv } from "../lib/auth";
 import {
@@ -11,6 +12,9 @@ import {
   clearSessionCookie,
   getGoogleLoginAuthorizeUrl,
   handleGoogleLoginCallback,
+  GOOGLE_STATE_COOKIE,
+  googleStateCookieOptions,
+  sha256Hex,
   SESSION_COOKIE_NAME,
 } from "../lib/auth";
 import { trackEvent, NOTRACK_COOKIE_NAME, noTrackCookieOptions } from "../lib/analytics";
@@ -21,15 +25,15 @@ import { requestAppOrigin } from "../lib/appUrl";
 const auth = new Hono<AuthEnv>();
 
 /** Public config for the login UI (site key is not secret). */
-auth.get("/config", (c) => {
+auth.get("/config", async (c) => {
   return c.json({
     turnstileSiteKey: turnstileSiteKey(c.env),
     turnstileRequired: Boolean(c.env.TURNSTILE_SECRET_KEY?.trim()),
     googleLoginEnabled: Boolean(
       c.env.GOOGLE_LOGIN_CLIENT_ID?.trim() && c.env.GOOGLE_LOGIN_CLIENT_SECRET?.trim()
     ),
-    /** Non-secret — login UI shows a password field when the typed email matches. */
-    adminEmail: getAdminEmail(c.env),
+    /** A hash, so the admin address is not published: the login UI compares the typed email. */
+    adminEmailHash: await sha256Hex(getAdminEmail(c.env)),
     adminTotpRequired: !!c.env.ADMIN_TOTP_SECRET,
   });
 });
@@ -127,6 +131,7 @@ auth.get("/google", async (c) => {
   const appOrigin = requestAppOrigin(c);
   const result = await getGoogleLoginAuthorizeUrl(c.env);
   if (!result.ok) return c.redirect(`${appOrigin}/app/login?error=google_unavailable`);
+  setCookie(c, GOOGLE_STATE_COOKIE, result.state, googleStateCookieOptions(c.env));
   return c.redirect(result.url);
 });
 
@@ -135,6 +140,11 @@ auth.get("/google/callback", async (c) => {
   const code = c.req.query("code");
   const state = c.req.query("state");
   if (!code || !state) return c.redirect(`${appOrigin}/app/login?error=google_auth`);
+  // The signed state proves we issued it, not that this browser asked for it. Without this check,
+  // an attacker's callback link could sign a victim into the attacker's account.
+  const stateCookie = getCookie(c, GOOGLE_STATE_COOKIE) || "";
+  deleteCookie(c, GOOGLE_STATE_COOKIE, googleStateCookieOptions(c.env));
+  if (!timingSafeEqual(stateCookie, state)) return c.redirect(`${appOrigin}/app/login?error=google_auth`);
   const result = await handleGoogleLoginCallback(c.env, code, state, c.req.header("Accept-Language"));
   if (!result.ok) return c.redirect(`${appOrigin}/app/login?error=google_auth`);
   setSessionCookie(c, c.env, result.sessionToken);
