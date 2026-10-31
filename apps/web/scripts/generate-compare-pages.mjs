@@ -16,11 +16,22 @@ import {
   altUrl,
   importUrl,
 } from "./lib/alt-landing.mjs";
+import { comparePageFaqJsonLd, loadComparePages } from "./lib/compare-page.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(__dirname, "../public");
 
-function altJsonLd(c) {
+const comparePages = loadComparePages();
+
+/** The hub cards show the approved summary, like the page they link to. */
+function hubSectorsWithCopy() {
+  return hubSectors().map((s) => ({
+    ...s,
+    competitors: s.competitors.map((c) => ({ ...c, sub: comparePages.get(c.slug)?.sub ?? c.sub })),
+  }));
+}
+
+function altJsonLd(c, page) {
   return JSON.stringify(
     {
       "@context": "https://schema.org",
@@ -42,8 +53,9 @@ function altJsonLd(c) {
           "@type": "WebPage",
           name: `${c.name} alternative`,
           url: `https://docstoc.io${altUrl(c)}`,
-          description: c.sub,
+          description: page.sub,
         },
+        comparePageFaqJsonLd(page),
       ],
     },
     null,
@@ -94,7 +106,7 @@ const hubHtml = writeLanding({
   description:
     "docstoc alternatives and import guides, grouped by product. Templates first — then invoices, SSL, file certificates, invoice chasing, and SOX AR evidence.",
   canonical: "/compare/",
-  mainHtml: compareHubMainHtml(hubSectors()),
+  mainHtml: compareHubMainHtml(hubSectorsWithCopy()),
   jsonLd: JSON.stringify(
     {
       "@context": "https://schema.org",
@@ -111,22 +123,24 @@ writeFileSync(join(publicDir, "compare/index.html"), hubHtml, "utf8");
 let n = 0;
 for (const c of COMPETITORS) {
   if (c.customLanding) continue;
-  const altMain = alternativeMainHtml(c);
+  const page = comparePages.get(c.slug);
+  if (!page) throw new Error(`No comparison page content for ${c.slug}`);
+  const altMain = alternativeMainHtml(c, page);
   const altPage = writeLanding({
-    title: `${c.name} Alternative | docstoc`,
-    description: `${c.sub} Compare docstoc with ${c.name} and import what you already have.`,
+    title: page.titleTag,
+    description: page.metaDescription,
     canonical: altUrl(c),
     mainHtml: altMain,
-    jsonLd: altJsonLd(c),
+    jsonLd: altJsonLd(c, page),
   });
   writeFileSync(join(publicDir, `${c.slug}-alternative.html`), altPage, "utf8");
 
   const vsPage = writeLanding({
     title: `docstoc vs ${c.name} | docstoc`,
-    description: c.sub,
+    description: page.metaDescription,
     canonical: altUrl(c),
     mainHtml: altMain,
-    jsonLd: altJsonLd(c),
+    jsonLd: altJsonLd(c, page),
   });
   writeFileSync(join(publicDir, `docstoc-vs-${c.slug}.html`), vsPage, "utf8");
 

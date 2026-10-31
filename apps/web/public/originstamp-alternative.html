@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OriginStamp Alternative | docstoc</title>
-<meta name="description" content="Shareable verify page in the same workspace as your templates. Compare docstoc with OriginStamp and import what you already have.">
+<title>OriginStamp alternative for file timestamps | docstoc</title>
+<meta name="description" content="OriginStamp anchors file hashes to Bitcoin and Ethereum. docstoc offers free SHA-256 certificates with a verify link and an OpenTimestamps proof.">
 <link rel="canonical" href="https://docstoc.io/originstamp-alternative">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="docstoc">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="OriginStamp Alternative | docstoc">
-<meta property="og:description" content="Shareable verify page in the same workspace as your templates. Compare docstoc with OriginStamp and import what you already have.">
+<meta property="og:title" content="OriginStamp alternative for file timestamps | docstoc">
+<meta property="og:description" content="OriginStamp anchors file hashes to Bitcoin and Ethereum. docstoc offers free SHA-256 certificates with a verify link and an OpenTimestamps proof.">
 <meta property="og:url" content="https://docstoc.io/originstamp-alternative">
 <meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DocstocHQ">
-<meta name="twitter:title" content="OriginStamp Alternative | docstoc">
-<meta name="twitter:description" content="Shareable verify page in the same workspace as your templates. Compare docstoc with OriginStamp and import what you already have.">
+<meta name="twitter:title" content="OriginStamp alternative for file timestamps | docstoc">
+<meta name="twitter:description" content="OriginStamp anchors file hashes to Bitcoin and Ethereum. docstoc offers free SHA-256 certificates with a verify link and an OpenTimestamps proof.">
 <meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <link rel="alternate" type="application/rss+xml" title="docstoc Blog" href="/blog/feed.xml">
 <link rel="me" href="https://www.linkedin.com/company/docstochq">
@@ -55,18 +55,47 @@
       "@type": "WebPage",
       "name": "OriginStamp alternative",
       "url": "https://docstoc.io/originstamp-alternative",
-      "description": "Shareable verify page in the same workspace as your templates."
+      "description": "OriginStamp offers timestamping and an enterprise archive: docstoc is a free certificate for one file at a time."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does docstoc anchor to Bitcoin like OriginStamp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, through OpenTimestamps, which anchors to Bitcoin. OriginStamp's timestamp page says it writes to a Bitcoin and Ethereum transaction. docstoc does not use Ethereum."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is OriginStamp only an API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It has a web page where you can timestamp a file without an account, as well as a REST API. The API is the main route for automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I import my OriginStamp timestamps into docstoc?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Timestamps cannot be imported. Keep the original file and your OriginStamp proof, then hash the same file in docstoc to get a new certificate."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon.png?v=20260903b" type="image/png" sizes="96x96">
-<link rel="icon" href="/favicon.svg?v=20260903b" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260903b" sizes="180x180">
+<link rel="icon" href="/favicon.png?v=20261031a" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon.svg?v=20261031a" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261031a" sizes="180x180">
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=20260903b">
+<link rel="stylesheet" href="/site.css?v=20261031a">
 </head>
 <body>
 <header class="site-header">
@@ -263,8 +292,8 @@
 <main class="wrap page-main">
 <section class="tpl-hero alt-hero">
   <div class="wrap tpl-hero-inner alt-hero-inner">
-    <h1>A productized timestamp — not an API you have to wire.</h1>
-    <p class="tpl-hero-lede">Shareable verify page in the same workspace as your templates.</p>
+    <h1>Timestamp a file and send a link, without wiring an API</h1>
+    <p class="tpl-hero-lede">OriginStamp offers timestamping and an enterprise archive: docstoc is a free certificate for one file at a time.</p>
     <div class="alt-hero-ctas">
       <a href="/certificate" class="alt-hero-primary">Document certificates</a>
       <a href="/#pricing" class="alt-hero-secondary">See pricing</a>
@@ -272,12 +301,20 @@
   </div>
 </section>
 <div class="wrap alt-body">
-  <h2>The problem</h2>
-  <p>OriginStamp is a specialist timestamp API. Great if you are building; extra if you just needed a link.</p>
-  <h2>The docstoc way</h2>
-  <p>Certify in docstoc; optional BTC timestamp. No second vendor for a single file.</p>
-  <h2>How docstoc compares</h2>
-  <ul><li>UI + link, not only an API</li><li>Bundled with templates</li><li>Optional chain timestamp</li><li>Free to start</li><li>Stay on OriginStamp for custom integrations</li></ul>
+  <h2>What OriginStamp is</h2>
+  <p>OriginStamp is a timestamping service built around blockchain anchoring. Its timestamp page says the SHA-256 hash is calculated locally in your browser, written into a Bitcoin and Ethereum transaction within 24 hours, and returned as a downloadable PDF certificate. It also offers a REST API, hash chaining for version histories, and OriginVault, an archive for ERP and legacy data aimed at larger organisations.</p>
+  <h2>Where OriginStamp is stronger</h2>
+  <ul><li>OriginStamp has a documented REST API for creating and verifying timestamps, with credit-based plans that scale to 100,000 credits a month.</li><li>Hash chaining lets you build a tamper-evident version history of many hashes.</li><li>Its anchoring uses a Bitcoin and Ethereum transaction and returns a PDF certificate with hash, block time and transaction reference.</li><li>OriginVault extends the company into archiving and AI search over legacy ERP data, which docstoc does not do.</li></ul>
+  <h2>Where docstoc fits</h2>
+  <ul><li>You want certificates for single files by hand, with a public verify page, inside the same account as chase drafts and templates.</li><li>You do not want to manage API credits: creating and checking certificates is free.</li><li>Certificates can carry an OpenTimestamps proof anchored to Bitcoin, which anyone can verify without trusting docstoc.</li><li>You want your own logo on certificates, which is part of the Business plan at $39.99 a month.</li></ul>
+  <h2>OriginStamp and docstoc compared</h2>
+  <div class="cmp-table-wrap"><table class="cmp-table"><thead><tr><th scope="col">Topic</th><th scope="col">OriginStamp</th><th scope="col">docstoc</th></tr></thead><tbody><tr><th scope="row">Anchoring</th><td>Hash written to a Bitcoin and Ethereum transaction within 24 hours (OriginStamp timestamp page).</td><td>SHA-256 certificate, with an optional OpenTimestamps proof anchored to Bitcoin. Confirmation can take hours.</td></tr><tr><th scope="row">Privacy</th><td>Hash calculated locally; the file never leaves your device.</td><td>Same approach: the file is hashed in your browser and only the hash is stored.</td></tr><tr><th scope="row">Interface</th><td>Web timestamp page without an account, plus a REST API.</td><td>Web app with a shareable verify page. docstoc's HTTP API covers chase drafts and SSL, not certificates.</td></tr><tr><th scope="row">Pricing</th><td>Per its docs a free account has 50 credits a month, with paid tiers of 1,000, 10,000 and 100,000 credits; prices were not visible to us.</td><td>Certificates are free to create and check.</td></tr><tr><th scope="row">Beyond timestamps</th><td>OriginVault archive for ERP and legacy systems, aimed at larger organisations.</td><td>Chase drafts, free templates and Let's Encrypt SSL automation.</td></tr></tbody></table></div>
+  <h2>Which one to choose</h2>
+  <p>Choose OriginStamp if you are building timestamping into software, need hash chaining, want its Bitcoin and Ethereum anchoring, or need an archive for legacy data. Its API and credit tiers are designed for that.</p><p>Choose docstoc if you issue certificates by hand for a few files, want a verify link for a client, and prefer one account for documents, templates and SSL. For custom integrations, use OriginStamp.</p>
+  <h2>FAQ</h2>
+  <h3>Does docstoc anchor to Bitcoin like OriginStamp?</h3><p>Yes, through OpenTimestamps, which anchors to Bitcoin. OriginStamp's timestamp page says it writes to a Bitcoin and Ethereum transaction. docstoc does not use Ethereum.</p><h3>Is OriginStamp only an API?</h3><p>No. It has a web page where you can timestamp a file without an account, as well as a REST API. The API is the main route for automation.</p><h3>Can I import my OriginStamp timestamps into docstoc?</h3><p>No. Timestamps cannot be imported. Keep the original file and your OriginStamp proof, then hash the same file in docstoc to get a new certificate.</p>
+  <h2>Sources</h2>
+  <p class="cmp-sources-note">Competitor details come from these pages, checked on 31 October 2026. Prices and features change, so confirm them with the vendor.</p><ul class="cmp-sources"><li><a href="https://originstamp.com/" rel="nofollow noopener" target="_blank">originstamp.com</a>: OriginVault archive, API-first, MCP server, target industries; no pricing listed</li><li><a href="https://originstamp.com/pricing" rel="nofollow noopener" target="_blank">originstamp.com</a>: Page loaded but pricing text truncated; only the timestamp product description (local hashing, Bitcoin and Ethereum within 24 hours, PDF certificate, hash chaining, REST endpoint, no account) was visible</li><li><a href="https://docs.originstamp.com/general/faq" rel="nofollow noopener" target="_blank">docs.originstamp.com</a>: Bitcoin anchoring, only hash needed, verification without OriginStamp</li><li><a href="https://docs.originstamp.com/guide/credits" rel="nofollow noopener" target="_blank">docs.originstamp.com</a>: Free plan 50 credits a month and paid tiers 1,000 / 10,000 / 100,000 (via search summary only)</li></ul>
   <p><a href="/import-from-originstamp">Import from OriginStamp →</a></p>
   <h2>Also see</h2>
 <ul class="alt-also">
@@ -366,21 +403,21 @@
     <video
       id="revival-modal-video"
       class="how-modal-video"
-      src="/videos/docstoc-is-back.webm?v=20260903b"
-      poster="/videos/docstoc-is-back-poster.jpg?v=20260903b"
+      src="/videos/docstoc-is-back.webm?v=20261031a"
+      poster="/videos/docstoc-is-back-poster.jpg?v=20261031a"
       controls
       playsinline
       preload="metadata"
     >
-      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20260903b" srclang="en" label="English" default>
-      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20260903b" srclang="es" label="Español">
+      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20261031a" srclang="en" label="English" default>
+      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20261031a" srclang="es" label="Español">
     </video>
   </div>
 </div>
-<script src="/site-lang.js?v=20260903b" defer></script>
-<script src="/site-nav.js?v=20260903b" defer></script>
-<script src="/cookie-consent.js?v=20260903b" defer></script>
-<script src="/analytics.js?v=20260903b" defer></script>
+<script src="/site-lang.js?v=20261031a" defer></script>
+<script src="/site-nav.js?v=20261031a" defer></script>
+<script src="/cookie-consent.js?v=20261031a" defer></script>
+<script src="/analytics.js?v=20261031a" defer></script>
 <script>
 /* Contact sales → docstoc Assistant (Docracy pattern). */
 (function () {

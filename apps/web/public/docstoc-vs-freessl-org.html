@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>docstoc vs FreeSSL.org | docstoc</title>
-<meta name="description" content="Automated DV on your domain when you do not need that vendor’s paid SKU.">
+<meta name="description" content="Compare FreeSSL.org with docstoc: plans, ACME and API access against Let's Encrypt DV issued with one DNS TXT record. Facts and limits.">
 <link rel="canonical" href="https://docstoc.io/freessl-org-alternative">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="docstoc">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="docstoc vs FreeSSL.org | docstoc">
-<meta property="og:description" content="Automated DV on your domain when you do not need that vendor’s paid SKU.">
+<meta property="og:description" content="Compare FreeSSL.org with docstoc: plans, ACME and API access against Let's Encrypt DV issued with one DNS TXT record. Facts and limits.">
 <meta property="og:url" content="https://docstoc.io/freessl-org-alternative">
 <meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DocstocHQ">
 <meta name="twitter:title" content="docstoc vs FreeSSL.org | docstoc">
-<meta name="twitter:description" content="Automated DV on your domain when you do not need that vendor’s paid SKU.">
+<meta name="twitter:description" content="Compare FreeSSL.org with docstoc: plans, ACME and API access against Let's Encrypt DV issued with one DNS TXT record. Facts and limits.">
 <meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <link rel="alternate" type="application/rss+xml" title="docstoc Blog" href="/blog/feed.xml">
 <link rel="me" href="https://www.linkedin.com/company/docstochq">
@@ -55,18 +55,47 @@
       "@type": "WebPage",
       "name": "FreeSSL.org alternative",
       "url": "https://docstoc.io/freessl-org-alternative",
-      "description": "Automated DV on your domain when you do not need that vendor’s paid SKU."
+      "description": "Both give you free-to-start HTTPS certificates: FreeSSL.org leans on ACME and a REST API, docstoc on one DNS record and a workspace."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is FreeSSL.org free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It has a Free plan at $0 a month, and paid Basic and Pro plans at the time of writing. Check its pricing page for the current limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which certificate authority does docstoc use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Let's Encrypt. docstoc is an automation layer, not a reseller or a CA, so you get DV certificates only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I move a domain from FreeSSL.org to docstoc?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Add the hostname in docstoc, publish the TXT record, install the new PEM files, check HTTPS, then stop the old certificate. Never email a private key."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon.png?v=20260903b" type="image/png" sizes="96x96">
-<link rel="icon" href="/favicon.svg?v=20260903b" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260903b" sizes="180x180">
+<link rel="icon" href="/favicon.png?v=20261031a" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon.svg?v=20261031a" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261031a" sizes="180x180">
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=20260903b">
+<link rel="stylesheet" href="/site.css?v=20261031a">
 </head>
 <body>
 <header class="site-header">
@@ -263,8 +292,8 @@
 <main class="wrap page-main">
 <section class="tpl-hero alt-hero">
   <div class="wrap tpl-hero-inner alt-hero-inner">
-    <h1>Let’s Encrypt instead of FreeSSL.org.</h1>
-    <p class="tpl-hero-lede">Automated DV on your domain when you do not need that vendor’s paid SKU.</p>
+    <h1>FreeSSL.org or docstoc: ACME tooling or a managed Let's Encrypt workflow</h1>
+    <p class="tpl-hero-lede">Both give you free-to-start HTTPS certificates: FreeSSL.org leans on ACME and a REST API, docstoc on one DNS record and a workspace.</p>
     <div class="alt-hero-ctas">
       <a href="/ssl" class="alt-hero-primary">SSL product</a>
       <a href="/#pricing" class="alt-hero-secondary">See pricing</a>
@@ -272,12 +301,20 @@
   </div>
 </section>
 <div class="wrap alt-body">
-  <h2>The problem</h2>
-  <p>FreeSSL.org is a dedicated SSL path — another dashboard, often another invoice, sometimes a manual renew.</p>
-  <h2>The docstoc way</h2>
-  <p>docstoc issues Let’s Encrypt DV with one DNS TXT inside your business workspace.</p>
-  <h2>How docstoc compares</h2>
-  <ul><li>Bundled SSL</li><li>Renewal reminders</li><li>DV only</li><li>Keep your host</li><li>No key import</li></ul>
+  <h2>What FreeSSL.org is</h2>
+  <p>FreeSSL.org describes itself as a free SSL certificate provider with ACME tools. At the time of writing its site lists 90-day and 1-year single-domain, multi-domain and wildcard certificates, and four plans: Free at $0 a month, Basic at $9.9, Pro at $99.9 and Enterprise on request. It says issuance takes 1 to 5 minutes, renewal is automated, and ACME integrations plus a REST API are available. It suits people who want to script certificates themselves.</p>
+  <h2>Where FreeSSL.org is stronger</h2>
+  <ul><li>A REST API is listed on every plan, which helps if certificate requests are part of your own tooling.</li><li>It lists 1-year certificates as well as 90-day ones, which docstoc does not offer.</li><li>It lists a higher tier for volume: Pro at $99.9 a month and an Enterprise plan with custom solutions.</li><li>Technical support is listed on all plans, including Free.</li></ul>
+  <h2>Where docstoc fits</h2>
+  <ul><li>Free includes 5 Let's Encrypt certificates of 90 days each. Pro adds multi-SAN certificates and Business adds wildcards and higher volume.</li><li>You publish one DNS TXT record (DNS-01), download PEM files and install them on nginx, Apache, Caddy or your host panel.</li><li>Renewals are handled in the product while your plan stays active, in the same account as invoice follow-ups and documents.</li><li>Pricing is a flat Pro plan at $14.99 a month or Business at $39.99 a month, shown on the docstoc pricing page at the time of writing.</li></ul>
+  <h2>FreeSSL.org and docstoc compared</h2>
+  <div class="cmp-table-wrap"><table class="cmp-table"><thead><tr><th scope="col">Topic</th><th scope="col">FreeSSL.org</th><th scope="col">docstoc</th></tr></thead><tbody><tr><th scope="row">Certificate lengths</th><td>90-day and 1-year certificates listed.</td><td>90-day Let's Encrypt certificates only.</td></tr><tr><th scope="row">Plans</th><td>Free, Basic $9.9, Pro $99.9 a month, Enterprise on request (at the time of writing).</td><td>Free allowance of 5 certificates; Pro $14.99 and Business $39.99 a month cover SSL together with other docstoc tools.</td></tr><tr><th scope="row">Automation</th><td>ACME integrations and a REST API.</td><td>Renewal inside the product; Pro includes an ACME API.</td></tr><tr><th scope="row">Validation</th><td>The site lists three ways to supply domain details; it does not name the CA on the page I read.</td><td>DNS-01 with one TXT record; the CA is Let's Encrypt.</td></tr><tr><th scope="row">Scope</th><td>Certificate provider and ACME tools.</td><td>Automation layer for Let's Encrypt, plus invoice chase drafts and document tools.</td></tr></tbody></table></div>
+  <h2>Which one to choose</h2>
+  <p>Choose FreeSSL.org if you want an API on every plan, 1-year certificates, or a dedicated certificate service with higher tiers for many domains. It fits developers who build certificate requests into their own scripts.</p><p>Choose docstoc if you already use it for invoices or documents and want HTTPS for a domain in the same account, with one TXT record and renewals handled. It stays DV only on Let's Encrypt.</p>
+  <h2>FAQ</h2>
+  <h3>Is FreeSSL.org free?</h3><p>It has a Free plan at $0 a month, and paid Basic and Pro plans at the time of writing. Check its pricing page for the current limits.</p><h3>Which certificate authority does docstoc use?</h3><p>Let's Encrypt. docstoc is an automation layer, not a reseller or a CA, so you get DV certificates only.</p><h3>Can I move a domain from FreeSSL.org to docstoc?</h3><p>Yes. Add the hostname in docstoc, publish the TXT record, install the new PEM files, check HTTPS, then stop the old certificate. Never email a private key.</p>
+  <h2>Sources</h2>
+  <p class="cmp-sources-note">Competitor details come from these pages, checked on 31 October 2026. Prices and features change, so confirm them with the vendor.</p><ul class="cmp-sources"><li><a href="https://www.freessl.org" rel="nofollow noopener" target="_blank">freessl.org</a>: Certificate lengths and types, plan names and prices, 1-5 minute issuance, automated renewal, ACME and REST API, support on all plans</li><li><a href="https://www.freessl.org/pricing" rel="nofollow noopener" target="_blank">freessl.org</a>: Pricing page text gives no plan details; CA not named</li></ul>
   <p><a href="/import-from-freessl-org">Import from FreeSSL.org →</a></p>
   <h2>Also see</h2>
 <ul class="alt-also">
@@ -366,21 +403,21 @@
     <video
       id="revival-modal-video"
       class="how-modal-video"
-      src="/videos/docstoc-is-back.webm?v=20260903b"
-      poster="/videos/docstoc-is-back-poster.jpg?v=20260903b"
+      src="/videos/docstoc-is-back.webm?v=20261031a"
+      poster="/videos/docstoc-is-back-poster.jpg?v=20261031a"
       controls
       playsinline
       preload="metadata"
     >
-      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20260903b" srclang="en" label="English" default>
-      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20260903b" srclang="es" label="Español">
+      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20261031a" srclang="en" label="English" default>
+      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20261031a" srclang="es" label="Español">
     </video>
   </div>
 </div>
-<script src="/site-lang.js?v=20260903b" defer></script>
-<script src="/site-nav.js?v=20260903b" defer></script>
-<script src="/cookie-consent.js?v=20260903b" defer></script>
-<script src="/analytics.js?v=20260903b" defer></script>
+<script src="/site-lang.js?v=20261031a" defer></script>
+<script src="/site-nav.js?v=20261031a" defer></script>
+<script src="/cookie-consent.js?v=20261031a" defer></script>
+<script src="/analytics.js?v=20261031a" defer></script>
 <script>
 /* Contact sales → docstoc Assistant (Docracy pattern). */
 (function () {

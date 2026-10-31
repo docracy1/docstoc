@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>docstoc vs CertKit | docstoc</title>
-<meta name="description" content="Automated DV on your domain when you do not need that vendor’s paid SKU.">
+<meta name="description" content="CertKit manages certificate lifecycles for IT teams from $99 a month. docstoc automates Let's Encrypt DV for a few domains. Compare.">
 <link rel="canonical" href="https://docstoc.io/certkit-alternative">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="docstoc">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="docstoc vs CertKit | docstoc">
-<meta property="og:description" content="Automated DV on your domain when you do not need that vendor’s paid SKU.">
+<meta property="og:description" content="CertKit manages certificate lifecycles for IT teams from $99 a month. docstoc automates Let's Encrypt DV for a few domains. Compare.">
 <meta property="og:url" content="https://docstoc.io/certkit-alternative">
 <meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DocstocHQ">
 <meta name="twitter:title" content="docstoc vs CertKit | docstoc">
-<meta name="twitter:description" content="Automated DV on your domain when you do not need that vendor’s paid SKU.">
+<meta name="twitter:description" content="CertKit manages certificate lifecycles for IT teams from $99 a month. docstoc automates Let's Encrypt DV for a few domains. Compare.">
 <meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <link rel="alternate" type="application/rss+xml" title="docstoc Blog" href="/blog/feed.xml">
 <link rel="me" href="https://www.linkedin.com/company/docstochq">
@@ -55,18 +55,47 @@
       "@type": "WebPage",
       "name": "CertKit alternative",
       "url": "https://docstoc.io/certkit-alternative",
-      "description": "Automated DV on your domain when you do not need that vendor’s paid SKU."
+      "description": "CertKit discovers, issues, deploys and monitors certificates: docstoc issues Let's Encrypt DV and leaves installation to you."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is CertKit free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only the Homelab plan, which is for personal, non-commercial use. Professional is $99 a month at the time of writing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does docstoc deploy certificates to my server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You download PEM files and install them yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can docstoc discover my existing certificates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. docstoc issues certificates for hostnames you add. It does not scan Certificate Transparency logs."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon.png?v=20260903b" type="image/png" sizes="96x96">
-<link rel="icon" href="/favicon.svg?v=20260903b" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260903b" sizes="180x180">
+<link rel="icon" href="/favicon.png?v=20261031a" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon.svg?v=20261031a" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261031a" sizes="180x180">
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=20260903b">
+<link rel="stylesheet" href="/site.css?v=20261031a">
 </head>
 <body>
 <header class="site-header">
@@ -263,8 +292,8 @@
 <main class="wrap page-main">
 <section class="tpl-hero alt-hero">
   <div class="wrap tpl-hero-inner alt-hero-inner">
-    <h1>Let’s Encrypt instead of CertKit.</h1>
-    <p class="tpl-hero-lede">Automated DV on your domain when you do not need that vendor’s paid SKU.</p>
+    <h1>CertKit or docstoc: lifecycle management for IT teams or SSL for a small business</h1>
+    <p class="tpl-hero-lede">CertKit discovers, issues, deploys and monitors certificates: docstoc issues Let's Encrypt DV and leaves installation to you.</p>
     <div class="alt-hero-ctas">
       <a href="/ssl" class="alt-hero-primary">SSL product</a>
       <a href="/#pricing" class="alt-hero-secondary">See pricing</a>
@@ -272,12 +301,20 @@
   </div>
 </section>
 <div class="wrap alt-body">
-  <h2>The problem</h2>
-  <p>CertKit is a dedicated SSL path — another dashboard, often another invoice, sometimes a manual renew.</p>
-  <h2>The docstoc way</h2>
-  <p>docstoc issues Let’s Encrypt DV with one DNS TXT inside your business workspace.</p>
-  <h2>How docstoc compares</h2>
-  <ul><li>Bundled SSL</li><li>Renewal reminders</li><li>DV only</li><li>Keep your host</li><li>No key import</li></ul>
+  <h2>What CertKit is</h2>
+  <p>CertKit is certificate lifecycle management software. At the time of writing it covers discovery through Certificate Transparency logs, issuing and renewing wildcard and multi-domain certificates, deployment through an agent to servers such as Nginx, Apache, IIS, HAProxy and F5, and expiry monitoring. Plans are Homelab (free, personal use), Professional $99 a month, Business $399 and Enterprise on request, with a 90-day trial on paid plans.</p>
+  <h2>Where CertKit is stronger</h2>
+  <ul><li>Deployment: an agent pushes renewed certificates to Nginx, Apache, IIS, HAProxy and F5. docstoc leaves installation to you.</li><li>Discovery of existing certificates through Certificate Transparency logs.</li><li>Validation by a single CNAME for _acme-challenge, so you do not hand over DNS API credentials.</li><li>Works with Let's Encrypt, your current CA or any ACME authority, and offers Managed PKI for internal names.</li></ul>
+  <h2>Where docstoc fits</h2>
+  <ul><li>Free includes 5 Let's Encrypt certificates of 90 days each. Pro adds multi-SAN certificates and Business adds wildcards and higher volume.</li><li>You publish one DNS TXT record (DNS-01), download PEM files and install them on nginx, Apache, Caddy or your host panel.</li><li>Renewals are handled in the product while your plan stays active, in the same account as invoice follow-ups and documents.</li><li>Pro at $14.99 and Business at $39.99 a month are far below CertKit's paid tiers, with a narrower scope.</li></ul>
+  <h2>CertKit and docstoc compared</h2>
+  <div class="cmp-table-wrap"><table class="cmp-table"><thead><tr><th scope="col">Topic</th><th scope="col">CertKit</th><th scope="col">docstoc</th></tr></thead><tbody><tr><th scope="row">Built for</th><td>IT teams, MSPs, government, education, resellers.</td><td>Freelancers and small businesses already using docstoc.</td></tr><tr><th scope="row">Pricing</th><td>Free Homelab (personal); $99 / $399 a month paid (at the time of writing).</td><td>Free allowance of 5; Pro $14.99 and Business $39.99 a month.</td></tr><tr><th scope="row">Deployment</th><td>Agent deploys to servers and appliances.</td><td>You download PEM files and install.</td></tr><tr><th scope="row">Validation</th><td>CNAME on _acme-challenge.</td><td>DNS-01 TXT record.</td></tr><tr><th scope="row">CA</th><td>Let's Encrypt, current CA or any ACME CA.</td><td>Let's Encrypt only.</td></tr></tbody></table></div>
+  <h2>Which one to choose</h2>
+  <p>Choose CertKit if you manage many certificates across servers, need discovery, monitoring and automatic deployment, or run internal PKI. It is built for IT teams.</p><p>Choose docstoc if you have a few domains, are happy to install PEM files, and want SSL in the same account as invoice follow-ups and documents at a lower price.</p>
+  <h2>FAQ</h2>
+  <h3>Is CertKit free?</h3><p>Only the Homelab plan, which is for personal, non-commercial use. Professional is $99 a month at the time of writing.</p><h3>Does docstoc deploy certificates to my server?</h3><p>No. You download PEM files and install them yourself.</p><h3>Can docstoc discover my existing certificates?</h3><p>No. docstoc issues certificates for hostnames you add. It does not scan Certificate Transparency logs.</p>
+  <h2>Sources</h2>
+  <p class="cmp-sources-note">Competitor details come from these pages, checked on 31 October 2026. Prices and features change, so confirm them with the vendor.</p><ul class="cmp-sources"><li><a href="https://www.certkit.io" rel="nofollow noopener" target="_blank">certkit.io</a>: Lifecycle scope, plans and prices, CNAME validation, agent deployment, CA flexibility, Managed PKI, trial</li></ul>
   <p><a href="/import-from-certkit">Import from CertKit →</a></p>
   <h2>Also see</h2>
 <ul class="alt-also">
@@ -366,21 +403,21 @@
     <video
       id="revival-modal-video"
       class="how-modal-video"
-      src="/videos/docstoc-is-back.webm?v=20260903b"
-      poster="/videos/docstoc-is-back-poster.jpg?v=20260903b"
+      src="/videos/docstoc-is-back.webm?v=20261031a"
+      poster="/videos/docstoc-is-back-poster.jpg?v=20261031a"
       controls
       playsinline
       preload="metadata"
     >
-      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20260903b" srclang="en" label="English" default>
-      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20260903b" srclang="es" label="Español">
+      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20261031a" srclang="en" label="English" default>
+      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20261031a" srclang="es" label="Español">
     </video>
   </div>
 </div>
-<script src="/site-lang.js?v=20260903b" defer></script>
-<script src="/site-nav.js?v=20260903b" defer></script>
-<script src="/cookie-consent.js?v=20260903b" defer></script>
-<script src="/analytics.js?v=20260903b" defer></script>
+<script src="/site-lang.js?v=20261031a" defer></script>
+<script src="/site-nav.js?v=20261031a" defer></script>
+<script src="/cookie-consent.js?v=20261031a" defer></script>
+<script src="/analytics.js?v=20261031a" defer></script>
 <script>
 /* Contact sales → docstoc Assistant (Docracy pattern). */
 (function () {

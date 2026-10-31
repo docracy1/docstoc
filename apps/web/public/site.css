@@ -3304,3 +3304,12 @@ body.mobile-nav-open .docstoc-asst {
   transform: translateY(-1px);
 }
 
+
+/* Comparison pages: table scrolls inside its own box on phones. */
+.cmp-table-wrap { overflow-x: auto; margin: 0 0 18px; }
+.cmp-table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 15px; }
+.cmp-table th, .cmp-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid #e5e7eb; }
+.cmp-table thead th { font-weight: 700; }
+.cmp-table tbody th { font-weight: 600; white-space: nowrap; }
+.cmp-sources-note { font-size: 14px; color: #4b5563; }
+.cmp-sources { font-size: 14px; overflow-wrap: anywhere; }

@@ -1,5 +1,6 @@
 import { chrome, escapeHtml } from "./chrome.mjs";
 import { SECTORS, siblingAlts } from "../data/compare-competitors.mjs";
+import { comparePageFaqSection, comparePageSections, comparePageSourcesSection } from "./compare-page.mjs";
 
 function sectorOf(c) {
   return SECTORS.find((s) => s.id === c.sector);
@@ -51,24 +52,21 @@ function importAlso(c) {
   return `<p class="alt-import-more">Importing from somewhere else? ${links || ""}</p>`;
 }
 
-export function alternativeMainHtml(c) {
+export function alternativeMainHtml(c, page) {
   const sector = sectorOf(c);
-  const bullets = (c.compares || []).map((b) => `<li>${escapeHtml(b)}</li>`).join("");
+  const sections = [...comparePageSections(page, escapeHtml), comparePageFaqSection(page, escapeHtml), ...comparePageSourcesSection(page, escapeHtml)]
+    .map((s) => `<h2>${escapeHtml(s.h2)}</h2>\n  ${s.html}`)
+    .join("\n  ");
   return `${hero({
-    h1: escapeHtml(c.headline),
-    lede: escapeHtml(c.sub),
+    h1: escapeHtml(page.headline),
+    lede: escapeHtml(page.sub),
     primaryHref: sector?.ctaHref || "/app/login?start=1",
     primaryLabel: sector?.ctaLabel || "Try free",
     secondaryHref: "/#pricing",
     secondaryLabel: "See pricing",
   })}
 <div class="wrap alt-body">
-  <h2>The problem</h2>
-  <p>${escapeHtml(c.problem)}</p>
-  <h2>The docstoc way</h2>
-  <p>${escapeHtml(c.way)}</p>
-  <h2>How docstoc compares</h2>
-  <ul>${bullets}</ul>
+  ${sections}
   <p><a href="${importUrl(c)}">Import from ${escapeHtml(c.name)} →</a></p>
   ${alsoSee(c)}
   <div class="alt-footer-cta">

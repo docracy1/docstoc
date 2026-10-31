@@ -5,12 +5,30 @@
  * Run: node apps/web/scripts/generate-sox-seo-pages.mjs
  */
 import { mkdirSync, writeFileSync } from "node:fs";
+import { comparePageSections, comparePageSourcesSection, loadComparePages } from "./lib/compare-page.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { decorateAppLinksWithSeoTag, seoCampaignFromPath } from "./lib/chrome.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(__dirname, "../public");
+
+const comparePages = loadComparePages();
+
+/** Fields page() takes for a comparison page, from the approved content. */
+function comparePageFields(slug, lang) {
+  const key = `${lang === "es" ? "es/" : ""}${slug.replace(/-alternative$/, "")}`;
+  const p = comparePages.get(key);
+  if (!p) throw new Error(`No comparison page content for ${key}`);
+  return {
+    title: p.titleTag,
+    description: p.metaDescription,
+    h1: p.headline,
+    lede: p.sub,
+    sections: [...comparePageSections(p, esc), ...comparePageSourcesSection(p, esc)],
+    faq: p.faq,
+  };
+}
 
 function esc(s) {
   return String(s)
@@ -74,7 +92,9 @@ function page({
 
   const sectionHtml = sections
     .map((s) => {
-      const body = s.bullets
+      const body = s.html
+        ? `<div class="sox-compare-body" style="font-size:16px;line-height:1.7;color:#374151;">${s.html}</div>`
+        : s.bullets
         ? `<ul style="font-size:16px;line-height:1.85;color:#374151;padding-left:20px;">${s.bullets
             .map((b) => `<li>${b}</li>`)
             .join("")}</ul>`
@@ -112,10 +132,10 @@ function page({
 
   const home = lang === "es" ? "../../es/" : lang === "en" && path.startsWith("/es/") ? "/" : path.includes("/use-cases/") ? "../" : "/";
   const css = path.includes("/use-cases/") || path.startsWith("/es/use-cases/")
-    ? (lang === "es" ? "../../site.css?v=20260905sox" : "../site.css?v=20260905sox")
+    ? (lang === "es" ? "../../site.css?v=20261031a" : "../site.css?v=20261031a")
     : path.startsWith("/es/")
-      ? "../site.css?v=20260905sox"
-      : "/site.css?v=20260905sox";
+      ? "../site.css?v=20261031a"
+      : "/site.css?v=20261031a";
   const favicon = path.includes("/use-cases/") || path.startsWith("/es/use-cases/")
     ? (lang === "es" ? "../../favicon.png" : "../favicon.png")
     : path.startsWith("/es/")
@@ -127,10 +147,10 @@ function page({
       ? "../brand/docstoc-icon.png"
       : "/brand/docstoc-icon.png";
   const js = path.includes("/use-cases/") || path.startsWith("/es/use-cases/")
-    ? (lang === "es" ? "../../site.js?v=20260905sox" : "../site.js?v=20260905sox")
+    ? (lang === "es" ? "../../site.js?v=20261031a" : "../site.js?v=20261031a")
     : path.startsWith("/es/")
-      ? "../site.js?v=20260905sox"
-      : "/site.js?v=20260905sox";
+      ? "../site.js?v=20261031a"
+      : "/site.js?v=20261031a";
 
   const html = `<!DOCTYPE html>
 <html lang="${lang}">
@@ -643,56 +663,15 @@ n += 2;
 for (const c of competitors) {
   const enPath = `/${c.slug}`;
   const esPath = `/es/${c.slug}`;
-  const enSections = [
-    {
-      h2: `${c.enName} vs docstoc (AR SOX)`,
-      bullets: [
-        "<strong>Scope</strong> — they run broad close/GRC; we prove AR chase evidence.",
-        "<strong>Maker-checker</strong> — dual control before Mark as sent on Business.",
-        "<strong>Tamper evidence</strong> — daily anchors + OpenTimestamps auditor packs.",
-        "<strong>Price</strong> — Business $39.99/mo for this slice, not a seat-heavy GRC rollout.",
-      ],
-    },
-    {
-      h2: "What ships on Business",
-      bullets: [
-        "SOX reporting dashboard",
-        "Control library + period tests",
-        "Timestamped auditor packs (HTML + SHA-256 + .ots)",
-        "Retention / legal hold",
-      ],
-    },
-  ];
-  const esSections = [
-    {
-      h2: `${c.enName} vs docstoc (SOX AR)`,
-      bullets: [
-        "<strong>Alcance</strong> — ellos cubren cierre/GRC; nosotros evidencia de cobros AR.",
-        "<strong>Maker-checker</strong> — doble control antes de Marcar como enviado.",
-        "<strong>Prueba de integridad</strong> — anclajes diarios + packs OpenTimestamps.",
-        "<strong>Precio</strong> — Business $39.99/mes para esta capa.",
-      ],
-    },
-  ];
   writeFileSync(
     join(publicDir, `${c.slug}.html`),
     page({
       lang: "en",
       path: enPath,
       altPath: esPath,
-      title: c.en.title,
-      description: c.en.description,
       keywords: `${c.enName} alternative, SOX reporting, AR SOX, maker checker, auditor pack`,
-      h1: c.en.h1,
-      lede: c.en.lede,
       eyebrow: "Compare / SOX",
-      sections: enSections,
-      faq: [
-        {
-          q: `Is docstoc a full ${c.enName} replacement?`,
-          a: `No. Keep ${c.enName} for its core job. Use docstoc for AR chase SOX evidence and timestamped auditor packs.`,
-        },
-      ],
+      ...comparePageFields(c.slug, "en"),
       related: relatedEn,
       ctaPrimary: "Open SOX reporting",
       ctaSecondary: { href: "/accounts-receivable-sox", label: "AR SOX hub →" },
@@ -705,19 +684,9 @@ for (const c of competitors) {
       lang: "es",
       path: esPath,
       altPath: enPath,
-      title: c.es.title,
-      description: c.es.description,
       keywords: `alternativa ${c.enName}, informes SOX, SOX AR, maker checker`,
-      h1: c.es.h1,
-      lede: c.es.lede,
       eyebrow: "Comparar / SOX",
-      sections: esSections,
-      faq: [
-        {
-          q: `¿docstoc sustituye a ${c.enName}?`,
-          a: `No. Mantén ${c.enName} para su trabajo principal. Usa docstoc para evidencia SOX de cobros AR y packs de auditor.`,
-        },
-      ],
+      ...comparePageFields(c.slug, "es"),
       related: relatedEs,
       ctaPrimary: "Abrir informes SOX",
       ctaSecondary: { href: "/es/accounts-receivable-sox", label: "Hub SOX AR →" },

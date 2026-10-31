@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>docstoc vs Let's Encrypt | docstoc</title>
-<meta name="description" content="Same CA. We run ACME so you do not have to.">
+<meta name="description" content="Let's Encrypt is free and run by a nonprofit. docstoc uses it too and adds a guided DNS workflow. See when DIY is enough and when it is not.">
 <link rel="canonical" href="https://docstoc.io/letsencrypt-alternative">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="docstoc">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="docstoc vs Let's Encrypt | docstoc">
-<meta property="og:description" content="Same CA. We run ACME so you do not have to.">
+<meta property="og:description" content="Let's Encrypt is free and run by a nonprofit. docstoc uses it too and adds a guided DNS workflow. See when DIY is enough and when it is not.">
 <meta property="og:url" content="https://docstoc.io/letsencrypt-alternative">
 <meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DocstocHQ">
 <meta name="twitter:title" content="docstoc vs Let's Encrypt | docstoc">
-<meta name="twitter:description" content="Same CA. We run ACME so you do not have to.">
+<meta name="twitter:description" content="Let's Encrypt is free and run by a nonprofit. docstoc uses it too and adds a guided DNS workflow. See when DIY is enough and when it is not.">
 <meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <link rel="alternate" type="application/rss+xml" title="docstoc Blog" href="/blog/feed.xml">
 <link rel="me" href="https://www.linkedin.com/company/docstochq">
@@ -55,18 +55,47 @@
       "@type": "WebPage",
       "name": "Let's Encrypt alternative",
       "url": "https://docstoc.io/letsencrypt-alternative",
-      "description": "Same CA. We run ACME so you do not have to."
+      "description": "Same certificate authority: the question is who runs the ACME client and how much you want to click."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are docstoc certificates real Let's Encrypt certificates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. docstoc is an automation layer on Let's Encrypt and does not resell another authority's certificates. The browser padlock is the same as a certificate you get through certbot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do docstoc certificates renew automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Renewal is guided: you get a reminder about 30 days before expiry, click Renew, publish a new TXT value and verify. If you want unattended renewal, run an ACME client yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need docstoc if my host already gives me HTTPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. If your host provisions Let's Encrypt for you, you already have what docstoc offers. docstoc helps when you manage the DNS yourself or need a wildcard."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon.png?v=20260903b" type="image/png" sizes="96x96">
-<link rel="icon" href="/favicon.svg?v=20260903b" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260903b" sizes="180x180">
+<link rel="icon" href="/favicon.png?v=20261031a" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon.svg?v=20261031a" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261031a" sizes="180x180">
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=20260903b">
+<link rel="stylesheet" href="/site.css?v=20261031a">
 </head>
 <body>
 <header class="site-header">
@@ -263,8 +292,8 @@
 <main class="wrap page-main">
 <section class="tpl-hero alt-hero">
   <div class="wrap tpl-hero-inner alt-hero-inner">
-    <h1>Let’s Encrypt without owning certbot.</h1>
-    <p class="tpl-hero-lede">Same CA. We run ACME so you do not have to.</p>
+    <h1>Let's Encrypt on your own or through docstoc</h1>
+    <p class="tpl-hero-lede">Same certificate authority: the question is who runs the ACME client and how much you want to click.</p>
     <div class="alt-hero-ctas">
       <a href="/ssl" class="alt-hero-primary">SSL product</a>
       <a href="/#pricing" class="alt-hero-secondary">See pricing</a>
@@ -272,12 +301,20 @@
   </div>
 </section>
 <div class="wrap alt-body">
-  <h2>The problem</h2>
-  <p>DIY Let’s Encrypt is free and excellent — until a server rebuild, a missed timer, or nobody on the team wants certbot.</p>
-  <h2>The docstoc way</h2>
-  <p>docstoc issues the same CA’s DV certs with one DNS TXT and guided renewals inside your workspace.</p>
-  <h2>How docstoc compares</h2>
-  <ul><li>Real Let’s Encrypt certificates</li><li>No ACME client to babysit</li><li>Fresh DNS value per renewal, reminder before expiry</li><li>Bundled with the rest of docstoc</li><li>Stay DIY if you already run ACME well</li></ul>
+  <h2>What Let's Encrypt is</h2>
+  <p>Let's Encrypt is a free, automated and open certificate authority, operated by the nonprofit Internet Security Research Group. It issues Domain Validation certificates only, valid for 90 days, with an opt-in six-day option. You run an ACME client on your own server or use one built into your host, and it renews the certificate by itself. Support comes from documentation and community forums.</p>
+  <h2>Where Let's Encrypt is stronger</h2>
+  <ul><li>Let's Encrypt is free and docstoc is not. If you can run certbot or a host-integrated client, you pay nothing.</li><li>A good ACME client renews unattended every 60 days or so. docstoc asks you to renew by hand.</li><li>Let's Encrypt offers six-day certificates as an option. docstoc issues 90-day certificates only.</li><li>There is no certificate slot cap on the CA side. docstoc limits each plan to 5 certificates.</li></ul>
+  <h2>Where docstoc fits</h2>
+  <ul><li>You do not install or maintain an ACME client. docstoc generates the order and shows the exact TXT name and value.</li><li>DNS-01 works when the site is not live yet or sits behind a CDN, and it is the only route for wildcards.</li><li>Certificates, expiry dates and reminders sit with your invoices and documents in one workspace.</li><li>Free covers 5 certificates, which suits a small business with a few hostnames and no sysadmin.</li></ul>
+  <h2>Let's Encrypt and docstoc compared</h2>
+  <div class="cmp-table-wrap"><table class="cmp-table"><thead><tr><th scope="col">Topic</th><th scope="col">Let's Encrypt</th><th scope="col">docstoc</th></tr></thead><tbody><tr><th scope="row">Cost</th><td>Free certificates.</td><td>Free for 5 certificates, then Pro at $14.99 a month or Business at $39.99 a month for the whole workspace.</td></tr><tr><th scope="row">Who runs ACME</th><td>You, with certbot or another client, or your host.</td><td>docstoc runs the order. You publish the TXT record and click verify.</td></tr><tr><th scope="row">Renewal</th><td>Clients renew about every 60 days, automatically.</td><td>docstoc sends a reminder email about 30 days before expiry. You then open the app, click Renew, publish a new DNS TXT value and verify. Renewal is a guided manual step, not unattended.</td></tr><tr><th scope="row">Validation</th><td>HTTP-01, DNS-01 and others. Wildcards need DNS-01.</td><td>DNS-01 only.</td></tr><tr><th scope="row">Support</th><td>Documentation and community forums, no direct support.</td><td>Email support at founder@docstoc.io.</td></tr></tbody></table></div>
+  <h2>Which one to choose</h2>
+  <p>Choose Let's Encrypt directly if you already run an ACME client or your host offers one. It costs nothing, renews itself and is the standard route for servers you control.</p><p>Choose docstoc if nobody on the team wants to maintain certbot, you manage few hostnames, and a reminder plus a few clicks every quarter is acceptable to you.</p>
+  <h2>FAQ</h2>
+  <h3>Are docstoc certificates real Let's Encrypt certificates?</h3><p>Yes. docstoc is an automation layer on Let's Encrypt and does not resell another authority's certificates. The browser padlock is the same as a certificate you get through certbot.</p><h3>Do docstoc certificates renew automatically?</h3><p>No. Renewal is guided: you get a reminder about 30 days before expiry, click Renew, publish a new TXT value and verify. If you want unattended renewal, run an ACME client yourself.</p><h3>Do I need docstoc if my host already gives me HTTPS?</h3><p>No. If your host provisions Let's Encrypt for you, you already have what docstoc offers. docstoc helps when you manage the DNS yourself or need a wildcard.</p>
+  <h2>Sources</h2>
+  <p class="cmp-sources-note">Competitor details come from these pages, checked on 31 October 2026. Prices and features change, so confirm them with the vendor.</p><ul class="cmp-sources"><li><a href="https://letsencrypt.org/about/" rel="nofollow noopener" target="_blank">letsencrypt.org</a>: Nonprofit ISRG, free, automated, open CA</li><li><a href="https://letsencrypt.org/docs/faq/" rel="nofollow noopener" target="_blank">letsencrypt.org</a>: 90-day certificates, six-day opt-in, DV only, no OV or EV planned, wildcards need DNS-01, no direct support</li><li><a href="https://letsencrypt.org/docs/challenge-types/" rel="nofollow noopener" target="_blank">letsencrypt.org</a>: DNS-01 needs a TXT record; HTTP-01 cannot issue wildcards</li></ul>
   <p><a href="/import-from-letsencrypt">Import from Let's Encrypt →</a></p>
   <h2>Also see</h2>
 <ul class="alt-also">
@@ -366,21 +403,21 @@
     <video
       id="revival-modal-video"
       class="how-modal-video"
-      src="/videos/docstoc-is-back.webm?v=20260903b"
-      poster="/videos/docstoc-is-back-poster.jpg?v=20260903b"
+      src="/videos/docstoc-is-back.webm?v=20261031a"
+      poster="/videos/docstoc-is-back-poster.jpg?v=20261031a"
       controls
       playsinline
       preload="metadata"
     >
-      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20260903b" srclang="en" label="English" default>
-      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20260903b" srclang="es" label="Español">
+      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20261031a" srclang="en" label="English" default>
+      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20261031a" srclang="es" label="Español">
     </video>
   </div>
 </div>
-<script src="/site-lang.js?v=20260903b" defer></script>
-<script src="/site-nav.js?v=20260903b" defer></script>
-<script src="/cookie-consent.js?v=20260903b" defer></script>
-<script src="/analytics.js?v=20260903b" defer></script>
+<script src="/site-lang.js?v=20261031a" defer></script>
+<script src="/site-nav.js?v=20261031a" defer></script>
+<script src="/cookie-consent.js?v=20261031a" defer></script>
+<script src="/analytics.js?v=20261031a" defer></script>
 <script>
 /* Contact sales → docstoc Assistant (Docracy pattern). */
 (function () {

@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>docstoc vs OpenTimestamps | docstoc</title>
-<meta name="description" content="OTS is a protocol. docstoc is a product your client can open.">
+<meta name="description" content="OpenTimestamps is a free Bitcoin timestamp standard. docstoc builds on it with a SHA-256 certificate and a public verify link anyone can open.">
 <link rel="canonical" href="https://docstoc.io/opentimestamps-alternative">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="docstoc">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="docstoc vs OpenTimestamps | docstoc">
-<meta property="og:description" content="OTS is a protocol. docstoc is a product your client can open.">
+<meta property="og:description" content="OpenTimestamps is a free Bitcoin timestamp standard. docstoc builds on it with a SHA-256 certificate and a public verify link anyone can open.">
 <meta property="og:url" content="https://docstoc.io/opentimestamps-alternative">
 <meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DocstocHQ">
 <meta name="twitter:title" content="docstoc vs OpenTimestamps | docstoc">
-<meta name="twitter:description" content="OTS is a protocol. docstoc is a product your client can open.">
+<meta name="twitter:description" content="OpenTimestamps is a free Bitcoin timestamp standard. docstoc builds on it with a SHA-256 certificate and a public verify link anyone can open.">
 <meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <link rel="alternate" type="application/rss+xml" title="docstoc Blog" href="/blog/feed.xml">
 <link rel="me" href="https://www.linkedin.com/company/docstochq">
@@ -55,18 +55,47 @@
       "@type": "WebPage",
       "name": "OpenTimestamps alternative",
       "url": "https://docstoc.io/opentimestamps-alternative",
-      "description": "OTS is a protocol. docstoc is a product your client can open."
+      "description": "OpenTimestamps is the open standard: docstoc is a hosted certificate that uses it."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does docstoc use OpenTimestamps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. docstoc certificates can carry an OpenTimestamps proof anchored to Bitcoin, so the timestamp can be checked without trusting docstoc. Confirmation on Bitcoin can take several hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need docstoc if I already use OpenTimestamps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. If your counterparties are comfortable with .ots files, OpenTimestamps alone does the job for free. docstoc only adds a shareable page for people who are not."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is OpenTimestamps hard to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on you. The project provides command-line clients and an in-browser verifier. Stamping from a terminal is easy for developers and unfamiliar to many clients, which is where a link helps."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon.png?v=20260903b" type="image/png" sizes="96x96">
-<link rel="icon" href="/favicon.svg?v=20260903b" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260903b" sizes="180x180">
+<link rel="icon" href="/favicon.png?v=20261031a" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon.svg?v=20261031a" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261031a" sizes="180x180">
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=20260903b">
+<link rel="stylesheet" href="/site.css?v=20261031a">
 </head>
 <body>
 <header class="site-header">
@@ -263,8 +292,8 @@
 <main class="wrap page-main">
 <section class="tpl-hero alt-hero">
   <div class="wrap tpl-hero-inner alt-hero-inner">
-    <h1>A verify page on top of the timestamp idea.</h1>
-    <p class="tpl-hero-lede">OTS is a protocol. docstoc is a product your client can open.</p>
+    <h1>A verify page on top of OpenTimestamps</h1>
+    <p class="tpl-hero-lede">OpenTimestamps is the open standard: docstoc is a hosted certificate that uses it.</p>
     <div class="alt-hero-ctas">
       <a href="/certificate" class="alt-hero-primary">Document certificates</a>
       <a href="/#pricing" class="alt-hero-secondary">See pricing</a>
@@ -272,12 +301,20 @@
   </div>
 </section>
 <div class="wrap alt-body">
-  <h2>The problem</h2>
-  <p>OpenTimestamps is free and correct — and invisible to a non-technical counterparty.</p>
-  <h2>The docstoc way</h2>
-  <p>Same integrity idea, with a URL you can send.</p>
-  <h2>How docstoc compares</h2>
-  <ul><li>Shareable page</li><li>No DIY tooling</li><li>Optional BTC timestamp</li><li>Templates in the same app</li><li>Stay on OTS if you already automate it</li></ul>
+  <h2>What OpenTimestamps is</h2>
+  <p>OpenTimestamps is an open timestamping standard that anchors data to the Bitcoin blockchain. Hashing happens in your browser. The hash is recorded on Bitcoin directly or through a calendar server, and you can verify the resulting .ots proof later. The calendar servers are free to use without registration, and clients exist for Python, JavaScript, Java and Rust. It suits people who are comfortable keeping proof files themselves.</p>
+  <h2>Where OpenTimestamps is stronger</h2>
+  <ul><li>It is an open standard with free calendar servers that need no registration or API key.</li><li>Clients exist in Python, JavaScript, Java and Rust, so you can script it into your own tooling.</li><li>A proof is a small .ots file you hold yourself. It does not depend on any company's website staying online.</li><li>The site offers an in-browser verifier where you drop a proof file in.</li></ul>
+  <h2>Where docstoc fits</h2>
+  <ul><li>You want a link to send rather than a proof file to explain. The verify page shows the hash, the timestamp and the status.</li><li>You do not want to install a client or run commands.</li><li>You want certificates, document templates and chase drafts in one account.</li><li>Business adds your own logo to certificates.</li></ul>
+  <h2>OpenTimestamps and docstoc compared</h2>
+  <div class="cmp-table-wrap"><table class="cmp-table"><thead><tr><th scope="col">Topic</th><th scope="col">OpenTimestamps</th><th scope="col">docstoc</th></tr></thead><tbody><tr><th scope="row">What it is</th><td>An open protocol, with free calendar servers and several open clients.</td><td>A hosted product that hashes the file in your browser and publishes a verify page.</td></tr><tr><th scope="row">Proof format</th><td>.ots proof file that you keep and verify with a client or the browser verifier.</td><td>A public page at a docstoc.io address, plus an OpenTimestamps proof where anchoring is on.</td></tr><tr><th scope="row">Cost</th><td>Calendar servers are free and run on donations. Stamping directly on Bitcoin means paying the fees.</td><td>Certificates are free to create and check.</td></tr><tr><th scope="row">Trust</th><td>You rely on the Bitcoin proof, not on a vendor.</td><td>The verify page depends on docstoc being online. The OpenTimestamps proof can be checked without docstoc.</td></tr><tr><th scope="row">Setup</th><td>Install a client such as pip install opentimestamps-client, or use the browser tools.</td><td>Sign in and drop in a file.</td></tr></tbody></table></div>
+  <h2>Which one to choose</h2>
+  <p>Choose OpenTimestamps directly if you already automate it, want no hosted dependency, or want to build your own tooling. The protocol is free and open, and you can keep using it alongside anything else.</p><p>Choose docstoc if the people checking your file will not run a client. They get a page with the hash and timestamp, and you still keep an OpenTimestamps proof underneath for independent checking.</p>
+  <h2>FAQ</h2>
+  <h3>Does docstoc use OpenTimestamps?</h3><p>Yes. docstoc certificates can carry an OpenTimestamps proof anchored to Bitcoin, so the timestamp can be checked without trusting docstoc. Confirmation on Bitcoin can take several hours.</p><h3>Do I need docstoc if I already use OpenTimestamps?</h3><p>No. If your counterparties are comfortable with .ots files, OpenTimestamps alone does the job for free. docstoc only adds a shareable page for people who are not.</p><h3>Is OpenTimestamps hard to use?</h3><p>It depends on you. The project provides command-line clients and an in-browser verifier. Stamping from a terminal is easy for developers and unfamiliar to many clients, which is where a link helps.</p>
+  <h2>Sources</h2>
+  <p class="cmp-sources-note">Competitor details come from these pages, checked on 31 October 2026. Prices and features change, so confirm them with the vendor.</p><ul class="cmp-sources"><li><a href="https://opentimestamps.org/" rel="nofollow noopener" target="_blank">opentimestamps.org</a>: Open standard, Bitcoin only, browser hashing, free calendar servers, clients, in-browser verifier</li></ul>
   <p><a href="/import-from-opentimestamps">Import from OpenTimestamps →</a></p>
   <h2>Also see</h2>
 <ul class="alt-also">
@@ -366,21 +403,21 @@
     <video
       id="revival-modal-video"
       class="how-modal-video"
-      src="/videos/docstoc-is-back.webm?v=20260903b"
-      poster="/videos/docstoc-is-back-poster.jpg?v=20260903b"
+      src="/videos/docstoc-is-back.webm?v=20261031a"
+      poster="/videos/docstoc-is-back-poster.jpg?v=20261031a"
       controls
       playsinline
       preload="metadata"
     >
-      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20260903b" srclang="en" label="English" default>
-      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20260903b" srclang="es" label="Español">
+      <track kind="captions" src="/videos/docstoc-is-back.en.vtt?v=20261031a" srclang="en" label="English" default>
+      <track kind="captions" src="/videos/docstoc-is-back.es.vtt?v=20261031a" srclang="es" label="Español">
     </video>
   </div>
 </div>
-<script src="/site-lang.js?v=20260903b" defer></script>
-<script src="/site-nav.js?v=20260903b" defer></script>
-<script src="/cookie-consent.js?v=20260903b" defer></script>
-<script src="/analytics.js?v=20260903b" defer></script>
+<script src="/site-lang.js?v=20261031a" defer></script>
+<script src="/site-nav.js?v=20261031a" defer></script>
+<script src="/cookie-consent.js?v=20261031a" defer></script>
+<script src="/analytics.js?v=20261031a" defer></script>
 <script>
 /* Contact sales → docstoc Assistant (Docracy pattern). */
 (function () {
