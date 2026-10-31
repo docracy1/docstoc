@@ -11,6 +11,7 @@ import {
   setAccountPlan,
   setStripeCustomerId,
   setStripeSubscriptionId,
+  subscriptionGrantsPlan,
 } from "../lib/billing";
 import { verifyAndExtract } from "../lib/billingProviders/stripe";
 import { claimStripeEvent, parseStripeEventId } from "../lib/stripeEvents";
@@ -123,6 +124,18 @@ async function fetchStripeCheckoutSession(
   }
   if (!res.ok) return { ok: false, status: res.status, body: parsed, raw };
   return { ok: true, session: parsed };
+}
+
+async function fetchStripeSubscriptionStatus(
+  secretKey: string,
+  subscriptionId: string
+): Promise<string | null> {
+  const res = await fetch(`https://api.stripe.com/v1/subscriptions/${encodeURIComponent(subscriptionId)}`, {
+    headers: { Authorization: `Bearer ${secretKey}` },
+  });
+  if (!res.ok) return null;
+  const sub = (await res.json()) as { status?: string };
+  return sub.status ?? null;
 }
 
 async function getBlockingStripeSubscriptionPlan(
@@ -306,6 +319,17 @@ billing.get("/confirm-session", requireAccount, async (c) => {
   const complete = session.status === "complete";
   const paid = session.payment_status === "paid" || session.payment_status === "no_payment_required";
   if (complete && paid) {
+    // A checkout session stays "complete" and "paid" forever, also after the subscription it
+    // created was canceled. Without this check, replaying an old session_id restores the plan.
+    if (typeof session.subscription === "string" && session.subscription) {
+      const status = await fetchStripeSubscriptionStatus(c.env.STRIPE_SECRET_KEY, session.subscription);
+      if (status === null) {
+        return c.json({ error: "Could not verify checkout yet. Please refresh." }, 502);
+      }
+      if (!subscriptionGrantsPlan(status)) {
+        return c.json({ ok: true, status: "pending_payment", plan });
+      }
+    }
     await setAccountPlan(c.env, account.id, plan);
     await setAccountBillingStatus(c.env, account.id, "active");
     if (typeof session.customer === "string" && session.customer) {

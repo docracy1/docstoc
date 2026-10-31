@@ -52,7 +52,9 @@ export function sessionCookieOptions(env: Env) {
   return {
     httpOnly: true as const,
     secure: https,
-    sameSite: (https ? "None" : "Lax") as "None" | "Lax",
+    // The app reaches the API through the same-origin Pages proxy or from a *.docstoc.io sibling,
+    // so nothing needs this cookie on a cross-site request.
+    sameSite: "Lax" as const,
     path: "/",
     maxAge: SESSION_TTL_SECONDS,
     ...(domain ? { domain } : {}),

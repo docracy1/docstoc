@@ -32,6 +32,7 @@ import sox from "./routes/sox";
 import trust from "./routes/trust";
 import invoices from "./routes/invoices";
 import { configuredAppOrigin, isAllowedAppOrigin } from "./lib/appUrl";
+import { csrfProtection } from "./lib/csrf";
 import { purgeExpiredSessions } from "./lib/sessionCleanup";
 import { sendDailyChaseDigests } from "./lib/chaseDigest";
 import { sendOnboardingNudges } from "./lib/onboardingNudge";
@@ -64,6 +65,7 @@ app.use(
     credentials: true,
   })
 );
+app.use("/api/*", csrfProtection);
 
 app.route("/api/auth", auth);
 app.route("/api/account", account);

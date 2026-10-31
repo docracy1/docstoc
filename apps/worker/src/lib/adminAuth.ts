@@ -30,7 +30,7 @@ function cookieOptions(env: Env) {
   return {
     httpOnly: true as const,
     secure: https,
-    sameSite: (https ? "None" : "Lax") as "None" | "Lax",
+    sameSite: "Lax" as const,
     path: "/",
     maxAge: ADMIN_SESSION_TTL_SECONDS,
   };

@@ -29,8 +29,21 @@ describe("isAllowedAppOrigin", () => {
     expect(isAllowedAppOrigin("https://docstoc.io", prod)).toBe(true);
     expect(isAllowedAppOrigin("https://chasa-71s.pages.dev", prod)).toBe(true);
     expect(isAllowedAppOrigin("https://abc123.chasa-71s.pages.dev", prod)).toBe(true);
-    expect(isAllowedAppOrigin("http://localhost:5173", prod)).toBe(true);
-    expect(isAllowedAppOrigin("http://127.0.0.1:8788", prod)).toBe(true);
+  });
+
+  it("rejects other pages.dev projects, which anyone can register", () => {
+    expect(isAllowedAppOrigin("https://docstoc-evil.pages.dev", prod)).toBe(false);
+    expect(isAllowedAppOrigin("https://chasa-evil.pages.dev", prod)).toBe(false);
+    expect(isAllowedAppOrigin("https://abc.docstoc-evil.pages.dev", prod)).toBe(false);
+    expect(isAllowedAppOrigin("https://docstoc.pages.dev", prod)).toBe(false);
+  });
+
+  it("allows localhost only on a local deployment", () => {
+    expect(isAllowedAppOrigin("http://localhost:5173", prod)).toBe(false);
+    expect(isAllowedAppOrigin("http://127.0.0.1:8788", prod)).toBe(false);
+    const local = mockEnv("http://localhost:5173");
+    expect(isAllowedAppOrigin("http://localhost:5174", local)).toBe(true);
+    expect(isAllowedAppOrigin("http://127.0.0.1:8788", local)).toBe(true);
   });
 
   it("rejects lookalike and unrelated origins", () => {
@@ -58,8 +71,13 @@ describe("requestAppOrigin", () => {
   });
 
   it("falls back to a trusted Origin header, then to PUBLIC_APP_URL", () => {
-    expect(requestAppOrigin(mockRequest(prod, { Origin: "http://localhost:5173" }))).toBe("http://localhost:5173");
+    expect(requestAppOrigin(mockRequest(prod, { Origin: "https://chasa-71s.pages.dev" }))).toBe("https://chasa-71s.pages.dev");
     expect(requestAppOrigin(mockRequest(prod, {}))).toBe("https://docstoc.io");
+  });
+
+  it("does not send magic links to an attacker's pages.dev project", () => {
+    const c = mockRequest(prod, { [APP_ORIGIN_HEADER]: "https://docstoc-evil.pages.dev" });
+    expect(requestAppOrigin(c)).toBe("https://docstoc.io");
   });
 
   it("ignores a spoofed forwarded origin", () => {

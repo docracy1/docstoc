@@ -16,9 +16,12 @@ const PRODUCTION_ORIGINS = [
   "https://docstoc.io",
   "https://www.docstoc.io",
 ];
-/** Project domain plus branch/commit preview subdomains, e.g. `abc123.chasa-71s.pages.dev`. */
-const PAGES_ORIGIN =
-  /^https:\/\/([a-z0-9-]+\.)?(chasa(-[a-z0-9-]+)?|docstoc(-[a-z0-9-]+)?)\.pages\.dev$/;
+/**
+ * This project's domain plus its branch/commit previews, e.g. `abc123.chasa-71s.pages.dev`. Only
+ * the exact project name: anyone can register another `*.pages.dev` project, and a trusted origin
+ * receives magic-link tokens and credentialed CORS access.
+ */
+const PAGES_ORIGIN = /^https:\/\/([a-z0-9-]+\.)?chasa-71s\.pages\.dev$/;
 const LOCALHOST_ORIGIN = /^http:\/\/(localhost|127\.0\.0\.1)(:\d{1,5})?$/;
 
 /** Normalises to a bare origin (lowercased host, no path or trailing slash); "" when unparseable. */
@@ -39,7 +42,10 @@ export function isAllowedAppOrigin(value: string, env: Env): boolean {
   if (!origin) return false;
   if (origin === configuredAppOrigin(env)) return true;
   if (PRODUCTION_ORIGINS.includes(origin)) return true;
-  return PAGES_ORIGIN.test(origin) || LOCALHOST_ORIGIN.test(origin);
+  if (PAGES_ORIGIN.test(origin)) return true;
+  // Any local port, but only on a deployment that is itself local: a production worker must not
+  // send a real user's magic link to whatever is listening on their machine.
+  return LOCALHOST_ORIGIN.test(origin) && LOCALHOST_ORIGIN.test(configuredAppOrigin(env));
 }
 
 /** Structural subset of Hono's Context, so this stays usable from any route without a type cycle. */

@@ -65,6 +65,11 @@ export async function setStripeCustomerId(env: Env, accountId: string, customerI
     .run();
 }
 
+/** Stripe subscription states that entitle an account to its paid plan right now. */
+export function subscriptionGrantsPlan(status: string | undefined): boolean {
+  return status === "active" || status === "trialing";
+}
+
 export async function setStripeSubscriptionId(env: Env, accountId: string, subscriptionId: string | null): Promise<void> {
   await env.CHASA_DB.prepare(`UPDATE accounts SET stripe_subscription_id = ? WHERE id = ?`)
     .bind(subscriptionId, accountId)
