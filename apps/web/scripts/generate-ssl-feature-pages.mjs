@@ -192,11 +192,11 @@ const PAGES = [
       },
       {
         q: "Do you resell certificates?",
-        a: "No. The issuing CA is Let's Encrypt. docstoc manages ACME orders, DNS-01 challenges, and renewals in your workspace.",
+        a: "No. The issuing CA is Let's Encrypt. docstoc manages ACME orders and DNS-01 challenges in your workspace and guides each renewal.",
       },
       {
         q: "How long do certificates last?",
-        a: "Let's Encrypt lifetimes are short (~90 days historically, industry direction is shorter). docstoc renews before expiry so you do not babysit the calendar.",
+        a: "Let's Encrypt lifetimes are short (~90 days historically, industry direction is shorter). docstoc emails you before expiry and gives you the fresh DNS value to publish, so you do not babysit the calendar.",
       },
     ],
     body: () =>
@@ -208,7 +208,7 @@ const PAGES = [
             "Domain-validated (DV) certificates",
             "Trusted by modern browsers",
             "No separate per-certificate CA checkout",
-            "Renewals handled in-product while your plan is active",
+            "Email reminder before expiry, guided renewal in the app",
           ],
         },
         {
@@ -233,7 +233,7 @@ const PAGES = [
     shell: {
       crumb: "Certificates",
       h1: "Trusted SSL certificates without a reseller storefront",
-      lede: "docstoc issues real Let's Encrypt domain-validated certificates for hostnames you control. Browser-trusted HTTPS, automated renewals — you pay for the automation layer, not a marked-up cert SKU.",
+      lede: "docstoc issues real Let's Encrypt domain-validated certificates for hostnames you control. Browser-trusted HTTPS, guided renewals — you pay for the automation layer, not a marked-up cert SKU.",
       ctaPrimary: { href: "/app/login?start=1", label: "Issue a certificate →" },
       ctaSecondary: { href: "/blog/types-of-ssl-certificates/", label: "Certificate types guide" },
     },
@@ -274,7 +274,7 @@ const PAGES = [
         },
         {
           title: "What we do not offer (on purpose)",
-          body: "ZeroSSL-style email or HTTP file validation are not in the product. One method keeps the flow short and automatable for renewals.",
+          body: "ZeroSSL-style email or HTTP file validation are not in the product. One method keeps the flow short, also at renewal.",
           bullets: [
             "No one-step email validation",
             "No HTTP/HTTPS file upload challenges",
@@ -526,7 +526,7 @@ const PAGES = [
       blocks([
         {
           title: "Same protocol, different ops model",
-          body: "ACME is the open protocol Let's Encrypt and other CAs use. DIY means certbot or another client on a server. docstoc means one DNS TXT and in-product renewals beside your invoices.",
+          body: "ACME is the open protocol Let's Encrypt and other CAs use. DIY means certbot or another client on a server. docstoc means one DNS TXT and guided renewals beside your invoices.",
           bullets: [
             "Let's Encrypt as the issuing CA",
             "DNS-01 challenge path",
@@ -541,7 +541,7 @@ const PAGES = [
     shell: {
       crumb: "ACME",
       h1: "ACME automation without running certbot yourself",
-      lede: "docstoc speaks ACME to Let's Encrypt on your behalf. You manage domains in the product UI (or API); we handle orders, challenges, and renewals.",
+      lede: "docstoc speaks ACME to Let's Encrypt on your behalf. You manage domains in the product UI (or API); we handle orders and challenges, and you publish the DNS value at each renewal.",
       ctaPrimary: { href: "/app/login?start=1", label: "Automate a domain →" },
       ctaSecondary: { href: "/blog/acme-protocol-certificate-automation/", label: "ACME deep dive" },
     },

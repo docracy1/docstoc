@@ -28,7 +28,7 @@ export const SECTORS = [
     id: "ssl",
     label: "SSL",
     hubTitle: "SSL certificates",
-    hubLede: "Let’s Encrypt on your own domain — one DNS record, auto-renew.",
+    hubLede: "Let’s Encrypt on your own domain — one DNS record, reminder before expiry.",
     ctaHref: "/ssl",
     ctaLabel: "SSL product",
     importCtaHref: "/app/login?start=1",
@@ -97,7 +97,7 @@ const DEFAULT_IMPORT = {
     noConnect:
       "You cannot “import” a live certificate private key into docstoc — and you should not email one to anyone. Issue a fresh Let’s Encrypt certificate on the same hostname, then retire the old renewal path.",
     after:
-      "Add the domain in docstoc, publish the DNS TXT record we show you, wait for issuance, leave the TXT in place for renewals, then cancel the old vendor so you are not billed twice.",
+      "Add the domain in docstoc, publish the DNS TXT record we show you, wait for issuance, then cancel the old vendor so you are not billed twice.",
     once: "One hostname on Pro.",
     reuse: "Business covers more domains, still with no separate per-certificate SSL fee.",
     where:
@@ -530,7 +530,7 @@ export const COMPETITORS = [
     sub: "Same padlock job as ZeroSSL — inside the workspace you already use for documents and invoices.",
     problem:
       "ZeroSSL is a dedicated ACME dashboard. Free is capped (3 certs). Paid tiers exist for volume and wildcards. It is another login for a small business that already has somewhere to work.",
-    way: "docstoc is an automation layer on Let’s Encrypt — not a certificate reseller. Free includes 5 × 90-day DV certs; Pro adds multi-SAN; Business adds wildcards. One DNS TXT path, renewals in-product. Not OV/EV.",
+    way: "docstoc is an automation layer on Let’s Encrypt — not a certificate reseller. Free includes 5 × 90-day DV certs; Pro adds multi-SAN; Business adds wildcards. One DNS TXT path, guided renewals in the app. Not OV/EV.",
     compares: [
       "No separate certificate console",
       "Free: 5 × 90-day LE certs; Pro multi-SAN; Business wildcards",
@@ -558,11 +558,11 @@ export const COMPETITORS = [
     sub: "Same CA. We run ACME so you do not have to.",
     problem:
       "DIY Let’s Encrypt is free and excellent — until a server rebuild, a missed timer, or nobody on the team wants certbot.",
-    way: "docstoc issues the same CA’s DV certs with one DNS TXT and renewals inside your workspace.",
+    way: "docstoc issues the same CA’s DV certs with one DNS TXT and guided renewals inside your workspace.",
     compares: [
       "Real Let’s Encrypt certificates",
       "No ACME client to babysit",
-      "One DNS record, leave it for renewals",
+      "Fresh DNS value per renewal, reminder before expiry",
       "Bundled with the rest of docstoc",
       "Stay DIY if you already run ACME well",
     ],
@@ -589,7 +589,7 @@ export const COMPETITORS = [
     way: "If you need OV/EV, warranties, or a private CA, stay. If you need HTTPS on a marketing site, Let’s Encrypt via docstoc is enough.",
     compares: [
       "No per-certificate retail invoice for DV",
-      "Automated renewals",
+      "Renewal reminders",
       "Honest limit: DV only",
       "One DNS TXT",
       "Business plan for more hostnames",
@@ -613,8 +613,8 @@ export const COMPETITORS = [
     headline: "Free automated DV instead of Sectigo retail.",
     sub: "Skip the $70–460+/yr cert SKU when you only needed a padlock.",
     problem: "Sectigo (and resellers) sell paid DV/OV/EV. Fine for org validation; overkill for a brochure site.",
-    way: "docstoc: Let’s Encrypt DV, bundled, auto-renew. Stay for OV/EV.",
-    compares: ["$0 extra SSL SKU on paid docstoc", "Auto-renew", "DV only — we say so", "Keep your host", "Reseller invoices go away"],
+    way: "docstoc: Let’s Encrypt DV, bundled, renewal reminders. Stay for OV/EV.",
+    compares: ["$0 extra SSL SKU on paid docstoc", "Renewal reminders", "DV only — we say so", "Keep your host", "Reseller invoices go away"],
     importHero: "Leave a Sectigo DV cert for docstoc",
     importLede: "New issuance, not a key import.",
     import: imp("ssl", {
@@ -990,7 +990,7 @@ function sslRest() {
     sub: "Automated DV on your domain when you do not need that vendor’s paid SKU.",
     problem: `${name} is a dedicated SSL path — another dashboard, often another invoice, sometimes a manual renew.`,
     way: "docstoc issues Let’s Encrypt DV with one DNS TXT inside your business workspace.",
-    compares: ["Bundled SSL", "Auto-renew", "DV only", "Keep your host", "No key import"],
+    compares: ["Bundled SSL", "Renewal reminders", "DV only", "Keep your host", "No key import"],
     importHero: `Move a hostname off ${name} onto docstoc`,
     importLede: "Issue a new certificate. Never email a private key.",
     import: imp("ssl", {

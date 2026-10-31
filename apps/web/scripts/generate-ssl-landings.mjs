@@ -71,11 +71,11 @@ function sharedSections(kind) {
   const peer = kind === "ssl" ? null : ["SSL", "/ssl"];
   return `
   <h2>What it can do</h2>
-  <p>docstoc automates real Let's Encrypt domain-validated certificates for hostnames you control — one DNS TXT record, renewals in-product, same account as invoices and documents.</p>
+  <p>docstoc automates real Let's Encrypt domain-validated certificates for hostnames you control — one DNS TXT record, guided renewals, same account as invoices and documents.</p>
   <ul>
     <li><strong>Add a domain</strong> — Free: 5 × 90-day LE certs; Pro: multi-SAN; Business: wildcards + volume.</li>
     <li><strong>DNS-01 validation</strong> — publish TXT record(s); no HTTP file drop or nameserver move.</li>
-    <li><strong>Auto-renew</strong> — reissue before expiry while your plan stays active.</li>
+    <li><strong>Renewal reminders</strong> — we email you before expiry; publish a fresh DNS value and reissue in the app.</li>
     <li><strong>Download PEMs</strong> — install on nginx, Apache, Caddy, or your host panel.</li>
   </ul>
 
@@ -83,7 +83,7 @@ function sharedSections(kind) {
   <div class="ssl-steps">
     <div class="ssl-step"><strong>1. Add your domain</strong><p>Sign in and add the hostname you want secured in SSL certificates.</p></div>
     <div class="ssl-step"><strong>2. Publish one DNS TXT</strong><p>Copy the challenge to your DNS provider. No CDN proxy required.</p></div>
-    <div class="ssl-step"><strong>3. Install &amp; renew</strong><p>Download PEMs for your server; renewals stay in the product.</p></div>
+    <div class="ssl-step"><strong>3. Install &amp; renew</strong><p>Download PEMs for your server; we remind you before expiry and guide the renewal.</p></div>
   </div>
 
   <h2>Who it’s for</h2>
@@ -183,7 +183,7 @@ const sslFaqs = [
   },
   {
     q: "Do I need to move my site to docstoc hosting?",
-    a: "No. Keep your host. Add DNS TXT record(s); renewals are handled in-product.",
+    a: "No. Keep your host. Add DNS TXT record(s); each renewal gives you a fresh value to publish.",
   },
   {
     q: "Can I get OV or EV certificates?",
@@ -202,7 +202,7 @@ const tlsFaqs = [
   },
   {
     q: "How is docstoc different from certbot?",
-    a: "Same CA (Let's Encrypt). Different ops: one DNS TXT and in-product renewals beside invoices and documents.",
+    a: "Same CA (Let's Encrypt). Different ops: one DNS TXT and guided renewals beside invoices and documents.",
   },
   {
     q: "Where do I compare alternatives?",
@@ -226,7 +226,7 @@ function pageMain({ crumbLabel, h1, lede, kind, faqs }) {
   ${sharedSections(kind)}
   <div class="prod-try">
     <h2>Open the SSL product</h2>
-    <p>Add your domain, publish one DNS TXT record, and download PEMs — renewals stay in the app.</p>
+    <p>Add your domain, publish one DNS TXT record, and download PEMs — we remind you before expiry.</p>
     <a href="/app/ssl-domains" class="nav-cta">Manage SSL domains →</a>
     <a class="prod-try-secondary" href="/tools/ssl-certificate-calculator">SSL expiry calculator</a>
   </div>
@@ -242,13 +242,13 @@ writeFileSync(
   chrome({
     title: "SSL / TLS Automation — Let's Encrypt for Your Domain | docstoc",
     description:
-      "Automated Let's Encrypt SSL for your domain: one DNS TXT record, auto-renewal, PEM download. Compare and switch from ZeroSSL, Cloudflare, DigiCert, and more.",
+      "Automated Let's Encrypt SSL for your domain: one DNS TXT record, renewal reminders, PEM download. Compare and switch from ZeroSSL, Cloudflare, DigiCert, and more.",
     canonical: "/ssl",
     activeNav: "",
     mainHtml: pageMain({
       crumbLabel: "SSL",
       h1: "SSL / TLS automation",
-      lede: "Add a domain, publish one DNS TXT record, get a real Let's Encrypt certificate — renewals handled, no certbot babysitting.",
+      lede: "Add a domain, publish one DNS TXT record, get a real Let's Encrypt certificate — renewal reminders by email, no certbot to maintain.",
       kind: "ssl",
       faqs: sslFaqs,
     }),
@@ -264,7 +264,7 @@ writeFileSync(
   chrome({
     title: "TLS Certificates Automated — Let's Encrypt Without Certbot | docstoc",
     description:
-      "Automate TLS certificates for your domain with Let's Encrypt DV — one DNS record, renewals handled. Compare docstoc to commercial CAs, free SSL tools, and hosts.",
+      "Automate TLS certificates for your domain with Let's Encrypt DV — one DNS record, renewal reminders. Compare docstoc to commercial CAs, free SSL tools, and hosts.",
     canonical: "/tls",
     activeNav: "",
     mainHtml: pageMain({

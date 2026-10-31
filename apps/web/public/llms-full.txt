@@ -82,8 +82,8 @@ Everything in Pro, plus:
 
 ## SSL automation
 
-- Let's Encrypt DV certificates via ACME DNS-01 — customer adds one TXT record; docstoc issues and
-  renews. Not a CA / not a cert reseller. Product page: `https://docstoc.io/ssl`.
+- Let's Encrypt DV certificates via ACME DNS-01 — customer adds one TXT record; docstoc issues,
+  emails a reminder before expiry and guides renewal with a fresh TXT value (not unattended). Not a CA / not a cert reseller. Product page: `https://docstoc.io/ssl`.
 
 ---
 

@@ -40,7 +40,7 @@
         <div class="step" id="st1">1 · Add domain api.example.com</div>
         <div class="step" id="st2">2 · Verify DNS (CNAME / TXT)</div>
         <div class="step" id="st3">3 · Issue Let's Encrypt cert</div>
-        <div class="step" id="st4">4 · Auto-renew before expiry</div>
+        <div class="step" id="st4">4 · Reminder before expiry</div>
       </div>
     </div>
     <div class="cap">Keep your host — docstoc runs the automation layer</div>
@@ -51,7 +51,7 @@
       <div class="card" style="text-align:center;padding:40px">
         <div style="font-size:56px;margin-bottom:16px">✓</div>
         <h1>Certificate active</h1>
-        <p>HTTPS green lock · renews automatically · alerts if something breaks</p>
+        <p>HTTPS green lock · reminder before expiry · alerts if something breaks</p>
         <p style="margin-top:16px;font-weight:700;color:var(--ok)">docstoc.io/ssl</p>
       </div>
     </div>
@@ -61,7 +61,7 @@
 <script>
 window.__DEMO_NARRATION__ = [
   { "atMs": 800, "text": "docstoc can issue and renew Let's Encrypt certificates for your domain — without you hand-writing ACME scripts." },
-  { "atMs": 5000, "text": "Add the domain, verify DNS, and we handle issuance and automatic renewal before expiry." },
+  { "atMs": 5000, "text": "Add the domain, verify DNS, and we handle issuance and remind you before expiry." },
   { "atMs": 14000, "text": "We're not a certificate reseller. You keep your host — docstoc runs the automation. Learn more at docstoc.io slash ssl." }
 ];
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));

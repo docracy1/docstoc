@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SSL / TLS Automation — Let's Encrypt for Your Domain</title>
-<meta name="description" content="Automated Let's Encrypt SSL for your domain: one DNS TXT record, auto-renewal, PEM download. Compare and switch from ZeroSSL, Cloudflare, DigiCert, and more.">
+<meta name="description" content="Automated Let's Encrypt SSL for your domain: one DNS TXT record, renewal reminders, PEM download.">
 <link rel="canonical" href="https://docstoc.io/ssl">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="docstoc">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="SSL / TLS Automation — Let's Encrypt for Your Domain | docstoc">
-<meta property="og:description" content="Automated Let's Encrypt SSL for your domain: one DNS TXT record, auto-renewal, PEM download. Compare and switch from ZeroSSL, Cloudflare, DigiCert, and more.">
+<meta property="og:description" content="Automated Let's Encrypt SSL for your domain: one DNS TXT record, renewal reminders, PEM download. Compare and switch from ZeroSSL, Cloudflare, DigiCert, and more.">
 <meta property="og:url" content="https://docstoc.io/ssl">
 <meta property="og:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DocstocHQ">
 <meta name="twitter:title" content="SSL / TLS Automation — Let's Encrypt for Your Domain | docstoc">
-<meta name="twitter:description" content="Automated Let's Encrypt SSL for your domain: one DNS TXT record, auto-renewal, PEM download. Compare and switch from ZeroSSL, Cloudflare, DigiCert, and more.">
+<meta name="twitter:description" content="Automated Let's Encrypt SSL for your domain: one DNS TXT record, renewal reminders, PEM download. Compare and switch from ZeroSSL, Cloudflare, DigiCert, and more.">
 <meta name="twitter:image" content="https://docstoc.io/brand/og/docstoc-og-1200x630.png">
 <link rel="alternate" type="application/rss+xml" title="docstoc Blog" href="/blog/feed.xml">
 <link rel="me" href="https://www.linkedin.com/company/docstochq">
@@ -132,7 +132,7 @@
           "name": "Do I need to move my site to docstoc hosting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Keep your host. Add DNS TXT record(s); renewals are handled in-product."
+            "text": "No. Keep your host. Add DNS TXT record(s); each renewal gives you a fresh value to publish."
           }
         },
         {
@@ -352,7 +352,7 @@
 <section class="tpl-hero">
   <div class="wrap tpl-hero-inner">
     <h1>SSL / TLS automation</h1>
-    <p class="tpl-hero-lede">Add a domain, publish one DNS TXT record, get a real Let's Encrypt certificate — renewals handled, no certbot babysitting.</p>
+    <p class="tpl-hero-lede">Add a domain, publish one DNS TXT record, get a real Let's Encrypt certificate — renewal reminders by email, no certbot to maintain.</p>
     <p class="tpl-hero-actions" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center">
       <a href="/app/ssl-domains" class="nav-cta">Issue an SSL certificate →</a>
       <a href="/#pricing" class="prod-try-secondary" style="margin-left:0">See pricing</a>
@@ -363,11 +363,11 @@
   <p class="crumb"><a href="/">Home</a> / SSL</p>
   
   <h2>What it can do</h2>
-  <p>docstoc automates real Let's Encrypt domain-validated certificates for hostnames you control — one DNS TXT record, renewals in-product, same account as invoices and documents.</p>
+  <p>docstoc automates real Let's Encrypt domain-validated certificates for hostnames you control — one DNS TXT record, guided renewals, same account as invoices and documents.</p>
   <ul>
     <li><strong>Add a domain</strong> — Free: 5 × 90-day LE certs; Pro: multi-SAN; Business: wildcards + volume.</li>
     <li><strong>DNS-01 validation</strong> — publish TXT record(s); no HTTP file drop or nameserver move.</li>
-    <li><strong>Auto-renew</strong> — reissue before expiry while your plan stays active.</li>
+    <li><strong>Renewal reminders</strong> — we email you before expiry; publish a fresh DNS value and reissue in the app.</li>
     <li><strong>Download PEMs</strong> — install on nginx, Apache, Caddy, or your host panel.</li>
   </ul>
 
@@ -375,7 +375,7 @@
   <div class="ssl-steps">
     <div class="ssl-step"><strong>1. Add your domain</strong><p>Sign in and add the hostname you want secured in SSL certificates.</p></div>
     <div class="ssl-step"><strong>2. Publish one DNS TXT</strong><p>Copy the challenge to your DNS provider. No CDN proxy required.</p></div>
-    <div class="ssl-step"><strong>3. Install &amp; renew</strong><p>Download PEMs for your server; renewals stay in the product.</p></div>
+    <div class="ssl-step"><strong>3. Install &amp; renew</strong><p>Download PEMs for your server; we remind you before expiry and guide the renewal.</p></div>
   </div>
 
   <h2>Who it’s for</h2>
@@ -544,7 +544,7 @@
   </ul>
   <div class="prod-try">
     <h2>Open the SSL product</h2>
-    <p>Add your domain, publish one DNS TXT record, and download PEMs — renewals stay in the app.</p>
+    <p>Add your domain, publish one DNS TXT record, and download PEMs — we remind you before expiry.</p>
     <a href="/app/ssl-domains" class="nav-cta">Manage SSL domains →</a>
     <a class="prod-try-secondary" href="/tools/ssl-certificate-calculator">SSL expiry calculator</a>
   </div>
@@ -559,7 +559,7 @@
 <p>Modern browsers use TLS. People still search “SSL certificate” for the same HTTPS padlock. Same product either way.</p>
 </details>
 <details class="faq-item"><summary>Do I need to move my site to docstoc hosting?</summary>
-<p>No. Keep your host. Add DNS TXT record(s); renewals are handled in-product.</p>
+<p>No. Keep your host. Add DNS TXT record(s); each renewal gives you a fresh value to publish.</p>
 </details>
 <details class="faq-item"><summary>Can I get OV or EV certificates?</summary>
 <p>Not from docstoc. We automate DV Let's Encrypt certificates. Use a commercial CA if procurement requires OV/EV.</p>

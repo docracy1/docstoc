@@ -7,7 +7,7 @@ export const DOCSTOC_SSL = {
   bestFit: "SMBs who want Let's Encrypt automation next to invoices & templates",
   pricing: "Automation layer on Free / Pro / Business — no certificate resale markup",
   certTypes: "Domain-validated (DV) only — real Let's Encrypt certificates",
-  automation: "✓ fully automated — DNS-01 TXT, then hands-off renewals",
+  automation: "✓ DNS-01 TXT per issue or renewal, email reminder before expiry",
   setup: "Add a domain, add DNS TXT record(s), done",
   bundled: "✓ part of the same platform as invoicing, templates & documents",
   freeTier: "Free: 5 × 90-day LE certs · Pro: multi-SAN · Business: wildcards",
@@ -48,7 +48,7 @@ export const SSL_COMPETITORS = [
     "pickDocstoc": "Choose docstoc when you want Let's Encrypt DV automation — not a reseller SKU — with Free 5 certs, Pro multi-SAN, Business wildcards, and the same account as invoices and documents.",
     "stayWithThem": "Stay on ZeroSSL for a dedicated ACME dashboard, their annual CA products, or Protect-style scanning not tied to a small-business platform.",
     "switchWhy": "Teams leave ZeroSSL when a second login just for certificates becomes busywork — especially once they already run invoices and documents elsewhere.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what ZeroSSL is doing today",
@@ -64,7 +64,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old ZeroSSL path",
@@ -101,7 +101,7 @@ export const SSL_COMPETITORS = [
     "setup": "Requires someone to set up and maintain the ACME client and renewal job",
     "bundled": "✗ the CA itself — not a product with a dashboard or support desk",
     "freeTier": "Unlimited free certificates, no account needed",
-    "summary": "Let's Encrypt is the CA behind docstoc's certificates — not a rival product. DIY Let's Encrypt is free but you own ACME, validation, and renewals. docstoc issues the same CA's DV certs with one DNS TXT record and hands-off renewals inside your business workspace.",
+    "summary": "Let's Encrypt is the CA behind docstoc's certificates — not a rival product. DIY Let's Encrypt is free but you own ACME, validation, and renewals. docstoc issues the same CA's DV certs with one DNS TXT record and guided renewals inside your business workspace.",
     "faq": [
       {
         "q": "Is the certificate different from Let's Encrypt?",
@@ -120,10 +120,10 @@ export const SSL_COMPETITORS = [
         "a": "When you already run ACME reliably across many hosts and do not need a bundled business platform."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay DIY if you are comfortable owning ACME clients, rate limits, and monitoring across hosts.",
     "switchWhy": "People leave DIY Let's Encrypt when renewals fail after a server rebuild, or nobody wants to own certbot anymore.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what Let's Encrypt (self-managed) is doing today",
@@ -139,7 +139,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old Let's Encrypt (self-managed) path",
@@ -187,18 +187,18 @@ export const SSL_COMPETITORS = [
         "a": "Partner or compliance rules that require OV/EV, which docstoc does not issue."
       },
       {
-        "q": "Does Sectigo auto-renew like docstoc?",
-        "a": "Enterprise Certificate Manager can, as a paid product. docstoc bundles renewal into the business plan with zero ACME setup."
+        "q": "Does Sectigo renew automatically?",
+        "a": "Enterprise Certificate Manager can, as a paid product. docstoc does not renew unattended: it emails you before expiry and you publish a fresh DNS TXT value in the app."
       },
       {
         "q": "When stay on Sectigo?",
         "a": "When you need OV/EV, warranties, or reseller-managed enterprise fleets."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay on Sectigo for OV/EV, wildcards at scale, or insurance-backed commercial cert programs.",
     "switchWhy": "Small teams leave Sectigo when they realize they only needed DV HTTPS and were paying reseller prices plus renewal friction.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what Sectigo is doing today",
@@ -214,7 +214,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old Sectigo path",
@@ -270,10 +270,10 @@ export const SSL_COMPETITORS = [
         "a": "Enterprise compliance, OV/EV mandates, device/code-signing PKI, or insurance-backed trust requirements."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay on DigiCert Group products for enterprise PKI, OV/EV, warranties, and regulated trust chains.",
     "switchWhy": "SMBs leave DigiCert (or DigiCert-resold certs) when enterprise pricing and vetting are overkill for a single marketing site or client portal.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what DigiCert is doing today",
@@ -289,7 +289,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old DigiCert path",
@@ -345,10 +345,10 @@ export const SSL_COMPETITORS = [
         "a": "When Cloudflare is already your edge and you want Universal SSL as part of that stack."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay on Cloudflare SSL when the site should remain orange-cloud proxied and Universal SSL already meets your needs.",
     "switchWhy": "Teams add docstoc when they need HTTPS without forcing all traffic through Cloudflare, or when SSL is just one piece of a broader trust/ops workspace.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what Cloudflare SSL is doing today",
@@ -364,7 +364,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old Cloudflare SSL path",
@@ -412,18 +412,18 @@ export const SSL_COMPETITORS = [
         "a": "OV/EV organization validation — docstoc is DV-only."
       },
       {
-        "q": "Auto-renew?",
-        "a": "ACME clients can renew SSL.com DV. docstoc runs the lifecycle inside the product UI with one DNS record."
+        "q": "Does it renew automatically?",
+        "a": "ACME clients can renew SSL.com DV. docstoc does not renew unattended: it emails you before expiry and you publish a fresh DNS TXT value in the app."
       },
       {
         "q": "When stay on SSL.com?",
         "a": "When you want that CA specifically, wildcards, or paid OV/EV."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay for SSL.com-specific trust needs, wildcards, or OV/EV purchases.",
     "switchWhy": "Leave SSL.com's free ACME path when you do not want another CA login and client to babysit.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what SSL.com is doing today",
@@ -439,7 +439,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old SSL.com path",
@@ -483,7 +483,7 @@ export const SSL_COMPETITORS = [
         "a": "For a single SMB domain's DV HTTPS, yes on cost/effort. Not for enterprise PKI."
       },
       {
-        "q": "Does GlobalSign auto-renew like docstoc?",
+        "q": "Does GlobalSign renew automatically?",
         "a": "Atlas can, as paid enterprise automation — not a bundled SMB feature."
       },
       {
@@ -495,10 +495,10 @@ export const SSL_COMPETITORS = [
         "a": "When those enterprise capabilities are actual requirements."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay for enterprise PKI, IoT, IntranetSSL, or OV/EV mandates.",
     "switchWhy": "SMBs leave GlobalSign when they only needed a website padlock and not a PKI platform.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what GlobalSign is doing today",
@@ -514,7 +514,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old GlobalSign path",
@@ -555,7 +555,7 @@ export const SSL_COMPETITORS = [
     "faq": [
       {
         "q": "Is SSL For Free free?",
-        "a": "Yes for certificates. Ongoing effort differs — docstoc automates renewals after one DNS setup."
+        "a": "Yes for certificates. Ongoing effort differs: docstoc emails you before expiry and guides each renewal, which needs a fresh DNS TXT value."
       },
       {
         "q": "Same CA as docstoc?",
@@ -570,10 +570,10 @@ export const SSL_COMPETITORS = [
         "a": "If you like that UI and accept manual cycles or pay their automation tiers."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay if the free manual flow is fine for a hobby site, or you already pay their convenience tiers.",
-    "switchWhy": "People leave when 90-day manual renewals become a chore or certificates lapse after a missed reminder.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "switchWhy": "People leave when they want expiry reminders and renewal in the same account as their invoices and documents.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what SSL For Free is doing today",
@@ -589,7 +589,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old SSL For Free path",
@@ -645,10 +645,10 @@ export const SSL_COMPETITORS = [
         "a": "If you want their API/UI specifically for multi-domain ACME outside docstoc."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay for their API/allotments if you are already standardized on that tool.",
     "switchWhy": "Switch when you want transparent Let's Encrypt automation inside a business platform instead of another cert SaaS.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what FreeSSL.org is doing today",
@@ -664,7 +664,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old FreeSSL.org path",
@@ -708,7 +708,7 @@ export const SSL_COMPETITORS = [
         "a": "docstoc: free automated DV. Certum: paid, often manual, with commercial extras."
       },
       {
-        "q": "Auto-renew?",
+        "q": "Does it renew automatically?",
         "a": "Certum commonly needs repurchase/revalidation. docstoc reissues automatically after DNS is set."
       },
       {
@@ -720,10 +720,10 @@ export const SSL_COMPETITORS = [
         "a": "When those commercial extras are required."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay for guarantee-backed certs, OV/EV, or code/document signing.",
     "switchWhy": "Leave Certum when you only needed automated DV HTTPS and not commercial extras.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what Certum is doing today",
@@ -739,7 +739,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old Certum path",
@@ -776,7 +776,7 @@ export const SSL_COMPETITORS = [
     "setup": "CSR/setup; OV/EV need business verification",
     "bundled": "Bundled with GoDaddy domains/hosting — not with invoicing/documents",
     "freeTier": "✗ no free tier",
-    "summary": "GoDaddy Group SSL is a common upsell with intro pricing and painful renewal jumps. docstoc issues free automated Let's Encrypt DV with no separate SSL repurchase — renewals are part of the platform, not a surprise line item.",
+    "summary": "GoDaddy Group SSL is a common upsell with intro pricing and painful renewal jumps. docstoc issues free automated Let's Encrypt DV with no separate SSL repurchase — renewal is part of the platform, not a surprise line item.",
     "faq": [
       {
         "q": "Is docstoc a GoDaddy SSL alternative?",
@@ -795,10 +795,10 @@ export const SSL_COMPETITORS = [
         "a": "When you want SSL tightly bundled with GoDaddy hosting support and accept their pricing."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay if GoDaddy support/hosting bundling matters more than certificate price.",
     "switchWhy": "Customers switch after a renewal bill shock or when they want HTTPS without a separate GoDaddy SSL SKU.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what GoDaddy SSL is doing today",
@@ -814,7 +814,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old GoDaddy SSL path",
@@ -870,10 +870,10 @@ export const SSL_COMPETITORS = [
         "a": "Buy from a commercial CA. docstoc focuses on straightforward DV domain automation for SMB sites."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay when your host requires Actalis or you need their commercial validation tier.",
     "switchWhy": "Switch when an Actalis/reseller cert was only bought for a basic padlock and renewals feel like busywork.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what Actalis is doing today",
@@ -889,7 +889,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old Actalis path",
@@ -945,10 +945,10 @@ export const SSL_COMPETITORS = [
         "a": "Choose the vendor that matches your support and compliance locale. docstoc SSL is self-serve ACME automation."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay for Secom Trust commercial contracts, local enterprise requirements, or services beyond website DV TLS.",
     "switchWhy": "International SMBs move to docstoc when they only needed automated DV HTTPS, not a commercial JP trust engagement.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what Secom Trust is doing today",
@@ -964,7 +964,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old Secom Trust path",
@@ -1001,15 +1001,15 @@ export const SSL_COMPETITORS = [
     "setup": "Usually create an account on a standalone free-SSL site",
     "bundled": "✗ standalone free-SSL marketing site",
     "freeTier": "Advertised free options — read limitations carefully",
-    "summary": "FreeSSL.CFD is one of many free-SSL marketing sites. Treat claims carefully and confirm the issuing CA. docstoc is explicit: real Let's Encrypt DV, one DNS TXT record, renewals automated inside a full small-business platform — not a disposable free-SSL landing page.",
+    "summary": "FreeSSL.CFD is one of many free-SSL marketing sites. Treat claims carefully and confirm the issuing CA. docstoc is explicit: real Let's Encrypt DV, one DNS TXT record, guided renewals inside a full small-business platform — not a disposable free-SSL landing page.",
     "faq": [
       {
         "q": "Is FreeSSL.CFD safe to rely on?",
-        "a": "Verify the CA, terms, and renewal behavior on their site. docstoc documents Let's Encrypt and keeps renewals in-product."
+        "a": "Verify the CA, terms, and renewal behavior on their site. docstoc documents Let's Encrypt and guides each renewal in the app."
       },
       {
         "q": "Why docstoc instead?",
-        "a": "Transparent CA, automated renewals, and SSL next to invoices/documents instead of a one-off free-SSL site."
+        "a": "Transparent CA, renewal reminders, and SSL next to invoices/documents instead of a one-off free-SSL site."
       },
       {
         "q": "Do I need both?",
@@ -1020,10 +1020,10 @@ export const SSL_COMPETITORS = [
         "a": "Only if you have validated their CA/process and it already works for a non-critical site."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay only after you have verified their CA and renewal process for your risk tolerance.",
     "switchWhy": "Switch when free-SSL landing pages feel opaque about CA backing or renewals keep failing.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what FreeSSL.CFD is doing today",
@@ -1039,7 +1039,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old FreeSSL.CFD path",
@@ -1095,10 +1095,10 @@ export const SSL_COMPETITORS = [
         "a": "Possible but usually redundant per hostname — pick one system of record for renewals."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay on CertKit for engineering-centric certificate workflows and APIs.",
     "switchWhy": "Non-engineering teams leave certificate toolkits when they only needed a domain secured next to billing/docs.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what CertKit is doing today",
@@ -1114,7 +1114,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old CertKit path",
@@ -1170,10 +1170,10 @@ export const SSL_COMPETITORS = [
         "a": "When hosting + SSL in hPanel is already green and you do not need docstoc's broader workspace."
       }
     ],
-    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, automatic renewals, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
+    "pickDocstoc": "Choose docstoc when you want a real Let's Encrypt DV certificate on your own domain with one DNS TXT record, an email reminder before expiry, and no separate certificate dashboard — inside the same account you use for invoices and documents.",
     "stayWithThem": "Stay when the site remains on Hostinger and included SSL already renews cleanly.",
     "switchWhy": "Move when your domain is leaving Hostinger, or you want SSL managed beside invoices/documents rather than only in hPanel.",
-    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with automated renewal instead.",
+    "whatTransfers": "You keep your domain and DNS provider. Certificate private keys and commercial warranty programs do not transfer — docstoc issues a fresh Let's Encrypt DV certificate with guided renewal instead.",
     "switchSteps": [
       {
         "title": "Inventory what Hostinger SSL is doing today",
@@ -1189,7 +1189,7 @@ export const SSL_COMPETITORS = [
       },
       {
         "title": "Verify issuance",
-        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Leave the TXT record in place for renewals."
+        "body": "Use Check status in docstoc. When DNS is visible, a real Let's Encrypt certificate is issued. Each renewal gives you a fresh TXT value to publish."
       },
       {
         "title": "Retire the old Hostinger SSL path",

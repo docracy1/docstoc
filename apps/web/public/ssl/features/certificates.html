@@ -109,7 +109,7 @@
           "name": "Do you resell certificates?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. The issuing CA is Let's Encrypt. docstoc manages ACME orders, DNS-01 challenges, and renewals in your workspace."
+            "text": "No. The issuing CA is Let's Encrypt. docstoc manages ACME orders and DNS-01 challenges in your workspace and guides each renewal."
           }
         },
         {
@@ -117,7 +117,7 @@
           "name": "How long do certificates last?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Let's Encrypt lifetimes are short (~90 days historically, industry direction is shorter). docstoc renews before expiry so you do not babysit the calendar."
+            "text": "Let's Encrypt lifetimes are short (~90 days historically, industry direction is shorter). docstoc emails you before expiry and gives you the fresh DNS value to publish, so you do not babysit the calendar."
           }
         }
       ]
@@ -329,7 +329,7 @@
 <section class="tpl-hero">
   <div class="wrap tpl-hero-inner">
     <h1>Trusted SSL certificates without a reseller storefront</h1>
-    <p class="tpl-hero-lede">docstoc issues real Let's Encrypt domain-validated certificates for hostnames you control. Browser-trusted HTTPS, automated renewals — you pay for the automation layer, not a marked-up cert SKU.</p>
+    <p class="tpl-hero-lede">docstoc issues real Let's Encrypt domain-validated certificates for hostnames you control. Browser-trusted HTTPS, guided renewals — you pay for the automation layer, not a marked-up cert SKU.</p>
   </div>
 </section>
 <div class="prod-body">
@@ -348,7 +348,7 @@
     <div class="ssl-feat-block">
     <h2>Real Let's Encrypt DV</h2>
     <p>Every certificate is signed by Let's Encrypt — the same CA millions of sites already trust. You get industry-standard HTTPS encryption and the browser padlock. We automate that path; we do not resell a commercial CA SKU.</p>
-    <ul><li>Domain-validated (DV) certificates</li><li>Trusted by modern browsers</li><li>No separate per-certificate CA checkout</li><li>Renewals handled in-product while your plan is active</li></ul>
+    <ul><li>Domain-validated (DV) certificates</li><li>Trusted by modern browsers</li><li>No separate per-certificate CA checkout</li><li>Email reminder before expiry, guided renewal in the app</li></ul>
   </div>
   <div class="ssl-feat-block">
     <h2>Plans that match how you work</h2>
@@ -371,10 +371,10 @@
 <p>Let's Encrypt does not charge for the DV cert. Free on docstoc includes 5 × 90-day certificates. Pro and Business unlock multi-SAN, wildcards, and higher slot counts for the automation layer.</p>
 </details>
 <details class="faq-item"><summary>Do you resell certificates?</summary>
-<p>No. The issuing CA is Let's Encrypt. docstoc manages ACME orders, DNS-01 challenges, and renewals in your workspace.</p>
+<p>No. The issuing CA is Let's Encrypt. docstoc manages ACME orders and DNS-01 challenges in your workspace and guides each renewal.</p>
 </details>
 <details class="faq-item"><summary>How long do certificates last?</summary>
-<p>Let's Encrypt lifetimes are short (~90 days historically, industry direction is shorter). docstoc renews before expiry so you do not babysit the calendar.</p>
+<p>Let's Encrypt lifetimes are short (~90 days historically, industry direction is shorter). docstoc emails you before expiry and gives you the fresh DNS value to publish, so you do not babysit the calendar.</p>
 </details>
 </div>
 </main>

@@ -726,7 +726,7 @@ const PAID_ONBOARDING_NUDGE_COPY: Record<
       <ul style="margin:0 0 20px 0;padding-left:20px;font-size:15px;color:${INK};line-height:1.65;">
         <li style="margin-bottom:10px;"><strong>Send an invoice</strong> — Open a draft (or start a new one) and send it. <a href="${base}/app/invoices" style="color:${ACCENT};">Open invoices →</a></li>
         <li style="margin-bottom:10px;"><strong>Chase an overdue invoice</strong> — Draft a polite reminder and send it from your own inbox. <a href="${base}/app?view=overdue" style="color:${ACCENT};">Open chases →</a></li>
-        <li style="margin-bottom:10px;"><strong>Add SSL for your domain</strong> — Managed TLS with automatic renewal, plus your company badge. <a href="${base}/ssl-domains" style="color:${ACCENT};">Manage SSL →</a></li>
+        <li style="margin-bottom:10px;"><strong>Add SSL for your domain</strong> — Managed TLS with renewal reminders, plus your company badge. <a href="${base}/ssl-domains" style="color:${ACCENT};">Manage SSL →</a></li>
         <li style="margin-bottom:0;"><strong>Certify a document</strong> — Tamper-evident SHA-256 fingerprint + public verify link. <a href="${base}/certificates" style="color:${ACCENT};">Certify a file →</a></li>
       </ul>`,
     cta: "Open your dashboard",

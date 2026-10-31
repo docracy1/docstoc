@@ -1,5 +1,5 @@
 <p>Public TLS certificate lifetimes are getting shorter — and the CA/Browser Forum has already approved a schedule that ends at a <strong>47-day maximum</strong> for publicly trusted SSL/TLS certificates. That is not a rumor. Ballot <strong>SC-081v3</strong> (April 2025) set a multi-year ramp: 200 days, then 100 days, then <strong>47 days by March 15, 2029</strong>, with domain-validation reuse shrinking even faster.</p>
-<p>This is the single docstoc guide to that change: why it exists, the official timeline, what breaks for freelancers and SMBs, and how ACME automation (including docstoc’s Let's Encrypt renewals) keeps HTTPS from becoming a calendar chore. We are <em>not</em> publishing a second overlapping “47-day” post — one URL, one canonical answer.</p>
+<p>This is the single docstoc guide to that change: why it exists, the official timeline, what breaks for freelancers and SMBs, and how ACME automation (and docstoc’s guided Let's Encrypt renewals) keeps HTTPS from becoming a calendar chore. We are <em>not</em> publishing a second overlapping “47-day” post — one URL, one canonical answer.</p>
 
 <nav class="blog-toc" aria-label="Table of contents"><div class="blog-toc-title">Table of contents</div><ol>
   <li><a href="#why-shorter">Why lifetimes are shrinking</a></li>
@@ -61,7 +61,7 @@
 
 <aside class="blog-inline-cta" style="margin:28px 0;padding:20px 22px;border:1px solid #e5e7eb;border-radius:12px;background:#fff8f3">
   <strong style="display:block;margin-bottom:8px">Already built for short-lived certs</strong>
-  <p style="margin:0 0 12px;font-size:14.5px;line-height:1.55;color:#4b5563">docstoc automates real Let's Encrypt DV certificates — one DNS TXT record, renewals in-product. Shorter public lifetimes reinforce that model; they do not require a second enterprise CLM dashboard for a single SMB domain.</p>
+  <p style="margin:0 0 12px;font-size:14.5px;line-height:1.55;color:#4b5563">docstoc automates real Let's Encrypt DV certificates — one DNS TXT record, guided renewals. Shorter public lifetimes reinforce that model; they do not require a second enterprise CLM dashboard for a single SMB domain.</p>
   <p style="margin:0;font-size:14.5px"><a href="/app/ssl-domains"><strong>Manage SSL domains →</strong></a> · <a href="/ssl">SSL overview</a> · <a href="/blog/acme-protocol-certificate-automation/">ACME explained</a></p>
 </aside>
 
@@ -86,5 +86,5 @@
 <details class="faq-item"><summary>When do 47-day SSL certificates become mandatory?</summary><p>Under Ballot SC-081v3, the maximum validity for publicly trusted TLS certificates drops to 47 days starting March 15, 2029, after intermediate caps of 200 days (March 15, 2026) and 100 days (March 15, 2027). Always re-check the current CA/Browser Forum Baseline Requirements for compliance work.</p></details>
 <details class="faq-item"><summary>Are shorter certificates less secure?</summary><p>No — they reduce how long a leaked key remains useful. Security improves when issuance and renewal are automated correctly.</p></details>
 <details class="faq-item"><summary>Is this the same as Let's Encrypt’s 90-day certs?</summary><p>Related idea, different scope. Let's Encrypt already uses short-lived DV certificates. The CA/B Forum schedule caps <em>maximum</em> validity industry-wide for publicly trusted TLS, stepping down to 47 days by 2029.</p></details>
-<details class="faq-item"><summary>Will docstoc keep up as lifetimes shrink to 47 days?</summary><p>docstoc’s model is ACME automation against Let's Encrypt. Shorter public DV lifetimes reinforce automated renewal rather than undermine it. docstoc does not replace enterprise OV/EV PKI or commercial CLM suites.</p></details>
+<details class="faq-item"><summary>Will docstoc keep up as lifetimes shrink to 47 days?</summary><p>docstoc’s model is ACME against Let's Encrypt with an email reminder and a guided renewal: each renewal still needs a fresh DNS TXT value from you, so shorter lifetimes mean more of those steps. docstoc does not replace enterprise OV/EV PKI or commercial CLM suites.</p></details>
 <details class="faq-item"><summary>Do I need a separate article or product just for “47-day SSL”?</summary><p>No. Treat 47-day as the end state of the same lifetime-shortening story — automate renewals once, and the schedule stops being a crisis.</p></details>

@@ -1454,14 +1454,14 @@ const es: Messages = {
 
   "ssl.title": "SSL de dominio propio",
   "ssl.pageSub":
-    "Automatización gestionada de Let's Encrypt — emitimos y renovamos certificados DV para dominios que controlas. No somos un revendedor: la CA es Let's Encrypt; pagas la capa de automatización.",
+    "Automatización gestionada de Let's Encrypt — emitimos certificados DV para dominios que controlas y te guiamos en cada renovación. No somos un revendedor: la CA es Let's Encrypt; pagas la capa de automatización.",
   "ssl.healthChecking": "Comprobando la conexión con Let's Encrypt…",
   "ssl.healthOk": "Let's Encrypt conectado.",
   "ssl.healthOkDetail": "Relay accesible · directorio {{directory}} · DNS-01 listo.",
   "ssl.healthBad": "Let's Encrypt no accesible.",
   "ssl.healthFailed": "No se pudo verificar el relay ACME. Vuelve a desplegar apps/acme-relay (ver README).",
   "ssl.featureCertificates": "Certificados",
-  "ssl.featureCertificatesBody": "Let's Encrypt DV · renovación automática antes del vencimiento",
+  "ssl.featureCertificatesBody": "Let's Encrypt DV · aviso por correo antes del vencimiento",
   "ssl.featureMultiSan": "Multi-SAN",
   "ssl.featureWildcards": "Comodines",
   "ssl.featureAcme": "API ACME",
