@@ -66,6 +66,14 @@ account.get("/me", requireAccount, async (c) => {
     setCookie(c, NOTRACK_COOKIE_NAME, "1", noTrackCookieOptions(c.env));
   }
 
+  // Marketing consent belongs to the person, the rest of this row to the workspace.
+  const personal =
+    acc.id === acc.workspaceId
+      ? row
+      : await c.env.CHASA_DB.prepare(`SELECT marketing_opt_in FROM accounts WHERE id = ?`)
+          .bind(acc.id)
+          .first<{ marketing_opt_in: number | null }>();
+
   return c.json({
     email: acc.email,
     plan: acc.plan,
@@ -75,7 +83,7 @@ account.get("/me", requireAccount, async (c) => {
     lateFeeEnabled: !!(row?.late_fee_enabled),
     lateFeeHint: row?.late_fee_hint ?? null,
     digestEnabled: row?.digest_enabled !== 0,
-    marketingOptIn: !!row?.marketing_opt_in,
+    marketingOptIn: !!personal?.marketing_opt_in,
     role: acc.role,
     workspaceId: acc.workspaceId,
     isAdmin: isAdminEmail(c.env, acc.email),
@@ -259,6 +267,7 @@ account.patch("/digest", requireAccount, async (c) => {
   if (!acc.isPaid) {
     return c.json({ error: "Daily chase digest requires a Pro or Business plan." }, 403);
   }
+  if (acc.role !== "admin") return c.json({ error: "Admin role required" }, 403);
   const parsed = await parseJsonBody(c.req, digestSettingsSchema);
   if (!parsed.ok) return c.json({ error: parsed.error }, 400);
   await c.env.CHASA_DB.prepare(`UPDATE accounts SET digest_enabled = ? WHERE id = ?`)
@@ -278,11 +287,11 @@ account.patch("/marketing-opt-in", requireAccount, async (c) => {
     await c.env.CHASA_DB.prepare(
       `UPDATE accounts SET marketing_opt_in = 1, marketing_unsub_token = COALESCE(marketing_unsub_token, ?) WHERE id = ?`
     )
-      .bind(crypto.randomUUID(), acc.workspaceId)
+      .bind(crypto.randomUUID(), acc.id)
       .run();
   } else {
     await c.env.CHASA_DB.prepare(`UPDATE accounts SET marketing_opt_in = 0 WHERE id = ?`)
-      .bind(acc.workspaceId)
+      .bind(acc.id)
       .run();
   }
   return c.json({ marketingOptIn: parsed.data.marketingOptIn });

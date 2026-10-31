@@ -1,4 +1,4 @@
-import { Hono } from "hono";
+import { Hono, type MiddlewareHandler } from "hono";
 import type { AuthEnv } from "../lib/auth";
 import { requireAccount } from "../lib/auth";
 import {
@@ -45,6 +45,13 @@ const ssl = new Hono<AuthEnv>();
  * Business: Pro features + 1 wildcard (within the 5 slots).
  */
 ssl.use("*", requireAccount);
+
+/** Private keys and the certificate's lifecycle are for admins; members can see status. Not
+ *  requireWorkspaceAdmin, which also demands a paid plan: the free tier includes certificates. */
+const requireCertAdmin: MiddlewareHandler<AuthEnv> = async (c, next) => {
+  if (c.get("account")!.role !== "admin") return c.json({ error: "Admin role required" }, 403);
+  await next();
+};
 
 /** Live Let's Encrypt connectivity check via the ACME relay. Always 200 — `ok` in the body. */
 ssl.get("/health", async (c) => {
@@ -244,7 +251,7 @@ ssl.post("/domains/:id/verify", async (c) => {
   }
 });
 
-ssl.post("/domains/:id/renew", async (c) => {
+ssl.post("/domains/:id/renew", requireCertAdmin, async (c) => {
   const acc = c.get("account")!;
   const row = await getCertificateRow(c.env, acc.workspaceId, c.req.param("id"));
   if (!row) return c.json({ error: "Not found" }, 404);
@@ -280,14 +287,14 @@ ssl.post("/domains/:id/renew", async (c) => {
   }
 });
 
-ssl.delete("/domains/:id", async (c) => {
+ssl.delete("/domains/:id", requireCertAdmin, async (c) => {
   const acc = c.get("account")!;
   const deleted = await deleteCertificateRow(c.env, acc.workspaceId, c.req.param("id"));
   if (!deleted) return c.json({ error: "Not found" }, 404);
   return c.json({ ok: true });
 });
 
-ssl.get("/domains/:id/download", async (c) => {
+ssl.get("/domains/:id/download", requireCertAdmin, async (c) => {
   const acc = c.get("account")!;
   const row = await getCertificateRow(c.env, acc.workspaceId, c.req.param("id"));
   if (!row) return c.json({ error: "Not found" }, 404);

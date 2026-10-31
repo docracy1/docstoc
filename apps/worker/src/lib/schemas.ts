@@ -68,7 +68,13 @@ export const agingSyncItemSchema = z.object({
 });
 
 export const agingPaymentLinkSchema = z.object({
-  url: z.string().trim().url().max(2000),
+  // This URL becomes a link on docstoc.io/pay, so a javascript: scheme must never get in.
+  url: z
+    .string()
+    .trim()
+    .url()
+    .max(2000)
+    .refine((url) => /^https?:\/\//i.test(url), "Must be an http:// or https:// URL"),
 });
 
 export const agingSyncSchema = z.object({

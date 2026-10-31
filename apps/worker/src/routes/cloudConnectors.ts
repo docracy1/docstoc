@@ -1,5 +1,12 @@
 import { Hono, type Context } from "hono";
-import { requirePaidAccount, requireWorkspaceAdmin, type AuthEnv } from "../lib/auth";
+import { getCookie } from "hono/cookie";
+import {
+  requirePaidAccount,
+  requireWorkspaceAdmin,
+  resolveAccount,
+  SESSION_COOKIE_NAME,
+  type AuthEnv,
+} from "../lib/auth";
 import {
   appConnectorUrl,
   buildAuthorizeUrl,
@@ -39,6 +46,18 @@ import {
  */
 const cloudConnectors = new Hono<AuthEnv>();
 
+/**
+ * The signed state only proves we issued it, not that this browser asked for it. Without this
+ * check, an attacker sends a victim their own authorize URL and the victim's Dropbox or Google
+ * tokens land in the attacker's workspace. The provider redirects top-level to api.docstoc.io, so
+ * the session cookie (SameSite=Lax, Domain=.docstoc.io) is present.
+ */
+async function sessionMatchesState(c: Context<AuthEnv>, stateAccountId: string): Promise<boolean> {
+  const token = getCookie(c, SESSION_COOKIE_NAME);
+  const account = token ? await resolveAccount(c.env, token) : null;
+  return account?.workspaceId === stateAccountId && account.role === "admin";
+}
+
 async function handleCallback(c: Context<AuthEnv>, provider: CloudProvider) {
   const err = c.req.query("error");
   const errDesc = c.req.query("error_description");
@@ -59,7 +78,7 @@ async function handleCallback(c: Context<AuthEnv>, provider: CloudProvider) {
     return c.redirect(appConnectorUrl(c.env, { cloud: provider, error: "missing_code" }), 302);
   }
   const parsed = await parseOAuthState(c.env, state);
-  if (!parsed) {
+  if (!parsed || !(await sessionMatchesState(c, parsed.accountId))) {
     return c.redirect(appConnectorUrl(c.env, { cloud: provider, error: "invalid_state" }), 302);
   }
   try {
@@ -91,7 +110,7 @@ async function handleAccountingCallback(c: Context<AuthEnv>, provider: Accountin
     return c.redirect(appConnectorUrl(c.env, { accounting: provider, error: "missing_code" }), 302);
   }
   const parsed = await parseOAuthState(c.env, state);
-  if (!parsed) {
+  if (!parsed || !(await sessionMatchesState(c, parsed.accountId))) {
     return c.redirect(appConnectorUrl(c.env, { accounting: provider, error: "invalid_state" }), 302);
   }
   try {

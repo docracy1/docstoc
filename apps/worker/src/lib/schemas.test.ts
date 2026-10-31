@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 import {
+  agingPaymentLinkSchema,
   agingSyncSchema,
   certificateCreateSchema,
   chaseEventSchema,
@@ -178,5 +179,17 @@ describe("schemas", () => {
     );
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.data.hostname).toBe("*.example.com");
+  });
+});
+
+describe("agingPaymentLinkSchema", () => {
+  it("accepts http(s) links", () => {
+    expect(agingPaymentLinkSchema.safeParse({ url: "https://pay.example/x" }).success).toBe(true);
+    expect(agingPaymentLinkSchema.safeParse({ url: "http://pay.example/x" }).success).toBe(true);
+  });
+  it("rejects schemes that would run on docstoc.io/pay", () => {
+    for (const url of ["javascript:alert(1)", "JaVaScRiPt:alert(1)", "data:text/html,x", "vbscript:x"]) {
+      expect(agingPaymentLinkSchema.safeParse({ url }).success).toBe(false);
+    }
   });
 });

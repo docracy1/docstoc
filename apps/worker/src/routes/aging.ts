@@ -4,6 +4,7 @@ import { recordChaseEvent, listChaseEvents, type ChaseActor } from "../lib/chase
 import { recordClientPaymentOutcome } from "../lib/clientRisk";
 import { generateEvidencePackHtml } from "../lib/evidencePack";
 import { trackEvent } from "../lib/analytics";
+import { isSendLikeChaseStatus, replaceMayDelete, sodSafeChaseFields, type ChaseFields } from "../lib/agingSync";
 import { requestAppOrigin } from "../lib/appUrl";
 import { createInvoice, isSuccessfulPaymentStatus, verifyIpn } from "../lib/billingProviders/nowpayments";
 import {
@@ -196,8 +197,25 @@ aging.put("/sync", requirePaidAccount, async (c) => {
     items.map((i) => i.clientName)
   );
 
+  const { getSoxSettings } = await import("../lib/sox");
+  const { sodRequired } = await getSoxSettings(c.env, acc.workspaceId);
+  const stored = new Map<string, ChaseFields>();
+  if (sodRequired || (replace === true && acc.role !== "admin")) {
+    const rows = await c.env.CHASA_DB.prepare(
+      `SELECT id, last_chase_status, last_chase_at FROM aging_invoices WHERE account_id = ?`
+    )
+      .bind(acc.workspaceId)
+      .all<{ id: string; last_chase_status: string | null; last_chase_at: string | null }>();
+    for (const row of rows.results ?? []) {
+      stored.set(row.id, { status: row.last_chase_status, at: row.last_chase_at });
+    }
+  }
+
   const stmts: D1PreparedStatement[] = [];
-  if (replace === true) {
+  if (
+    replace === true &&
+    replaceMayDelete(acc.role, stored.keys(), items.flatMap((i) => (i.id?.trim() ? [i.id.trim()] : [])))
+  ) {
     stmts.push(
       c.env.CHASA_DB.prepare(`DELETE FROM aging_invoices WHERE account_id = ?`).bind(acc.workspaceId)
     );
@@ -208,8 +226,13 @@ aging.put("/sync", requirePaidAccount, async (c) => {
   for (const item of items) {
     const clientId = clientMap.get(item.clientName.toLowerCase())!;
     const id = item.id?.trim() ? item.id.trim() : crypto.randomUUID();
-    const chaseStatus = item.lastChaseStatus?.trim() ? item.lastChaseStatus.trim().slice(0, 40) : null;
-    const chaseAt = item.lastChaseAt?.trim() ? item.lastChaseAt.trim() : null;
+    const incomingChase: ChaseFields = {
+      status: item.lastChaseStatus?.trim() ? item.lastChaseStatus.trim().slice(0, 40) : null,
+      at: item.lastChaseAt?.trim() ? item.lastChaseAt.trim() : null,
+    };
+    const { status: chaseStatus, at: chaseAt } = sodRequired
+      ? sodSafeChaseFields(incomingChase, stored.get(id))
+      : incomingChase;
     const invStatus = item.status === "paid" ? "paid" : "open";
     const paidAt = invStatus === "paid" ? item.paidAt?.trim() || now : null;
     const templateSlug = item.templateSlug?.trim() || null;
@@ -340,6 +363,22 @@ aging.patch("/:id/chase", requirePaidAccount, async (c) => {
     return c.json({ ok: true, lastChaseStatus: status, lastChaseAt: now });
   }
 
+  // copied/mailto: the chase event that follows consumes the approval, so only check it here.
+  if (isSendLikeChaseStatus(status)) {
+    const { getApprovedSendForInvoice, getSoxSettings } = await import("../lib/sox");
+    const settings = await getSoxSettings(c.env, acc.workspaceId);
+    if (settings.sodRequired && !(await getApprovedSendForInvoice(c.env, acc.workspaceId, id))) {
+      return c.json(
+        {
+          error:
+            "Maker-checker is enabled: request and receive send approval before marking this chase as sent.",
+          code: "sox_approval_required",
+        },
+        403
+      );
+    }
+  }
+
   await c.env.CHASA_DB.prepare(
     `UPDATE aging_invoices SET last_chase_status = ?, last_chase_at = ?, updated_at = ?
      WHERE id = ? AND account_id = ?`
@@ -458,7 +497,8 @@ aging.get("/public/:id", async (c) => {
     amount: row.amount,
     status: row.status,
     paymentMethod: row.payment_method,
-    paymentUrl: row.payment_url,
+    // Links saved before the schema required http(s) may still hold another scheme.
+    paymentUrl: row.payment_url && /^https?:\/\//i.test(row.payment_url) ? row.payment_url : null,
     templateSlug: row.template_slug,
   });
 });

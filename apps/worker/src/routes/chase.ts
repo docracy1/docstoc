@@ -27,8 +27,11 @@ chase.post("/events", requirePaidAccount, async (c) => {
   const settings = await getSoxSettings(c.env, acc.workspaceId);
   const sendLike =
     body.eventType === "sent" || body.eventType === "copied" || body.eventType === "mailto";
-  if (settings.sodRequired && sendLike && body.agingInvoiceId) {
-    const approved = await getApprovedSendForInvoice(c.env, acc.workspaceId, body.agingInvoiceId);
+  if (settings.sodRequired && sendLike) {
+    // Approvals belong to an invoice, so a send without one can never have been approved.
+    const approved = body.agingInvoiceId
+      ? await getApprovedSendForInvoice(c.env, acc.workspaceId, body.agingInvoiceId)
+      : null;
     if (!approved) {
       return c.json(
         {
