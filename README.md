@@ -193,7 +193,7 @@ apps/worker/
 - **Click tracking:** redirects only to URLs stored when the tracked email was created
 - **Webhook URLs:** SSRF checks (no localhost / private IPs)
 - **OAuth state:** timing-safe HMAC compare
-- **CSP:** enforcing policy on Pages; `report-uri` → `/api/csp-report`
+- **CSP:** enforcing policy on Pages with a nonce per page instead of `'unsafe-inline'` (`apps/web/functions/lib/csp.ts`, applied in `functions/_middleware.ts`); `report-uri` → `/api/csp-report`. The API worker sends the same header set (`apps/worker/src/lib/securityHeaders.ts`).
 - **GDPR:** cookie consent gates SPA analytics; no visitor IDs on page views (aggregate only)
 - **Secrets:** never committed — `wrangler secret put …`
 
@@ -223,8 +223,12 @@ CI (`.github/workflows/ci.yml`) runs lint → test → static HTML validation �
 
 ```bash
 npm run deploy:worker
-npm run deploy:web    # builds (copies fonts) then pages deploy
+npm run deploy:web    # builds (copies fonts) then pages deploy, pings IndexNow, submits the sitemap to Google
 ```
+
+The Google step (`apps/web/scripts/gsc-sitemap.mjs`) needs the service account key at
+`~/.config/docstoc/gsc-service-account.json` (never in the repo) and the service account as a Full user of the
+`docstoc.io` Search Console property. Without the key it prints a note and exits 0.
 
 After schema changes:
 
