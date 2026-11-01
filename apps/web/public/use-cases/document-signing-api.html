@@ -52,12 +52,12 @@
 }
 </script>
 <link rel="icon" href="../favicon.ico" sizes="48x48">
-<link rel="icon" href="../favicon.png?v=20261101a" type="image/png" sizes="96x96">
-<link rel="icon" href="../favicon.svg?v=20261101a" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20261101a" sizes="180x180">
+<link rel="icon" href="../favicon.png?v=20261101b" type="image/png" sizes="96x96">
+<link rel="icon" href="../favicon.svg?v=20261101b" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=20261101b" sizes="180x180">
 <link rel="preload" href="../fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../site.css?v=20261101a">
+<link rel="stylesheet" href="../site.css?v=20261101b">
 </head>
 <body>
 <header class="site-header">
@@ -285,6 +285,7 @@
   </article>
 
 
+
 <!-- extra-copy --><section class="wrap alt-body"><h2>What this API does and does not do</h2><p>The address says document signing, but docstoc does not offer electronic signatures. The API is about overdue invoices: you send the details of an unpaid invoice and get back a written follow-up draft, with a subject line and a body, in a tone that matches how late the invoice is.</p><p>docstoc does not send the email. Your own system, or you, takes the draft and sends it from your own mail account. That keeps replies, sender reputation and the decision to send with you.</p></section>
 <section class="wrap alt-body"><h2>Authentication and plans</h2><p>API keys are created in the account under Webhooks and API and sent as a Bearer token in the Authorization header. API keys and draft generation over HTTP are part of the paid plans: Pro at $14.99 a month and Business at $39.99 a month.</p><p>If you only want to see what a draft looks like, the free tier gives you 5 AI drafts a month in the web app without an account.</p></section>
 <section class="wrap alt-body"><h2>Webhooks and AI agents</h2><p>Webhooks cover more than drafting. The events are chase.drafted, chase.sent, chase.thank_you, chase.reply_drafted, chase.sequence_planned and chase.downloaded.</p><p>The same drafting step is available through the MCP endpoint at api.docstoc.io/mcp. Three tools are public and need no key: get_chase_tip, recommend_template and list_templates. The fourth, draft_chase_email, needs a signed-in session or an API key and returns a subject and a body.</p><ul><li>Each delivery carries an X-Docstoc-Event header with the event name.</li><li>Each delivery carries an X-Docstoc-Signature header in the form sha256= followed by an HMAC-SHA256 signature of the payload.</li><li>Check the signature before you trust the payload, then act on the event in your own system.</li></ul></section>
@@ -366,21 +367,21 @@
     <video
       id="revival-modal-video"
       class="how-modal-video"
-      src="../videos/docstoc-is-back.webm?v=20261101a"
-      poster="../videos/docstoc-is-back-poster.jpg?v=20261101a"
+      src="../videos/docstoc-is-back.webm?v=20261101b"
+      poster="../videos/docstoc-is-back-poster.jpg?v=20261101b"
       controls
       playsinline
       preload="metadata"
     >
-      <track kind="captions" src="../videos/docstoc-is-back.en.vtt?v=20261101a" srclang="en" label="English" default>
-      <track kind="captions" src="../videos/docstoc-is-back.es.vtt?v=20261101a" srclang="es" label="Español">
+      <track kind="captions" src="../videos/docstoc-is-back.en.vtt?v=20261101b" srclang="en" label="English" default>
+      <track kind="captions" src="../videos/docstoc-is-back.es.vtt?v=20261101b" srclang="es" label="Español">
     </video>
   </div>
 </div>
-<script src="../site-lang.js?v=20261101a" defer></script>
-<script src="../site-nav.js?v=20261101a" defer></script>
-<script src="../cookie-consent.js?v=20261101a" defer></script>
-<script src="../analytics.js?v=20261101a" defer></script>
+<script src="../site-lang.js?v=20261101b" defer></script>
+<script src="../site-nav.js?v=20261101b" defer></script>
+<script src="../cookie-consent.js?v=20261101b" defer></script>
+<script src="../analytics.js?v=20261101b" defer></script>
 <script>
 /* Contact sales → docstoc Assistant (Docracy pattern). */
 (function () {
