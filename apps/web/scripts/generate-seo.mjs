@@ -52,7 +52,8 @@ function htmlPathToUrl(filePath) {
  *  URL in the sitemap look changed on every deploy; CI needs fetch-depth: 0 for this. */
 function loadGitLastmods() {
   try {
-    const log = execFileSync("git", ["log", "--format=@%cs", "--name-only", "--relative", "--", "."], {
+    // Commits marked [no-lastmod] change markup only, so they must not refresh the sitemap date.
+    const log = execFileSync("git", ["log", "--format=@%cs", "--name-only", "--relative", "--invert-grep", "--fixed-strings", "--grep=[no-lastmod]", "--", "."], {
       cwd: publicDir,
       encoding: "utf8",
       maxBuffer: 512 * 1024 * 1024,
