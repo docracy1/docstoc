@@ -15,9 +15,9 @@ import { parseJsonBody, trackingCreateSchema, trackingStatsSchema } from "../lib
 const tracking = new Hono<AuthEnv>();
 
 /** Public pixel — no auth. */
-tracking.get("/o/:chaseId.gif", async (c) => {
-  const chaseId = (c.req.param("chaseId") ?? "").replace(/\.gif$/i, "");
-  if (!chaseId) return c.text("Not found", 404);
+// Hono reads ":chaseId.gif" as a parameter named "chaseId.gif", so the extension goes in a regex.
+tracking.get("/o/:file{[^/]+\\.gif}", async (c) => {
+  const chaseId = c.req.param("file").slice(0, -".gif".length);
   await recordOpen(c.env, chaseId).catch(() => false);
   return new Response(trackingPixelBytes(), {
     status: 200,

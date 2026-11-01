@@ -62,3 +62,37 @@ describe("tracked link notice", () => {
     expect(html).not.toContain("<script>");
   });
 });
+
+describe("open tracking pixel", () => {
+  function pixelEnv(found: boolean) {
+    const bind = vi.fn(() => ({
+      first: async () => (found ? { account_id: "a1", open_count: 3 } : null),
+      run: async () => ({ meta: { changes: 1 } }),
+    }));
+    return { env: { CHASA_DB: { prepare: () => ({ bind }) } } as unknown as Env, bind };
+  }
+
+  it("answers with the image and records the open for that chase id", async () => {
+    const { env, bind } = pixelEnv(true);
+    const res = await call("/api/t/o/chase-1.gif", env);
+    expect(res.status).toBe(200);
+    expect(res.headers.get("Content-Type")).toBe("image/gif");
+    expect(res.headers.get("Cross-Origin-Resource-Policy")).toBe("cross-origin");
+    expect(bind.mock.calls[0]).toEqual(["chase-1"]);
+    expect(bind).toHaveBeenCalledTimes(3);
+  });
+
+  it("still answers with the image for an unknown id, so an email never shows a broken image", async () => {
+    const { env, bind } = pixelEnv(false);
+    const res = await call("/api/t/o/unknown.gif", env);
+    expect(res.status).toBe(200);
+    expect(bind).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not match another extension", async () => {
+    const { env, bind } = pixelEnv(true);
+    const res = await call("/api/t/o/chase-1.png", env);
+    expect(res.status).toBe(404);
+    expect(bind).not.toHaveBeenCalled();
+  });
+});
