@@ -45,6 +45,7 @@ import { runDailyAuditAnchors, sweepPendingAuditAnchors } from "./lib/auditLog";
 import { sweepPendingAuditorPacks, sweepSoxRetention } from "./lib/sox";
 import { backfillTrustProfiles, sweepPendingTrustProfiles } from "./lib/trustProfile";
 import { legacyApiRedirectUrl } from "./lib/legacyHostRedirect";
+import { applySecurityHeaders } from "./lib/securityHeaders";
 
 const app = new Hono<AuthEnv>();
 
@@ -52,6 +53,11 @@ app.use("*", async (c, next) => {
   const target = legacyApiRedirectUrl(c.req.url);
   if (target) return c.redirect(target, 301);
   return next();
+});
+
+app.use("*", async (c, next) => {
+  await next();
+  applySecurityHeaders(c.res.headers, new URL(c.req.url).pathname);
 });
 
 app.use(
