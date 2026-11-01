@@ -232,10 +232,10 @@ sox.post("/auditor-packs", requireProAccount, async (c) => {
   }
 });
 
-sox.get("/auditor-packs/:id.html", requireProAccount, async (c) => {
+// Hono reads ":id.html" as a parameter named "id.html", so the extension goes in a regex.
+sox.get("/auditor-packs/:file{[^/]+\\.html}", requireProAccount, async (c) => {
   const acc = c.get("account")!;
-  const id = c.req.param("id");
-  if (!id) return c.json({ error: "Pack not found" }, 404);
+  const id = c.req.param("file").slice(0, -".html".length);
   const pack = await getAuditorPackHtml(c.env, acc.workspaceId, id);
   if (!pack) return c.json({ error: "Pack not found" }, 404);
   const filename = `sox-auditor-pack-${pack.fromDate}_${pack.toDate}.html`;
@@ -246,10 +246,9 @@ sox.get("/auditor-packs/:id.html", requireProAccount, async (c) => {
   });
 });
 
-sox.get("/auditor-packs/:id.sha256", requireProAccount, async (c) => {
+sox.get("/auditor-packs/:file{[^/]+\\.sha256}", requireProAccount, async (c) => {
   const acc = c.get("account")!;
-  const id = c.req.param("id");
-  if (!id) return c.json({ error: "Pack not found" }, 404);
+  const id = c.req.param("file").slice(0, -".sha256".length);
   const pack = await getAuditorPackHtml(c.env, acc.workspaceId, id);
   if (!pack) return c.json({ error: "Pack not found" }, 404);
   const filename = `sox-auditor-pack-${pack.fromDate}_${pack.toDate}.html`;
@@ -260,10 +259,9 @@ sox.get("/auditor-packs/:id.sha256", requireProAccount, async (c) => {
   });
 });
 
-sox.get("/auditor-packs/:id.ots", requireProAccount, async (c) => {
+sox.get("/auditor-packs/:file{[^/]+\\.ots}", requireProAccount, async (c) => {
   const acc = c.get("account")!;
-  const id = c.req.param("id");
-  if (!id) return c.json({ error: "Pack not found" }, 404);
+  const id = c.req.param("file").slice(0, -".ots".length);
   const proof = await getAuditorPackProof(c.env, acc.workspaceId, id);
   if (!proof) return c.json({ error: "No timestamp proof available yet" }, 404);
   const bytes = Uint8Array.from(atob(proof.proofBase64), (ch) => ch.charCodeAt(0));
