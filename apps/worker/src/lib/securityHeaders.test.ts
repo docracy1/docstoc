@@ -14,7 +14,8 @@ describe("applySecurityHeaders", () => {
   it("gives an HTML page a policy that allows its inline styles", () => {
     const h = new Headers({ "content-type": "text/html; charset=utf-8" });
     applySecurityHeaders(h, "/api/leads/confirm");
-    expect(h.get("Content-Security-Policy")).toContain("style-src 'unsafe-inline'");
+    expect(h.get("Content-Security-Policy")).toContain("style-src 'unsafe-inline' https://docstoc.io");
+    expect(h.get("Content-Security-Policy")).toContain("font-src https://docstoc.io");
   });
   it("keeps values a route set itself", () => {
     const h = new Headers({

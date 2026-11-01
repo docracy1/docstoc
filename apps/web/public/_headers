@@ -1,7 +1,8 @@
 # script-src carries no 'unsafe-inline': functions/_middleware.ts puts a nonce per response into this
-# header and onto every <script> of an HTML document (functions/lib/csp.ts). Cloudflare adds that nonce
-# to the scripts it injects (challenges, email obfuscation) by reading the header. frame-src 'self' stays
-# for the same-origin challenge iframe.
+# header and onto every <script> of an HTML document (functions/lib/csp.ts). Scripts Cloudflare injects
+# later carry no nonce: email-decode.min.js (email obfuscation, /cdn-cgi/) runs because of 'self'. An inline
+# bootstrap would be blocked, so check /app/login after turning on Bot Fight Mode. frame-src 'self' stays for
+# the same-origin challenge iframe.
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff

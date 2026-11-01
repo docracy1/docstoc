@@ -25,6 +25,8 @@ tracking.get("/o/:chaseId.gif", async (c) => {
       "Content-Type": "image/gif",
       "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
       "Access-Control-Allow-Origin": "*",
+      // Webmail loads this image from another site; same-site would make the browser refuse it.
+      "Cross-Origin-Resource-Policy": "cross-origin",
     },
   });
 });

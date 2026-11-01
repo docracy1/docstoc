@@ -4,8 +4,9 @@
  * keeps its value.
  */
 const JSON_POLICY = "default-src 'none'; frame-ancestors 'none'; base-uri 'none'";
+// The unsubscribe page in routes/leads.ts loads site.css, and with it the fonts, from the app origin.
 const HTML_POLICY =
-  "default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'";
+  "default-src 'none'; style-src 'unsafe-inline' https://docstoc.io; font-src https://docstoc.io; img-src 'self' data: https://docstoc.io; frame-ancestors 'none'; base-uri 'none'; form-action 'self'";
 
 export function applySecurityHeaders(headers: Headers, pathname: string): void {
   const defaults: Record<string, string> = {
