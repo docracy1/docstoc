@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { requirePaidAccount, type AuthEnv } from "../lib/auth";
 import {
+  clickNoticeHtml,
   createTrackedChase,
   listTrackingForAccount,
   recordClick,
@@ -28,23 +29,45 @@ tracking.get("/o/:chaseId.gif", async (c) => {
   });
 });
 
-/** Public click redirect — no auth. */
-tracking.get("/c/:chaseId", async (c) => {
-  const chaseId = c.req.param("chaseId");
-  const u = c.req.query("u") || "";
-  let target = u;
+function parseTarget(u: string): string | null {
   try {
     const parsed = new URL(u);
-    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
-      return c.text("Invalid link", 400);
-    }
-    target = parsed.toString();
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+    return parsed.toString();
   } catch {
-    return c.text("Invalid link", 400);
+    return null;
   }
+}
+
+/** Public notice before leaving docstoc — no auth. Senders choose these links, so never redirect blind. */
+tracking.get("/c/:chaseId", async (c) => {
+  const chaseId = c.req.param("chaseId");
+  const target = parseTarget(c.req.query("u") || "");
+  if (!target) return c.text("Invalid link", 400);
+  const allowed = await isAllowedTrackingUrl(c.env, chaseId, target);
+  if (!allowed) return c.text("Link not found for this tracked email", 404);
+  const continueHref = `${c.req.path}/go?u=${encodeURIComponent(target)}`;
+  return new Response(clickNoticeHtml(target, continueHref), {
+    status: 200,
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "no-store",
+      "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+      "Referrer-Policy": "no-referrer",
+      "X-Robots-Tag": "noindex, nofollow",
+    },
+  });
+});
+
+/** Public click redirect, reached from the notice — no auth. */
+tracking.get("/c/:chaseId/go", async (c) => {
+  const chaseId = c.req.param("chaseId");
+  const target = parseTarget(c.req.query("u") || "");
+  if (!target) return c.text("Invalid link", 400);
   const allowed = await isAllowedTrackingUrl(c.env, chaseId, target);
   if (!allowed) return c.text("Link not found for this tracked email", 404);
   await recordClick(c.env, chaseId, target).catch(() => null);
+  c.header("Referrer-Policy", "no-referrer");
   return c.redirect(target, 302);
 });
 

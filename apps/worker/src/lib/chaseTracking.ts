@@ -129,6 +129,40 @@ export async function isAllowedTrackingUrl(env: Env, chaseId: string, url: strin
   return !!row;
 }
 
+/** Page shown before a tracked link leaves docstoc, with the destination host in plain sight. */
+export function clickNoticeHtml(target: string, continueHref: string): string {
+  const host = escapeHtml(new URL(target).hostname);
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>You are leaving docstoc</title>
+<style>
+body{margin:0;background:#f6f7f9;color:#1a1d21;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:480px;margin:12vh auto 0;padding:32px 24px;background:#fff;border:1px solid #e3e6ea;border-radius:12px}
+h1{margin:0 0 12px;font-size:22px}
+p{margin:0 0 16px}
+.host{font-size:20px;font-weight:600;overflow-wrap:anywhere}
+.url{font-size:13px;color:#5b636d;overflow-wrap:anywhere}
+a.go{display:inline-block;padding:10px 18px;background:#1a1d21;color:#fff;border-radius:8px;text-decoration:none}
+@media (max-width:540px){main{margin:16px;padding:24px 16px}}
+</style>
+</head>
+<body>
+<main>
+<h1>You are leaving docstoc</h1>
+<p>This link goes to:</p>
+<p class="host">${host}</p>
+<p class="url">${escapeHtml(target)}</p>
+<p>The sender of your email added this link. docstoc does not check where it leads, so continue only if you trust the sender and the site.</p>
+<a class="go" href="${escapeHtml(continueHref)}" rel="noreferrer">Continue to ${host}</a>
+</main>
+</body>
+</html>`;
+}
+
 export async function recordOpen(env: Env, chaseId: string): Promise<boolean> {
   // Read the pre-update open_count so we can tell a first open (funnel-worthy) from a re-open
   // (recipient re-loading the same email, e.g. scrolling back to it) without a second round trip.
