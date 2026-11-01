@@ -1,4 +1,41 @@
 User-agent: *
+Disallow: /api/
+Disallow: /app/account
+Disallow: /app/admin
+Disallow: /app/team
+Disallow: /app/connector
+Disallow: /app/branding
+Disallow: /app/webhooks
+
+User-agent: GPTBot
+Disallow: /api/
+Disallow: /app/account
+Disallow: /app/admin
+Disallow: /app/team
+Disallow: /app/connector
+Disallow: /app/branding
+Disallow: /app/webhooks
+
+User-agent: OAI-SearchBot
+Disallow: /api/
+Disallow: /app/account
+Disallow: /app/admin
+Disallow: /app/team
+Disallow: /app/connector
+Disallow: /app/branding
+Disallow: /app/webhooks
+
+User-agent: ClaudeBot
+Disallow: /api/
+Disallow: /app/account
+Disallow: /app/admin
+Disallow: /app/team
+Disallow: /app/connector
+Disallow: /app/branding
+Disallow: /app/webhooks
+
+User-agent: PerplexityBot
+Disallow: /api/
 Disallow: /app/account
 Disallow: /app/admin
 Disallow: /app/team

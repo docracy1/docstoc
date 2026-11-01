@@ -33,7 +33,7 @@ describe("fitDescription", () => {
   });
   it("otherwise cuts at a word and stays within the limit", () => {
     const out = content(fitDescription(desc("word, ".repeat(60))));
-    expect(out.length).toBeLessThanOrEqual(160);
+    expect(out.length).toBeLessThanOrEqual(158);
     expect(out.endsWith("word")).toBe(true);
   });
 });

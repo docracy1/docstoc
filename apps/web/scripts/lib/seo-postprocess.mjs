@@ -2,7 +2,7 @@
 
 const SITE_SUFFIX = /\s+(?:\||—)\s+docstoc(?: Blog)?$/;
 export const TITLE_MAX = 60;
-export const DESCRIPTION_MAX = 160;
+export const DESCRIPTION_MAX = 158;
 
 /** Search results cut long titles anyway: the brand suffix goes first, then a leading "Free ",
  *  which the template pages repeat in their text. Anything left needs its own wording below. */

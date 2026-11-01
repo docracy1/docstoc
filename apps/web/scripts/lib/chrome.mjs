@@ -5,7 +5,7 @@ import { renderSeoHead } from "./seo-head.mjs";
 import { EN_TO_ES, ES_TO_EN } from "../data/es-alternates.mjs";
 
 /** Bump when site.css / site-nav.js / site-lang.js change so Pages edge caches refresh. */
-export const ASSET_V = "20261031a";
+export const ASSET_V = "20261101a";
 
 function faviconHead(link) {
   return `<link rel="icon" href="${link("/favicon.ico")}" sizes="48x48">
@@ -490,6 +490,7 @@ ${mainHtml.replace(/<(\/?)main\b/g, "<$1div")}
       <a href="${link("/docstoc-alternative")}">Docstoc history</a>
       <a href="${link("/press")}" data-i18n="footer.press">Press</a>
       <a href="${link("/imprint")}" data-i18n="footer.imprint">Imprint</a>
+      <a href="https://firmenbuchdaten.at" rel="noopener">firmenbuchdaten.at</a>
       <!--email_off--><a href="mailto:founder@docstoc.io" data-i18n="footer.contact">Contact</a><!--/email_off-->
     </div>
     <div class="site-footer-col">

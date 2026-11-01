@@ -205,14 +205,11 @@ function writeRobots() {
   // it was ever explicitly disallowed. Per spec a path with no matching rule is allowed by
   // default, so the fix is to only list what's genuinely private and let everything else fall
   // through to that default instead of trying to enumerate every public path.
-  const txt = `User-agent: *
-Disallow: /app/account
-Disallow: /app/admin
-Disallow: /app/team
-Disallow: /app/connector
-Disallow: /app/branding
-Disallow: /app/webhooks
-
+  // The AI crawlers are named so that nobody reads their absence as a block; they get the same
+  // closed paths as everyone else. /api/ is the same-origin proxy to the worker.
+  const closed = ["/api/", "/app/account", "/app/admin", "/app/team", "/app/connector", "/app/branding", "/app/webhooks"];
+  const group = (agent) => `User-agent: ${agent}\n${closed.map((path) => `Disallow: ${path}`).join("\n")}\n`;
+  const txt = `${["*", "GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot"].map(group).join("\n")}
 # LLM / agent context (chasa)
 # https://docstoc.io/llms.txt
 # https://docstoc.io/llms-full.txt

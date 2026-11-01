@@ -16,6 +16,10 @@
 /tools/embed/*
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; frame-ancestors *; base-uri 'self'; object-src 'none'; report-uri https://api.docstoc.io/api/csp-report
 
+# Vite writes a content hash into every file name under /assets, so a year is safe.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /brand/*
   Cache-Control: public, max-age=31536000, immutable
 
