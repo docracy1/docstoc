@@ -1,10 +1,12 @@
-/** Host cutover redirects + Docracy-style edge pageview/referrer logging.
+/** Host cutover redirects, a CSP nonce per HTML response, and Docracy-style edge pageview/referrer logging.
  *
  * Google (and most SEO) landings never accept cookies and often bounce before
  * analytics.js runs — so client-only referral_source_detected stays empty while
  * Search Console shows clicks. Fire-and-forget to the worker with the original
  * Referer so Admin → Traffic sources can credit Google / SEO the same way Docracy does.
  */
+import { applyNonce, isHtmlResponse, mayBeHtml, newNonce, withoutConditionalHeaders } from "./lib/csp";
+
 const HOST_TO_APEX: Record<string, string> = {
   "www.docstoc.io": "docstoc.io",
   "chasa.io": "docstoc.io",
@@ -95,7 +97,12 @@ export const onRequest: PagesFunction<{ WORKER_URL: string }> = async (context) 
     );
   }
 
-  const response = await context.next();
+  const html = mayBeHtml(url.pathname);
+  let response = await context.next(html ? withoutConditionalHeaders(context.request) : context.request);
+  // Every HTML document gets its own nonce in the policy header and on its script elements (lib/csp.ts).
+  if (html && isHtmlResponse(response)) {
+    response = applyNonce(response, newNonce());
+  }
   // The pages.dev host serves the same site, so search engines must only index docstoc.io.
   if (url.hostname.endsWith(".pages.dev")) {
     const headers = new Headers(response.headers);
