@@ -3318,3 +3318,7 @@ body.mobile-nav-open .docstoc-asst {
 .cmp-table tbody th { font-weight: 600; white-space: nowrap; }
 .cmp-sources-note { font-size: 14px; color: #4b5563; }
 .cmp-sources { font-size: 14px; overflow-wrap: anywhere; }
+
+/* Standalone links in the price comparison rows and under the template preview reach 24 px on phones. */
+.pc-row-link { padding: 2px 0; }
+.tpl-preview-cta .btn-secondary { display: inline-block; padding: 4px 0; }
