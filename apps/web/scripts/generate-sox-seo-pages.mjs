@@ -215,7 +215,7 @@ ${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2)
       <p>${lang === "es" ? "La capa de automatización de confianza para negocios modernos." : "The Trust Automation Layer for Modern Business."}</p>
     </div>
   </div>
-  <div class="site-footer-bottom">© 2026 docstoc — a product of RELACON GmbH</div>
+  <div class="site-footer-bottom">© 2026 docstoc — a product of RELACON GmbH · <a href="https://firmenbuchdaten.at" rel="noopener">firmenbuchdaten.at</a></div>
 </footer>
 <script src="${js}" defer></script>
 </body>
