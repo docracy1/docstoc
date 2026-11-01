@@ -648,6 +648,8 @@ html { scroll-behavior: smooth; }
     font-weight: 700;
     text-decoration: none;
   }
+  /* 24 px tall so the links are tappable; the padding keeps the text where it was. */
+  .hub-card-cta, .hub-card-secondary { display: inline-block; padding: 2px 0; }
   .hub-card-cta { color: var(--accent); }
   .hub-card-cta:hover { text-decoration: underline; }
   .hub-card-secondary { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
@@ -1052,7 +1054,7 @@ html { scroll-behavior: smooth; }
     width: fit-content;
     max-width: 100%;
     margin: 6px auto 0;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -1187,12 +1189,12 @@ html { scroll-behavior: smooth; }
       font-size: 18px;
     }
     .pricing-sticky-note {
-      font-size: 10px;
+      font-size: 12px;
     }
     .pricing-sticky-cta {
       max-width: none;
       padding: 8px 4px;
-      font-size: 11.5px;
+      font-size: 12px;
     }
   }
 
@@ -1233,7 +1235,7 @@ html { scroll-behavior: smooth; }
     }
     .pricing-sticky-name {
       flex: 0 0 72px;
-      font-size: 10px;
+      font-size: 12px;
     }
     .pricing-sticky-price {
       flex: 1 1 80px;
@@ -1244,7 +1246,7 @@ html { scroll-behavior: smooth; }
       display: inline;
       margin-top: 0;
       margin-left: 4px;
-      font-size: 10px;
+      font-size: 12px;
       white-space: normal;
     }
     .pricing-sticky-cta {
@@ -1253,7 +1255,7 @@ html { scroll-behavior: smooth; }
       min-width: 108px;
       max-width: 46%;
       padding: 8px 10px;
-      font-size: 11.5px;
+      font-size: 12px;
       white-space: normal;
       line-height: 1.2;
     }

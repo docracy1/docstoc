@@ -4547,3 +4547,10 @@ textarea {
   border-color: var(--accent);
   color: var(--accent);
 }
+
+/* Phones: 16 px keeps iOS from zooming into a focused field. */
+@media (max-width: 720px) {
+  input[type="text"], input[type="number"], input[type="date"], input[type="email"], input[type="password"], input[type="search"], input[type="url"], input[type="tel"], select, textarea {
+    font-size: 16px;
+  }
+}
