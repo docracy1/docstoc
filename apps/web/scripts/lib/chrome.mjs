@@ -431,7 +431,7 @@ ${faviconHead(link)}
   </div>
 </div>
 <main class="${fullBleedMain ? "tool-sell-main" : mainClass || "wrap page-main"}">
-${mainHtml}
+${mainHtml.replace(/<(\/?)main\b/g, "<$1div")}
 </main>
 <footer class="site-footer">
   <div class="wrap site-footer-inner">
