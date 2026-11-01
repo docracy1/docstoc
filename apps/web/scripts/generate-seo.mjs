@@ -36,7 +36,8 @@ function walkHtml(dir, out = []) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
     if (statSync(p).isDirectory()) walkHtml(p, out);
-    else if (name.endsWith(".html") && name !== "404.html") out.push(p);
+    // Google's ownership file is served as is and must stay out of the sitemap.
+    else if (name.endsWith(".html") && name !== "404.html" && !/^google[0-9a-f]+\.html$/.test(name)) out.push(p);
   }
   return out;
 }

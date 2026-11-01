@@ -11,7 +11,7 @@ function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
     if (statSync(p).isDirectory()) walk(p, out);
-    else if (name.endsWith(".html")) out.push(p);
+    else if (name.endsWith(".html") && !/^google[0-9a-f]+\.html$/.test(name)) out.push(p);
   }
   return out;
 }
