@@ -66,6 +66,36 @@ export function applyShortTitle(html, urlPath) {
   return html.replace(/<title>[^<]*<\/title>/i, () => `<title>${safe}</title>`);
 }
 
+const escAttr = (t) => t.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+/** Sets title, description and their Open Graph and Twitter copies from a SEARCH_SNIPPETS entry. */
+export function applySearchSnippet(html, snippet) {
+  if (!snippet) return html;
+  const title = escAttr(snippet.title);
+  const desc = escAttr(snippet.description);
+  return html
+    .replace(/<title>[^<]*<\/title>/i, () => `<title>${title}</title>`)
+    .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/i, (m, a, b) => `${a}${desc}${b}`)
+    .replace(/(<meta\s+(?:property|name)="(?:og|twitter):title"\s+content=")[^"]*(")/gi, (m, a, b) => `${a}${title}${b}`)
+    .replace(/(<meta\s+(?:property|name)="(?:og|twitter):description"\s+content=")[^"]*(")/gi, (m, a, b) => `${a}${desc}${b}`);
+}
+
+/** Title of a page without the brand suffix, for link text. */
+export function linkLabelFromHtml(html) {
+  const t = html.match(/<title>([^<]*)<\/title>/i)?.[1] ?? "";
+  return t.replace(/\s+(?:\||—)\s+docstoc(?: Blog)?$/, "").trim();
+}
+
+/** A short "Related pages" list before </main>. Idempotent: replaces its own block on a rebuild. */
+export function applyRelatedLinks(html, links) {
+  const clean = html.replace(/<!-- related-links -->[\s\S]*?<!-- \/related-links -->/, "");
+  if (!links?.length) return clean;
+  const items = links.map((l) => `<li><a href="${escAttr(l.href)}">${l.label}</a></li>`).join("");
+  const block = `<!-- related-links --><section class="wrap alt-body"><h2>Related pages</h2><ul>${items}</ul></section><!-- /related-links -->`;
+  const end = clean.lastIndexOf("</main>");
+  return end < 0 ? clean : `${clean.slice(0, end)}${block}${clean.slice(end)}`;
+}
+
 /** Extra text for thin pages. Idempotent: replaces its own block on a rebuild. */
 export function applyExtraSections(html, extra, esc, faqHeading = "FAQ") {
   const block = [

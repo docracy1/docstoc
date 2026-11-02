@@ -19,13 +19,17 @@ import {
 import { renderSeoHead } from "./lib/seo-head.mjs";
 import {
   applyExtraSections,
+  applyRelatedLinks,
+  applySearchSnippet,
   applyShortTitle,
+  linkLabelFromHtml,
   fitDescription,
   fitTitle,
   parseGitLastmods,
   rewriteCanonicalLinks,
 } from "./lib/seo-postprocess.mjs";
 import { en as marketingEn } from "./data/marketing-i18n.mjs";
+import { RELATED_PAGE_LINKS, SEARCH_SNIPPETS } from "./data/search-snippets.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(__dirname, "../public");
@@ -342,6 +346,16 @@ function patchSeoHead(fileName) {
 }
 
 /** Runs before the sitemap so its checks see the final pages. */
+/** Link list for a source page; the text of each link is the target's own title. A missing
+ *  target fails the build, so a renamed page cannot leave a dead link behind. */
+function relatedLinksFor(urlPath) {
+  return RELATED_PAGE_LINKS[urlPath].map((href) => {
+    const file = fileForUrlPath(href);
+    if (!file) throw new Error(`RELATED_PAGE_LINKS: ${urlPath} links to ${href}, which has no page`);
+    return { href, label: linkLabelFromHtml(readFileSync(file, "utf8")) };
+  });
+}
+
 function postprocessPages() {
   const files = walkHtml(publicDir).filter((f) => !relative(publicDir, f).startsWith("app/"));
   const canonicalByPath = new Map();
@@ -357,7 +371,8 @@ function postprocessPages() {
   for (const file of files) {
     const html = readFileSync(file, "utf8");
     const urlPath = htmlPathToUrl(file);
-    let next = fitDescription(fitTitle(applyShortTitle(rewriteCanonicalLinks(html, canonicalByPath), urlPath)));
+    let next = fitDescription(fitTitle(applySearchSnippet(applyShortTitle(rewriteCanonicalLinks(html, canonicalByPath), urlPath), SEARCH_SNIPPETS[urlPath])));
+    if (RELATED_PAGE_LINKS[urlPath]) next = applyRelatedLinks(next, relatedLinksFor(urlPath));
     if (extras[urlPath]) next = applyExtraSections(next, extras[urlPath], escapeXml, urlPath.startsWith("/es/") ? "Preguntas frecuentes" : "FAQ");
     if (next !== html) {
       writeFileSync(file, next, "utf8");
