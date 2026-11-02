@@ -44,6 +44,7 @@ export const SHORT_TITLES = {
   "/blog/ssl-tls-certificate-lifetime-shortening/": "47-Day SSL Certificates: The Lifetime Schedule",
   "/blog/free-ssl-automation-lets-encrypt-domain/": "Free SSL for Your Domain With Let's Encrypt",
   "/blog/how-to-write-a-late-payment-email-that-gets-a-response/": "How to Write a Late Payment Email That Gets a Reply",
+  "/blog/quickbooks-vs-manual-invoice-follow-up-whats-actually-faster/": "QuickBooks vs manual invoice follow-up: which is faster?",
   "/business-kits/collections-and-lending-kit": "Collections & Lending Kit: Free Letter & Note Templates",
   "/business-kits/independent-landlord-kit": "Independent Landlord Kit: Free Lease Templates",
   "/business-kits/us-small-business-starter-kit": "US Small Business Starter Kit: Free LLC & NDA Templates",
