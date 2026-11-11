@@ -5,6 +5,39 @@
  * print dialog, no account. Titles stay within 60 characters, descriptions within 60 to 158.
  */
 export const SEARCH_SNIPPETS = {
+  // Search Console, domain property, 28 days to 2026-11-10: pages already on positions 7 to 20.
+  "/tugboat-alternative": {
+    title: "Tugboat Logic Alternatives After the OneTrust Acquisition",
+    description: "Tugboat Logic became part of OneTrust in 2021. If you used it for audit evidence, see where docstoc file certificates differ and where they fit.",
+  },
+  "/rocket-lawyer-alternative": {
+    title: "Rocket Lawyer Alternatives: Free Templates, No Membership",
+    description: "Rocket Lawyer bundles documents, e-signatures and attorney Q&A in a membership. docstoc has a free template library. Compare where each one fits.",
+  },
+  "/document-templates/transition-plan-template": {
+    title: "Transition Plan Template: Free Handover Plan, Edit Online",
+    description: "Free transition plan for handing off a role, a project or a set of responsibilities. Fill in 13 fields online and save as PDF, no account needed.",
+  },
+  "/document-templates/fundraiser-agreement-template": {
+    title: "Fundraising Agreement Template: Nonprofit and Fundraiser",
+    description: "Free fundraising agreement between a nonprofit and a professional fundraiser for one campaign. Fill in 8 fields online, save as PDF, no account needed.",
+  },
+  "/document-templates/fictitious-business-name-statement-template": {
+    title: "DBA Template: Free Fictitious Business Name Statement",
+    description: "Free DBA (doing business as) statement for the trade name your business operates under. Fill in 9 fields online, save as PDF, no account needed.",
+  },
+  "/document-templates/certificate-of-service-template": {
+    title: "Certificate of Service Template: Free Download as PDF",
+    description: "Free certificate of service confirming a legal document was delivered to the other party in a case. Fill in 10 fields online, no account needed.",
+  },
+  "/document-templates/intercompany-agreement-template": {
+    title: "Intercompany Agreement Template: Free, Edit Online",
+    description: "Free intercompany agreement for services, goods or other transactions between companies of one group. Fill in 8 fields, save as PDF, no account needed.",
+  },
+  "/document-templates/insertion-order-template": {
+    title: "Insertion Order Template: Free IO for Ad Placements",
+    description: "Free insertion order (IO) to confirm an ad placement: dates, rates, format and terms. Fill in 14 fields online and save as PDF, no account needed.",
+  },
   "/document-templates/": {
     title: "Free Business & Legal Document Templates: 1,000+ Forms",
     description: "Over 1,000 free business, legal, HR, finance and real estate document templates. Edit online, save as PDF, no account needed.",
