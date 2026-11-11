@@ -2204,5 +2204,415 @@
         "a": "Treat it as a link you share with your client. Send it only to the person who needs to pay."
       }
     ]
+  },
+  "/document-templates/payment-request-template": {
+    "sections": [
+      {
+        "h2": "How to fill in a payment request",
+        "paragraphs": [
+          "A payment request asks someone inside or outside your company to release money for a specific purpose. It gets approved fast when the approver can answer three questions without writing back: what is it for, how much exactly, and where is the proof."
+        ],
+        "bullets": [
+          "Requested by and date: the person who will answer questions about the request.",
+          "Payable to: the exact legal name on the invoice or bank account, not a nickname.",
+          "Amount and reason: one amount per request and one line on what it pays for.",
+          "Related invoice or PO number: lets accounts payable match the payment to the right record.",
+          "Supporting documentation: attach the invoice, receipt or contract before you send it.",
+          "Payment method: tick one, and add bank details only through your company's approved channel."
+        ]
+      },
+      {
+        "h2": "A short example",
+        "paragraphs": [
+          "Requested by Maria Lopez on 3 March. Payable to Bright Signs LLC. Amount 1,240.00 for the trade fair banner, invoice 2025-118, PO 4471 attached. Payment by bank transfer. Approved by the marketing lead. That request needs no follow-up question, which is why it gets paid first."
+        ]
+      },
+      {
+        "h2": "Common reasons a request gets stuck",
+        "bullets": [
+          "The amount on the request does not match the attached invoice.",
+          "The payee name differs from the name on the bank account.",
+          "No approver is named, or the approver is the same person who requested it.",
+          "Changed bank details arrive by email: confirm them by phone before anyone pays."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between a payment request and an invoice?",
+        "a": "An invoice is what a supplier sends you to ask for payment. A payment request is your internal form asking your company to pay it, or a polite request to a customer when no invoice was issued."
+      },
+      {
+        "q": "Who should approve a payment request?",
+        "a": "Someone other than the requester. A second person checking amount and payee is the simplest protection against errors and fraud."
+      },
+      {
+        "q": "Can I use this as a request for payment to a customer?",
+        "a": "Yes, for a one-off amount. For recurring work, a proper invoice with your tax details is usually required."
+      }
+    ]
+  },
+  "/document-templates/living-will-template": {
+    "sections": [
+      {
+        "h2": "What a living will does",
+        "paragraphs": [
+          "A living will records which medical treatment you want, or do not want, if you can no longer speak for yourself, for example in a terminal condition or permanent unconsciousness. It speaks for you when your doctors and family would otherwise have to guess.",
+          "It is different from a healthcare power of attorney, which names a person to make decisions for you. Many people sign both, so there is a written wish and a person to apply it."
+        ]
+      },
+      {
+        "h2": "Before you sign",
+        "bullets": [
+          "Rules differ by country and by US state. Many states have their own form and require witnesses, a notary, or both. Check what your state or country requires before relying on this template.",
+          "Talk to your doctor about what treatments like CPR, ventilation or artificial nutrition mean in practice.",
+          "Tell the people close to you that the document exists and where it is.",
+          "Give copies to your doctor and your healthcare agent, and keep the original where it can be found quickly."
+        ]
+      },
+      {
+        "h2": "Keep it current",
+        "paragraphs": [
+          "Review it after a major diagnosis, a move to another state or country, or a change in your views. A newer signed version replaces the old one, so destroy outdated copies."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is a free living will template legally valid?",
+        "a": "It can be, if it is signed and witnessed the way your state or country requires. The template gives you the wording; the formal requirements decide whether it is binding."
+      },
+      {
+        "q": "Do I need a lawyer for a living will?",
+        "a": "Not always. Many people complete a living will without one, but if your situation is complex or your family disagrees, legal advice is worth it."
+      },
+      {
+        "q": "What is the difference between a living will and a last will?",
+        "a": "A living will covers medical decisions while you are alive. A last will covers what happens to your property after death."
+      }
+    ]
+  },
+  "/document-templates/request-for-quotation-template": {
+    "sections": [
+      {
+        "h2": "When to send an RFQ",
+        "paragraphs": [
+          "Use a request for quotation when you already know exactly what you want to buy and you are comparing price, delivery and terms. If you still need suppliers to propose how to solve a problem, send a request for proposal (RFP) or a request for information (RFI) first."
+        ]
+      },
+      {
+        "h2": "How to fill it in",
+        "bullets": [
+          "RFQ number and date: suppliers quote it back, which keeps replies sorted.",
+          "Quote deadline: give at least a few working days for simple items, more for custom ones.",
+          "Items: one line per item with a clear specification and quantity, so every supplier quotes the same thing.",
+          "Delivery: address and the latest acceptable delivery date.",
+          "What the quote must include: unit and total price, delivery time, payment terms and how long the price is valid.",
+          "Submission: one contact and one channel, so no quote gets lost."
+        ]
+      },
+      {
+        "h2": "Comparing the quotes",
+        "paragraphs": [
+          "Put the replies side by side in a simple table: total price, delivery date, payment terms, validity. The lowest unit price is not always the cheapest once shipping, payment terms and minimum quantities are added."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between an RFQ and an RFP?",
+        "a": "An RFQ asks for a price on a defined item. An RFP asks suppliers to propose a solution and price it, and is scored on more than cost."
+      },
+      {
+        "q": "How many suppliers should get the RFQ?",
+        "a": "Three is a common minimum for a fair comparison. Send all of them the same document and the same deadline."
+      },
+      {
+        "q": "Is a quotation binding?",
+        "a": "A quote is an offer for the validity period it states. The purchase becomes binding when you accept it, usually with a purchase order."
+      }
+    ]
+  },
+  "/document-templates/unemployment-benefits-appeal-letter-template": {
+    "sections": [
+      {
+        "h2": "Before you write the appeal",
+        "bullets": [
+          "Find the deadline on your determination letter. Appeal windows are often short, sometimes only a couple of weeks, and a late appeal can be rejected without review.",
+          "Read the stated reason for the denial carefully. Your letter should answer that reason, not your whole employment history.",
+          "Collect evidence: termination or separation letter, emails, schedules, pay slips, names of witnesses.",
+          "Keep claiming or certifying for benefits while the appeal runs, if your agency requires it."
+        ]
+      },
+      {
+        "h2": "How to make the letter work",
+        "paragraphs": [
+          "Keep it short and factual. Name the determination date and claim number, state that you appeal, and explain in a few sentences why the decision is wrong, for example that you were laid off in a reduction in force rather than dismissed for misconduct. List the documents you attach and ask for a hearing.",
+          "Send it the way the agency asks, often online or by mail, and keep proof of the date you sent it."
+        ]
+      },
+      {
+        "h2": "Outside the US",
+        "paragraphs": [
+          "The steps differ by country. In the UK, for most DWP benefit decisions you first ask for a mandatory reconsideration before you can appeal to a tribunal. Check the official guidance for your benefit and country."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long do I have to appeal an unemployment decision?",
+        "a": "It depends on your state or country. The deadline is printed on the determination; treat it as strict."
+      },
+      {
+        "q": "What should I say in an unemployment appeal letter?",
+        "a": "That you disagree with the determination of a specific date, the specific reason it is wrong, and which evidence supports you. Facts work better than emotions."
+      },
+      {
+        "q": "Do I need a lawyer to appeal?",
+        "a": "Most people appeal on their own. Free legal aid or worker advice organisations can help if your case involves misconduct allegations."
+      }
+    ]
+  },
+  "/document-templates/software-requirements-specification-template": {
+    "sections": [
+      {
+        "h2": "What goes into an SRS",
+        "paragraphs": [
+          "A software requirements specification describes what a system must do and how well, before anyone builds it. It is the shared reference for the client, the developers and the testers. The template follows the usual structure: purpose, scope, functional requirements, non-functional requirements, user roles and constraints."
+        ]
+      },
+      {
+        "h2": "Writing requirements that can be tested",
+        "bullets": [
+          "One requirement per line, with an ID like FR-1 so tests and tickets can refer to it.",
+          "Use 'The system shall' and a measurable result, for example 'The system shall send a password reset email within 60 seconds'.",
+          "Give every requirement a priority such as Must, Should or Could.",
+          "Write non-functional requirements with numbers: response time, availability, number of users, data retention.",
+          "Put what is out of scope in writing. It prevents most scope arguments later."
+        ]
+      },
+      {
+        "h2": "A short example",
+        "paragraphs": [
+          "FR-3: The system shall let an admin export all invoices of a month as CSV. Priority: Must. NFR-2: The export shall finish within 10 seconds for 10,000 invoices. Both lines can be checked by a tester without asking the author what was meant."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between functional and non-functional requirements?",
+        "a": "Functional requirements say what the system does, such as exporting a report. Non-functional requirements say how well it does it, such as speed, security or availability."
+      },
+      {
+        "q": "Who writes the SRS?",
+        "a": "Usually a product owner or business analyst, with input from the client and the development team. Developers should review it before work starts."
+      },
+      {
+        "q": "Is an SRS still useful in agile projects?",
+        "a": "A lighter version is. Many teams keep a short SRS for scope, roles and non-functional requirements and manage features as user stories."
+      }
+    ]
+  },
+  "/document-templates/simple-promissory-note-template": {
+    "sections": [
+      {
+        "h2": "When a simple promissory note is enough",
+        "paragraphs": [
+          "A promissory note is a written promise to repay a loan. The simple version fits personal or small business loans between people who know each other: one amount, one interest rate or none, and a clear repayment schedule. Larger or secured loans usually need a loan agreement with more terms."
+        ]
+      },
+      {
+        "h2": "How to fill it in",
+        "bullets": [
+          "Principal: the exact amount lent, in figures.",
+          "Interest: a yearly rate, or state that the note is interest-free. Check usury limits and, for family loans, any tax rules on interest-free loans where you live.",
+          "Repayment: a single date or instalments with amounts and start date.",
+          "Prepayment: whether the borrower may repay early without a penalty.",
+          "Default: what happens if a payment is missed, for example that the full balance becomes due.",
+          "Signatures: borrower and lender, with the date. Some places require witnesses or a notary for enforceability."
+        ]
+      },
+      {
+        "h2": "Keep proof of payments",
+        "paragraphs": [
+          "Pay by bank transfer and reference the note in the payment. When the loan is repaid, the lender should confirm it in writing or return the note marked as paid."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is a promissory note legally binding?",
+        "a": "Generally yes, if it states the amount, the promise to pay and is signed by the borrower. Formal requirements vary by country and state."
+      },
+      {
+        "q": "Does a promissory note need to be notarized?",
+        "a": "Often not, but notarization or witnesses make it harder to dispute. Check the rules where you and the borrower live."
+      },
+      {
+        "q": "Can a promissory note be interest-free?",
+        "a": "Yes. Write that the note bears no interest. Some tax systems treat large interest-free loans as gifts, so check if the amount is significant."
+      }
+    ]
+  },
+  "/document-templates/seo-report-template": {
+    "sections": [
+      {
+        "h2": "What a useful SEO report shows",
+        "paragraphs": [
+          "A client or manager reads an SEO report to answer one question: is organic search bringing more of the visitors and leads we want? Lead with that answer in the summary, then show the few numbers that support it."
+        ]
+      },
+      {
+        "h2": "How to fill in each section",
+        "bullets": [
+          "Summary: one or two sentences with the trend and the main takeaway.",
+          "Key metrics: organic sessions, keywords in the top 10, organic conversions and new backlinks, each compared with the previous period.",
+          "Top pages: the pages that brought the most organic visitors, with a note on why.",
+          "Work completed: content published, technical fixes and links earned in this period.",
+          "Next steps: the two or three tasks planned for the next period and what each should change."
+        ]
+      },
+      {
+        "h2": "Where the numbers come from",
+        "paragraphs": [
+          "Clicks, impressions and positions come from Google Search Console, sessions and conversions from your analytics tool. Use the same date range and the same source every month, otherwise the comparison misleads."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How often should I send an SEO report?",
+        "a": "Monthly is common. Search results move slowly, so weekly reports mostly show noise."
+      },
+      {
+        "q": "Which SEO metrics matter most?",
+        "a": "The ones tied to the goal: organic conversions or leads first, then clicks and visibility for the pages that sell."
+      },
+      {
+        "q": "Can I use this template for a one-off SEO audit?",
+        "a": "Partly. An audit needs a findings list with priorities; use the work and next steps sections for that."
+      }
+    ]
+  },
+  "/document-templates/web-hosting-agreement-template": {
+    "sections": [
+      {
+        "h2": "What the agreement should settle",
+        "paragraphs": [
+          "A web hosting agreement sets out what the provider runs for the customer, for how much, and what happens when something goes wrong. Most disputes come from three gaps: unclear uptime promises, missing backup responsibility and no plan for moving the site out when the contract ends."
+        ]
+      },
+      {
+        "h2": "Clauses worth checking",
+        "bullets": [
+          "Services: plan, storage, bandwidth and what is included, such as SSL certificates or email.",
+          "Uptime: the target percentage, how it is measured and what credit the customer gets if it is missed.",
+          "Backups: who makes them, how often and how long they are kept.",
+          "Acceptable use: what content and traffic the provider does not allow.",
+          "Data protection: where the data is stored and, in the EU, a data processing agreement.",
+          "Termination: notice period and how the customer gets their files and database out."
+        ]
+      },
+      {
+        "h2": "Before you sign",
+        "paragraphs": [
+          "Ask the provider for a test restore of a backup and the exact steps for a migration. Both are cheap to check at the start and expensive to discover during an outage."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What uptime should a hosting agreement promise?",
+        "a": "Many providers target 99.9 percent per month, which allows about 43 minutes of downtime. What matters more is the credit you get when it is missed."
+      },
+      {
+        "q": "Who owns the website content?",
+        "a": "The customer, in almost every hosting agreement. Make sure the agreement says so and that the provider must hand over the data at the end."
+      },
+      {
+        "q": "Do I need a data processing agreement?",
+        "a": "If you host personal data of people in the EU, yes. The hosting provider acts as a processor under the GDPR."
+      }
+    ]
+  },
+  "/document-templates/request-for-information-template": {
+    "sections": [
+      {
+        "h2": "When to send an RFI",
+        "paragraphs": [
+          "A request for information is the first, non-binding step in buying something you do not know well yet. You ask several vendors to describe what they offer, then use the answers to write a sharper RFP or RFQ."
+        ]
+      },
+      {
+        "h2": "How to fill it in",
+        "bullets": [
+          "Purpose: what category of product or service you are exploring and that this is not a commitment to buy.",
+          "Background: a few sentences on your company and the problem, enough for vendors to answer to the point.",
+          "Information requested: company overview, relevant experience, the offer, a price range and implementation time.",
+          "Format and deadline: page limit, file type and the date answers are due.",
+          "Contact: one person for questions, and whether questions and answers are shared with all vendors."
+        ]
+      },
+      {
+        "h2": "Getting comparable answers",
+        "paragraphs": [
+          "Ask the same questions in the same order to every vendor and give a page limit. Answers you can line up side by side save more time than long brochures."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between an RFI, RFP and RFQ?",
+        "a": "An RFI collects information, an RFP asks for a proposed solution with a price, and an RFQ asks for a price on something already specified."
+      },
+      {
+        "q": "Is an RFI binding?",
+        "a": "No. It should say so explicitly, so neither side expects a contract."
+      },
+      {
+        "q": "How long should vendors get to answer an RFI?",
+        "a": "Two to three weeks is common, shorter for a short questionnaire."
+      }
+    ]
+  },
+  "/document-templates/transition-plan-template": {
+    "sections": [
+      {
+        "h2": "What a good handover plan covers",
+        "paragraphs": [
+          "A transition plan moves a role or project from one person to another without losing work, contacts or access. The template lists responsibilities, systems and access, ongoing projects and knowledge transfer sessions, each with a date and an owner."
+        ]
+      },
+      {
+        "h2": "How to fill it in",
+        "bullets": [
+          "Outgoing and incoming person, and the start and end date of the handover.",
+          "Responsibilities: every recurring task with its current status and the key contacts.",
+          "Systems and access: tools, accounts and permissions to transfer, and what the outgoing person loses access to on the last day.",
+          "Ongoing projects: status, next step and deadline for each.",
+          "Knowledge transfer: short sessions on specific topics, with attendees, rather than one long meeting."
+        ]
+      },
+      {
+        "h2": "A short example",
+        "paragraphs": [
+          "Responsibility: monthly supplier payments. Status: March run prepared. Contact: accounts payable. Next step: incoming person runs April with the outgoing person watching. That line tells the new owner what to do, with whom and by when."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long should a transition period be?",
+        "a": "Two to four weeks is common for a role, longer for complex projects. The plan should end with the incoming person running each task alone at least once."
+      },
+      {
+        "q": "Who owns the transition plan?",
+        "a": "The manager of both people. The outgoing person fills it in, the incoming person confirms each item."
+      },
+      {
+        "q": "Is a transition plan the same as an exit checklist?",
+        "a": "No. An exit checklist covers the leaving employee's equipment and accounts. The transition plan covers the work that continues."
+      }
+    ]
   }
 }

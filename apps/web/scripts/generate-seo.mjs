@@ -17,17 +17,7 @@ import {
   HIGH_PRIORITY_DOC_TEMPLATE_SLUGS,
 } from "./data/seo-config.mjs";
 import { renderSeoHead } from "./lib/seo-head.mjs";
-import {
-  applyExtraSections,
-  applyRelatedLinks,
-  applySearchSnippet,
-  applyShortTitle,
-  linkLabelFromHtml,
-  fitDescription,
-  fitTitle,
-  parseGitLastmods,
-  rewriteCanonicalLinks,
-} from "./lib/seo-postprocess.mjs";
+import { applyExtraSections, applyRelatedLinks, applySearchSnippet, applyShortTitle, linkLabelFromHtml, fitDescription, fitTitle, parseGitLastmods, rewriteCanonicalLinks, applyNoindex } from "./lib/seo-postprocess.mjs";
 import { en as marketingEn } from "./data/marketing-i18n.mjs";
 import { RELATED_PAGE_LINKS, SEARCH_SNIPPETS } from "./data/search-snippets.mjs";
 
@@ -367,12 +357,15 @@ function postprocessPages() {
     if (canonical && canonical !== urlPath) canonicalByPath.set(urlPath, canonical);
   }
   const extras = JSON.parse(readFileSync(join(__dirname, "data/page-extras.json"), "utf8"));
+  // Templates with no impressions in 90 days stay out of the index and, through sitemapRejection, out of the sitemap.
+  const noindex = new Set(JSON.parse(readFileSync(join(__dirname, "data/noindex-templates.json"), "utf8")).paths);
   let changed = 0;
   for (const file of files) {
     const html = readFileSync(file, "utf8");
     const urlPath = htmlPathToUrl(file);
     let next = fitDescription(fitTitle(applySearchSnippet(applyShortTitle(rewriteCanonicalLinks(html, canonicalByPath), urlPath), SEARCH_SNIPPETS[urlPath])));
     if (RELATED_PAGE_LINKS[urlPath]) next = applyRelatedLinks(next, relatedLinksFor(urlPath));
+    if (noindex.has(urlPath)) next = applyNoindex(next);
     if (extras[urlPath]) next = applyExtraSections(next, extras[urlPath], escapeXml, urlPath.startsWith("/es/") ? "Preguntas frecuentes" : "FAQ");
     if (next !== html) {
       writeFileSync(file, next, "utf8");

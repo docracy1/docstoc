@@ -144,3 +144,10 @@ export function parseGitLastmods(log) {
   }
   return dates;
 }
+
+/** noindex, follow for a page that should leave Google's index; replaces an existing robots meta. Idempotent. */
+export function applyNoindex(html) {
+  const tag = '<meta name="robots" content="noindex, follow">';
+  if (/<meta[^>]*name=["']robots["'][^>]*>/i.test(html)) return html.replace(/<meta[^>]*name=["']robots["'][^>]*>/i, tag);
+  return html.replace(/<\/head>/i, `${tag}\n</head>`);
+}
