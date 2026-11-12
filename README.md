@@ -123,6 +123,12 @@ Regenerate free templates after editing `apps/web/scripts/generate-free-template
 npm run generate:templates --workspace apps/web
 ```
 
+**Jurisdiction and review status on `/document-templates/<slug>`** (`apps/web/scripts/lib/template-jurisdiction.mjs`, test `template-jurisdiction.test.ts`): every document template page shows which law it is written for and when its text last changed, and the Article JSON-LD carries the same facts (`dateModified`, plus `spatialCoverage` United States and `mentions` Legislation where federal law is named). Jurisdiction comes only from the template's own text: "United States, federal law" when it names a law in `FEDERAL_LAWS` or a U.S.C./CFR citation, "UK and Commonwealth style" only for the slugs in `UK_STYLE` (the sentence that says so must be in the text), otherwise "General: not written for a specific state. Check it against your state's law before use." No template is ever assigned to a single state. The date is the last commit that changed the template's lines (`git blame`), stored with a content hash in `apps/web/scripts/data/template-revisions.json`; a template whose text no longer matches the hash shows no date. There is no record of a legal review, and the notice says so. After adding or editing a template:
+
+```bash
+cd apps/web && node scripts/generate-free-templates.mjs && node scripts/build-template-revisions.mjs && node scripts/generate-free-templates.mjs
+```
+
 ---
 
 ## Architecture

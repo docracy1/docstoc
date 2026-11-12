@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { chrome, escapeHtml, trustBadgesHtml, conversionSectionHtml, ASSET_V } from "./lib/chrome.mjs";
 import { DOC_TEMPLATE_SEO_OVERRIDES } from "./data/seo-config.mjs";
 import { productsStripHtml, SEO_PRODUCTS_STRIP_STYLE } from "./lib/seo-products.mjs";
+import { legalStatusHtml, legalStatusJsonLd } from "./lib/template-jurisdiction.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outDir = join(__dirname, "../public/free-templates");
@@ -35896,6 +35897,10 @@ const WEEKLY_DOCUMENT_TEMPLATES = existsSync(weeklyDocTemplatesPath)
   ? JSON.parse(readFileSync(weeklyDocTemplatesPath, "utf8"))
   : [];
 const DOCUMENT_TEMPLATES = [...INLINE_DOCUMENT_TEMPLATES, ...WEEKLY_DOCUMENT_TEMPLATES];
+// Last change to each template's text, from git (scripts/build-template-revisions.mjs). Used only where
+// the stored hash still matches, so a stale snapshot drops the date instead of showing a wrong one.
+const templateRevisionsPath = join(__dirname, "data/template-revisions.json");
+const TEMPLATE_REVISIONS = existsSync(templateRevisionsPath) ? JSON.parse(readFileSync(templateRevisionsPath, "utf8")) : {};
 
 const TEMPLATES_INDEX_FAQ = [
   {
@@ -36916,6 +36921,7 @@ for (const t of DOCUMENT_TEMPLATES) {
           author: { "@type": "Organization", name: "docstoc" },
           publisher: { "@type": "Organization", name: "RELACON GmbH" },
           mainEntityOfPage: `https://docstoc.io/document-templates/${t.slug}`,
+          ...legalStatusJsonLd(t, TEMPLATE_REVISIONS),
         },
         {
           "@type": "FAQPage",
@@ -36988,6 +36994,8 @@ for (const t of DOCUMENT_TEMPLATES) {
   ${trustBadgesHtml()}
 
   <p class="tpl-seo-intro">${buildDocumentSeoIntro(t)}</p>
+
+  ${legalStatusHtml(t, TEMPLATE_REVISIONS, escapeHtml)}
 
   <div class="tpl-box tpl-editor" data-slug="${escapeHtml(t.slug)}">
     <div class="tpl-label">Template — click to edit</div>

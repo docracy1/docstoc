@@ -2381,6 +2381,36 @@ body.mobile-nav-open .docstoc-asst {
   margin: 8px 0 28px;
 }
 
+/* Jurisdiction and review status on document template pages (scripts/lib/template-jurisdiction.mjs). */
+.tpl-legal-status {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  background: var(--paper-deep);
+  padding: 14px 16px;
+  margin: 0 0 28px;
+}
+.tpl-legal-status dl {
+  display: grid;
+  grid-template-columns: minmax(0, 13em) minmax(0, 1fr);
+  gap: 6px 16px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.tpl-legal-status dt {
+  font-weight: 600;
+  color: var(--ink);
+}
+.tpl-legal-status dd {
+  margin: 0;
+  color: var(--ink-soft);
+}
+@media (max-width: 600px) {
+  .tpl-legal-status dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .tpl-legal-status dd { margin-bottom: 8px; }
+}
+
 .tpl-included {
   list-style: none;
   padding: 0;
