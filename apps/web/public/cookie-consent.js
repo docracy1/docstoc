@@ -39,7 +39,7 @@
   function loadAnalytics() {
     if (document.querySelector('script[data-docstoc-analytics]')) return;
     var s = document.createElement("script");
-    s.src = "/analytics.js";
+    s.src = "/analytics.js?v=20261113a";
     s.async = true;
     s.setAttribute("data-docstoc-analytics", "1");
     document.body.appendChild(s);
