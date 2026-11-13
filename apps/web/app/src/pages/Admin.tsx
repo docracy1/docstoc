@@ -36,6 +36,7 @@ import {
   type TrafficStats,
 } from "../lib/adminApi";
 import { useT } from "../lib/i18n";
+import VisitsCard from "../components/admin/VisitsCard";
 import { useEffect, useMemo, useState } from "react";
 
 type NavId =
@@ -883,6 +884,8 @@ export default function Admin() {
                 <h2 className="dash-card-title">{t("admin.searchCalloutTitle")}</h2>
                 <p className="dash-note">{t("admin.searchCalloutBody")}</p>
               </section>
+
+              <VisitsCard days={days} />
 
               <div className="dash-stat-row dash-stat-row-4">
                 <div className="dash-stat">

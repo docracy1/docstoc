@@ -34,6 +34,7 @@ import invoices from "./routes/invoices";
 import { configuredAppOrigin, isAllowedAppOrigin } from "./lib/appUrl";
 import { csrfProtection } from "./lib/csrf";
 import { purgeExpiredSessions } from "./lib/sessionCleanup";
+import { pruneVisits } from "./lib/visits";
 import { sendDailyChaseDigests } from "./lib/chaseDigest";
 import { sendOnboardingNudges } from "./lib/onboardingNudge";
 import { runSpaSmokeAndAlert } from "./lib/spaSmoke";
@@ -128,6 +129,7 @@ export default {
       ctx.waitUntil(
         (async () => {
           await purgeExpiredSessions(env);
+          await pruneVisits(env.CHASA_DB).catch((err) => console.error("Visit count prune failed:", err));
           await sendDailyChaseDigests(env);
           await sendOnboardingNudges(env).catch((err) =>
             console.error("Onboarding nudge sweep failed:", err)

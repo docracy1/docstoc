@@ -12,6 +12,7 @@ import {
 import { isAdminEmail } from "../lib/adminAuth";
 import { checkRateLimit, clientIpFromHeaders } from "../lib/rateLimit";
 import { clientIp } from "../lib/turnstile";
+import { recordVisit } from "../lib/visitTrack";
 import {
   analyticsPageviewSchema,
   analyticsTrackSchema,
@@ -166,6 +167,22 @@ analytics.post("/pageview", async (c) => {
   }
 
   return c.json({ ok: true });
+});
+
+/** Cookieless visitor count (lib/visits.ts, lib/visitTrack.ts): one row per page view or leave, always 204.
+ *  No cookie is read except the operator's opt-out and the admin session, which only exclude the request. */
+analytics.post("/visit", async (c) => {
+  try {
+    await recordVisit(c.req.raw, c.req.raw.cf as { asn?: unknown; asOrganization?: unknown; country?: unknown } | undefined, {
+      db: c.env.CHASA_DB,
+      salt: c.env.ANALYTICS_SALT,
+      now: new Date(),
+      isExcluded: () => shouldSkipAnalytics(c),
+    });
+  } catch (e) {
+    console.error("[visit]", e instanceof Error ? e.message : e);
+  }
+  return c.body(null, 204);
 });
 
 export default analytics;

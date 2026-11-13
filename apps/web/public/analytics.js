@@ -80,6 +80,63 @@
     }).catch(function () {});
   }
 
+  /** Cookieless visitor count (worker src/lib/visits.ts, owner 13.11.2026): one POST per page view and one when
+   *  the tab is hidden or closed, so time on page is measurable without consent. Sends only path, referrer,
+   *  utm_source and window width; reads no localStorage and sets nothing. Skipped for Do Not Track, Global
+   *  Privacy Control, automated browsers, local hosts, the signed-in app and the operator's devices
+   *  (docstoc_notrack=1). Runs once per page even when cookie-consent.js injects this file a second time. */
+  function startVisitCount() {
+    if (window.__docstocVisitCount) return;
+    window.__docstocVisitCount = true;
+    try {
+      var nav = navigator;
+      if (nav.doNotTrack === "1" || window.doNotTrack === "1" || nav.globalPrivacyControl === true || nav.webdriver === true) return;
+      var host = location.hostname;
+      if (host === "localhost" || host === "127.0.0.1" || /\.local$/.test(host)) return;
+      if (document.cookie.indexOf("docstoc_notrack=1") !== -1) return;
+      var path = location.pathname;
+      if (/^\/(app|admin|api)(\/|$)/.test(path)) return;
+      var params = new URLSearchParams(location.search);
+      var base = {
+        path: path,
+        referrer: document.referrer || "",
+        utmSource: params.get("utm_source") || params.get("ref") || "",
+        width: window.innerWidth,
+      };
+      var send = function (ev) {
+        var body = JSON.stringify({ ev: ev, path: base.path, referrer: base.referrer, utmSource: base.utmSource, width: base.width });
+        try {
+          if (navigator.sendBeacon && navigator.sendBeacon("/api/analytics/visit", new Blob([body], { type: "application/json" }))) return;
+        } catch (e) {}
+        fetch("/api/analytics/visit", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: body,
+          keepalive: true,
+        }).catch(function () {});
+      };
+      send("view");
+      // A leave row marks when the visitor left; at most three per page (tab switched away and back).
+      var leaves = 0;
+      var visible = document.visibilityState !== "hidden";
+      var leave = function () {
+        if (!visible || leaves >= 3) return;
+        visible = false;
+        leaves += 1;
+        send("leave");
+      };
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") leave();
+        else visible = true;
+      });
+      window.addEventListener("pagehide", leave);
+    } catch (e) {
+      // Counting is an extra; it must never break a page.
+    }
+  }
+  startVisitCount();
+
   window.docstocTrack = track;
   window.docstocExcludeSelf = excludeSelf;
 

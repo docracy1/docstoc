@@ -16,6 +16,17 @@ export const onRequest: PagesFunction<{ WORKER_URL: string }> = async (context) 
   const headers = new Headers(context.request.headers);
   headers.set("X-Docstoc-App-Origin", url.origin);
 
+  // The cookieless visitor count (worker src/lib/visits.ts) needs the visitor's IP for its daily hash and the
+  // network's ASN for "dc"/"isp"; on this hop the worker only sees Cloudflare. set() overwrites client values.
+  // The worker stores neither: the IP only goes into the hash, the ASN only into one word.
+  if (url.pathname === "/api/analytics/visit") {
+    const cf = (context.request as Request & { cf?: { asn?: number; asOrganization?: string; country?: string } }).cf;
+    headers.set("X-Docstoc-Visit-Ip", context.request.headers.get("cf-connecting-ip") ?? "");
+    headers.set("X-Docstoc-Visit-Asn", cf?.asn ? String(cf.asn) : "");
+    headers.set("X-Docstoc-Visit-As-Org", (cf?.asOrganization ?? "").replace(/[^\x20-\x7e]/g, "").slice(0, 120));
+    headers.set("X-Docstoc-Visit-Country", cf?.country ?? context.request.headers.get("cf-ipcountry") ?? "");
+  }
+
   // Buffer POST/PUT bodies — streaming request.body into subfetch can hang in Pages Functions.
   const method = context.request.method.toUpperCase();
   let body: ArrayBuffer | undefined;

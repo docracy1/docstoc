@@ -13,6 +13,7 @@ import {
 import { SESSION_COOKIE_NAME } from "../lib/auth";
 import { getFunnelStats, getOutreachStats, getTrafficSources, getTrafficStats, getD1DailyCounts, NOTRACK_COOKIE_NAME, noTrackCookieOptions } from "../lib/analytics";
 import { queryAeDailyCounts, buildParityRows } from "../lib/analyticsQuery";
+import { visitsOverview } from "../lib/visits";
 import { createRoadmapFeature, deleteRoadmapFeature, listRoadmapFeatures } from "../lib/roadmap";
 import { deleteAccountByEmail } from "../lib/accountDeletion";
 import { getCachedClaritySnapshot, refreshClaritySnapshot } from "../lib/clarityApi";
@@ -352,6 +353,27 @@ admin.post("/broadcast", requireAdmin, async (c) => {
 admin.post("/analytics/notrack", requireAdmin, async (c) => {
   setCookie(c, NOTRACK_COOKIE_NAME, "1", noTrackCookieOptions(c.env));
   return c.json({ ok: true, enabled: true });
+});
+
+/** Cookieless visitor count (lib/visits.ts): visitors, views, time on site and bounces per kind of page,
+ *  countries and kind of network. Before migration 0047 the table is missing; the card then says so. */
+admin.get("/visits", requireAdmin, async (c) => {
+  const daysRaw = Number(c.req.query("days") || "30");
+  const days = Number.isFinite(daysRaw) ? Math.min(Math.max(Math.round(daysRaw), 1), 90) : 30;
+  const now = new Date();
+  try {
+    const overview = await visitsOverview(c.env.CHASA_DB, {
+      today: now.toISOString().slice(0, 10),
+      days,
+      nowSec: Math.floor(now.getTime() / 1000),
+      configured: !!c.env.ANALYTICS_SALT,
+    });
+    return c.json({ ok: true, ...overview });
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    if (/no such table/i.test(message)) return c.json({ ok: false, reason: "migration_missing", configured: !!c.env.ANALYTICS_SALT });
+    throw e;
+  }
 });
 
 // Roadmap admin CRUD (Docracy parity) — public voting lives at /api/roadmap, unauthenticated.

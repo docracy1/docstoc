@@ -326,3 +326,45 @@ export function adminSetNoTrack() {
 }
 
 export { track, isExcludeSelf, setExcludeSelf };
+
+/** Cookieless visitor count (worker lib/visits.ts, migration 0047). */
+export type VisitPageKind = "home" | "template" | "category" | "blog" | "landing";
+
+export interface VisitKindStats {
+  kind: VisitPageKind;
+  visitors: number;
+  pageviews: number;
+  visits: number;
+  bounces: number;
+  measured: number;
+  averageSeconds: number | null;
+  short: number;
+}
+
+export interface VisitCountryStats {
+  country: string;
+  visitors: number;
+  pageviews: number;
+  dcVisitors: number;
+  ispVisitors: number;
+  unknownVisitors: number;
+}
+
+export type VisitsResponse =
+  | {
+      ok: true;
+      configured: boolean;
+      days: number;
+      first: string;
+      today: string;
+      live: { minutes: number; visitors: number };
+      totals: { visitors: number; pageviews: number; visits: number; bounces: number; measured: number; averageSeconds: number | null; short: number };
+      kinds: VisitKindStats[];
+      countries: VisitCountryStats[];
+      net: { dc: number; isp: number; unknown: number };
+    }
+  | { ok: false; reason: "migration_missing"; configured: boolean };
+
+export function adminVisits(days = 30) {
+  return adminFetch<VisitsResponse>(`/visits?days=${days}`);
+}

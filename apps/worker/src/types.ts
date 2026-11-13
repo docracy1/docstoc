@@ -8,6 +8,8 @@ export interface Env {
 
   // Secrets (wrangler secret put ...)
   TOKEN_SECRET: string;
+  /** Salt of the daily visitor hash of the cookieless count (lib/visits.ts). Unset = nothing is counted. */
+  ANALYTICS_SALT?: string;
   RESEND_API_KEY?: string;
   STRIPE_SECRET_KEY?: string;
   STRIPE_WEBHOOK_SECRET?: string;
