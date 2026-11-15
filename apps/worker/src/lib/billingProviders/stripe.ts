@@ -3,16 +3,24 @@ import type { Env } from "../../types";
 import { parseCheckoutPlan, planFromPriceId, type Plan } from "../billing";
 
 export type StripeWebhookResult =
-  | {
-      type: "checkout_completed";
-      accountId: string;
-      plan: Plan;
-      customerId: string | null;
-      subscriptionId: string | null;
-    }
-  | { type: "subscription_deleted"; customerId: string }
-  | { type: "subscription_updated"; customerId: string; status: string; plan: Plan | null }
-  | { type: "payment_failed"; customerId: string };
+  /** checkout.session.completed / async_payment_succeeded in subscription mode: apply the live subscription. */
+  | { type: "checkout_subscription"; accountId: string; customerId: string | null; subscriptionId: string }
+  /** Same events in payment mode (one-time plan). `paid` = payment_status paid / no_payment_required. */
+  | { type: "checkout_payment"; accountId: string; plan: Plan; customerId: string | null; paid: boolean }
+  /** customer.subscription.created/updated/deleted/paused/resumed: apply the live subscription. */
+  | { type: "subscription_changed"; customerId: string; subscriptionId: string }
+  /** invoice.paid / payment_succeeded / payment_failed. */
+  | { type: "invoice"; customerId: string; subscriptionId: string | null; failed: boolean }
+  /** charge.refunded: only a full refund of a one-time purchase revokes its plan. */
+  | { type: "charge_refunded"; customerId: string | null; fullyRefunded: boolean; invoiceId: string | null }
+  /** charge.dispute.created: the charge's customer is read live. */
+  | { type: "dispute_created"; chargeId: string };
+
+export type StripeSignatureCheck =
+  | { ok: true; event: StripeEvent }
+  | { ok: false; reason: "no_secret" | "no_signature" | "malformed" | "stale" | "invalid" | "bad_json" };
+
+export type StripeEvent = { id?: string; type?: string; data?: { object?: Record<string, unknown> } };
 
 const REPLAY_TOLERANCE_SECONDS = 300; // matches Stripe's own default tolerance
 
@@ -39,34 +47,27 @@ function parseSignatureHeader(header: string): { timestamp: string; signatures: 
 }
 
 /**
- * Verifies a Stripe webhook's signature (HMAC-SHA256 over "{timestamp}.{rawBody}") and extracts
- * the event. Returns null for: no webhook secret configured, a missing/malformed/invalid
- * signature, a stale (replayed) event, or an event type we don't act on — the webhook route
- * itself always responds 200 regardless, since Stripe only needs to know we received it.
- *
- * Four event types are handled: "checkout.session.completed" unlocks the paid tier and records the
- * Stripe customer/subscription id; "customer.subscription.deleted" is the one signal that a
- * subscription actually ended (cancellation, or Stripe giving up after failed-payment retries),
- * so it's what revokes paid status; "customer.subscription.updated" catches everything short of
- * that — a plan change made through Stripe's own customer portal, or the status moving through
- * past_due/unpaid on a failed renewal — so the account's plan and billing_status stay in sync
- * without waiting for the subscription to be deleted outright; "invoice.payment_failed" is a
- * heads-up notification only (no plan change), since Stripe's retry schedule is what actually
- * decides whether the subscription survives. All four resolve back to an account via billing.ts's
- * findAccountIdByStripeCustomerId, since none of these payloads carry a client_reference_id.
+ * Verifies a Stripe webhook's signature (HMAC-SHA256 over "{timestamp}.{rawBody}"). Anything that
+ * does not verify (no secret configured, missing/malformed/invalid signature, stale timestamp) is
+ * reported as such, and the route answers 400, so a misconfigured secret shows up as failed
+ * deliveries in Stripe (which retries them) instead of silently dropped events.
  */
-export async function verifyAndExtract(
+export async function verifyStripeSignature(
   rawBody: string,
   signatureHeader: string | null,
-  env: Env
-): Promise<StripeWebhookResult | null> {
-  if (!env.STRIPE_WEBHOOK_SECRET || !signatureHeader) return null;
+  env: Env,
+  nowSeconds: number = Date.now() / 1000
+): Promise<StripeSignatureCheck> {
+  if (!env.STRIPE_WEBHOOK_SECRET) return { ok: false, reason: "no_secret" };
+  if (!signatureHeader) return { ok: false, reason: "no_signature" };
 
   const parsed = parseSignatureHeader(signatureHeader);
-  if (!parsed) return null;
+  if (!parsed) return { ok: false, reason: "malformed" };
 
-  const eventAgeSeconds = Math.abs(Date.now() / 1000 - Number(parsed.timestamp));
-  if (eventAgeSeconds > REPLAY_TOLERANCE_SECONDS) return null;
+  const eventAgeSeconds = Math.abs(nowSeconds - Number(parsed.timestamp));
+  if (!Number.isFinite(eventAgeSeconds) || eventAgeSeconds > REPLAY_TOLERANCE_SECONDS) {
+    return { ok: false, reason: "stale" };
+  }
 
   const key = await hmacKey(env.STRIPE_WEBHOOK_SECRET);
   const signedPayload = new TextEncoder().encode(`${parsed.timestamp}.${rawBody}`);
@@ -75,66 +76,92 @@ export async function verifyAndExtract(
       crypto.subtle.verify("HMAC", key, hexToBytes(sig), signedPayload).catch(() => false)
     )
   );
-  if (!anyValid.some(Boolean)) return null;
+  if (!anyValid.some(Boolean)) return { ok: false, reason: "invalid" };
 
-  let event: { type?: string; data?: { object?: Record<string, unknown> } };
   try {
-    event = JSON.parse(rawBody);
+    return { ok: true, event: JSON.parse(rawBody) as StripeEvent };
   } catch {
-    return null;
+    return { ok: false, reason: "bad_json" };
   }
+}
 
-  if (event.type === "checkout.session.completed") {
-    const obj = event.data?.object;
-    const accountId = obj?.client_reference_id;
+function idOf(value: unknown): string | null {
+  if (typeof value === "string" && value) return value;
+  const id = (value as { id?: unknown } | null)?.id;
+  return typeof id === "string" && id ? id : null;
+}
+
+const SUBSCRIPTION_EVENTS = new Set([
+  "customer.subscription.created",
+  "customer.subscription.updated",
+  "customer.subscription.deleted",
+  "customer.subscription.paused",
+  "customer.subscription.resumed",
+]);
+
+const INVOICE_EVENTS = new Set(["invoice.paid", "invoice.payment_succeeded", "invoice.payment_failed"]);
+
+/**
+ * Maps a verified event to what the route acts on, or null for an event type we ignore. None of
+ * the subscription results carry a status or price: the route reads the subscription live from
+ * Stripe, because event order is not guaranteed and a retried old snapshot must not win.
+ */
+export function extractStripeEvent(event: StripeEvent, env: Env): StripeWebhookResult | null {
+  const obj = event.data?.object;
+  if (!obj) return null;
+
+  if (event.type === "checkout.session.completed" || event.type === "checkout.session.async_payment_succeeded") {
+    const accountId = obj.client_reference_id;
     if (typeof accountId !== "string" || !accountId) return null;
-    const customer = obj?.customer;
-    const subscription = obj?.subscription;
-    const metadata = obj?.metadata as { plan?: unknown } | undefined;
+    const customerId = idOf(obj.customer);
+    const subscriptionId = idOf(obj.subscription);
+    if (obj.mode === "subscription" || subscriptionId) {
+      if (!subscriptionId) return null;
+      return { type: "checkout_subscription", accountId, customerId, subscriptionId };
+    }
+    const metadata = obj.metadata as { plan?: unknown } | undefined;
     // Prefer session metadata (set at Checkout Session create). Fall back to line-item price id
-    // when Stripe expands line_items, then legacy obj.price, then Solo.
-    const lineItems = (obj?.line_items as { data?: Array<{ price?: string | { id?: string } }> } | undefined)
-      ?.data;
+    // when Stripe expands line_items, then legacy obj.price, then Pro.
+    const lineItems = (obj.line_items as { data?: Array<{ price?: string | { id?: string } }> } | undefined)?.data;
     const firstPrice = lineItems?.[0]?.price;
     const lineItemPriceId =
       typeof firstPrice === "string" ? firstPrice : typeof firstPrice?.id === "string" ? firstPrice.id : null;
     const plan =
       parseCheckoutPlan(metadata?.plan) ??
       planFromPriceId(env, lineItemPriceId) ??
-      planFromPriceId(env, typeof obj?.price === "string" ? obj.price : null) ??
+      planFromPriceId(env, typeof obj.price === "string" ? obj.price : null) ??
       "pro";
-    return {
-      type: "checkout_completed",
-      accountId,
-      plan,
-      customerId: typeof customer === "string" ? customer : null,
-      subscriptionId: typeof subscription === "string" ? subscription : null,
-    };
+    const paid = obj.payment_status === "paid" || obj.payment_status === "no_payment_required";
+    return { type: "checkout_payment", accountId, plan, customerId, paid };
   }
 
-  if (event.type === "customer.subscription.deleted") {
-    const customerId = event.data?.object?.customer;
-    if (typeof customerId !== "string" || !customerId) return null;
-    return { type: "subscription_deleted", customerId };
+  if (event.type && SUBSCRIPTION_EVENTS.has(event.type)) {
+    const customerId = idOf(obj.customer);
+    const subscriptionId = idOf(obj.id);
+    if (!customerId || !subscriptionId) return null;
+    return { type: "subscription_changed", customerId, subscriptionId };
   }
 
-  if (event.type === "customer.subscription.updated") {
-    const obj = event.data?.object;
-    const customerId = obj?.customer;
-    const status = obj?.status;
-    if (typeof customerId !== "string" || !customerId || typeof status !== "string") return null;
-
-    const items = (obj?.items as { data?: Array<{ price?: { id?: string } }> } | undefined)?.data;
-    const priceId = items?.[0]?.price?.id;
-    const plan = planFromPriceId(env, typeof priceId === "string" ? priceId : null);
-
-    return { type: "subscription_updated", customerId, status, plan };
+  if (event.type && INVOICE_EVENTS.has(event.type)) {
+    const customerId = idOf(obj.customer);
+    if (!customerId) return null;
+    // API versions from 2025-03-31 moved the subscription to parent.subscription_details.
+    const parent = obj.parent as { subscription_details?: { subscription?: unknown } } | undefined;
+    const subscriptionId = idOf(obj.subscription) ?? idOf(parent?.subscription_details?.subscription);
+    return { type: "invoice", customerId, subscriptionId, failed: event.type === "invoice.payment_failed" };
   }
 
-  if (event.type === "invoice.payment_failed") {
-    const customerId = event.data?.object?.customer;
-    if (typeof customerId !== "string" || !customerId) return null;
-    return { type: "payment_failed", customerId };
+  if (event.type === "charge.refunded") {
+    const amount = typeof obj.amount === "number" ? obj.amount : null;
+    const refunded = typeof obj.amount_refunded === "number" ? obj.amount_refunded : 0;
+    const fullyRefunded = obj.refunded === true || (amount !== null && amount > 0 && refunded >= amount);
+    return { type: "charge_refunded", customerId: idOf(obj.customer), fullyRefunded, invoiceId: idOf(obj.invoice) };
+  }
+
+  if (event.type === "charge.dispute.created") {
+    const chargeId = idOf(obj.charge);
+    if (!chargeId) return null;
+    return { type: "dispute_created", chargeId };
   }
 
   return null;

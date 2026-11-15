@@ -194,7 +194,7 @@ apps/worker/
 - **Session cleanup:** daily cron purges expired sessions, magic links, rate-limit buckets
 - **RBAC:** workspace admin for branding, webhooks, connector OAuth, API keys, team invites
 - **Input validation:** Zod schemas on all JSON API routes (auth, emails, clients, team, webhooks, billing, admin, MCP draft args)
-- **Stripe webhooks:** event-id deduplication (`stripe_events`)
+- **Stripe webhooks:** 400 on a signature that does not verify, 500 on a handler error (Stripe retries), event id recorded in `stripe_events` only after success. Every subscription event (`checkout.session.completed` in subscription mode, `customer.subscription.*`, `invoice.*`) reads the subscription live from Stripe and applies that state (`apps/worker/src/lib/billingState.ts`): active/trialing paid until `current_period_end` + 3 days, past_due paid for 14 days from the first failure (`past_due_since`), everything else free; a different subscription of the same customer can upgrade but never downgrade. One-time purchases (`billing_status = one_time`) are revoked by a full refund or a dispute. Accounts without `stripe_subscription_id` (manual/enterprise grants) never expire. Migration `0048_billing_period_end.sql` adds the two columns; the code runs without it (no expiry, no past_due grace until applied).
 - **Outbound webhooks:** `X-Chasa-Signature: sha256=…` HMAC
 - **Click tracking:** redirects only to URLs stored when the tracked email was created
 - **Webhook URLs:** SSRF checks (no localhost / private IPs)
@@ -275,7 +275,7 @@ Protects `/api/auth/request` and admin login.
    - `STRIPE_PRICE_SOLO`, `STRIPE_PRICE_PRO`, `STRIPE_PRICE_ENTERPRISE`
 4. `wrangler secret put TOKEN_SECRET` — `openssl rand -hex 32`
 5. `wrangler secret put STRIPE_SECRET_KEY` (test key first)
-6. Stripe webhook → `https://api.chasa.io/api/billing/webhook` — events: `checkout.session.completed`, `customer.subscription.deleted` → `wrangler secret put STRIPE_WEBHOOK_SECRET`
+6. Stripe webhook → `https://api.chasa.io/api/billing/webhook` — events: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, `customer.subscription.paused`, `customer.subscription.resumed`, `invoice.paid`, `invoice.payment_failed`, `charge.refunded`, `charge.dispute.created` → `wrangler secret put STRIPE_WEBHOOK_SECRET`
 7. `wrangler secret put RESEND_API_KEY` — verify sending domain in Resend
 8. Turnstile — see above
 9. `wrangler secret put ADMIN_PASSWORD` — for `/app/admin`
