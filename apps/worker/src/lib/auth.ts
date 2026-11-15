@@ -10,7 +10,7 @@ import { generateOpaqueToken, hashOpaqueToken, hashOpaqueTokenLookup, hashOpaque
 import { purgeExpiredSessions } from "./sessionCleanup";
 import { sendMagicLinkEmail } from "./email";
 import { detectLocaleFromHeader, normalizeLocale, type Locale } from "./locale";
-import { normalizePlan } from "./plan";
+import { effectivePlan, withBillingColumns, type StoredBilling } from "./billingState";
 
 const MAGIC_LINK_TTL_SECONDS = 15 * 60;
 const SESSION_TTL_SECONDS = 30 * 24 * 60 * 60;
@@ -68,15 +68,17 @@ async function findOrCreateAccount(
   locale: Locale = "en"
 ): Promise<{ id: string; plan: Plan; isPaid: boolean; isNew: boolean }> {
   const normalized = email.trim().toLowerCase();
-  const existing = await env.CHASA_DB.prepare(`SELECT id, is_paid, plan FROM accounts WHERE email = ?`)
-    .bind(normalized)
-    .first<{ id: string; is_paid: number; plan: string | null }>();
+  const existing = await withBillingColumns((cols) =>
+    env.CHASA_DB.prepare(`SELECT id, is_paid, plan, ${cols()} FROM accounts WHERE email = ?`)
+      .bind(normalized)
+      .first<{ id: string } & StoredBilling>()
+  );
 
   if (existing) {
     await env.CHASA_DB.prepare(`UPDATE accounts SET last_login_at = ? WHERE id = ?`)
       .bind(new Date().toISOString(), existing.id)
       .run();
-    const plan = normalizePlan(existing.plan, existing.is_paid === 1);
+    const plan = effectivePlan(existing);
     return { id: existing.id, plan, isPaid: isPaidPlan(plan), isNew: false };
   }
 
@@ -277,21 +279,21 @@ export async function adminPasswordLogin(
 
 async function findSessionRow(env: Env, sessionToken: string, now: string) {
   const [primaryHash, legacyHash] = await hashOpaqueTokenLookup(sessionToken, env.TOKEN_SECRET, "session");
-  type Row = {
+  type Row = StoredBilling & {
     id: string;
     email: string;
-    is_paid: number;
-    plan: string | null;
     workspace_owner_id: string | null;
     token_hash: string;
   };
-  const sql = `SELECT a.id as id, a.email as email, a.is_paid as is_paid, a.plan as plan,
-            a.workspace_owner_id as workspace_owner_id, s.token_hash as token_hash
-     FROM sessions s JOIN accounts a ON a.id = s.account_id
-     WHERE s.token_hash = ? AND s.expires_at > ?`;
-  let row = await env.CHASA_DB.prepare(sql).bind(primaryHash, now).first<Row>();
-  if (!row) row = await env.CHASA_DB.prepare(sql).bind(legacyHash, now).first<Row>();
-  return row;
+  return withBillingColumns(async (cols) => {
+    const sql = `SELECT a.id as id, a.email as email, a.is_paid as is_paid, a.plan as plan,
+              a.workspace_owner_id as workspace_owner_id, s.token_hash as token_hash, ${cols("a.")}
+       FROM sessions s JOIN accounts a ON a.id = s.account_id
+       WHERE s.token_hash = ? AND s.expires_at > ?`;
+    let row = await env.CHASA_DB.prepare(sql).bind(primaryHash, now).first<Row>();
+    if (!row) row = await env.CHASA_DB.prepare(sql).bind(legacyHash, now).first<Row>();
+    return row;
+  });
 }
 
 export async function resolveAccount(env: Env, sessionToken: string): Promise<AccountContext | null> {
@@ -306,17 +308,18 @@ export async function resolveAccount(env: Env, sessionToken: string): Promise<Ac
 
   let workspaceId = row.id;
   let role: "admin" | "member" = "admin";
-  let plan = normalizePlan(row.plan, row.is_paid === 1);
+  let plan = effectivePlan(row);
 
   if (row.workspace_owner_id) {
-    const owner = await env.CHASA_DB.prepare(
-      `SELECT id, is_paid, plan FROM accounts WHERE id = ?`
-    )
-      .bind(row.workspace_owner_id)
-      .first<{ id: string; is_paid: number; plan: string | null }>();
+    const ownerId = row.workspace_owner_id;
+    const owner = await withBillingColumns((cols) =>
+      env.CHASA_DB.prepare(`SELECT id, is_paid, plan, ${cols()} FROM accounts WHERE id = ?`)
+        .bind(ownerId)
+        .first<{ id: string } & StoredBilling>()
+    );
     if (owner) {
       workspaceId = owner.id;
-      plan = normalizePlan(owner.plan, owner.is_paid === 1);
+      plan = effectivePlan(owner);
       const membership = await env.CHASA_DB.prepare(
         `SELECT role FROM workspace_members
          WHERE account_id = ? AND email = ? AND status = 'active'`

@@ -10,11 +10,18 @@ import {
   setAccountBillingStatus,
   setAccountPlan,
   setStripeCustomerId,
-  setStripeSubscriptionId,
   subscriptionGrantsPlan,
 } from "../lib/billing";
-import { verifyAndExtract } from "../lib/billingProviders/stripe";
-import { claimStripeEvent, parseStripeEventId } from "../lib/stripeEvents";
+import { extractStripeEvent, verifyStripeSignature, type StripeWebhookResult } from "../lib/billingProviders/stripe";
+import { isStripeEventProcessed, parseStripeEventId, recordStripeEvent } from "../lib/stripeEvents";
+import {
+  ONE_TIME_BILLING_STATUS,
+  applyLiveSubscription,
+  fetchLiveSubscription,
+  parseLiveSubscription,
+  readBillingRow,
+  type LiveSubscription,
+} from "../lib/billingState";
 import { sendPaymentFailedEmail } from "../lib/email";
 import { normalizeLocale } from "../lib/locale";
 import { billingCheckoutSchema, parseJsonBody } from "../lib/schemas";
@@ -48,20 +55,6 @@ type StripeCheckoutSession = {
   client_reference_id?: string | null;
   metadata?: { plan?: unknown } | null;
   line_items?: { data?: Array<{ price?: string | { id?: string } }> } | null;
-};
-
-type StripeSubscriptionList = {
-  data?: Array<{
-    id?: string;
-    status?: string;
-    items?: {
-      data?: Array<{
-        price?: {
-          id?: string;
-        } | null;
-      }>;
-    } | null;
-  }>;
 };
 
 function stripeClientMessage(status: number, body: StripeErrorBody, fallback: string): string {
@@ -126,23 +119,16 @@ async function fetchStripeCheckoutSession(
   return { ok: true, session: parsed };
 }
 
-async function fetchStripeSubscriptionStatus(
-  secretKey: string,
-  subscriptionId: string
-): Promise<string | null> {
-  const res = await fetch(`https://api.stripe.com/v1/subscriptions/${encodeURIComponent(subscriptionId)}`, {
-    headers: { Authorization: `Bearer ${secretKey}` },
-  });
-  if (!res.ok) return null;
-  const sub = (await res.json()) as { status?: string };
-  return sub.status ?? null;
-}
-
-async function getBlockingStripeSubscriptionPlan(
+/**
+ * The customer's subscription that should stop a second checkout: any subscription in a state that
+ * still has (or can get back) a paid plan. Only an active/trialing one restores the plan here; a
+ * past_due/unpaid/incomplete one blocks the checkout without granting anything.
+ */
+async function getBlockingStripeSubscription(
   secretKey: string,
   customerId: string,
   env: Env
-): Promise<"pro" | "business" | null> {
+): Promise<LiveSubscription | null> {
   const params = new URLSearchParams({
     customer: customerId,
     status: "all",
@@ -153,12 +139,13 @@ async function getBlockingStripeSubscriptionPlan(
     headers: { Authorization: `Bearer ${secretKey}` },
   });
   if (!res.ok) return null;
-  const data = (await res.json()) as StripeSubscriptionList;
-  for (const sub of data.data ?? []) {
-    if (!["active", "trialing", "past_due", "unpaid", "incomplete"].includes(sub.status ?? "")) continue;
-    const priceId = sub.items?.data?.[0]?.price?.id ?? null;
-    const plan = planFromPriceId(env, priceId);
-    if (plan && plan !== "free") return plan;
+  const data = (await res.json()) as { data?: unknown[] };
+  for (const raw of data.data ?? []) {
+    const sub = parseLiveSubscription(raw);
+    if (!sub) continue;
+    if (!["active", "trialing", "past_due", "unpaid", "incomplete"].includes(sub.status)) continue;
+    const plan = planFromPriceId(env, sub.priceId);
+    if (plan && plan !== "free") return sub;
   }
   return null;
 }
@@ -209,14 +196,25 @@ billing.post("/checkout", requireAccount, async (c) => {
   }
 
   const existingCustomerId = await getStripeCustomerId(c.env, account.id);
-  const blockingPlan = existingCustomerId
-    ? await getBlockingStripeSubscriptionPlan(c.env.STRIPE_SECRET_KEY, existingCustomerId, c.env)
+  const blocking = existingCustomerId
+    ? await getBlockingStripeSubscription(c.env.STRIPE_SECRET_KEY, existingCustomerId, c.env)
     : null;
-  if (blockingPlan) {
-    await setAccountPlan(c.env, account.id, blockingPlan);
-    await setAccountBillingStatus(c.env, account.id, "active");
+  if (blocking) {
+    if (subscriptionGrantsPlan(blocking.status)) {
+      await applyLiveSubscription(c.env, account.id, blocking);
+      return c.json(
+        { error: "A Stripe subscription is already active for this account. Refresh the page or use Manage billing." },
+        409
+      );
+    }
+    // past_due / unpaid / incomplete: a second subscription would double-bill, but the open one
+    // has not been paid, so it must not hand out the plan either.
     return c.json(
-      { error: "A Stripe subscription is already active for this account. Refresh the page or use Manage billing." },
+      {
+        error:
+          "This account has a Stripe subscription with an open payment. Pay the open invoice from Stripe's email, or contact support.",
+        billingStatus: blocking.status,
+      },
       409
     );
   }
@@ -240,6 +238,9 @@ billing.post("/checkout", requireAccount, async (c) => {
     params.set("customer", existingCustomerId);
   } else {
     params.set("customer_email", account.email);
+    // Payment mode only creates a Customer on request. Without one, a later refund or dispute of
+    // the one-time purchase could not be matched back to the account.
+    if (mode === "payment") params.set("customer_creation", "always");
   }
 
   const res = await fetch("https://api.stripe.com/v1/checkout/sessions", {
@@ -319,24 +320,24 @@ billing.get("/confirm-session", requireAccount, async (c) => {
   const complete = session.status === "complete";
   const paid = session.payment_status === "paid" || session.payment_status === "no_payment_required";
   if (complete && paid) {
-    // A checkout session stays "complete" and "paid" forever, also after the subscription it
-    // created was canceled. Without this check, replaying an old session_id restores the plan.
-    if (typeof session.subscription === "string" && session.subscription) {
-      const status = await fetchStripeSubscriptionStatus(c.env.STRIPE_SECRET_KEY, session.subscription);
-      if (status === null) {
-        return c.json({ error: "Could not verify checkout yet. Please refresh." }, 502);
-      }
-      if (!subscriptionGrantsPlan(status)) {
-        return c.json({ ok: true, status: "pending_payment", plan });
-      }
-    }
-    await setAccountPlan(c.env, account.id, plan);
-    await setAccountBillingStatus(c.env, account.id, "active");
     if (typeof session.customer === "string" && session.customer) {
       await setStripeCustomerId(c.env, account.id, session.customer);
     }
+    // A checkout session stays "complete" and "paid" forever, also after the subscription it
+    // created was canceled. The live subscription decides, never the session.
     if (typeof session.subscription === "string" && session.subscription) {
-      await setStripeSubscriptionId(c.env, account.id, session.subscription);
+      const live = await fetchLiveSubscription(c.env.STRIPE_SECRET_KEY, session.subscription);
+      if (!live.ok) {
+        return c.json({ error: "Could not verify checkout yet. Please refresh." }, 502);
+      }
+      if (!subscriptionGrantsPlan(live.subscription.status)) {
+        return c.json({ ok: true, status: "pending_payment", plan });
+      }
+      const outcome = await applyLiveSubscription(c.env, account.id, live.subscription);
+      if (!outcome.applied) return c.json({ ok: true, status: "pending_payment", plan });
+    } else {
+      await setAccountPlan(c.env, account.id, plan);
+      await setAccountBillingStatus(c.env, account.id, ONE_TIME_BILLING_STATUS);
     }
     await trackEvent(c.env, {
       name: "checkout_completed",
@@ -354,65 +355,127 @@ billing.get("/confirm-session", requireAccount, async (c) => {
   });
 });
 
+class StripeLiveLookupError extends Error {}
+
+async function liveSubscriptionOrThrow(env: Env, subscriptionId: string): Promise<LiveSubscription | null> {
+  if (!env.STRIPE_SECRET_KEY) throw new StripeLiveLookupError("STRIPE_SECRET_KEY missing, cannot read the subscription");
+  const live = await fetchLiveSubscription(env.STRIPE_SECRET_KEY, subscriptionId);
+  if (live.ok) return live.subscription;
+  // 404: not a subscription of this Stripe account/mode. Retrying would never change that.
+  if (live.missing) {
+    console.warn(`stripe webhook: subscription ${subscriptionId} not found, event ignored`);
+    return null;
+  }
+  throw new StripeLiveLookupError(`Stripe subscription lookup failed (${live.status})`);
+}
+
+/** Revokes a one-time grant (full refund or dispute). Subscription accounts are left to their live state. */
+async function revokeOneTimeGrant(env: Env, customerId: string, reason: "refunded" | "disputed"): Promise<void> {
+  const accountId = await findAccountIdByStripeCustomerId(env, customerId);
+  if (!accountId) return;
+  const row = await readBillingRow(env, accountId);
+  if (!row || row.stripe_subscription_id) return;
+  // "active" covers one-time purchases confirmed before ONE_TIME_BILLING_STATUS existed. Manual and
+  // enterprise grants have no billing_status and are never touched.
+  if (row.billing_status !== ONE_TIME_BILLING_STATUS && row.billing_status !== "active") return;
+  await setAccountPlan(env, accountId, "free");
+  await setAccountBillingStatus(env, accountId, reason);
+}
+
+async function handleStripeEvent(env: Env, result: StripeWebhookResult): Promise<void> {
+  switch (result.type) {
+    case "checkout_subscription": {
+      if (result.customerId) await setStripeCustomerId(env, result.accountId, result.customerId);
+      const live = await liveSubscriptionOrThrow(env, result.subscriptionId);
+      if (!live) return;
+      const outcome = await applyLiveSubscription(env, result.accountId, live);
+      if (outcome.applied && outcome.plan !== "free") {
+        await trackEvent(env, { name: "checkout_completed", accountId: result.accountId, properties: { plan: outcome.plan } });
+      }
+      return;
+    }
+    case "checkout_payment": {
+      if (result.customerId) await setStripeCustomerId(env, result.accountId, result.customerId);
+      // Delayed payment methods complete the session unpaid; checkout.session.async_payment_succeeded grants later.
+      if (!result.paid) return;
+      await setAccountPlan(env, result.accountId, result.plan);
+      await setAccountBillingStatus(env, result.accountId, ONE_TIME_BILLING_STATUS);
+      await trackEvent(env, { name: "checkout_completed", accountId: result.accountId, properties: { plan: result.plan } });
+      return;
+    }
+    case "subscription_changed":
+    case "invoice": {
+      const accountId = await findAccountIdByStripeCustomerId(env, result.customerId);
+      if (!accountId) return;
+      if (result.subscriptionId) {
+        const live = await liveSubscriptionOrThrow(env, result.subscriptionId);
+        if (live) await applyLiveSubscription(env, accountId, live);
+      }
+      if (result.type === "invoice" && result.failed) {
+        const account = await env.CHASA_DB.prepare(`SELECT email, locale FROM accounts WHERE id = ?`)
+          .bind(accountId)
+          .first<{ email: string; locale: string | null }>();
+        if (account?.email) {
+          await sendPaymentFailedEmail(env, account.email, normalizeLocale(account.locale)).catch((err) =>
+            console.error("payment-failed email send failed:", err)
+          );
+        }
+      }
+      return;
+    }
+    case "charge_refunded": {
+      // Subscription invoices: the subscription's own state decides (Stripe cancels it if wanted).
+      if (!result.fullyRefunded || !result.customerId || result.invoiceId) return;
+      await revokeOneTimeGrant(env, result.customerId, "refunded");
+      return;
+    }
+    case "dispute_created": {
+      if (!env.STRIPE_SECRET_KEY) throw new StripeLiveLookupError("STRIPE_SECRET_KEY missing, cannot read the charge");
+      const res = await fetch(`https://api.stripe.com/v1/charges/${encodeURIComponent(result.chargeId)}`, {
+        headers: { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}` },
+      });
+      if (res.status === 404) return;
+      if (!res.ok) throw new StripeLiveLookupError(`Stripe charge lookup failed (${res.status})`);
+      const charge = (await res.json()) as { customer?: unknown; invoice?: unknown };
+      const customerId = typeof charge.customer === "string" ? charge.customer : null;
+      if (!customerId || charge.invoice) return;
+      await revokeOneTimeGrant(env, customerId, "disputed");
+      return;
+    }
+  }
+}
+
 // Not behind requireAccount/cookies — Stripe calls this server-to-server with no cookies or
 // Origin header. The signature check below is the actual authentication.
+//
+// Responses: 400 when the signature does not verify (Stripe shows the failure and retries, so a
+// wrong or missing STRIPE_WEBHOOK_SECRET loses nothing), 200 for verified events we handled or
+// ignore, 500 when a handler failed (Stripe retries; the event is only recorded after success).
 billing.post("/webhook", async (c) => {
   const rawBody = await c.req.text();
   const signature = c.req.header("Stripe-Signature") ?? null;
-  const result = await verifyAndExtract(rawBody, signature, c.env);
+  const verified = await verifyStripeSignature(rawBody, signature, c.env);
+  if (!verified.ok) {
+    console.warn(`stripe webhook rejected: ${verified.reason}`);
+    return c.json({ error: "Invalid Stripe signature.", reason: verified.reason }, 400);
+  }
+
   const eventId = parseStripeEventId(rawBody);
-
-  if (result && eventId) {
-    const isNew = await claimStripeEvent(c.env, eventId);
-    if (!isNew) return c.json({ ok: true, duplicate: true });
+  if (eventId && (await isStripeEventProcessed(c.env, eventId))) {
+    return c.json({ ok: true, duplicate: true });
   }
 
-  if (result?.type === "checkout_completed") {
-    await setAccountPlan(c.env, result.accountId, result.plan);
-    if (result.customerId) await setStripeCustomerId(c.env, result.accountId, result.customerId);
-    if (result.subscriptionId) await setStripeSubscriptionId(c.env, result.accountId, result.subscriptionId);
-    await trackEvent(c.env, {
-      name: "checkout_completed",
-      accountId: result.accountId,
-      properties: { plan: result.plan },
-    });
-  } else if (result?.type === "subscription_deleted") {
-    const accountId = await findAccountIdByStripeCustomerId(c.env, result.customerId);
-    if (accountId) {
-      await setAccountPlan(c.env, accountId, "free");
-      await setAccountBillingStatus(c.env, accountId, "canceled");
-      await setStripeSubscriptionId(c.env, accountId, null);
-    }
-  } else if (result?.type === "subscription_updated") {
-    const accountId = await findAccountIdByStripeCustomerId(c.env, result.customerId);
-    if (accountId) {
-      await setAccountBillingStatus(c.env, accountId, result.status);
-      if (result.status === "canceled") {
-        await setAccountPlan(c.env, accountId, "free");
-      } else if ((result.status === "active" || result.status === "trialing") && result.plan) {
-        // Covers plan changes made through Stripe's own customer portal — checkout.session.completed
-        // only fires on the *first* subscription, not later upgrades/downgrades.
-        await setAccountPlan(c.env, accountId, result.plan);
-      }
-      // past_due / unpaid / incomplete: leave the plan alone (grace period). billing_status above
-      // is what surfaces the problem; invoice.payment_failed below is what emails the owner.
-    }
-  } else if (result?.type === "payment_failed") {
-    const accountId = await findAccountIdByStripeCustomerId(c.env, result.customerId);
-    if (accountId) {
-      const account = await c.env.CHASA_DB.prepare(`SELECT email, locale FROM accounts WHERE id = ?`)
-        .bind(accountId)
-        .first<{ email: string; locale: string | null }>();
-      if (account?.email) {
-        await sendPaymentFailedEmail(c.env, account.email, normalizeLocale(account.locale)).catch((err) =>
-          console.error("payment-failed email send failed:", err)
-        );
-      }
-    }
+  const result = extractStripeEvent(verified.event, c.env);
+  if (!result) return c.json({ ok: true, ignored: true });
+
+  try {
+    await handleStripeEvent(c.env, result);
+  } catch (err) {
+    console.error(`stripe webhook ${verified.event.type ?? "?"} ${eventId ?? "?"} failed:`, err);
+    return c.json({ error: "Webhook handler failed, Stripe will retry." }, 500);
   }
 
-  // Always 200: Stripe retries (and eventually disables the endpoint) on non-2xx responses, and
-  // "signature didn't verify" / "not an event type we act on" aren't retry-worthy conditions.
+  if (eventId) await recordStripeEvent(c.env, eventId);
   return c.json({ ok: true });
 });
 

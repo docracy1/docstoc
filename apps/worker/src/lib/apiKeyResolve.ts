@@ -1,7 +1,7 @@
 import type { Env } from "../types";
 import { hashOpaqueTokenLookup } from "./token";
 import { isPaidPlan } from "./billing";
-import { normalizePlan } from "./plan";
+import { effectivePlan, withBillingColumns, type StoredBilling } from "./billingState";
 import type { AccountContext } from "./auth";
 
 async function resolveRoleForEmail(
@@ -27,12 +27,10 @@ async function resolveRoleForEmail(
 
 async function accountFromApiKeyRow(
   env: Env,
-  row: {
+  row: StoredBilling & {
     key_id: string;
     id: string;
     email: string;
-    is_paid: number;
-    plan: string | null;
     workspace_owner_id: string | null;
   }
 ): Promise<AccountContext> {
@@ -41,16 +39,19 @@ async function accountFromApiKeyRow(
     .run();
 
   let workspaceId = row.id;
-  let plan = normalizePlan(row.plan, row.is_paid === 1);
+  let plan = effectivePlan(row);
   let role: "admin" | "member" = "admin";
 
   if (row.workspace_owner_id) {
-    const owner = await env.CHASA_DB.prepare(`SELECT id, is_paid, plan FROM accounts WHERE id = ?`)
-      .bind(row.workspace_owner_id)
-      .first<{ id: string; is_paid: number; plan: string | null }>();
+    const ownerId = row.workspace_owner_id;
+    const owner = await withBillingColumns((cols) =>
+      env.CHASA_DB.prepare(`SELECT id, is_paid, plan, ${cols()} FROM accounts WHERE id = ?`)
+        .bind(ownerId)
+        .first<{ id: string } & StoredBilling>()
+    );
     if (owner) {
       workspaceId = owner.id;
-      plan = normalizePlan(owner.plan, owner.is_paid === 1);
+      plan = effectivePlan(owner);
       role = await resolveRoleForEmail(env, owner.id, row.email);
     }
   }
@@ -71,21 +72,23 @@ export async function resolveAccountFromApiKeyBearer(
 ): Promise<AccountContext | null> {
   if (!bearer.startsWith("docstoc_")) return null;
   const [primaryHash, legacyHash] = await hashOpaqueTokenLookup(bearer, env.TOKEN_SECRET, "api-key");
-  const sql = `SELECT k.id as key_id, a.id as id, a.email as email, a.is_paid as is_paid, a.plan as plan,
-            a.workspace_owner_id as workspace_owner_id
-     FROM api_keys k
-     JOIN accounts a ON a.id = k.account_id
-     WHERE k.token_hash = ?`;
-  type Row = {
+  type Row = StoredBilling & {
     key_id: string;
     id: string;
     email: string;
-    is_paid: number;
-    plan: string | null;
     workspace_owner_id: string | null;
   };
-  let row = await env.CHASA_DB.prepare(sql).bind(primaryHash).first<Row>();
-  if (!row) row = await env.CHASA_DB.prepare(sql).bind(legacyHash).first<Row>();
+  const row = await withBillingColumns(async (cols) => {
+    const sql = `SELECT k.id as key_id, a.id as id, a.email as email, a.is_paid as is_paid, a.plan as plan,
+              a.workspace_owner_id as workspace_owner_id, ${cols("a.")}
+       FROM api_keys k
+       JOIN accounts a ON a.id = k.account_id
+       WHERE k.token_hash = ?`;
+    return (
+      (await env.CHASA_DB.prepare(sql).bind(primaryHash).first<Row>()) ??
+      (await env.CHASA_DB.prepare(sql).bind(legacyHash).first<Row>())
+    );
+  });
   if (!row) return null;
   return accountFromApiKeyRow(env, row);
 }
