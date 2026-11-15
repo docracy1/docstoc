@@ -256,6 +256,11 @@ export async function applyLiveSubscription(
   }
 
   const currentPlan = normalizePlan(stored.plan, stored.is_paid === 1);
+  // No stored subscription but a paid plan: a one-time purchase or a manual/enterprise grant. A late
+  // or retried event of an old, ended subscription must not take that plan away.
+  if (!storedSub && isPaidPlan(currentPlan) && !isPaidPlan(decision.plan)) {
+    return { applied: false, reason: "other_subscription" };
+  }
   // setAccountPlan resets paid_at, so only call it when the plan really changes.
   if (currentPlan !== decision.plan) await setAccountPlan(env, accountId, decision.plan);
   await writeSubscriptionColumns(env, accountId, decision);

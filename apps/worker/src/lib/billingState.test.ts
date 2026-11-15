@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { DatabaseSync } from "node:sqlite";
 import type { Env } from "../types";
-import { decideSubscriptionState, effectivePlan, parseLiveSubscription, resetBillingColumnProbe } from "./billingState";
+import { applyLiveSubscription, decideSubscriptionState, effectivePlan, parseLiveSubscription, resetBillingColumnProbe } from "./billingState";
 import { resolveAccount } from "./auth";
 import { hashOpaqueTokenLookup } from "./token";
 
@@ -116,5 +116,37 @@ describe("resolveAccount applies the expiry", () => {
   it("keeps working before migration 0048", async () => {
     const env = await sessionDb(false, { plan: "business", is_paid: 1, stripe_subscription_id: "sub_1", billing_status: "active" });
     expect(await resolveAccount(env, "session-token")).toMatchObject({ plan: "business", isPaid: true });
+  });
+});
+
+describe("applyLiveSubscription", () => {
+  beforeEach(() => resetBillingColumnProbe());
+
+  async function grantDb(account: Record<string, unknown>) {
+    const db = new DatabaseSync(":memory:");
+    db.exec(`CREATE TABLE accounts (
+      id TEXT PRIMARY KEY, email TEXT, is_paid INTEGER NOT NULL DEFAULT 0, plan TEXT, paid_at TEXT, stripe_customer_id TEXT,
+      stripe_subscription_id TEXT, billing_status TEXT, current_period_end TEXT, past_due_since TEXT
+    );`);
+    const cols = Object.keys(account);
+    db.prepare(`INSERT INTO accounts (id, email, ${cols.join(", ")}) VALUES ('acc-1', 'a@example.com', ${cols.map(() => "?").join(", ")})`).run(
+      ...(Object.values(account) as never[])
+    );
+    return { db, env: { CHASA_DB: d1(db) } as unknown as Env };
+  }
+  const old = (status: string) => parseLiveSubscription({ id: "sub_old", status, customer: "cus_1", items: { data: [] } })!;
+
+  it("does not take a one-time or manual grant away for a late event of an old subscription", async () => {
+    for (const billing_status of ["one_time", "active", null]) {
+      const { db, env } = await grantDb({ plan: "business", is_paid: 1, stripe_subscription_id: null, billing_status });
+      expect(await applyLiveSubscription(env, "acc-1", old("canceled"), now)).toEqual({ applied: false, reason: "other_subscription" });
+      expect(db.prepare(`SELECT plan, is_paid, billing_status FROM accounts`).get()).toEqual({ plan: "business", is_paid: 1, billing_status });
+    }
+  });
+
+  it("still records a new, unpaid subscription on a free account", async () => {
+    const { db, env } = await grantDb({ plan: "free", is_paid: 0 });
+    expect(await applyLiveSubscription(env, "acc-1", old("incomplete"), now)).toEqual({ applied: true, plan: "free", status: "incomplete" });
+    expect(db.prepare(`SELECT billing_status, stripe_subscription_id FROM accounts`).get()).toEqual({ billing_status: "incomplete", stripe_subscription_id: "sub_old" });
   });
 });
