@@ -19,48 +19,6 @@
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/accounts-receivable-sox</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/actalis-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/adobe-acrobat-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/auditboard-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/auditboard-sox-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/aws-security-hub-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/billomat-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/blog/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -73,37 +31,13 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/blog/acme-protocol-certificate-automation/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/blog/ar-policy-that-works-with-docstoc/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/blog/certificate-authority-types-pros-cons/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/blog/document-certificates-tamper-evident-verification/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/blog/free-business-legal-document-templates/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/blog/free-ssl-automation-lets-encrypt-domain/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
@@ -163,12 +97,6 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/blog/invoice-chase-software-comparison/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/blog/invoice-payment-reminder-email-templates/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -187,88 +115,40 @@
     <priority>0.72</priority>
   </url>
   <url>
+    <loc>https://docstoc.io/blog/quickbooks-vs-manual-invoice-follow-up-whats-actually-faster/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
     <loc>https://docstoc.io/blog/should-you-charge-late-fees-on-overdue-invoices/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/blog/ssl-certificate-authorities-market-share/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/blog/ssl-certificate-providers-compared/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/blog/ssl-tls-certificate-lifetime-shortening/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/blog/types-of-ssl-certificates/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/blog/types-of-tls-certificates/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/bonsai-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/business-kits/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/business-kits/collections-and-lending-kit</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/business-kits/independent-landlord-kit</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/business-kits/us-small-business-starter-kit</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/certificate</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/certkit-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/certum-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/chase-invoices</loc>
@@ -277,58 +157,10 @@
     <priority>0.92</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/chaseai-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/chaser-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/cloudflare-ssl-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/compare/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/compliance/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/compliance/gdpr</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/compliance/sox</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/digicert-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/digicert-doc-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/docs/</loc>
@@ -344,13 +176,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/absence-excuse-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -392,13 +224,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/acknowledgment-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/action-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -416,9 +242,15 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/advance-payment-guarantee-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/advertising-agreement-template</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/advertising-contract-template</loc>
@@ -428,12 +260,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/advertising-insertion-order-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/advertising-proposal-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -453,12 +279,6 @@
   <url>
     <loc>https://docstoc.io/document-templates/affidavit-of-heirship-template</loc>
     <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/affidavit-of-marriage-domestic-partnership-template</loc>
-    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -548,19 +368,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/announcement-to-customers-policy-change-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/annual-incentive-compensation-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/annual-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <loc>https://docstoc.io/document-templates/annual-general-meeting-minutes-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -584,7 +398,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/appeal-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -607,20 +421,26 @@
     <priority>0.58</priority>
   </url>
   <url>
+    <loc>https://docstoc.io/document-templates/appreciation-letter-template</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
     <loc>https://docstoc.io/document-templates/apprenticeship-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/arbitration-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/articles-of-incorporation-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -632,12 +452,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/artist-recording-contract-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/artist-statement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -704,7 +518,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/assignment-of-limited-partnership-interest-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -763,32 +577,20 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/audition-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/authorization-for-release-of-records-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/authorization-temporary-guardianship-minor-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/authorization-to-release-criminal-record-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/authorization-to-represent-company-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -811,12 +613,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/award-certificate-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/background-verification-policy-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -824,7 +620,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/backlink-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -836,13 +632,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/bail-bond-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/balance-sheet-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -866,7 +662,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/bank-guarantee-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
@@ -896,13 +692,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/basic-ordering-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/basic-trust-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -914,7 +710,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/beneficiary-deed-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/benefit-restoration-plan-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -938,7 +740,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/bid-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/bid-proposal-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -956,13 +764,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/blanket-purchase-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/board-meeting-minutes-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -979,12 +781,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/booking-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/booth-rental-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -992,7 +788,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/branding-proposal-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1021,8 +817,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/broker-fee-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <loc>https://docstoc.io/document-templates/brokerage-agreement-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1040,7 +836,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/building-and-pest-inspection-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1069,12 +865,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/business-budget-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/business-case-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1082,24 +872,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/business-continuity-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/business-cooperation-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/business-credit-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/business-letter-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1123,25 +895,7 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/business-plan-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/business-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/business-presentation-outline-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/business-proposal-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1160,7 +914,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/buy-sell-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1178,7 +932,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/capital-expenditure-request-form-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1190,12 +944,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/car-rental-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/career-summary-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1225,38 +973,32 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/cash-receipt-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/category/business</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/category/finance</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/category/hr</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/category/legal</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/category/real-estate</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1280,7 +1022,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/cease-and-desist-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1291,20 +1033,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/certificate-of-amendment-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/certificate-of-analysis-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/certificate-of-appreciation-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1322,7 +1052,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/certificate-of-authorship-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1340,12 +1070,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/certificate-of-conformity-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/certificate-of-correction-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1436,30 +1160,18 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/character-reference-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/charitable-remainder-trust-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/chart-of-accounts-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/charter-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/child-care-authorization-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1507,18 +1219,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/co-manufacturing-sales-distribution-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/co-packing-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/coaching-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1526,13 +1226,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/cobra-notice-acknowledgment-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/code-of-conduct-receipt-acknowledgement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1543,14 +1243,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/cohabitation-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <loc>https://docstoc.io/document-templates/collaboration-agreement-template</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/collaboration-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://docstoc.io/document-templates/collaborative-research-and-license-agreement-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1574,18 +1274,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/combination-resume-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/commercial-credit-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/commercial-invoice-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1604,7 +1298,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/commercial-tenant-improvement-construction-contract-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1622,7 +1316,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/common-grant-application-form-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1651,12 +1345,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/complaint-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/compliance-certificate-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1670,13 +1358,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/compromise-agreement-minor-personal-injury-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/computer-consulting-services-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1699,12 +1387,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/concession-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/conditional-sale-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1712,30 +1394,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/conditional-waiver-and-release-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/condominium-declaration-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/conference-agenda-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/conference-registration-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/conference-speaker-proposal-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1796,25 +1460,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/construction-loan-disbursement-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/construction-management-services-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/consulting-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/consulting-services-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1831,14 +1483,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/content-distribution-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/contest-release-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1850,18 +1496,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/contingent-fee-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/contract-addendum-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/contract-amendment-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -1916,7 +1550,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/copyright-notice-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -1928,12 +1562,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/copyright-transfer-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/corporate-bylaws-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -2035,14 +1663,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/crisis-management-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/csr-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
@@ -2072,31 +1694,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/customer-testimonial-release-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/cv-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/daily-activity-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/data-backup-policy-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/data-collection-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2137,12 +1735,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/debt-conversion-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/debt-settlement-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -2150,12 +1742,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/declaration-of-business-trust-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/declaration-of-covenants-conditions-restrictions-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -2210,7 +1796,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/deferred-compensation-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2240,7 +1826,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/deposit-account-security-control-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2253,6 +1839,12 @@
   <url>
     <loc>https://docstoc.io/document-templates/design-build-contract-template</loc>
     <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/design-document-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2282,18 +1874,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/direct-to-retail-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/director-compensation-policy-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/directors-report-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -2318,7 +1904,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/disclosure-notice-right-of-rescission-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2336,7 +1922,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/dock-receipt-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2348,18 +1934,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/document-control-policy-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/dog-adoption-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/dog-walking-service-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -2372,12 +1952,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/domain-name-purchase-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/domain-name-registration-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -2461,12 +2035,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/emergency-action-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/emergency-contact-form-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -2480,7 +2048,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-discipline-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2498,42 +2066,36 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-exit-checklist-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-files-policy-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-grievance-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/employee-handbook-outline-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://docstoc.io/document-templates/employee-handbook-receipt-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-information-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-lending-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/employee-loan-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -2564,43 +2126,19 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-relocation-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/employee-safety-manual-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/employee-separation-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-stock-option-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/employee-stock-ownership-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/employee-stock-purchase-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/employee-written-warning-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2629,14 +2167,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/employment-verification-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/end-user-license-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2648,7 +2180,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/energy-audit-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2678,13 +2210,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/environmental-health-safety-policy-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/environmental-indemnity-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2702,7 +2234,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/equipment-purchase-and-sale-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2725,12 +2257,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/escrow-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/estate-receipt-and-release-template</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -2738,13 +2264,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/estoppel-certificate-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/event-budget-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2786,19 +2306,19 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/eviction-notice-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/eviction-petition-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/exclusive-agency-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2816,7 +2336,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/exclusive-media-representation-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2876,13 +2396,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/expense-reimbursement-request-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/expense-report-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2906,19 +2420,25 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/expression-of-interest-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
+    <loc>https://docstoc.io/document-templates/expression-of-wish-form-template</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
     <loc>https://docstoc.io/document-templates/externship-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/fact-sheet-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2941,12 +2461,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/family-medical-leave-form-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/farm-lease-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -2954,7 +2468,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/fax-cover-sheet-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -2989,26 +2503,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/fee-waiver-request-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/fellowship-application-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/fictitious-business-name-statement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/field-trip-permission-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3019,20 +2515,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/final-warning-before-dismissal-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/financial-affidavit-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/financial-disclosure-statement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3044,12 +2528,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/financial-services-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/financial-statement-analysis-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -3067,14 +2545,8 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/fiscal-policy-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/fiscal-sponsorship-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3127,24 +2599,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/formal-request-for-payment-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/foster-care-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/foster-home-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/founders-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -3158,13 +2612,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/fraudulent-billing-fraud-prevention-policy-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/funding-proposal-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3176,12 +2630,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/fundraiser-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/fundraising-letter-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -3205,32 +2653,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/general-authorization-to-release-information-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/general-demand-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/general-indemnity-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/general-membership-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/general-power-of-attorney-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3242,7 +2672,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/general-terms-and-conditions-of-purchase-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3260,7 +2690,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/gift-card-certificate-policy-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3272,7 +2702,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/gift-letter-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3295,14 +2725,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/grant-deed-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/grant-proposal-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
@@ -3338,7 +2762,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/guarantee-postponement-of-claim-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3380,7 +2804,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/high-school-resume-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3398,7 +2822,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/home-buyers-handbook-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3439,20 +2863,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/household-budget-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/hr-audit-checklist-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/hvac-service-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3481,20 +2893,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/incentive-stock-option-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/incident-management-policy-template</loc>
     <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/incident-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3512,24 +2912,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/indemnity-bond-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/independent-auditors-report-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/independent-contractor-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/independent-living-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -3542,7 +2930,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/informational-interview-request-letter-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3559,18 +2947,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/inspection-and-acceptance-certificate-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/inspection-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/installment-promissory-note-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -3578,7 +2954,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/insurance-cancellation-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3613,25 +2989,7 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/interior-design-contract-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/internal-control-questionnaire-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/internet-marketing-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/internship-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -3649,26 +3007,20 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/internship-report-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/interview-guide-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/introducing-broker-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/introduction-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3691,14 +3043,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/investment-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/investment-club-partnership-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3733,14 +3079,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/investors-registration-rights-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/irrevocable-power-of-attorney-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3781,12 +3121,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/job-safety-analysis-worksheet-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/job-training-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -3806,7 +3140,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/jury-duty-excuse-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3824,18 +3158,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/land-use-restriction-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/landlord-reference-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/landscaping-contract-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -3872,19 +3200,19 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/lease-termination-notice-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/lease-to-purchase-option-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/legal-disclaimer-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3914,7 +3242,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/letter-of-appointment-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/letter-of-authority-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3937,26 +3271,20 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/letter-of-credit-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/letter-of-financial-support-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/letter-of-guarantee-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/letter-of-inquiry-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -3968,7 +3296,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/letter-of-intent-purchase-real-estate-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4063,18 +3391,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/letter-to-shareholders-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/license-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/life-coaching-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -4082,18 +3398,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/limited-liability-partnership-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/limited-partnership-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/limited-power-of-attorney-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -4124,24 +3434,18 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/living-will-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/llc-operating-agreement-single-member-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/loan-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/loan-amortization-schedule-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -4171,26 +3475,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/loan-purchase-and-sale-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/lock-up-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/logo-design-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/lottery-pool-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4213,44 +3499,20 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/management-incentive-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/management-services-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/manufacturing-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/marital-settlement-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/market-research-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/marketing-agency-contract-template</loc>
     <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/marketing-budget-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4286,37 +3548,25 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/master-services-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/material-safety-data-sheet-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/material-transfer-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/maternity-leave-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/media-kit-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/media-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4334,19 +3584,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/medical-coding-billing-services-contract-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/medical-device-distribution-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/medical-fitness-certificate-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4358,25 +3602,19 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/medical-malpractice-arbitration-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/medical-release-form-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/meeting-agenda-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/meeting-minutes-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4393,20 +3631,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/membership-interest-pledge-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/membership-interest-purchase-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/membership-renewal-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4453,12 +3679,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/method-statement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/mileage-reimbursement-form-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -4467,12 +3687,6 @@
   <url>
     <loc>https://docstoc.io/document-templates/missed-appointment-letter-template</loc>
     <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/mission-statement-template</loc>
-    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4525,32 +3739,20 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/multi-member-llc-operating-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/music-sync-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/mutual-nda-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/mutual-termination-of-lease-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/nanny-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4562,13 +3764,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/new-employee-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/new-hire-welcome-letter-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4580,7 +3776,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/no-bid-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4598,19 +3794,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/nomination-remuneration-committee-charter-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/non-compete-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/non-disclosure-and-non-circumvention-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4621,32 +3811,26 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/non-solicitation-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/nondisturbance-attornment-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/nonprofit-club-constitution-and-bylaws-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/notice-of-annual-general-meeting-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/notice-of-assignment-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4658,13 +3842,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/notice-of-copyright-reservation-rights-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/notice-of-dishonored-check-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4682,13 +3860,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/notice-of-intent-to-vacate-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/notice-of-meeting-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4717,12 +3889,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/notice-to-bidders-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/notice-to-proceed-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -4730,7 +3896,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/nursing-skills-checklist-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4748,30 +3914,18 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/oem-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/offer-to-lease-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/offer-to-purchase-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/offering-memorandum-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/one-page-business-plan-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -4784,31 +3938,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/online-banking-agreement-disclosure-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/online-sales-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/open-end-mortgage-deed-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/open-listing-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/operations-manual-template</loc>
-    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4832,7 +3968,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/outsourced-hr-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4844,18 +3980,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/owner-builder-statement-affidavit-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/packing-list-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/packing-slip-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -4874,7 +4004,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/parent-handbook-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4903,12 +4033,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/parking-space-lease-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/participating-merchant-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -4927,20 +4051,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/partnership-proposal-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/party-wall-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/patient-intake-form-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -4952,7 +4064,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/pay-increase-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5018,25 +4130,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/performance-appraisal-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/performance-improvement-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/performance-share-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/permit-to-work-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5078,13 +4178,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/personal-property-co-ownership-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/personal-reference-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5137,6 +4237,12 @@
     <priority>0.58</priority>
   </url>
   <url>
+    <loc>https://docstoc.io/document-templates/pharmacy-technician-resume-template</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
     <loc>https://docstoc.io/document-templates/photo-release-form-template</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -5180,7 +4286,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/pre-employment-drug-screening-consent-form-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5191,14 +4297,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/pre-purchase-questionnaire-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/prenuptial-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5210,13 +4310,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/press-release-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/price-guide-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5234,13 +4328,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/private-placement-memorandum-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/problem-statement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5270,36 +4358,18 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/product-sheet-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/professional-development-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/professional-references-list-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/professional-resume-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/professional-services-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/profit-and-loss-statement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -5360,7 +4430,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/project-closeout-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5372,7 +4442,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/project-initiation-document-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5384,13 +4454,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/project-proposal-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/project-schedule-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5402,7 +4466,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/project-status-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5426,7 +4490,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/promotion-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5438,43 +4502,43 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/proof-of-funds-letter-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/property-brochure-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/property-condition-report-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/property-damage-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/property-line-adjustment-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/property-management-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/provider-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/public-notice-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5492,12 +4556,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/puppy-sale-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/purchase-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -5528,7 +4586,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/qualified-exchange-accommodation-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5551,12 +4609,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/quit-claim-deed-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/quitclaim-deed-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -5564,12 +4616,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/quotation-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/race-registration-form-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -5606,13 +4652,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/reasonable-accommodation-request-letter-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/receivables-sale-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5666,13 +4712,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/reinstatement-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/rejection-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5683,13 +4729,13 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/release-of-lien-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://docstoc.io/document-templates/release-notes-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/relieving-letter-template</loc>
+    <loc>https://docstoc.io/document-templates/release-of-lien-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -5708,7 +4754,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/rent-to-own-personal-property-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5761,12 +4807,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/request-for-proposal-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/request-for-qualification-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -5774,12 +4814,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/request-for-quotation-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/request-for-quote-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -5810,25 +4844,25 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/research-and-development-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/research-proposal-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/reseller-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/reservation-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
@@ -5839,26 +4873,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/residential-lease-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/resignation-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/restricted-stock-award-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/restricted-stock-unit-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5870,13 +4892,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/retention-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/retention-bonus-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5888,13 +4910,19 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/return-merchandise-authorization-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/returns-policy-template</loc>
     <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/revocable-living-trust-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5906,19 +4934,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/revocation-of-trust-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/rezoning-conditional-use-permit-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/right-of-first-refusal-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5936,12 +4958,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/risk-management-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/risk-register-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -5978,7 +4994,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/roth-ira-custodial-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
+    <loc>https://docstoc.io/document-templates/route-sheet-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -5996,7 +5018,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/saas-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6008,7 +5030,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/salary-certificate-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6026,7 +5048,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/salary-sacrifice-arrangement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6050,18 +5072,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/sales-compensation-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/sales-contract-goods-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/sales-letter-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -6074,7 +5090,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/sales-receipt-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6115,12 +5131,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/scholarship-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/script-option-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -6128,12 +5138,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/secretarys-certificate-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/secured-loan-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -6200,7 +5204,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/sellers-property-disclosure-statement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6217,12 +5221,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/seo-services-contract-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/service-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -6230,12 +5228,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/service-agreement-termination-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/service-animal-policy-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -6307,12 +5299,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/short-sale-buyer-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/short-term-rental-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -6338,7 +5324,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/silent-partnership-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6350,7 +5336,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/simple-promissory-note-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6397,14 +5383,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/social-media-policy-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/software-development-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6416,19 +5396,19 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/software-license-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/software-requirements-specification-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/software-reseller-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6451,20 +5431,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/special-power-of-attorney-healthcare-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/sponsor-proposal-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/sponsorship-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6548,7 +5516,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/statement-of-medical-necessity-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6559,38 +5527,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/statement-of-no-loss-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/statement-of-qualifications-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/statement-of-work-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/statutory-declaration-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/stock-escrow-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/stock-option-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6602,12 +5546,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/stock-transfer-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/stock-warrant-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -6637,26 +5575,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/strategic-plan-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/structured-settlement-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/structured-settlement-purchase-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/student-handbook-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6674,7 +5600,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/subcontracting-proposal-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6692,7 +5618,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/subdivision-development-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6715,13 +5641,13 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/subscription-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://docstoc.io/document-templates/subrogation-agreement-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/summer-camp-registration-form-template</loc>
+    <loc>https://docstoc.io/document-templates/subscription-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -6764,7 +5690,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/sustainability-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
@@ -6776,12 +5702,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/swot-analysis-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/t-shirt-order-form-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -6805,20 +5725,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/tax-sharing-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/teaming-agreement-template</loc>
     <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/technical-manual-template</loc>
-    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6836,13 +5744,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/technology-license-option-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/telecommuting-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6854,25 +5762,25 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/tenants-handbook-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/tenants-in-common-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/tender-notice-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/term-sheet-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6884,12 +5792,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/termination-of-employment-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/terms-of-reference-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -6919,12 +5821,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/thank-you-for-your-order-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/thank-you-letter-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -6937,12 +5833,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/time-off-request-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/timesheet-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -6950,13 +5840,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/tour-participant-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/trademark-license-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -6967,20 +5857,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/training-manual-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <loc>https://docstoc.io/document-templates/trainer-resume-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/training-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/training-request-form-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7004,12 +5888,6 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/travel-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/travel-expense-report-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -7045,20 +5923,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/tutoring-services-contract-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/unconditional-waiver-and-release-final-payment-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/underwriting-of-shares-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7105,6 +5977,12 @@
     <priority>0.58</priority>
   </url>
   <url>
+    <loc>https://docstoc.io/document-templates/validation-report-template</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.58</priority>
+  </url>
+  <url>
     <loc>https://docstoc.io/document-templates/vehicle-damage-estimate-form-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -7141,32 +6019,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/vendor-list-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/vendor-management-policy-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/verification-of-employment-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/vessel-purchase-and-sale-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/viatical-settlement-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7195,20 +6055,14 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/volunteer-application-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/voting-and-standstill-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/voting-transfer-restriction-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7220,13 +6074,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/waiver-of-notice-and-consent-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/warning-letter-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7237,14 +6091,8 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/waste-management-plan-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/waste-recycling-collection-agreement-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7274,7 +6122,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/document-templates/website-maintenance-agreement-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7297,12 +6145,6 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/wedding-budget-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/wedding-checklist-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -7311,18 +6153,6 @@
   <url>
     <loc>https://docstoc.io/document-templates/wedding-contract-template</loc>
     <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/weekly-activity-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/weekly-status-report-template</loc>
-    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
   </url>
@@ -7381,19 +6211,7 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/work-schedule-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/document-templates/workers-compensation-policy-template</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/document-templates/workplace-accident-near-miss-report-template</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
@@ -7405,46 +6223,16 @@
     <priority>0.58</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/document-templates/workshop-planning-checklist-template</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://docstoc.io/document-templates/workplace-symptom-screening-checklist-template</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.58</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/docusign-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/drata-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/duefy-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/es/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/accounts-receivable-sox</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/auditboard-sox-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/es/blog/</loc>
@@ -7459,22 +6247,10 @@
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/es/floqast-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/es/guides/invoice-chasing/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/hyperproof-sox-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/es/invoice-follow-up</loc>
@@ -7490,7 +6266,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/es/privacy</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -7499,42 +6275,6 @@
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/use-cases/auditor-evidence-pack</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/use-cases/icfr-accounts-receivable</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/use-cases/maker-checker-invoice-chase</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/use-cases/segregation-of-duties-collections</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/use-cases/sox-reporting</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/es/workiva-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/features/</loc>
@@ -7555,12 +6295,6 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/floqast-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/free-templates/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -7574,13 +6308,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/agency-milestone-invoice-follow-up</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/agency-retainer-invoice-follow-up</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
@@ -7592,7 +6326,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/client-ghosted-me-template</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
@@ -7604,13 +6338,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/corporate-finance-department-reminder</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/corporate-overdue-invoice-escalation</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
@@ -7628,13 +6362,13 @@
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/final-notice-before-collections</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/final-notice-before-legal-action</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
@@ -7652,19 +6386,19 @@
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/freelancer-30-days-overdue-reminder</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/freelancer-firm-payment-reminder</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/freelancer-polite-payment-reminder</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
@@ -7700,7 +6434,7 @@
   </url>
   <url>
     <loc>https://docstoc.io/free-templates/new</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -7765,76 +6499,10 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/freessl-cfd-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/freessl-org-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/freshbooks-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/gaviti-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/globalsign-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/godaddy-ssl-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/google-workspace-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/guides/invoice-chasing/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.94</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/honeybook-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/hostinger-ssl-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/hyperproof-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/hyperproof-sox-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/imprint</loc>
@@ -7909,43 +6577,13 @@
     <priority>0.88</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/invoicely-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/invoices</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/invoicesherpa-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/legalzoom-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/letsencrypt-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/opentimestamps-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/originstamp-alternative</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.50</priority>
@@ -7961,18 +6599,6 @@
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/paidnice-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/pandadoc-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/payment-reminder</loc>
@@ -7994,30 +6620,12 @@
   </url>
   <url>
     <loc>https://docstoc.io/privacy</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.40</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/purview-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/quickbooks-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/rocket-lawyer-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/satago-alternative</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.50</priority>
@@ -8029,232 +6637,16 @@
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/secom-trust-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/sectigo-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/secureframe-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/security</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/solutions/entra-evidence-automation</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/solutions/evidence-automation</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl-com-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/developer</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/acme</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/certificates</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/enterprise</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/installation</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/monitoring</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/protection</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/validation</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/ssl/features/wildcards</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/sslforfree-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-actalis</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-certkit</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-certum</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-cloudflare-ssl</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-digicert</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-freessl-cfd</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-freessl-org</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-globalsign</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-godaddy-ssl</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-hostinger-ssl</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-letsencrypt</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-secom-trust</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-sectigo</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-ssl-com</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-sslforfree</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-from-zerossl</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/switch-to-docstoc</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/terms</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.40</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/thoropass-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/tools/</loc>
@@ -8269,12 +6661,6 @@
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/tools/file-hash-checker</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/tools/invoice-chase-calculator</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -8287,34 +6673,10 @@
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/tools/ssl-certificate-calculator</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/tools/template-finder</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/tools/trust-badges</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/trust-badges</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/tugboat-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://docstoc.io/unpaid-invoice-follow-up-templates</loc>
@@ -8323,55 +6685,7 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://docstoc.io/upflow-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
     <loc>https://docstoc.io/use-cases/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/audit-ready-workflows</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/auditor-evidence-pack</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/compliance-dashboard</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/docstoc-certificate-monitoring</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/document-signing-api</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/flat-fee-esign</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/free-ssl-for-your-domain</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
@@ -8381,83 +6695,5 @@
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/icfr-accounts-receivable</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/maker-checker-invoice-chase</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/risk-scoring-automation</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/segregation-of-duties-collections</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/use-cases/sox-reporting</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/vanta-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/wave-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/workiva-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/xero-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/yaypay-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/zerossl-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/zervant-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://docstoc.io/zoho-invoice-alternative</loc>
-    <lastmod>2026-10-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
   </url>
 </urlset>

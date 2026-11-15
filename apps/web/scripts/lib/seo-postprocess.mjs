@@ -17,9 +17,9 @@ export function fitTitle(html) {
 
 /** Hand-written short titles for pages whose generated one does not fit, by URL path. */
 export const SHORT_TITLES = {
-  "/": "docstoc: Templates, Invoices, SSL & AI Collections",
-  "/es/": "docstoc: plantillas, facturas, SSL y cobros con IA",
-  "/about": "About docstoc: The Trust Automation Layer",
+  "/": "docstoc: Free Business and Legal Document Templates",
+  "/es/": "docstoc: plantillas de documentos de negocio y legales",
+  "/about": "About docstoc: Business Document Templates",
   "/polite-payment-reminder-email": "Polite Payment Reminder Email: Free Template",
   "/marketplace": "Document Template Marketplace: 1,000+ Free Templates",
   "/unpaid-invoice-follow-up-templates": "Unpaid Invoice Follow-Up: 12 Free Email Templates",
@@ -33,7 +33,7 @@ export const SHORT_TITLES = {
   "/tools/": "Free Tools: Templates, Hash, SSL, Invoice Generator",
   "/tools/trust-badges": "Corporate Identity & Trust Badges: Lookup & Embed",
   "/tools/invoice-generator": "Free Invoice Generator: Create Shareable Invoices",
-  "/blog/": "docstoc Blog: Templates, SSL, Certificates & Invoices",
+  "/blog/": "docstoc Blog: Business Documents and Getting Paid",
   "/blog/free-business-legal-document-templates/": "Free Business & Legal Document Templates, No Signup",
   "/blog/freelancer-invoicing-mistakes-that-delay-payment/": "Freelancer Invoicing Mistakes That Delay Payment",
   "/blog/ssl-certificate-authorities-market-share/": "SSL Certificate Authorities: Who Issues the Padlock?",

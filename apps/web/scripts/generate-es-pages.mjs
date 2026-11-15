@@ -27,7 +27,7 @@ const SEO_ES = {
   "/": {
     title: HOME_PAGE_TITLE_ES,
     description:
-      "La capa de automatización de confianza — acuerdos, facturación, SSL, certificados de documentos y cobros con IA en una plataforma.",
+      "Más de 1,000 plantillas de documentos de negocio y legales para pequeñas empresas en EE. UU. Léelas, edítalas en tu navegador y guárdalas en PDF gratis.",
   },
   "/privacy": {
     title: "Política de Privacidad — docstoc | Protección de Datos",
