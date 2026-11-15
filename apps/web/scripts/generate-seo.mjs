@@ -4,6 +4,7 @@
  * Patches index.html + ai.html with verification meta when env vars are set.
  */
 import { execFileSync } from "node:child_process";
+import { isOffFocus } from "./data/off-focus.mjs";
 import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -68,6 +69,7 @@ function lastmodOf(filePath) {
 }
 
 function shouldExcludeFromSitemap(urlPath) {
+  if (isOffFocus(urlPath)) return true;
   if (urlPath.startsWith("/import-from-")) return true;
   if (SITEMAP_EXCLUDE_PATHS.has(urlPath)) return true;
   if (urlPath.startsWith("/compliance/soc") || urlPath === "/compliance/iso27001") return true;
@@ -365,7 +367,7 @@ function postprocessPages() {
     const urlPath = htmlPathToUrl(file);
     let next = fitDescription(fitTitle(applySearchSnippet(applyShortTitle(rewriteCanonicalLinks(html, canonicalByPath), urlPath), SEARCH_SNIPPETS[urlPath])));
     if (RELATED_PAGE_LINKS[urlPath]) next = applyRelatedLinks(next, relatedLinksFor(urlPath));
-    if (noindex.has(urlPath)) next = applyNoindex(next);
+    if (noindex.has(urlPath) || isOffFocus(urlPath)) next = applyNoindex(next);
     if (extras[urlPath]) next = applyExtraSections(next, extras[urlPath], escapeXml, urlPath.startsWith("/es/") ? "Preguntas frecuentes" : "FAQ");
     if (next !== html) {
       writeFileSync(file, next, "utf8");

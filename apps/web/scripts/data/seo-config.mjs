@@ -127,15 +127,15 @@ export const SITEMAP_ROUTES = [
 
 /** EN homepage document title (source of truth for build-time patches). */
 export const HOME_PAGE_TITLE =
-  "docstoc — Document Templates, Invoices, SSL, Certificates & AI Collections";
+  "docstoc: Free Business and Legal Document Templates";
 
 /** EN homepage meta description (patched into index.html at build). */
 export const HOME_PAGE_DESCRIPTION =
-  "Five free products in one platform: 1,000+ business document templates, invoice generator, AI invoice collections, Let's Encrypt SSL automation, and tamper-evident document certificates.";
+  "1,000+ business and legal document templates for US small businesses. Read, edit in your browser and save as PDF for free. Unlimited AI drafts with Pro.";
 
 /** ES homepage title — used by generate-es-pages.mjs. */
 export const HOME_PAGE_TITLE_ES =
-  "docstoc — Plantillas, facturas, SSL, certificados y cobros con IA";
+  "docstoc: plantillas gratis de documentos de negocio y legales";
 
 /** Square PNG for Organization / GSC — SVG wordmarks and non-square assets are ignored. */
 export const ORG_LOGO_URL = `${SITE_URL}/brand/docstoc-icon-512.png`;

@@ -278,6 +278,15 @@ export default function AppShell({
       location.pathname.startsWith("/webhooks") ||
       location.pathname.startsWith("/branding"));
 
+  // Template library focus (owner 15.11.2026): SSL, certificates, SOX, company badge and the admin tools (connector,
+  // webhooks, branding) leave the main navigation. Their routes keep working; the group shows while one is open.
+  const legacyPathActive =
+    sslPathActive ||
+    certificatesPathActive ||
+    toolsPathActive ||
+    location.pathname.startsWith("/sox-reporting") ||
+    location.pathname.startsWith("/company-badge");
+
   useEffect(() => {
     if (chasesPathActive) setChasesExpanded(true);
   }, [chasesPathActive]);
@@ -306,27 +315,12 @@ export default function AppShell({
     [
       { to: "/document-templates", label: t("nav.documentTemplates"), icon: "docTemplates" as const },
       { to: "/get-paid", label: t("nav.getPaid"), icon: "docTemplates" as const },
-      { to: "/ssl-domains", label: t("nav.sslDomains"), icon: "ssl" as const },
-      { to: "/certificates", label: t("nav.certificates"), icon: "certificates" as const },
-      { to: "/audit-log", label: t("nav.auditLog"), icon: "auditLog" as const },
-      { to: "/sox-reporting", label: t("nav.soxReporting"), icon: "sox" as const },
-      { to: "/company-badge", label: t("nav.companyBadge"), icon: "companyBadge" as const },
       { to: "/invoices", label: t("nav.invoices"), icon: "invoices" as const },
       { to: "/templates", label: t("nav.templatesEmails"), icon: "templates" as const },
       { to: "/?view=overdue", label: t("nav.chasesOverdue"), icon: "chases" as const },
       { to: "/?view=waiting", label: t("nav.chasesWaiting"), icon: "chases" as const },
       { to: "/?view=paid", label: t("nav.chasesPaid"), icon: "chases" as const },
       { to: "/clients", label: t("nav.clients"), icon: "clients" as const },
-      workspaceAdmin
-        ? { to: "/connector", label: t("nav.connectorApi"), icon: "connector" as const }
-        : null,
-      workspaceAdmin
-        ? { to: "/webhooks", label: t("nav.webhooks"), icon: "webhooks" as const }
-        : null,
-      workspaceAdmin
-        ? { to: "/branding", label: t("nav.branding"), icon: "branding" as const }
-        : null,
-      { to: "/team", label: t("nav.team"), icon: "team" as const },
       { to: "/account", label: t("nav.subscription"), icon: "account" as const },
     ] as const
   ).filter(Boolean) as Array<{
@@ -493,6 +487,8 @@ export default function AppShell({
             ) : null}
           </div>
 
+          {legacyPathActive ? (
+          <>
           <div className="dash-nav-group">
             <button
               type="button"
@@ -581,6 +577,8 @@ export default function AppShell({
               <span>{t("nav.companyBadge")}</span>
             </span>
           </NavLink>
+          </>
+          ) : null}
 
           <div className="dash-nav-cluster" aria-label={t("nav.invoicesAndChases")}>
             <div className="dash-nav-group">
@@ -661,6 +659,8 @@ export default function AppShell({
             </div>
           </div>
 
+          {legacyPathActive ? (
+          <>
           <div className="dash-side-nav-label">{t("nav.more")}</div>
 
           <div className="dash-nav-group">
@@ -697,6 +697,8 @@ export default function AppShell({
               </div>
             ) : null}
           </div>
+          </>
+          ) : null}
         </nav>
 
         <div className="dash-side-footer">

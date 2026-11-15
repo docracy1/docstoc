@@ -65,7 +65,7 @@ describe("short titles", () => {
     }
   });
   it("escape ampersands and leave other pages alone", () => {
-    expect(applyShortTitle(title("x"), "/")).toContain("&amp;");
+    expect(applyShortTitle(title("x"), "/freetemplates")).toContain("&amp;");
     expect(applyShortTitle(title("x"), "/nope")).toBe(title("x"));
   });
 });

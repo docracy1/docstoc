@@ -26,6 +26,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const researchDir = join(__dirname, "../scratch/docstoc-research");
 const statePath = join(__dirname, "../data/weekly-template-state.json");
 
+// Paused (owner decision 15.11.2026, template library): no new templates each week. Of 1,195 templates, 189 had no
+// impression in 90 days; the work goes into deepening the indexed ones instead. Set WEEKLY_TEMPLATES_RESUME=1 to run.
+if (process.env.WEEKLY_TEMPLATES_RESUME !== "1") {
+  console.log(JSON.stringify({ paused: true, reason: "Weekly template batch paused since 15.11.2026: deepen indexed templates instead.", candidates: [] }));
+  process.exit(0);
+}
+
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
 const windowArg = args.indexOf("--window");

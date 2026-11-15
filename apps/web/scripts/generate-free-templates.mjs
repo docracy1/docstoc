@@ -37204,6 +37204,11 @@ ${DOC_INDEX_FAQ.map((item) => `  <details class="faq-item"><summary>${escapeHtml
   }
 
   if (search) search.addEventListener("input", applyFilter);
+  // ?q= from the home page search box (template library, 15.11.2026).
+  try {
+    var startQ = new URLSearchParams(window.location.search).get("q");
+    if (search && startQ) { search.value = startQ.slice(0, 80); applyFilter(); }
+  } catch (e) {}
 
   var dropdown = document.getElementById("tpl-cat-dropdown");
   var catBtn = document.getElementById("tpl-cat-btn");

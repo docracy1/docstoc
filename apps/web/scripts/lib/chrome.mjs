@@ -49,8 +49,8 @@ function megaMenuItem({ href, icon, titleKey, title, descKey, desc, small = fals
   const anchor = `<a href="${href}" class="nav-megamenu-item${small ? " nav-megamenu-side-item" : ""}${large ? " nav-megamenu-item-lg" : ""}">
     <span class="nav-megamenu-icon${small ? " nav-megamenu-icon-sm" : ""}${large ? " nav-megamenu-icon-lg" : ""}">${navIcon(icon, small, large)}</span>
     <span>
-      <span class="nav-megamenu-item-title" data-i18n="${titleKey}">${title}</span>
-      <span class="nav-megamenu-item-desc" data-i18n="${descKey}">${desc}</span>
+      <span class="nav-megamenu-item-title"${titleKey ? ` data-i18n="${titleKey}"` : ""}>${title}</span>
+      <span class="nav-megamenu-item-desc"${descKey ? ` data-i18n="${descKey}"` : ""}>${desc}</span>
     </span>
   </a>`;
   // Opt this one mailto out of Cloudflare's email obfuscation, same as the footer Contact link —
@@ -63,7 +63,7 @@ function megaMenuItem({ href, icon, titleKey, title, descKey, desc, small = fals
 function simpleMenuItem({ href, titleKey, title }) {
   const isMailto = href.startsWith("mailto:");
   const anchor = `<a href="${href}" class="nav-simplemenu-item">
-    <span class="nav-simplemenu-item-title" data-i18n="${titleKey}">${title}</span>
+    <span class="nav-simplemenu-item-title"${titleKey ? ` data-i18n="${titleKey}"` : ""}>${title}</span>
     <svg class="nav-simplemenu-item-chevron" width="8" height="14" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
   </a>`;
   return isMailto ? `<!--email_off-->${anchor}<!--/email_off-->` : anchor;
@@ -99,39 +99,30 @@ function megaMenu({ triggerKey, triggerLabel, items, panel, columns = 2, simple 
 /** The main products, big-icon grid — LimeWire's "Products" dropdown pattern. Order:
  *  templates → invoices → AI collections → SSL → certificates. Trust badge in Use Cases. */
 const PRODUCTS_ITEMS = [
-  { path: "/document-templates/", icon: "store", titleKey: "nav.mega.products.templates.title", title: "Document templates", descKey: "nav.mega.products.templates.desc", desc: "1,000+ free business & legal templates, plus kits." },
-  { path: "/invoices", icon: "briefcase", titleKey: "nav.mega.products.invoices.title", title: "Invoice generator", descKey: "nav.mega.products.invoices.desc", desc: "Create a shareable invoice — then chase it if it goes overdue." },
-  { path: "/chase-invoices", icon: "sparkles", titleKey: "nav.mega.products.chasing.title", title: "AI collections", descKey: "nav.mega.products.chasing.desc", desc: "Tone-matched invoice follow-ups and payment reminders." },
-  { path: "/ssl", icon: "lock", titleKey: "nav.mega.products.ssl.title", title: "SSL / TLS automation", descKey: "nav.mega.products.ssl.desc", desc: "Let's Encrypt automation for your domain — not a cert reseller." },
-  { path: "/certificate", icon: "shield", titleKey: "nav.mega.products.certificates.title", title: "Document certificates", descKey: "nav.mega.products.certificates.desc", desc: "Free tamper-evident hash verification for any file." },
+  { path: "/document-templates/", icon: "store", titleKey: "nav.mega.products.templates.title", title: "Document templates", desc: "1,000+ business and legal templates for US small businesses." },
+  { path: "/business-kits/", icon: "duplicate", title: "Business kits", desc: "The documents for one occasion, bundled: starting out, renting, collections." },
+  { path: "/payment-reminder", icon: "sparkles", title: "Payment reminder letters", desc: "Reminder, final notice and demand letter, drafted for how late the invoice is." },
+  { path: "/invoices", icon: "briefcase", titleKey: "nav.mega.products.invoices.title", title: "Invoice generator", desc: "Make an invoice and share it as a link or PDF." },
+  { path: "/tools/template-finder", icon: "bolt", title: "Template finder", desc: "Answer three questions and get the document you need." },
 ];
 
 const FEATURE_ITEMS = [
-  { path: "/features/ai-tone", icon: "sparkles", titleKey: "nav.mega.feature.ai.title", title: "AI tone matching", descKey: "nav.mega.feature.ai.desc", desc: "Friendly, professional, or direct — matched to days overdue." },
-  { path: "/features/templates", icon: "duplicate", titleKey: "nav.mega.feature.templates.title", title: "18 free email templates", descKey: "nav.mega.feature.templates.desc", desc: "Copy-paste reminders, no account required." },
-  { path: "/features/", icon: "bolt", titleKey: "nav.mega.feature.chasePlans.title", title: "AI chase plans", descKey: "nav.mega.feature.chasePlans.desc", desc: "3-step follow-up sequences drafted automatically." },
-  { path: "/features/", icon: "briefcase", titleKey: "nav.mega.feature.sync.title", title: "Accounting sync", descKey: "nav.mega.feature.sync.desc", desc: "CSV, QuickBooks, Xero, FreshBooks, Wave, Zoho." },
-  { path: "/document-templates/", icon: "store", titleKey: "nav.mega.feature.docTemplates.title", title: "Business & legal templates", descKey: "nav.mega.feature.docTemplates.desc", desc: "Free contracts, agreements, and notices — plus kits." },
-  { path: "/certificate", icon: "shield", titleKey: "nav.mega.feature.certificates.title", title: "Document certificates", descKey: "nav.mega.feature.certificates.desc", desc: "Tamper-evident hash verification, free to check." },
-  { path: "/#pricing", icon: "users", titleKey: "nav.mega.feature.team.title", title: "Team access", descKey: "nav.mega.feature.team.desc", desc: "Share chases and templates across your workspace." },
-  { path: "/privacy", icon: "lock", titleKey: "nav.mega.feature.storage.title", title: "Secure & private", descKey: "nav.mega.feature.storage.desc", desc: "Encrypted storage, short automatic retention." },
+  { path: "/document-templates/", icon: "store", title: "Business and legal templates", desc: "Contracts, agreements, letters and forms." },
+  { path: "/business-kits/", icon: "duplicate", title: "Business kits", desc: "Several documents for one occasion." },
+  { path: "/free-templates/", icon: "duplicate", title: "Free email templates", desc: "Copy-paste payment reminder emails, no account needed." },
+  { path: "/#pricing", icon: "sparkles", title: "Fill in with AI", desc: "Pro fills a template with your company and client details." },
 ];
 
 const COMPARE_ITEMS = [
   { path: "/legalzoom-alternative", icon: "scale", titleKey: "footer.vsLegalzoom", title: "vs LegalZoom", descKey: "nav.mega.compare.legalzoom.desc", desc: "Free templates, no membership." },
-  { path: "/invoicely-alternative", icon: "scale", titleKey: "footer.vsInvoicely", title: "vs Invoicely", descKey: "nav.mega.compare.invoicely.desc", desc: "Invoices plus templates, SSL, and chase." },
-  { path: "/zerossl-alternative", icon: "scale", titleKey: "footer.vsZerossl", title: "vs ZeroSSL", descKey: "nav.mega.compare.zerossl.desc", desc: "Let’s Encrypt without a second dashboard." },
+  { path: "/rocket-lawyer-alternative", icon: "scale", title: "vs Rocket Lawyer", desc: "Free templates, no subscription to read them." },
 ];
 
 const USE_CASE_ITEMS = [
-  { path: "/document-templates/", icon: "store", titleKey: "nav.mega.useCase.marketplace.title", title: "Document templates", descKey: "nav.mega.useCase.marketplace.desc", desc: "1,000+ business & legal templates — edit online, PDF, certify." },
-  { path: "/invoices", icon: "briefcase", titleKey: "nav.mega.useCase.invoices.title", title: "Shareable invoices", descKey: "nav.mega.useCase.invoices.desc", desc: "Create an invoice, share the link, chase it if it goes overdue." },
-  { path: "/features/ai-tone", icon: "sparkles", titleKey: "nav.mega.useCase.chase.title", title: "AI invoice chasing", descKey: "nav.mega.useCase.chase.desc", desc: "Tone-matched follow-up drafts matched to days overdue." },
-  { path: "/certificate", icon: "shield", titleKey: "nav.mega.useCase.docCert.title", title: "Document certificates", descKey: "nav.mega.useCase.docCert.desc", desc: "Tamper-evident hash verification — free to create and check." },
-  { path: "/ssl", icon: "lock", titleKey: "nav.mega.useCase.sslAuto.title", title: "SSL / TLS automation", descKey: "nav.mega.useCase.sslAuto.desc", desc: "Let's Encrypt for domains you control — DNS-01, renewals in-app." },
-  { path: "/trust-badges", icon: "building", titleKey: "nav.mega.useCase.badge.title", title: "Company trust badge", descKey: "nav.mega.useCase.badge.desc", desc: "Domain-verified badge for your site and proposals." },
+  { path: "/document-templates/", icon: "store", titleKey: "nav.mega.useCase.marketplace.title", title: "Document templates", desc: "1,000+ business and legal templates." },
   { path: "/use-cases/freelance-contract-templates", icon: "duplicate", titleKey: "nav.mega.useCase.templates.title", title: "Freelance contract templates", descKey: "nav.mega.useCase.templates.desc", desc: "Free Independent Contractor Agreement, ready to send." },
-  { path: "/use-cases/free-ssl-for-your-domain", icon: "lock", titleKey: "nav.mega.useCase.ssl.title", title: "Free SSL for a client's domain", descKey: "nav.mega.useCase.ssl.desc", desc: "Real Let's Encrypt certificates, no ACME setup." },
+  { path: "/invoices", icon: "briefcase", titleKey: "nav.mega.useCase.invoices.title", title: "Shareable invoices", desc: "Create an invoice and share the link." },
+  { path: "/payment-reminder", icon: "sparkles", title: "Payment reminder letters", desc: "The right letter for how late the invoice is." },
 ];
 
 const INDUSTRY_ITEMS = [
@@ -154,20 +145,10 @@ const RESOURCE_ITEMS = [
 const MORE_ITEMS = [
   { path: "/app/login?start=1", titleKey: "nav.tryFree", title: "Try free" },
   { path: "/document-templates/", titleKey: "nav.mega.products.templates.title", title: "Document templates" },
-  { path: "/chase-invoices", titleKey: "nav.mega.products.chasing.title", title: "AI collections" },
-  { path: "/ssl", titleKey: "nav.mega.products.ssl.title", title: "SSL / TLS" },
-  { path: "/certificate", titleKey: "nav.mega.products.certificates.title", title: "Document certificates" },
-  { path: "/features/", titleKey: "nav.features", title: "Features" },
-  { path: "/invoice-follow-up", titleKey: "nav.invoiceFollowUp", title: "Invoice follow-up" },
-  { path: "/guides/invoice-chasing/", titleKey: "nav.invoiceChasingHub", title: "Invoice chasing hub" },
-  { path: "/chase-invoices", titleKey: "nav.chaseInvoices", title: "Chase invoices" },
+  { path: "/business-kits/", title: "Business kits" },
   { path: "/payment-reminder", titleKey: "nav.paymentReminder", title: "Payment reminders" },
   { path: "/free-templates/", titleKey: "nav.freeTemplates", title: "Free email templates" },
-  { path: "/industry/freelancers", titleKey: "nav.industry", title: "Industry" },
   { path: "/#pricing", titleKey: "nav.pricing", title: "Pricing" },
-  { path: "/use-cases/", titleKey: "nav.useCases", title: "Use Cases" },
-  { path: "/document-templates/", titleKey: "nav.templates", title: "Document templates" },
-  { path: "/compare/", titleKey: "footer.compareCol", title: "Compare" },
   { path: "/about", titleKey: "nav.mega.resource.about.title", title: "About" },
   { path: "/press", titleKey: "nav.mega.resource.press.title", title: "Press" },
   { path: "/docs/", titleKey: "nav.mega.resource.docs.title", title: "Help Center" },
@@ -373,7 +354,7 @@ ${faviconHead(link)}
           columns: 2,
           large: true,
         })}
-        <a href="${link("/tools/")}" class="header-nav-link header-nav-collapse" data-i18n="nav.tools">Tools</a>
+        <a href="${link("/document-templates/")}" class="header-nav-link header-nav-collapse" data-i18n="nav.templates">Templates</a>
         ${megaMenu({
           triggerKey: "nav.more",
           triggerLabel: "More",
@@ -397,7 +378,7 @@ ${faviconHead(link)}
       <span class="header-revival-badge-thumb" aria-hidden="true"></span>
       <span class="header-revival-badge-text">
         <span class="header-revival-badge-title" data-i18n="nav.revivalBadge">docstoc is back</span>
-        <span class="header-revival-badge-sub" data-i18n="nav.revivalBadgeSub">the trust automation layer — watch the story</span>
+        <span class="header-revival-badge-sub">business documents, back again: watch the story</span>
       </span>
       <span class="header-revival-badge-play" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z" /></svg>
@@ -409,16 +390,12 @@ ${faviconHead(link)}
 <div class="mobile-panel" data-mobile-panel>
   <button class="mobile-panel-close" type="button" aria-label="Close menu" data-mobile-close data-i18n-aria="nav.closeMenu">✕</button>
   <nav class="mobile-panel-nav">
-      <a href="${link("/features/")}" class="mobile-panel-nav-link" data-i18n="nav.features">Features</a>
-      <a href="${link("/industry/freelancers")}" class="mobile-panel-nav-link" data-i18n="nav.industry">Industry</a>
-      <a href="${link("/#pricing")}" class="mobile-panel-nav-link" data-i18n="nav.pricing">Pricing</a>
-      <a href="${link("/use-cases/")}" class="mobile-panel-nav-link" data-i18n="nav.useCases">Use Cases</a>
-      <a href="${link("/blog/")}" class="mobile-panel-nav-link" data-i18n="nav.blog">Blog</a>
-      <a href="${link("/docs/")}" class="mobile-panel-nav-link" data-i18n="nav.api">API</a>
-      <a href="${link("/about")}" class="mobile-panel-nav-link" data-i18n="nav.about">About</a>
       <a href="${link("/document-templates/")}" class="mobile-panel-nav-link" data-i18n="nav.templates">Document templates</a>
-      <a href="${link("/chase-invoices")}" class="mobile-panel-nav-link" data-i18n="nav.ai">AI collections</a>
-      <a href="${link("/tools/")}" class="mobile-panel-nav-link" data-i18n="nav.tools">Tools</a>
+      <a href="${link("/business-kits/")}" class="mobile-panel-nav-link">Business kits</a>
+      <a href="${link("/payment-reminder")}" class="mobile-panel-nav-link" data-i18n="nav.paymentReminder">Payment reminders</a>
+      <a href="${link("/#pricing")}" class="mobile-panel-nav-link" data-i18n="nav.pricing">Pricing</a>
+      <a href="${link("/blog/")}" class="mobile-panel-nav-link" data-i18n="nav.blog">Blog</a>
+      <a href="${link("/about")}" class="mobile-panel-nav-link" data-i18n="nav.about">About</a>
       <a href="${link("/app/login")}" class="mobile-panel-nav-link" data-i18n="nav.signIn">Sign in</a>
       <a href="${link("/app/")}login?start=1" class="mobile-panel-nav-link" data-i18n="nav.tryFree">Try free</a>
   </nav>
@@ -437,7 +414,7 @@ ${mainHtml.replace(/<(\/?)main\b/g, "<$1div")}
   <div class="wrap site-footer-inner">
     <div class="site-footer-brand">
       <a href="${link("/")}" class="logo" aria-label="${SITE_BRAND} home"><img class="logo-mark" src="${link("/brand/docstoc-icon.png")}" alt="" width="24" height="24" /><span class="logo-word">${SITE_BRAND}</span></a>
-      <p data-i18n="footer.tagline">The Trust Automation Layer for Modern Business — agreements, invoicing, domain security, and AI collections in one platform.</p>
+      <p>Business document templates for US small businesses: find the document, fill it in, download it.</p>
     </div>
     <div class="site-footer-col">
       <h4 data-i18n="footer.product">Product</h4>
@@ -445,44 +422,27 @@ ${mainHtml.replace(/<(\/?)main\b/g, "<$1div")}
       <a href="${link("/app/login?start=1")}" data-i18n="footer.tryFree">Try free</a>
       <a href="${link("/#pricing")}" data-i18n="footer.pricing">Pricing</a>
       <a href="${link("/document-templates/")}">Document templates</a>
-      <a href="${link("/invoices")}">Invoice generator</a>
-      <a href="${link("/chase-invoices")}">AI collections</a>
-      <a href="${link("/ssl")}">SSL automation</a>
-      <a href="${link("/certificate")}">Document certificates</a>
-      <a href="${link("/features/")}" data-i18n="footer.features">Features</a>
-      <a href="${link("/use-cases/")}" data-i18n="footer.useCases">Use Cases</a>
-      <a href="${link("/compliance/")}">Compliance</a>
-      <a href="${link("/integrations/")}">Integrations</a>
-      <a href="${link("/blog/")}" data-i18n="footer.blog">Blog</a>
-      <a href="${link("/guides/invoice-chasing/")}">Invoice chasing hub</a>
-      <a href="${link("/invoice-follow-up")}">Invoice follow-up</a>
-      <a href="${link("/chase-invoices")}">Chase invoices</a>
-      <a href="${link("/payment-reminder")}">Payment reminders</a>
-      <a href="${link("/free-templates/")}">Free email templates</a>
-      <a href="${link("/overdue-invoices-guide")}">Overdue Invoices Guide</a>
+      <a href="${link("/business-kits/")}">Business kits</a>
       <a href="${link("/tools/template-finder")}">Template finder</a>
-      <a href="${link("/tools/")}" data-i18n="footer.calculators">Calculators</a>
+      <a href="${link("/invoices")}">Invoice generator</a>
+      <a href="${link("/blog/")}" data-i18n="footer.blog">Blog</a>
       <a href="${link("/docs/")}" data-i18n="footer.docs">API & Docs</a>
     </div>
     <div class="site-footer-col">
-      <h4 data-i18n="footer.useCasesHeader">Use Cases</h4>
-      <a href="${link("/document-templates/")}">Document templates</a>
-      <a href="${link("/invoices")}">Shareable invoices</a>
-      <a href="${link("/chase-invoices")}">AI collections</a>
-      <a href="${link("/certificate")}">Document certificates</a>
-      <a href="${link("/ssl")}">SSL automation</a>
-      <a href="${link("/trust-badges")}">Company badge</a>
-      <a href="${link("/use-cases/freelance-contract-templates")}">Contract templates</a>
-      <a href="${link("/use-cases/free-ssl-for-your-domain")}">Free SSL setup</a>
+      <h4>Documents by occasion</h4>
+      <a href="${link("/document-templates/category/business")}">Starting a business</a>
+      <a href="${link("/document-templates/category/hr")}">Hiring and employees</a>
+      <a href="${link("/document-templates/category/finance")}">Clients and invoices</a>
+      <a href="${link("/document-templates/category/real-estate")}">Renting and property</a>
+      <a href="${link("/document-templates/category/legal")}">Legal letters and notices</a>
+      <a href="${link("/payment-reminder")}">Payment reminders</a>
+      <a href="${link("/free-templates/")}">Free email templates</a>
+      <a href="${link("/overdue-invoices-guide")}">Overdue invoices guide</a>
     </div>
     <div class="site-footer-col">
       <h4 data-i18n="footer.compareCol">Compare</h4>
-      <a href="${link("/compare/")}">All comparisons</a>
       <a href="${link("/legalzoom-alternative")}">vs LegalZoom</a>
-      <a href="${link("/invoicely-alternative")}">vs Invoicely</a>
-      <a href="${link("/zerossl-alternative")}">vs ZeroSSL</a>
-      <a href="${link("/chaser-alternative")}" data-i18n="footer.vsChaser">vs Chaser</a>
-      <a href="${link("/switch-to-docstoc")}" data-i18n="footer.switch">Switch to docstoc</a>
+      <a href="${link("/rocket-lawyer-alternative")}">vs Rocket Lawyer</a>
     </div>
     <div class="site-footer-col">
       <h4 data-i18n="footer.company">Company</h4>
