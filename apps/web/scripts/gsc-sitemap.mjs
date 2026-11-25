@@ -15,8 +15,10 @@ import { createSign } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
+import { pathToFileURL } from "node:url";
 
-const KEY_FILE = process.env.GSC_SERVICE_ACCOUNT_FILE || join(homedir(), ".config", "docstoc", "gsc-service-account.json");
+// Own key folder first, else the firmenbuchdaten key (the same service account owns every property, 25.11.2026).
+const KEY_FILE = process.env.GSC_SERVICE_ACCOUNT_FILE || [join(homedir(), ".config", "docstoc", "gsc-service-account.json"), join(homedir(), ".config", "firmenbuchdaten", "gsc-service-account.json")].find((f) => existsSync(f)) || join(homedir(), ".config", "docstoc", "gsc-service-account.json");
 const SITES = process.env.GSC_SITE ? [process.env.GSC_SITE] : ["sc-domain:docstoc.io", "https://docstoc.io/"];
 const SITEMAP = "https://docstoc.io/sitemap.xml";
 const SCOPE = "https://www.googleapis.com/auth/webmasters";
@@ -57,6 +59,7 @@ async function main() {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+// pathToFileURL: folder names with spaces (%20) never matched the plain comparison, so nothing was submitted (25.11.2026).
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e) => console.log(`[gsc] skipped: ${e?.message ?? e}`));
 }
