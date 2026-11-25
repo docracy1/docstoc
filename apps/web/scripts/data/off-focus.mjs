@@ -52,6 +52,14 @@ const PAGES = [
   "/blog/types-of-ssl-certificates/",
   "/blog/types-of-tls-certificates/",
   "/blog/invoice-chase-software-comparison/",
+  // Invoice chasing (owner decision 25.11.2026): Search Console, 90 days, 5 clicks for the chasing product against 521 on
+  // /document-templates/*. The chase landings of generate-chase-landings.mjs and the hub of
+  // generate-invoice-chasing-hub.mjs leave the index; /payment-reminder stays as the entry to the payment reminder
+  // letter templates.
+  "/invoice-follow-up",
+  "/chase-invoices",
+  "/scan-document",
+  "/guides/invoice-chasing/",
 ];
 
 /** Comparison pages that belong to the library: the docstoc history page and the two template competitors. */

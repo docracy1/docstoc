@@ -875,7 +875,7 @@ ${hero({
     </div>
     <p style="margin-top:16px"><a href="/free-templates/submit">Got a template that worked for you? Submit it →</a></p>
     <h3>After you pick a template</h3>
-    <p>Copy it directly — no account needed. If it's the final version of something a client needs proof of receiving, <a href="/app/certificates">certify it</a>. If it's tied to an invoice that goes unpaid, docstoc can <a href="/app/">draft the follow-up</a> for you.</p>
+    <p>Copy it directly — no account needed. Edit it on the template page and save it as PDF; the most used templates also come as a Word file with a filled-in example.</p>
     <h3>FAQs</h3>
     ${faqsHtml(finderFaqs)}
   </div>

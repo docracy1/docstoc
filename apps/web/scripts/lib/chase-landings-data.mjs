@@ -138,7 +138,7 @@ export const CHASE_LANDINGS = [
     slug: "payment-reminder",
     title: "Payment Reminder Email Template — Free Copy-Paste (28 Templates) | docstoc",
     description:
-      "Free payment reminder email templates — before due date, gentle overdue, formal 30-day notice, and final warning. Copy-paste or AI drafts, no account required.",
+      "Free payment reminder email and letter templates: before the due date, gentle overdue, formal 30-day notice and final warning. Copy-paste, no account required.",
     breadcrumb: "Payment reminder",
     faq: [
       {
@@ -147,36 +147,35 @@ export const CHASE_LANDINGS = [
       },
       {
         q: "Are docstoc payment reminder templates free?",
-        a: "Yes — 18+ copy-paste templates are free with no account required. AI drafts (5/month on Free) adjust tone automatically for your exact invoice.",
+        a: "Yes. The copy-paste reminder emails and the reminder, collection and demand letter templates are free, with no account required.",
       },
       {
         q: "Does docstoc send payment reminders for me?",
-        a: "No. docstoc drafts the reminder — you send it from your own inbox. Clients hear from you, not from us.",
+        a: "No. You copy the template, fill in the invoice details and send it from your own inbox. Clients hear from you, not from us.",
       },
     ],
     main: `<h1>Payment reminder emails — before and after the due date</h1>
-  <p class="lede">A good payment reminder is short, specific, and easy to act on. docstoc gives you free templates for every stage plus AI drafts when you want the wording done for you.</p>
+  <p class="lede">A good payment reminder is short, specific, and easy to act on. docstoc gives you free templates for every stage, from a courtesy note before the due date to a formal demand letter.</p>
 
   <h3>Before the due date</h3>
   <p>A reminder a week before payment is due prevents most late payments. It is not a chase — it is a courtesy nudge with invoice number, amount, and pay link. See our <a href="/free-templates/payment-reminder-before-due-date">payment reminder before due date template</a>.</p>
 
   <h3>After the due date</h3>
-  <p>Once an invoice is overdue, tone matters. Start gentle at 1–3 days, then escalate at 7, 30, and 60 days. docstoc matches tone automatically, or browse the <a href="/free-templates/">free template library</a>.</p>
+  <p>Once an invoice is overdue, tone matters. Start gentle at 1–3 days, then escalate at 7, 30, and 60 days. Browse the <a href="/free-templates/">free reminder email templates</a>, or use a formal letter: <a href="/document-templates/collection-letter-template">collection letter</a>, <a href="/document-templates/demand-letter-unpaid-invoice-template">demand letter for an unpaid invoice</a> or <a href="/document-templates/payment-request-template">payment request</a>.</p>
 
-  <p style="margin-top:28px"><a href="/app/login?start=1" class="nav-cta">Draft a payment reminder</a></p>
+  <p style="margin-top:28px"><a href="/free-templates/" class="nav-cta">Browse payment reminder templates</a></p>
 
   <h3>FAQ</h3>
   {{FAQ}}
 
   <h3>Related resources</h3>
   <ul>
-    <li><a href="/guides/invoice-chasing/">Invoice chasing hub</a></li>
-    <li><a href="/tools/invoice-chase-calculator">Invoice chase calculator</a></li>
-    <li><a href="/invoice-follow-up">Invoice follow-up emails</a></li>
+    <li><a href="/free-templates/">Free payment reminder email templates</a></li>
+    <li><a href="/document-templates/collection-letter-template">Collection letter template</a></li>
+    <li><a href="/document-templates/demand-letter-unpaid-invoice-template">Demand letter for an unpaid invoice</a></li>
+    <li><a href="/document-templates/payment-plan-agreement-template">Payment plan agreement</a></li>
     <li><a href="/overdue-invoice">Overdue invoice reminders</a></li>
-    <li><a href="/chase-invoices">How to chase invoices</a></li>
     <li><a href="/polite-payment-reminder-email">Polite payment reminder email — how to write one</a></li>
-    <li><a href="/features/templates">Email templates feature</a></li>
     <li><a href="/blog/invoice-payment-reminder-email-templates/">Payment reminder template guide</a></li>
   </ul>`,
   },

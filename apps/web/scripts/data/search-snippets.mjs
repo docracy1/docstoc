@@ -43,28 +43,28 @@ export const SEARCH_SNIPPETS = {
     description: "Over 1,000 free business, legal, HR, finance and real estate document templates. Edit online, save as PDF, no account needed.",
   },
   "/document-templates/software-requirements-specification-template": {
-    title: "SRS Template: Free Software Requirements Document (PDF)",
-    description: "Free SRS template: purpose, scope, functional and non-functional requirements, user roles and constraints. Edit online and save as PDF, no account needed.",
+    title: "SRS Template: Free Word Download and Filled-in Example",
+    description: "Free software requirements specification (SRS) template in Word or PDF, plus a filled-in example with functional and non-functional requirements.",
   },
   "/document-templates/expression-of-interest-letter-template": {
-    title: "Expression of Interest Letter Template: Free EOI Format",
-    description: "Free expression of interest (EOI) letter with your background, why you are interested and the next steps. Fill in 9 fields online and save as PDF.",
+    title: "Expression of Interest Letter: Free Word Template, Example",
+    description: "Free expression of interest (EOI) letter in Word or PDF, with a filled-in example for a public tender: background, why you are interested, next steps.",
   },
   "/document-templates/notice-of-annual-general-meeting-template": {
-    title: "Notice of AGM Template: Free Annual General Meeting Notice",
-    description: "Free notice of annual general meeting (AGM) with agenda, eligibility to vote, proxy voting and documents available. Fill in online and save as PDF.",
+    title: "Notice of AGM Template: Free Word Download and Example",
+    description: "Free notice of annual general meeting (AGM) in Word or PDF, with a filled-in example: agenda, eligibility to vote, proxy deadline and documents.",
   },
   "/document-templates/sustainability-report-template": {
-    title: "Sustainability Report Template: Free ESG Report Outline",
-    description: "Free sustainability report template with sections for environmental impact, initiatives, supply chain and goals. Edit online, save as PDF, no account needed.",
+    title: "Sustainability Report Template: Free Word Download, Example",
+    description: "Free sustainability report template in Word or PDF, with a filled-in example: energy, emissions, waste and water figures, initiatives and goals.",
   },
   "/document-templates/insurance-cancellation-letter-template": {
-    title: "Insurance Cancellation Letter Template: Auto, Home, Health",
-    description: "Free letter to cancel an auto, home, health or other insurance policy: policy number, cancellation date, refund and confirmation. Save as PDF.",
+    title: "Insurance Cancellation Letter: Free Word Template, Example",
+    description: "Free letter to cancel an auto, home, health or other insurance policy, in Word or PDF, with a filled-in example: effective date, refund, confirmation.",
   },
   "/document-templates/simple-promissory-note-template": {
-    title: "Free Simple Promissory Note Template (With Interest Option)",
-    description: "Free simple promissory note for a personal or business loan: amount, interest, repayment, prepayment and default terms. Edit online, save as PDF.",
+    title: "Simple Promissory Note Template: Free Word, With Example",
+    description: "Free simple promissory note in Word or PDF, with a filled-in example: $12,000 at 5% interest, monthly repayment, prepayment and default terms.",
   },
   "/document-templates/eviction-notice-template": {
     title: "Eviction Notice Template: Free Notice to Quit, Edit Online",
@@ -125,6 +125,24 @@ export const SEARCH_SNIPPETS = {
   "/blog/ssl-certificate-providers-compared/": {
     title: "SSL Certificate Providers Compared (2026): 7 Side by Side",
     description: "DigiCert, GlobalSign, Let's Encrypt, Sectigo, SSL.com, ZeroSSL and docstoc compared on ease of use, free tiers, support and automation.",
+  },
+  // Owner decision 25.11.2026: the ten strongest templates get a Word download and a filled-in example
+  // (scripts/data/filled-examples.mjs); their snippets say so: "free", "Word", "example".
+  "/document-templates/payment-request-template": {
+    title: "Payment Request Template: Free Word Form and Example",
+    description: "Free payment request form in Word or PDF, with a filled-in example: payee, amount, invoice and PO number, supporting documents and approval.",
+  },
+  "/document-templates/request-for-quotation-template": {
+    title: "RFQ Template: Free Request for Quotation in Word, Example",
+    description: "Free request for quotation (RFQ) template in Word or PDF, with a filled-in example: items, specifications, quantities, delivery date and deadline.",
+  },
+  "/document-templates/unemployment-benefits-appeal-letter-template": {
+    title: "Unemployment Appeal Letter: Free Word Template and Example",
+    description: "Free unemployment benefits appeal letter in Word or PDF, with a filled-in example: grounds for appeal, supporting evidence and a request for a hearing.",
+  },
+  "/document-templates/due-diligence-checklist-template": {
+    title: "Due Diligence Checklist Template: Free Word, With Example",
+    description: "Free due diligence checklist in Word or PDF: financial, legal, operational and HR items, plus a filled-in example for buying a small company.",
   },
 };
 

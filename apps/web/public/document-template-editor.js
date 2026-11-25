@@ -35,8 +35,8 @@
     });
   }
 
-  var pdfBtn = box.querySelector(".btn-download-pdf");
-  if (pdfBtn) {
+  // The hero and the editor toolbar both carry a "Download PDF" button; both print the edited sheet.
+  document.querySelectorAll(".btn-download-pdf").forEach(function (pdfBtn) {
     pdfBtn.addEventListener("click", function () {
       document.body.classList.add("tpl-printing");
       window.print();
@@ -49,7 +49,7 @@
         { once: true }
       );
     });
-  }
+  });
 
   var resetBtn = box.querySelector(".btn-reset");
   if (resetBtn) {

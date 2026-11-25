@@ -36,7 +36,9 @@ describe("search snippets", () => {
       if (/no account/i.test(s.description)) expect(html).toMatch(/no account/i);
       const fields = s.description.match(/(\d+) fields/)?.[1];
       if (fields) expect(html).toContain(`${fields} fields to fill`);
-      expect(s.title + s.description).not.toMatch(/\bWord\b|\bsample\b/i);
+      // Word and the filled-in example only where the page has them (scripts/data/filled-examples.mjs).
+      if (/\bWord\b/.test(s.title + s.description)) expect(html).toContain('class="btn-download-docx"');
+      if (/\bexample\b|\bsample\b/i.test(s.title + s.description)) expect(html).toContain('id="filled-in-example"');
     }
   );
 });

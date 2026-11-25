@@ -68,3 +68,9 @@
 
 /cookie-consent.js
   Cache-Control: public, max-age=31536000, immutable
+
+# Word downloads of the document templates (generate-free-templates.mjs): the template page is the search result,
+# the file is what people take away.
+/document-templates/downloads/*
+  X-Robots-Tag: noindex
+  Content-Disposition: attachment

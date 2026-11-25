@@ -8,7 +8,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chrome, escapeHtml, trustBadgesHtml, conversionSectionHtml, ASSET_V } from "./lib/chrome.mjs";
 import { DOC_TEMPLATE_SEO_OVERRIDES } from "./data/seo-config.mjs";
-import { productsStripHtml, SEO_PRODUCTS_STRIP_STYLE } from "./lib/seo-products.mjs";
+import { FILLED_EXAMPLES } from "./data/filled-examples.mjs";
+import { markdownToDocx } from "./lib/docx.mjs";
 import { legalStatusHtml, legalStatusJsonLd } from "./lib/template-jurisdiction.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -35897,6 +35898,21 @@ const WEEKLY_DOCUMENT_TEMPLATES = existsSync(weeklyDocTemplatesPath)
   ? JSON.parse(readFileSync(weeklyDocTemplatesPath, "utf8"))
   : [];
 const DOCUMENT_TEMPLATES = [...INLINE_DOCUMENT_TEMPLATES, ...WEEKLY_DOCUMENT_TEMPLATES];
+// Filled-in examples and Word downloads for the strongest templates (scripts/data/filled-examples.mjs). The example
+// travels with the template into templates.json so page, Word file and data stay one source.
+for (const [slug, ex] of Object.entries(FILLED_EXAMPLES)) {
+  const t = DOCUMENT_TEMPLATES.find((x) => x.slug === slug);
+  if (!t) throw new Error(`FILLED_EXAMPLES: no document template ${slug}`);
+  if (/\[[A-Z][^\]]*\]|lorem ipsum/i.test(ex.markdown.replace(/\[( |x)\]/g, ""))) {
+    throw new Error(`FILLED_EXAMPLES: ${slug} still has a placeholder`);
+  }
+  t.exampleMarkdown = ex.markdown;
+  t.exampleSummary = ex.summary;
+  t.downloads = {
+    docx: `/document-templates/downloads/${slug}.docx`,
+    exampleDocx: `/document-templates/downloads/${slug}-example.docx`,
+  };
+}
 // Last change to each template's text, from git (scripts/build-template-revisions.mjs). Used only where
 // the stored hash still matches, so a stale snapshot drops the date instead of showing a wrong one.
 const templateRevisionsPath = join(__dirname, "data/template-revisions.json");
@@ -36902,6 +36918,41 @@ function buildDocumentFaq(t) {
   ];
 }
 
+/** Hero download buttons: Word next to PDF where a .docx exists, PDF (browser print) everywhere. */
+function downloadButtonsHtml(t) {
+  const word = t.downloads ? `<a class="btn-download-docx" href="${t.downloads.docx}" download>Download Word (.docx)</a> ` : "";
+  const example = t.exampleMarkdown ? ` <a class="tpl-example-jump" href="#filled-in-example">See a filled-in example</a>` : "";
+  return `${word}<button type="button" class="btn-download-pdf">Download PDF</button>${example}`;
+}
+
+const FILLED_EXAMPLE_STYLE = `<style>
+  .tpl-example { margin: 32px 0; }
+  .tpl-example .tpl-doc-sheet { background: #fff; }
+  .tpl-example-lede { color: #4b5563; max-width: 720px; }
+  .tpl-example-actions { margin: 12px 0 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .tpl-hero-cta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .tpl-example-jump { font-weight: 600; }
+  .btn-download-docx, .tpl-example-actions a { display: inline-block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; padding: 10px 18px; border-radius: 4px; border: 1.5px solid var(--accent); background: var(--accent); color: var(--white); text-decoration: none; }
+  .btn-download-docx:hover, .tpl-example-actions a:hover { filter: brightness(0.95); }
+  .tpl-example-actions a.secondary { background: var(--white); color: var(--ink); border-color: #d5dbe6; }
+</style>`;
+
+/** "Filled-in example": the template completed with fictional details, read-only, with its own Word download. */
+function filledExampleHtml(t) {
+  if (!t.exampleMarkdown) return "";
+  const html = markdownToHtml(t.exampleMarkdown).replace(/<h1>/g, '<h3 class="tpl-doc-title">').replace(/<\/h1>/g, "</h3>").replace(/<h2>/g, "<h4>").replace(/<\/h2>/g, "</h4>");
+  return `
+  <section class="tpl-example" id="filled-in-example" aria-labelledby="filled-in-example-title">
+    <h2 id="filled-in-example-title">Filled-in example</h2>
+    <p class="tpl-example-lede">${escapeHtml(t.exampleSummary)} All names, companies and figures are fictional.</p>
+    <div class="tpl-example-actions">
+      <a href="${t.downloads.exampleDocx}" download>Download example (.docx)</a>
+      <a class="secondary" href="${t.downloads.docx}" download>Blank template (.docx)</a>
+    </div>
+    <div class="tpl-box"><div class="tpl-doc-sheet"><div class="tpl-doc-body">${html}</div></div></div>
+  </section>`;
+}
+
 for (const t of DOCUMENT_TEMPLATES) {
   // Duplicate slug — keep content only on affidavit-of-death-of-joint-tenant-template (301 in _redirects).
   if (t.slug === "affidavit-death-of-joint-tenant-template") continue;
@@ -36982,14 +37033,14 @@ for (const t of DOCUMENT_TEMPLATES) {
     canonical: `https://docstoc.io/document-templates/${t.slug}`,
     activeNav: "templates",
     jsonLd,
-    extraHead: SEO_PRODUCTS_STRIP_STYLE,
+    extraHead: t.exampleMarkdown ? FILLED_EXAMPLE_STYLE : "",
     mainHtml: `<main class="wrap template-detail">
   <p class="crumb"><a href="/">Home</a> / <a href="/document-templates/">Document templates</a> / ${escapeHtml(t.name)}</p>
   <div class="tpl-meta"><span>${escapeHtml(t.category)}</span><span>${docFacts.sections.length} section${docFacts.sections.length === 1 ? "" : "s"}</span><span>${docFacts.placeholderCount} field${docFacts.placeholderCount === 1 ? "" : "s"} to fill</span></div>
   <h1>${escapeHtml(t.name)}</h1>
   <p class="lede">${escapeHtml(pageDescription)}</p>
   <div class="tpl-hero-cta">
-    <a class="nav-cta" href="/app/certificates">Certify a document you draft →</a>
+    ${downloadButtonsHtml(t)}
   </div>
   ${trustBadgesHtml()}
 
@@ -37000,7 +37051,7 @@ for (const t of DOCUMENT_TEMPLATES) {
   <div class="tpl-box tpl-editor" data-slug="${escapeHtml(t.slug)}">
     <div class="tpl-label">Template — click to edit</div>
     <div class="tpl-editor-toolbar">
-      <button type="button" class="btn-download-pdf">Download PDF</button>
+      ${t.downloads ? `<a class="btn-download-docx" href="${t.downloads.docx}" download>Download Word (.docx)</a>\n      ` : ""}<button type="button" class="btn-download-pdf">Download PDF</button>
       <button type="button" class="btn-copy btn-copy-secondary" data-copy="${encodeURIComponent(t.bodyMarkdown)}" data-copy-label="Copy markdown">Copy markdown</button>
       <button type="button" class="btn-reset btn-copy-secondary">Reset</button>
     </div>
@@ -37011,8 +37062,9 @@ for (const t of DOCUMENT_TEMPLATES) {
         <span>docstoc.io</span>
       </footer>
     </div>
-    <p class="tpl-editor-hint">Edit directly in the box above. Download PDF anytime — the docstoc.io footer is always included and cannot be removed.</p>
+    <p class="tpl-editor-hint">Edit directly in the box above. Download PDF anytime — the docstoc.io footer is always included and cannot be removed.${t.downloads ? " The Word file is the same template, free and without sign-in, to fill in in Word or Google Docs." : ""}</p>
   </div>
+${filledExampleHtml(t)}
 
   <h2>What's included</h2>
   <ul class="tpl-included">
@@ -37032,20 +37084,19 @@ for (const t of DOCUMENT_TEMPLATES) {
   </ul>
   <p><a href="/document-templates/category/${docCategoryPath(t.category)}">All ${escapeHtml(t.category)} templates</a> · <a href="/document-templates/">Full template library</a></p>
 
-  ${productsStripHtml()}
-
   ${conversionSectionHtml()}
-
-  <div class="tpl-cta-footer">
-    <h2>Add tamper-evident proof once you've filled this in</h2>
-    <p>Hash your finished document for free and get a shareable link anyone can use to confirm it hasn't been altered.</p>
-    <a class="nav-cta" href="/app/certificates">Create a free certificate</a>
-  </div>
 </main>
 <script src="/document-template-editor.js?v=${ASSET_V}" defer></script>`,
   });
 
   writeFileSync(join(docOutDir, `${t.slug}.html`), page);
+
+  if (t.downloads) {
+    const dlDir = join(docOutDir, "downloads");
+    mkdirSync(dlDir, { recursive: true });
+    writeFileSync(join(dlDir, `${t.slug}.docx`), markdownToDocx(t.bodyMarkdown, { title: t.name, highlightPlaceholders: true }));
+    writeFileSync(join(dlDir, `${t.slug}-example.docx`), markdownToDocx(t.exampleMarkdown, { title: `${t.name}: filled-in example` }));
+  }
 }
 
 writeFileSync(join(docOutDir, "templates.json"), JSON.stringify(DOCUMENT_TEMPLATES, null, 2));
@@ -37342,7 +37393,7 @@ function markdownToHtml(md) {
 
   function flushParagraph() {
     if (paragraph.length) {
-      out.push(`<p>${inlineMd(paragraph.join(" "))}</p>`);
+      out.push(`<p>${paragraph.map(inlineMd).join("<br>\n")}</p>`);
       paragraph = [];
     }
   }
@@ -37357,7 +37408,7 @@ function markdownToHtml(md) {
 
   function closeList() {
     if (inList) {
-      out.push("</ul>");
+      out.push(inList === "ol" ? "</ol>" : "</ul>");
       inList = false;
     }
   }
@@ -37390,11 +37441,23 @@ function markdownToHtml(md) {
     if (trimmed !== "---" && /^[-*]\s+/.test(trimmed)) {
       flushParagraph();
       closeTable();
+      if (inList === "ol") closeList();
       if (!inList) {
         out.push("<ul>");
-        inList = true;
+        inList = "ul";
       }
       out.push(`<li>${inlineMd(trimmed.replace(/^[-*]\s+/, ""))}</li>`);
+      continue;
+    }
+    if (/^\d+\.\s+/.test(trimmed)) {
+      flushParagraph();
+      closeTable();
+      if (inList === "ul") closeList();
+      if (!inList) {
+        out.push("<ol>");
+        inList = "ol";
+      }
+      out.push(`<li>${inlineMd(trimmed.replace(/^\d+\.\s+/, ""))}</li>`);
       continue;
     }
     closeTable();
@@ -37424,6 +37487,7 @@ function markdownToHtml(md) {
 function inlineMd(text) {
   return escapeHtml(text)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[^*\w])\*(?!\s)(.+?)\*(?![*\w])/g, "$1<em>$2</em>")
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
 }
 

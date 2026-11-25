@@ -23,6 +23,14 @@ describe("off-focus pages (template library, 15.11.2026)", () => {
       "/blog/types-of-ssl-certificates/",
       "/tools/file-hash-checker",
       "/solutions/evidence-automation",
+      "/invoice-follow-up",
+      "/chase-invoices",
+      "/scan-document",
+      "/es/invoice-follow-up",
+      "/es/chase-invoices",
+      "/guides/invoice-chasing/",
+      "/guides/invoice-chasing",
+      "/es/guides/invoice-chasing/",
     ]) {
       expect(isOffFocus(p), p).toBe(true);
     }
@@ -36,6 +44,7 @@ describe("off-focus pages (template library, 15.11.2026)", () => {
       "/free-templates/agency-final-invoice-follow-up",
       "/business-kits/",
       "/payment-reminder",
+      "/free-templates/",
       "/overdue-invoice",
       "/30-day-overdue-invoice-email",
       "/blog/how-to-follow-up-on-overdue-invoices/",

@@ -5,7 +5,7 @@ import { renderSeoHead } from "./seo-head.mjs";
 import { EN_TO_ES, ES_TO_EN } from "../data/es-alternates.mjs";
 
 /** Bump when site.css / site-nav.js / site-lang.js change so Pages edge caches refresh. */
-export const ASSET_V = "20261113a";
+export const ASSET_V = "20261125a";
 
 function faviconHead(link) {
   return `<link rel="icon" href="${link("/favicon.ico")}" sizes="48x48">
@@ -96,13 +96,13 @@ function megaMenu({ triggerKey, triggerLabel, items, panel, columns = 2, simple 
   </div>`;
 }
 
-/** The main products, big-icon grid — LimeWire's "Products" dropdown pattern. Order:
- *  templates → invoices → AI collections → SSL → certificates. Trust badge in Use Cases. */
+/** The main products, big-icon grid — LimeWire's "Products" dropdown pattern. Templates only (owner decision
+ *  25.11.2026: invoice chasing leaves the public surface; the app and its plans stay). */
 const PRODUCTS_ITEMS = [
   { path: "/document-templates/", icon: "store", titleKey: "nav.mega.products.templates.title", title: "Document templates", desc: "1,000+ business and legal templates for US small businesses." },
   { path: "/business-kits/", icon: "duplicate", title: "Business kits", desc: "The documents for one occasion, bundled: starting out, renting, collections." },
-  { path: "/payment-reminder", icon: "sparkles", title: "Payment reminder letters", desc: "Reminder, final notice and demand letter, drafted for how late the invoice is." },
-  { path: "/invoices", icon: "briefcase", titleKey: "nav.mega.products.invoices.title", title: "Invoice generator", desc: "Make an invoice and share it as a link or PDF." },
+  { path: "/payment-reminder", icon: "sparkles", title: "Payment reminder letters", desc: "Reminder, final notice and demand letter templates, free to copy." },
+  { path: "/document-templates/?q=invoice", icon: "briefcase", title: "Invoice templates", desc: "Service, commercial, proforma and tax invoice templates." },
   { path: "/tools/template-finder", icon: "bolt", title: "Template finder", desc: "Answer three questions and get the document you need." },
 ];
 
@@ -202,7 +202,7 @@ export function conversionSectionHtml() {
       </div>
       <div class="why-docstoc-item">
         <h3>API available</h3>
-        <p>Building your own tool? docstoc's <a href="/docs/">API</a> covers invoices, reminders, and templates directly.</p>
+        <p>Building your own tool? docstoc's <a href="/docs/">API</a> serves the templates directly.</p>
       </div>
     </div>
   </section>`;
@@ -424,7 +424,7 @@ ${mainHtml.replace(/<(\/?)main\b/g, "<$1div")}
       <a href="${link("/document-templates/")}">Document templates</a>
       <a href="${link("/business-kits/")}">Business kits</a>
       <a href="${link("/tools/template-finder")}">Template finder</a>
-      <a href="${link("/invoices")}">Invoice generator</a>
+      <a href="${link("/document-templates/?q=invoice")}">Invoice templates</a>
       <a href="${link("/blog/")}" data-i18n="footer.blog">Blog</a>
       <a href="${link("/docs/")}" data-i18n="footer.docs">API & Docs</a>
     </div>
@@ -437,7 +437,6 @@ ${mainHtml.replace(/<(\/?)main\b/g, "<$1div")}
       <a href="${link("/document-templates/category/legal")}">Legal letters and notices</a>
       <a href="${link("/payment-reminder")}">Payment reminders</a>
       <a href="${link("/free-templates/")}">Free email templates</a>
-      <a href="${link("/overdue-invoices-guide")}">Overdue invoices guide</a>
     </div>
     <div class="site-footer-col">
       <h4 data-i18n="footer.compareCol">Compare</h4>
@@ -450,7 +449,6 @@ ${mainHtml.replace(/<(\/?)main\b/g, "<$1div")}
       <a href="${link("/docstoc-alternative")}">Docstoc history</a>
       <a href="${link("/press")}" data-i18n="footer.press">Press</a>
       <a href="${link("/imprint")}" data-i18n="footer.imprint">Imprint</a>
-      <a href="https://firmenbuchdaten.at" rel="noopener">firmenbuchdaten.at</a>
       <!--email_off--><a href="mailto:founder@docstoc.io" data-i18n="footer.contact">Contact</a><!--/email_off-->
     </div>
     <div class="site-footer-col">

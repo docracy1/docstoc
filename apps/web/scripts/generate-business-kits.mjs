@@ -177,11 +177,6 @@ for (const kit of KITS) {
       ${itemsHtml}
   </div>
 
-  <div class="tpl-cta-footer">
-    <h2>Certify a document once it's filled in</h2>
-    <p>Hash your finished document for free and get a shareable link anyone can use to confirm it hasn't been altered.</p>
-    <a class="nav-cta" href="/app/certificates">Create a free certificate</a>
-  </div>
 </main>`,
   });
 
